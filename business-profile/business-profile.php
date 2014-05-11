@@ -38,18 +38,16 @@ class bpfwpInit {
 		define( 'BPFWP_PLUGIN_DIR', untrailingslashit( plugin_dir_path( __FILE__ ) ) );
 		define( 'BPFWP_PLUGIN_URL', untrailingslashit( plugins_url( basename( plugin_dir_path( __FILE__ ) ), basename( __FILE__ ) ) ) );
 		define( 'BPFWP_PLUGIN_FNAME', plugin_basename( __FILE__ ) );
+		define( 'BPFWP_VERSION', 1 );
 
-		// Initialize the plugin
-		add_action( 'init', array( $this, 'load_config' ) );
+		// Load the textdomain
 		add_action( 'init', array( $this, 'load_textdomain' ) );
 
-	}
+		// Load settings
+		require_once( BPFWP_PLUGIN_DIR . '/includes/Settings.class.php' );
+		$this->settings = new bpfwpSettings();
 
-	/**
-	 * Load the plugin's configuration settings and default content
-	 * @since 0.0.1
-	 */
-	public function load_config() {	}
+	}
 
 	/**
 	 * Load the plugin textdomain for localistion
