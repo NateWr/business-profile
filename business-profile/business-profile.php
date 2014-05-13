@@ -59,6 +59,9 @@ class bpfwpInit {
 		// Load assets
 		add_action( 'wp_enqueue_scripts', array( $this, 'register_assets' ) );
 
+		// Register the widget
+		add_action( 'widgets_init', array( $this, 'register_widgets' ) );
+
 	}
 
 	/**
@@ -75,6 +78,15 @@ class bpfwpInit {
 	 */
 	function register_assets() {		
 		wp_register_style( 'bpfwp-default', BPFWP_PLUGIN_URL . '/assets/css/contact-card.css' );
+	}
+
+	/**
+	 * Register the widgets
+	 * @since 0.0.1
+	 */
+	public function register_widgets() {
+		require_once( BPFWP_PLUGIN_DIR . '/includes/WP_Widget.ContactCardWidget.class.php' );
+		register_widget( 'bpfwpContactCardWidget' );
 	}
 
 }
