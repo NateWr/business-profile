@@ -1,0 +1,82 @@
+/* Frontend CSS Stylesheet for Business Profile contact cards */
+
+.bp-contact-card {
+	font-style: normal;
+}
+.bp-contact-card>div {
+	margin: 1em 0;
+}
+.bp-name {
+	font-weight: bold;
+}
+.bp-opening-hours {
+	max-width: 25em;
+}
+.bp-opening-hours .bp-title {
+	text-align: center;
+	display: block;
+}
+.bp-weekday:before,
+.bp-weekday:after {
+	content: " ";
+	display: table;
+}
+.bp-weekday:after {
+	clear: both;
+}
+.bp-weekday-name {
+	float: left;
+	clear: left;
+	width: 45%;
+}
+.bp-times {
+	float: right;
+	clear: right;
+	width: 45%;
+	text-align: right;
+}
+.bp-times .bp-time {
+	display: block;
+}
+.bp-map iframe {
+	height: 15em;
+}
+
+.bp-directions:before,
+.bp-phone:before,
+.bp-contact:before,
+.bp-opening-hours-brief:before,
+.bp-opening-hours .bp-title:before {
+	display: inline-block;
+	width: 1.5em;
+	height: 1em;
+	font-size: 1.5em;
+	line-height: 1;
+	font-family: dashicons;
+	text-decoration: inherit;
+	font-weight: 400;
+	font-style: normal;
+	vertical-align: top;
+	text-align: center;
+	-webkit-transition: color .1s ease-in 0;
+	transition: color .1s ease-in 0;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.bp-directions:before {
+	content: "\f230";
+}
+
+.bp-phone:before {
+	content: "\f470";
+}
+
+.bp-contact:before {
+	content: "\f466";
+}
+
+.bp-opening-hours-brief:before,
+.bp-opening-hours .bp-title:before {
+	content: "\f469";
+}

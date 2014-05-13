@@ -55,6 +55,9 @@ class bpfwpInit {
 
 		// Load the template functions which print the contact cards
 		require_once( BPFWP_PLUGIN_DIR . '/includes/template-functions.php' );
+		
+		// Load assets
+		add_action( 'wp_enqueue_scripts', array( $this, 'register_assets' ) );
 
 	}
 
@@ -64,6 +67,14 @@ class bpfwpInit {
 	 */
 	public function load_textdomain() {
 		load_plugin_textdomain( BPFWP_TEXTDOMAIN, false, plugin_basename( dirname( __FILE__ ) ) . "/languages" );
+	}
+
+	/**
+	 * Register the front-end CSS styles
+	 * @since 0.0.1
+	 */
+	function register_assets() {		
+		wp_register_style( 'bpfwp-default', BPFWP_PLUGIN_URL . '/assets/css/contact-card.css' );
 	}
 
 }

@@ -38,6 +38,12 @@ function bpwfwp_print_contact_card( $args = array() ) {
 	);
 
 	$data = apply_filters( 'bpwfwp_component_callbacks', $data );
+	
+
+	if ( apply_filters( 'bpfwp-load-frontend-assets', true ) ) {
+		wp_enqueue_style( 'dashicons' );
+		wp_enqueue_style( 'bpfwp-default' );
+	}
 
 	ob_start();
 	?>
@@ -353,17 +359,30 @@ function bpwfwp_print_opening_hours() {
 	}
 	
 	if ( count( $weekdays ) ) :
+	
+		// Order the weekdays and add any missing days as "closed"
+		$weekdays_ordered = array();
+		foreach( $weekdays_display as $slug => $name ) {
+			if ( !array_key_exists( $slug, $weekdays ) ) {
+				$weekdays_ordered[$slug] = array( __( 'Closed', BPFWP_TEXTDOMAIN ) );
+			} else {
+				$weekdays_ordered[$slug] = $weekdays[$slug];
+			}
+		}
 	?>
 
-	<div class="bp-opening-hours-brief">
-	<?php foreach ( $weekdays as $weekday => $times ) :	?>
-		<span class="bp-weekday"><?php echo $weekdays_display[$weekday]; ?></span>
-		<span class="bp-times">
-		<?php foreach ( $times as $time ) : ?>
-			<span class="bp-time"><?php echo $time; ?></span>
+	<div class="bp-opening-hours">
+		<span class="bp-title"><?php _e( 'Opening Hours', BPFWP_TEXTDOMAIN ); ?></span>
+		<?php foreach ( $weekdays_ordered as $weekday => $times ) :	?>
+		<div class="bp-weekday">
+			<span class="bp-weekday-name bp-weekday-<?php echo $weekday; ?>"><?php echo $weekdays_display[$weekday]; ?></span>
+			<span class="bp-times">
+			<?php foreach ( $times as $time ) : ?>
+				<span class="bp-time"><?php echo $time; ?></span>
+			<?php endforeach; ?>
+			</span>
+		</div>
 		<?php endforeach; ?>
-		</span>
-	<?php endforeach; ?>
 	</div>
 	
 	<?php
