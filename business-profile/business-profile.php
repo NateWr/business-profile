@@ -29,6 +29,12 @@ if ( !class_exists( 'bpfwpInit' ) ) {
 class bpfwpInit {
 
 	/**
+	 * Settings for displaying the contact card currently being handled
+	 * @since 0.0.1
+	 */
+	public $display_settings = array();
+
+	/**
 	 * Initialize the plugin and register hooks
 	 */
 	public function __construct() {
@@ -46,6 +52,9 @@ class bpfwpInit {
 		// Load settings
 		require_once( BPFWP_PLUGIN_DIR . '/includes/Settings.class.php' );
 		$this->settings = new bpfwpSettings();
+
+		// Load the template functions which print the contact cards
+		require_once( BPFWP_PLUGIN_DIR . '/includes/template-functions.php' );
 
 	}
 
