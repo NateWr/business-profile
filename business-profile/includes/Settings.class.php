@@ -94,14 +94,14 @@ class bpfwpSettings {
 		$sap->add_section(
 			'bpfwp-settings',
 			array(
-				'id'            => 'rtb-seo',
+				'id'            => 'bpfwp-seo',
 				'title'         => __( 'Search Engine Optimization', BPFWP_TEXTDOMAIN ),
 			)
 		);
 
 		$sap->add_setting(
 			'bpfwp-settings',
-			'rtb-seo',
+			'bpfwp-seo',
 			'select',
 			array(
 				'id'            => 'schema_type',
@@ -190,7 +190,7 @@ class bpfwpSettings {
 			'rtb-contact',
 			'post',
 			array(
-				'id'            => 'contact_page',
+				'id'            => 'contact-page',
 				'title'         => __( 'Contact Page', BPFWP_TEXTDOMAIN ),
 				'description'   => __( 'Select a page on your site where users can reach you, such as a contact form.', BPFWP_TEXTDOMAIN ),
 				'blank_option'	=> true,
@@ -207,7 +207,7 @@ class bpfwpSettings {
 			'rtb-contact',
 			'text',
 			array(
-				'id'            => 'contact_email',
+				'id'            => 'contact-email',
 				'title'         => __( 'Email Address (optional)', BPFWP_TEXTDOMAIN ),
 				'description'   => __( 'Enter an email address only if you want to display this publicly. Showing your email address on your site may cause you to receive excessive spam.', BPFWP_TEXTDOMAIN ),
 			)
