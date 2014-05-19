@@ -39,7 +39,30 @@
 	display: block;
 }
 .bp-map {
-	height: 15em;
+	height: 20em;
+	color: #333;
+	font-weight: 400;
+}
+.bp-map a {
+	color: #3a84df;
+}
+.bp-map a:hover {
+	text-decoration: underline;
+}
+
+.bp-map p {
+	margin: 4px;
+	line-height: 16px;
+	font-weight: 400;
+}
+
+.bp-map img {
+	max-width: none; /* Fixes Google Maps info window close button */
+}
+
+.bp-map-info-window {
+	width: 200px;
+	max-width: 100%;
 }
 
 .bp-directions:before,
