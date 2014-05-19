@@ -102,7 +102,8 @@ function bpwfwp_print_address() {
 
 	global $bpfwp_controller;
 
-	if ( !$bpfwp_controller->settings->get_setting( 'address' ) ) {
+	$address = $bpfwp_controller->settings->get_setting( 'address' );
+	if ( !$address['text'] ) {
 		return;
 	}
 
@@ -110,17 +111,17 @@ function bpwfwp_print_address() {
 	?>
 
 	<div class="bp-address" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-		<?php echo nl2br( $bpfwp_controller->settings->get_setting( 'address' ) ); ?>
+		<?php echo nl2br( $address['text'] ); ?>
 	</div>
 
 	<?php else : ?>
-	<meta itemprop="address" content="<?php echo esc_attr( $bpfwp_controller->settings->get_setting( 'address' ) ); ?>">
+	<meta itemprop="address" content="<?php echo esc_attr( $address['text'] ); ?>">
 
 	<?php endif; ?>
 
 	<?php if ( $bpfwp_controller->display_settings['show_get_directions'] ) : ?>
 	<div class="bp-directions">
-		<a href="//maps.google.com/maps?saddr=current+location&daddr=<?php echo urlencode( esc_attr( $bpfwp_controller->settings->get_setting( 'address' ) ) ); ?>"><?php _e( 'Get directions', BPFWP_TEXTDOMAIN ); ?></a>
+		<a href="//maps.google.com/maps?saddr=current+location&daddr=<?php echo urlencode( esc_attr( $address['text'] ) ); ?>"><?php _e( 'Get directions', BPFWP_TEXTDOMAIN ); ?></a>
 	</div>
 	<?php endif;
 
@@ -399,17 +400,17 @@ function bpwfwp_print_map() {
 
 	global $bpfwp_controller;
 
-	$hours = $bpfwp_controller->settings->get_setting( 'opening_hours' );
-
 
 	if ( !$bpfwp_controller->display_settings['show_map'] || !$bpfwp_controller->settings->get_setting( 'address' ) ) {
 		return;
 	}
+	
+	$address = $bpfwp_controller->settings->get_setting( 'address' );
 
 	?>
 
 	<div class="bp-map" itemprop="map">
-		<iframe src="//maps.google.com/maps?output=embed&q=<?php echo urlencode( esc_attr( $bpfwp_controller->settings->get_setting( 'address' ) ) ); ?>" frameborder="0" width="100%"></iframe>
+		<iframe src="//maps.google.com/maps?output=embed&q=<?php echo urlencode( esc_attr( $address['text'] ) ); ?>" frameborder="0" width="100%"></iframe>
 	</div>
 
 	<?php
