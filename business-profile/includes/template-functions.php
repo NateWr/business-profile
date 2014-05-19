@@ -38,7 +38,7 @@ function bpwfwp_print_contact_card( $args = array() ) {
 	);
 
 	$data = apply_filters( 'bpwfwp_component_callbacks', $data );
-	
+
 
 	if ( apply_filters( 'bpfwp-load-frontend-assets', true ) ) {
 		wp_enqueue_style( 'dashicons' );
@@ -322,8 +322,8 @@ function bpwfwp_print_opening_hours() {
 		'saturday'	=> __( 'Saturday' ),
 		'sunday'	=> __( 'Sunday' ),
 	);
-	
-	
+
+
 
 	$weekdays = array();
 	foreach( $hours as $rule ) {
@@ -350,17 +350,17 @@ function bpwfwp_print_opening_hours() {
 		}
 
 		foreach( $rule['weekdays'] as $day => $val ) {
-		
+
 			if ( !array_key_exists( $day, $weekdays ) ) {
 				$weekdays[$day] = array();
 			}
-			
+
 			$weekdays[$day][] = $time;
 		}
 	}
-	
+
 	if ( count( $weekdays ) ) :
-	
+
 		// Order the weekdays and add any missing days as "closed"
 		$weekdays_ordered = array();
 		foreach( $weekdays_display as $slug => $name ) {
@@ -385,7 +385,7 @@ function bpwfwp_print_opening_hours() {
 		</div>
 		<?php endforeach; ?>
 	</div>
-	
+
 	<?php
 	endif;
 }
@@ -400,17 +400,45 @@ function bpwfwp_print_map() {
 
 	global $bpfwp_controller;
 
+	$address = $bpfwp_controller->settings->get_setting( 'address' );
 
 	if ( !$bpfwp_controller->display_settings['show_map'] || !$bpfwp_controller->settings->get_setting( 'address' ) ) {
 		return;
 	}
-	
-	$address = $bpfwp_controller->settings->get_setting( 'address' );
 
+	wp_enqueue_script( 'bpfwp-map' );
+	wp_localize_script(
+		'bpfwp-map',
+		'bpfwp_map',
+		array(
+			'strings' => array(
+				'get_directions' => __( 'Get directions', BPFWP_TEXTDOMAIN ),
+			)
+		)
+	);
+
+	global $bpfwp_map_ids;
+	if ( empty( $bpfwp_map_ids ) ) {
+		$bpfwp_map_ids = array();
+	}
+
+	$id = count( $bpfwp_map_ids );
+	$bpfwp_map_ids[] = $id;
+
+
+	$attr = '';
+	
+	$phone = $bpfwp_controller->settings->get_setting( 'phone' );
+	if ( !empty( $phone ) ) {
+		$attr .= ' data-phone="' . esc_attr( $phone ) . '"';
+	}
+	
+	if ( !empty( $address['lat'] ) && !empty( $address['lon'] ) ) {
+		$attr .= ' data-lat="' . esc_attr( $address['lat'] ) . '" data-lon="' . esc_attr( $address['lon'] ) . '"';
+	}
 	?>
 
-	<div class="bp-map" itemprop="map">
-		<iframe src="//maps.google.com/maps?output=embed&q=<?php echo urlencode( esc_attr( $address['text'] ) ); ?>" frameborder="0" width="100%"></iframe>
+	<div id="bp-map-<?php echo $id; ?>" class="bp-map" itemprop="map" data-name="<?php echo esc_attr( $bpfwp_controller->settings->get_setting( 'name' ) ); ?>" data-address="<?php echo esc_attr( nl2br( $address['text'] ) ); ?>"<?php echo $attr; ?>>
 	</div>
 
 	<?php

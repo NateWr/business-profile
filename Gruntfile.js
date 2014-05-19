@@ -10,6 +10,13 @@ module.exports = function(grunt) {
 		// Load grunt project configuration
 		pkg: grunt.file.readJSON('package.json'),
 
+		// Configure JSHint
+		jshint: {
+			test: {
+				src: 'business-profile/assets/js/*.js'
+			}
+		},
+
 		sync: {
 			main: {
 				files: [
@@ -42,6 +49,6 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-watch');
 
 	// Default task(s).
-	grunt.registerTask('default', ['watch']);
+	grunt.registerTask('default', ['jshint', 'watch']);
 
 };

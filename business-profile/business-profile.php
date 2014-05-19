@@ -78,6 +78,7 @@ class bpfwpInit {
 	 */
 	function register_assets() {		
 		wp_register_style( 'bpfwp-default', BPFWP_PLUGIN_URL . '/assets/css/contact-card.css' );
+		wp_register_script( 'bpfwp-map', BPFWP_PLUGIN_URL . '/assets/js/map.js' );
 	}
 
 	/**
