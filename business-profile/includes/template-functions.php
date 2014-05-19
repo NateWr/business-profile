@@ -28,14 +28,32 @@ function bpwfwp_print_contact_card( $args = array() ) {
 	$bpfwp_controller->display_settings = shortcode_atts( $defaults, $args, 'contact-card' );
 
 	// Setup components and callback functions to render them
-	$data = array(
-		'name'			=> 'bpwfwp_print_name',
-		'address'		=> 'bpwfwp_print_address',
-		'phone'			=> 'bpwfwp_print_phone',
-		'contact'		=> 'bpwfwp_print_contact',
-		'opening_hours'	=> 'bpwfwp_print_opening_hours',
-		'map'			=> 'bpwfwp_print_map',
-	);
+	$data = array();
+
+	if ( $bpfwp_controller->settings->get_setting( 'name' ) ) {
+		$data['name'] = 'bpwfwp_print_name';
+	}
+
+	if ( $bpfwp_controller->settings->get_setting( 'address' ) ) {
+		$data['address'] = 'bpwfwp_print_address';
+	}
+
+	if ( $bpfwp_controller->settings->get_setting( 'phone' ) ) {
+		$data['phone'] = 'bpwfwp_print_phone';
+	}
+
+	if ( $bpfwp_controller->display_settings['show_contact'] &&
+			( $bpfwp_controller->settings->get_setting( 'contact-email' ) || $bpfwp_controller->settings->get_setting( 'contact-page' ) ) ) {
+		$data['contact'] = 'bpwfwp_print_contact';
+	}
+
+	if ( $bpfwp_controller->settings->get_setting( 'opening-hours' ) ) {
+		$data['opening_hours'] = 'bpwfwp_print_opening_hours';
+	}
+
+	if ( $bpfwp_controller->display_settings['show_map'] && $bpfwp_controller->settings->get_setting( 'address' ) ) {
+		$data['map'] = 'bpwfwp_print_map';
+	}
 
 	$data = apply_filters( 'bpwfwp_component_callbacks', $data );
 
@@ -71,10 +89,6 @@ function bpwfwp_print_name() {
 
 	global $bpfwp_controller;
 
-	if ( !$bpfwp_controller->settings->get_setting( 'name' ) ) {
-		return;
-	}
-
 	if ( $bpfwp_controller->display_settings['show_name'] ) :
 	?>
 	<div class="bp-name" itemprop="name">
@@ -101,11 +115,8 @@ if ( !function_exists( 'bpwfwp_print_address' ) ) {
 function bpwfwp_print_address() {
 
 	global $bpfwp_controller;
-
+	
 	$address = $bpfwp_controller->settings->get_setting( 'address' );
-	if ( !$address['text'] ) {
-		return;
-	}
 
 	if ( $bpfwp_controller->display_settings['show_address'] ) :
 	?>
@@ -137,10 +148,6 @@ function bpwfwp_print_phone() {
 
 	global $bpfwp_controller;
 
-	if ( !$bpfwp_controller->settings->get_setting( 'phone' ) ) {
-		return;
-	}
-
 	if ( $bpfwp_controller->display_settings['show_phone'] ) :
 	?>
 
@@ -163,10 +170,6 @@ if ( !function_exists( 'bpwfwp_print_contact' ) ) {
 function bpwfwp_print_contact() {
 
 	global $bpfwp_controller;
-
-	if ( !$bpfwp_controller->display_settings['show_contact'] ) {
-		return;
-	}
 
 	$email = $bpfwp_controller->settings->get_setting( 'contact-email' );
 	if ( !empty( $email ) ) :
@@ -202,11 +205,6 @@ function bpwfwp_print_opening_hours() {
 
 	global $bpfwp_controller;
 
-	$hours = $bpfwp_controller->settings->get_setting( 'opening-hours' );
-	if ( empty( $hours ) ) {
-		return;
-	}
-
 	$weekdays_schema = array(
 		'monday'	=> 'Mo',
 		'tuesday'	=> 'Tu',
@@ -216,6 +214,8 @@ function bpwfwp_print_opening_hours() {
 		'saturday'	=> 'Sa',
 		'sunday'	=> 'Su',
 	);
+	
+	$hours = $bpfwp_controller->settings->get_setting( 'opening-hours' );
 
 	// Output proper schema.org format
 	foreach( $hours as $slot ) {
@@ -323,8 +323,6 @@ function bpwfwp_print_opening_hours() {
 		'sunday'	=> __( 'Sunday' ),
 	);
 
-
-
 	$weekdays = array();
 	foreach( $hours as $rule ) {
 
@@ -402,10 +400,6 @@ function bpwfwp_print_map() {
 
 	$address = $bpfwp_controller->settings->get_setting( 'address' );
 
-	if ( !$bpfwp_controller->display_settings['show_map'] || !$bpfwp_controller->settings->get_setting( 'address' ) ) {
-		return;
-	}
-
 	wp_enqueue_script( 'bpfwp-map' );
 	wp_localize_script(
 		'bpfwp-map',
@@ -427,12 +421,12 @@ function bpwfwp_print_map() {
 
 
 	$attr = '';
-	
+
 	$phone = $bpfwp_controller->settings->get_setting( 'phone' );
 	if ( !empty( $phone ) ) {
 		$attr .= ' data-phone="' . esc_attr( $phone ) . '"';
 	}
-	
+
 	if ( !empty( $address['lat'] ) && !empty( $address['lon'] ) ) {
 		$attr .= ' data-lat="' . esc_attr( $address['lat'] ) . '" data-lon="' . esc_attr( $address['lon'] ) . '"';
 	}
