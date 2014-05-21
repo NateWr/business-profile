@@ -66,7 +66,7 @@ function bpwfwp_print_contact_card( $args = array() ) {
 	ob_start();
 	?>
 
-	<address class="bp-contact-card" itemscope itemtype="<?php echo $bpfwp_controller->settings->get_setting( 'schema_type' ); ?>">
+	<address class="bp-contact-card" itemscope itemtype="http://schema.org/<?php echo $bpfwp_controller->settings->get_setting( 'schema_type' ); ?>">
 		<?php foreach ( $data as $data => $callback ) { call_user_func( $callback ); } ?>
 	</address>
 
