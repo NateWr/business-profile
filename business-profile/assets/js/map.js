@@ -20,7 +20,7 @@ function bp_initialize_map() {
 
 		// Google Maps API v3
 		if ( typeof data.lat !== 'undefined' ) {
-			var latlon = new google.maps.LatLng( data.lat, data.lon )
+			var latlon = new google.maps.LatLng( data.lat, data.lon );
 			var bp_map_options = {
 				zoom: 15,
 				center: latlon,
