@@ -5,7 +5,7 @@ Plugin URL: http://themeofthecrop.com
 Requires at Least: 3.9
 Tested Up To: 3.9.1
 Tags: business profile, address, google map, schema, contact, phone, address
-Stable tag: 0.1
+Stable tag: 0.0.1
 License: GPLv2 or later
 Donate link: http://themeofthecrop.com
 
@@ -26,5 +26,5 @@ This plugin was designed for small businesses with a single business location.
 
 == Changelog ==
 
-= 0.1 (2014-05-26) =
+= 0.0.1 (2014-05-26) =
 * Initial release
