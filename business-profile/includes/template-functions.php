@@ -115,7 +115,7 @@ if ( !function_exists( 'bpwfwp_print_address' ) ) {
 function bpwfwp_print_address() {
 
 	global $bpfwp_controller;
-	
+
 	$address = $bpfwp_controller->settings->get_setting( 'address' );
 
 	if ( $bpfwp_controller->display_settings['show_address'] ) :
@@ -214,11 +214,16 @@ function bpwfwp_print_opening_hours() {
 		'saturday'	=> 'Sa',
 		'sunday'	=> 'Su',
 	);
-	
+
 	$hours = $bpfwp_controller->settings->get_setting( 'opening-hours' );
 
 	// Output proper schema.org format
 	foreach( $hours as $slot ) {
+
+		// Skip this entry if no weekdays are set
+		if ( empty( $slot['weekdays'] ) ) {
+			continue;
+		}
 
 		$days = array();
 		foreach( $slot['weekdays'] as $day => $val ) {
@@ -275,6 +280,11 @@ function bpwfwp_print_opening_hours() {
 		$slots = array();
 		foreach( $hours as $slot ) {
 
+			// Skip this entry if no weekdays are set
+			if ( empty( $slot['weekdays'] ) ) {
+				continue;
+			}
+
 			$days = array();
 			foreach( $slot['weekdays'] as $day => $val ) {
 				$days[] = $weekdays_schema[ $day ];
@@ -325,6 +335,11 @@ function bpwfwp_print_opening_hours() {
 
 	$weekdays = array();
 	foreach( $hours as $rule ) {
+
+		// Skip this entry if no weekdays are set
+		if ( empty( $rule['weekdays'] ) ) {
+			continue;
+		}
 
 		if ( empty( $rule['time'] ) ) {
 			$time = __( 'Open', BPFWP_TEXTDOMAIN );
