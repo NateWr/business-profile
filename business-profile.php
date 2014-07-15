@@ -3,7 +3,7 @@
  * Plugin Name: Business Profile
  * Plugin URI: http://themeofthecrop.com
  * Description: Contact information, Google Maps and opening hours made easy for businesses.
- * Version: 0.0.1
+ * Version: 1.0
  * Author: Theme of the Crop
  * Author URI: http://themeofthecrop.com
  * License:     GNU General Public License v2.0 or later

@@ -5,7 +5,7 @@ Plugin URL: http://themeofthecrop.com
 Requires at Least: 3.9
 Tested Up To: 3.9.1
 Tags: business profile, address, google map, schema, contact, phone, address, seo
-Stable tag: 0.0.1
+Stable tag: 1.0
 License: GPLv2 or later
 Donate link: http://themeofthecrop.com
 
@@ -44,7 +44,7 @@ This plugin is part of a group of plugins in development for restaurants. Check 
 
 == Changelog ==
 
-= 1.0 =
+= 1.0 (2014-07-16) =
 * Initial public release on WordPress.org
 * Add an option to display a link to a booking form if the Restaurant Reservations plugin is active
 * Fix: skip a scheduling rule if no weekdays are set. h/t @jasonhobbsllc
