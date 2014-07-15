@@ -29,6 +29,14 @@ Schema.org markup helps search engines like Google discover your address, phone 
 
 This plugin is part of a group of plugins in development for restaurants. Check out the [Food and Drink Menu](http://wordpress.org/plugins/food-and-drink-menu/) and [Restaurant Reservations](http://wordpress.org/plugins/restaurant-reservations/) plugins as well.
 
+= How to use =
+
+There is a short guide to using the plugin in the /docs/ folder. It can be accessed by following the Help link listed under the plugin on the Plugins page in your WordPress admin area.
+
+= Developers =
+
+This plugin is packed with hooks so you can extend it as needed. Development takes place on [GitHub](https://github.com/NateWr/business-profile/), so fork it up.
+
 == Installation ==
 
 1. Unzip `business-profile.zip`
