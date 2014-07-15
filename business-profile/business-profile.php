@@ -55,7 +55,10 @@ class bpfwpInit {
 
 		// Load the template functions which print the contact cards
 		require_once( BPFWP_PLUGIN_DIR . '/includes/template-functions.php' );
-		
+
+		// Load integrations with third-party plugins/apps
+		require_once( BPFWP_PLUGIN_DIR . '/includes/integrations.php' );
+
 		// Load assets
 		add_action( 'wp_enqueue_scripts', array( $this, 'register_assets' ) );
 
@@ -76,7 +79,7 @@ class bpfwpInit {
 	 * Register the front-end CSS styles
 	 * @since 0.0.1
 	 */
-	function register_assets() {		
+	function register_assets() {
 		wp_register_style( 'bpfwp-default', BPFWP_PLUGIN_URL . '/assets/css/contact-card.css' );
 		wp_register_script( 'bpfwp-map', BPFWP_PLUGIN_URL . '/assets/js/map.js' );
 	}

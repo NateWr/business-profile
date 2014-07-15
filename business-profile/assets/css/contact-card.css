@@ -68,6 +68,7 @@
 .bp-directions:before,
 .bp-phone:before,
 .bp-contact:before,
+.bp-booking:before,
 .bp-opening-hours-brief:before,
 .bp-opening-hours .bp-title:before {
 	display: inline-block;
@@ -97,6 +98,10 @@
 
 .bp-contact:before {
 	content: "\f466";
+}
+
+.bp-booking:before {
+	content: "\f145";
 }
 
 .bp-opening-hours-brief:before,
