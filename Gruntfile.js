@@ -3,6 +3,7 @@
 module.exports = function(grunt) {
 
 	var export_dir = '../wp/wp-content/plugins';
+	var export_multisite_dir = '../wpmu/wp-content/plugins';
 
 	// Project configuration.
 	grunt.initConfig({
@@ -24,6 +25,11 @@ module.exports = function(grunt) {
 						cwd: 'business-profile/',
 						src: '**',
 						dest: export_dir + '/<%= pkg.name %>'
+					},
+					{
+						cwd: 'business-profile/',
+						src: '**',
+						dest: export_multisite_dir + '/<%= pkg.name %>'
 					}
 				]
 			}
