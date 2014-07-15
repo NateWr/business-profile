@@ -65,6 +65,9 @@ class bpfwpInit {
 		// Register the widget
 		add_action( 'widgets_init', array( $this, 'register_widgets' ) );
 
+		// Add links to plugin listing
+		add_filter('plugin_action_links', array( $this, 'plugin_action_links' ), 10, 2);
+
 	}
 
 	/**
@@ -91,6 +94,21 @@ class bpfwpInit {
 	public function register_widgets() {
 		require_once( BPFWP_PLUGIN_DIR . '/includes/WP_Widget.ContactCardWidget.class.php' );
 		register_widget( 'bpfwpContactCardWidget' );
+	}
+
+	/**
+	 * Add links to the plugin listing on the installed plugins page
+	 * @since 0.0.1
+	 */
+	public function plugin_action_links( $links, $plugin ) {
+
+		if ( $plugin == BPFWP_PLUGIN_FNAME ) {
+
+			$links['help'] = '<a href="' . BPFWP_PLUGIN_URL . '/docs" title="' . __( 'View the help documentation for Business Profile', BPFWP_TEXTDOMAIN ) . '">' . __( 'Help', BPFWP_TEXTDOMAIN ) . '</a>';
+		}
+
+		return $links;
+
 	}
 
 }
