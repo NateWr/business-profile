@@ -27,7 +27,7 @@ Schema.org markup helps search engines like Google discover your address, phone 
 
 **Sorry, it does not support multiple locations.**
 
-This plugin is part of a group of plugins for restaurants. Check out the [Food and Drink Menu](http://wordpress.org/plugins/food-and-drink-menu/) and [Restaurant Reservations](http://wordpress.org/plugins/restaurant-reservations/) plugins as well.
+This plugin is part of a group of plugins for restaurants. Check out the [Food and Drink Menu](http://wordpress.org/plugins/food-and-drink-menu/), [Restaurant Reservations](http://wordpress.org/plugins/restaurant-reservations/) and [Good Reviews for WordPress](http://wordpress.org/plugins/good-reviews-wp/) plugins as well.
 
 = How to use =
 
