@@ -5,7 +5,7 @@ Plugin URL: http://themeofthecrop.com
 Requires at Least: 3.9
 Tested Up To: 3.9.1
 Tags: business profile, address, google map, schema, contact, phone, address, seo
-Stable tag: 1.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 Donate link: http://themeofthecrop.com
 
@@ -27,7 +27,7 @@ Schema.org markup helps search engines like Google discover your address, phone 
 
 **Sorry, it does not support multiple locations.**
 
-This plugin is part of a group of plugins in development for restaurants. Check out the [Food and Drink Menu](http://wordpress.org/plugins/food-and-drink-menu/) and [Restaurant Reservations](http://wordpress.org/plugins/restaurant-reservations/) plugins as well.
+This plugin is part of a group of plugins for restaurants. Check out the [Food and Drink Menu](http://wordpress.org/plugins/food-and-drink-menu/) and [Restaurant Reservations](http://wordpress.org/plugins/restaurant-reservations/) plugins as well.
 
 = How to use =
 
@@ -52,6 +52,9 @@ This plugin is packed with hooks so you can extend it as needed. Development tak
 
 == Changelog ==
 
+= 1.0.1 (2014-07-16) =
+* Fix character-case error and rename integrations file for better standardization
+
 = 1.0 (2014-07-16) =
 * Initial public release on WordPress.org
 * Add an option to display a link to a booking form if the Restaurant Reservations plugin is active
@@ -61,6 +64,9 @@ This plugin is packed with hooks so you can extend it as needed. Development tak
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.0.1 =
+This update fixes a letter-case bug that may effect some installations.
 
 = 1.0 =
 This initial public release adds an integration with the Restaurant Reservations plugin. If the plugin is active it will now let you display a link to the booking form.
