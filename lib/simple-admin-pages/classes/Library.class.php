@@ -1,5 +1,5 @@
 <?php
-if ( !class_exists( 'sapLibrary_2_0_a_5' ) ) {
+if ( !class_exists( 'sapLibrary_2_0_a_7' ) ) {
 /**
  * This library class loads and provides access to the correct version of the
  * Simple Admin Pages library.
@@ -7,10 +7,10 @@ if ( !class_exists( 'sapLibrary_2_0_a_5' ) ) {
  * @since 1.0
  * @package Simple Admin Pages
  */
-class sapLibrary_2_0_a_5 {
+class sapLibrary_2_0_a_7 {
 
 	// Version of the library
-	private $version = '2.0.a.5';
+	private $version = '2.0.a.7';
 
 	// A full URL to the library which is used to correctly link scripts and
 	// stylesheets.
@@ -180,6 +180,11 @@ class sapLibrary_2_0_a_5 {
 					require_once( $type['filename'] );
 				} elseif ( isset( $this->lib_extension_path ) && file_exists( $this->lib_extension_path . $type['filename'] ) ) {
 					require_once( $this->lib_extension_path . '/' . $type['filename'] );
+					if ( !class_exists( $type['class'] ) ) {
+						return false;
+					} else {
+						return $type['class'];
+					}
 				} else {
 					return false;
 				}
@@ -264,7 +269,7 @@ class sapLibrary_2_0_a_5 {
 		}
 
 		$class = $this->get_setting_classname( $type );
-		if ( ( $class && class_exists( $class ) ) && is_subclass_of( $class, $this->get_versioned_classname( 'sapAdminPageSetting' ) ) ) {
+		if ( $class && class_exists( $class ) ) {
 			$this->pages[ $page ]->sections[ $section ]->add_setting( new $class( $args ) );
 		}
 
@@ -374,26 +379,29 @@ class sapLibrary_2_0_a_5 {
 	/**
 	 * Enqueue the stylesheets and scripts
 	 * @since 1.0
-	 * @todo complex settings should enqueue their assets only when loaded
 	 */
 	public function enqueue_scripts() {
+
+		$screen = get_current_screen();
 		
-		// Enqueue assets for specific settings
-		foreach ( $this->pages as $page ) {
-			foreach ( $page->sections as $section ) {
-				foreach ( $section->settings as $setting ) {
-					foreach( $setting->scripts as $handle => $script ) {
-						wp_enqueue_script( $handle, $this->lib_url . $script['path'], $script['dependencies'], $script['version'], $script['footer'] );
-					}
-					foreach( $setting->styles as $handle => $style ) {
-						wp_enqueue_style( $handle . '-' . $this->version, $this->lib_url . $style['path'], $style['dependencies'], $style['version'], $style['media'] );
+		foreach ( $this->pages as $page_id => $page ) {
+
+			// Only enqueue assets for the current page
+			if ( strpos( $screen->base, $page_id ) !== false ) {
+				wp_enqueue_style( 'sap-admin-style-' . $this->version, $this->lib_url . 'css/admin.css' );
+
+				foreach ( $page->sections as $section ) {
+					foreach ( $section->settings as $setting ) {
+						foreach( $setting->scripts as $handle => $script ) {
+							wp_enqueue_script( $handle, $this->lib_url . $script['path'], $script['dependencies'], $script['version'], $script['footer'] );
+						}
+						foreach( $setting->styles as $handle => $style ) {
+							wp_enqueue_style( $handle, $this->lib_url . $style['path'], $style['dependencies'], $style['version'], $style['media'] );
+						}
 					}
 				}
 			}
 		}
-
-		// Default styles and scripts
-		wp_enqueue_style( 'sap-admin-style-' . $this->version, $this->lib_url . 'css/admin.css' );
 	}
 
 	/**
