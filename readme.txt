@@ -5,7 +5,7 @@ Plugin URL: http://themeofthecrop.com
 Requires at Least: 3.9
 Tested Up To: 3.9.1
 Tags: business profile, address, google map, schema, contact, phone, address, seo
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 Donate link: http://themeofthecrop.com
 
@@ -52,6 +52,9 @@ This plugin is packed with hooks so you can extend it as needed. Development tak
 
 == Changelog ==
 
+= 1.0.2 (2014-07-16) =
+* Update Simple Admin Pages library to v2.0.a.7
+
 = 1.0.1 (2014-07-16) =
 * Fix character-case error and rename integrations file for better standardization
 
@@ -64,6 +67,9 @@ This plugin is packed with hooks so you can extend it as needed. Development tak
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.0.2 =
+This version updates a library used by the plugin to increase compatibility with the other plugins in my restaurant plugin suite.
 
 = 1.0.1 =
 This update fixes a letter-case bug that may effect some installations.
