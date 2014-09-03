@@ -16,6 +16,7 @@ function bpwfwp_print_contact_card( $args = array() ) {
 		'show_address'				=> true,
 		'show_get_directions'		=> true,
 		'show_phone'				=> true,
+		'show_fax'				=> true,
 		'show_contact'				=> true,
 		'show_opening_hours'		=> true,
 		'show_opening_hours_brief'	=> false,
@@ -40,6 +41,10 @@ function bpwfwp_print_contact_card( $args = array() ) {
 
 	if ( $bpfwp_controller->settings->get_setting( 'phone' ) ) {
 		$data['phone'] = 'bpwfwp_print_phone';
+	}
+
+	if ( $bpfwp_controller->settings->get_setting( 'fax' ) ) {
+		$data['fax'] = 'bpwfwp_print_fax';
 	}
 
 	if ( $bpfwp_controller->display_settings['show_contact'] &&
@@ -149,14 +154,44 @@ function bpwfwp_print_phone() {
 	global $bpfwp_controller;
 
 	if ( $bpfwp_controller->display_settings['show_phone'] ) :
+
+	$formatted = $bpfwp_controller->settings->get_setting( 'phone-formatted' );
+	$phone = $bpfwp_controller->settings->get_setting( 'phone' );
+
 	?>
 
 	<div class="bp-phone" itemprop="telephone">
-		<?php echo $bpfwp_controller->settings->get_setting( 'phone' ); ?>
+	<?php if ( !empty( $formatted ) ) :  ?>
+		<a href="tel:<?php echo esc_attr( $formatted ); ?>"><?php echo $phone; ?></a>
+	<?php else :
+		echo $phone;
+	endif; ?>
 	</div>
 
 	<?php else : ?>
 	<meta itemprop="telephone" content="<?php echo esc_attr( $bpfwp_controller->settings->get_setting( 'phone' ) ); ?>">
+
+	<?php endif;
+}
+} // endif;
+
+/**
+ * Print the fax number
+ * @since 0.0.1
+ */
+if ( !function_exists( 'bpwfwp_print_fax' ) ) {
+function bpwfwp_print_fax() {
+
+	global $bpfwp_controller;
+
+	if ( $bpfwp_controller->display_settings['show_fax'] ) : ?>
+
+	<div class="bp-phone" itemprop="faxNumber">
+	<?php echo $bpfwp_controller->settings->get_setting( 'fax' ); ?>
+	</div>
+
+	<?php else : ?>
+	<meta itemprop="faxNumber" content="<?php echo esc_attr( $bpfwp_controller->settings->get_setting( 'fax' ) ); ?>">
 
 	<?php endif;
 }
