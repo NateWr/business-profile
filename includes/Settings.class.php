@@ -111,12 +111,12 @@ class bpfwpSettings {
 				'options'		=> array(
 					'Organization'				=> 'Organization',
 					'Corporation'				=> 'Corporation',
-					'EducationalOrganization'	=> 'Educational Organization',
-					'GovernmentOrganization'	=> 'Government Organization',
+					'EducationalOrganization'		=> 'Educational Organization',
+					'GovernmentOrganization'		=> 'Government Organization',
 					'LocalBusiness'				=> 'Local Business',
 					'AnimalShelter'				=> '- Animal Shelter',
-					'AutomotiveBusiness'		=> '- Automotive Business',
-					'ChildCare'					=> '- Child Care',
+					'AutomotiveBusiness'			=> '- Automotive Business',
+					'ChildCare'				=> '- Child Care',
 					'DryCleaningOrLaundry'		=> '- Dry Cleaning or Laundry',
 					'EmergencyService'			=> '- Emergency Service',
 					'EmploymentAgency'			=> '- Employment Agency',
@@ -124,21 +124,29 @@ class bpfwpSettings {
 					'FinancialService'			=> '- Financial Service',
 					'FoodEstablishment'			=> '- Food Establishment',
 					'GovernmentOffice'			=> '- Government Office',
-					'HealthAndBeautyBusiness'	=> '- Health and Beauty Business',
+					'HealthAndBeautyBusiness'		=> '- Health and Beauty Business',
 					'HomeAndConstructionBusiness'	=> '- Home and Construction Business',
+					'Electrician'				=> '-- Electrician',
+					'GeneralContractor'			=> '-- General Contractor',
+					'HVACBusiness'				=> '-- HVAC Business',
+					'HousePainter'				=> '-- House Painter',
+					'Locksmith'				=> '-- Locksmith',
+					'MovingCompany'			=> '-- Moving Company',
+					'Plumber'				=> '-- Plumber',
+					'RoofingContractor'			=> '-- Roofing Contractor',
 					'InternetCafe'				=> '- Internet Cafe',
-					'Library'					=> '- Library',
+					'Library'				=> '- Library',
 					'LodgingBusiness'			=> '- Lodging Business',
-					'MedicalOrganization'		=> '- Medical Organization',
+					'MedicalOrganization'			=> '- Medical Organization',
 					'RadioStation'				=> '- Radio Station',
 					'RealEstateAgent'			=> '- Real Estate Agent',
 					'RecyclingCenter'			=> '- Recycling Center',
 					'SelfStorage'				=> '- Self Storage',
-					'SportsActivityLocation'	=> '- Sports Activity Location',
-					'Store'						=> '- Store',
-					'TouristInformationCenter'	=> '- Tourist Information Center',
+					'SportsActivityLocation'		=> '- Sports Activity Location',
+					'Store'					=> '- Store',
+					'TouristInformationCenter'		=> '- Tourist Information Center',
 					'TravelAgency'				=> '- Travel Agency',
-					'NGO'						=> 'NGO',
+					'NGO'					=> 'NGO',
 					'PerformingGroup'			=> 'PerformingGroup',
 					'SportsTeam'				=> 'SportsTeam',
 				),
@@ -182,6 +190,26 @@ class bpfwpSettings {
 			array(
 				'id'            => 'phone',
 				'title'         => __( 'Phone', BPFWP_TEXTDOMAIN ),
+			)
+		);
+
+		$sap->add_setting(
+			'bpfwp-settings',
+			'rtb-contact',
+			'text',
+			array(
+				'id'            => 'phone-formatted',
+				'title'         => __( 'Formatted Phone Number', BPFWP_TEXTDOMAIN ),
+				'description'   => __( 'Enter phone number in the format of +18005551212 to be used for mobile phone call links.', BPFWP_TEXTDOMAIN ),
+			)
+		);
+		$sap->add_setting(
+			'bpfwp-settings',
+			'rtb-contact',
+			'text',
+			array(
+				'id'            => 'fax',
+				'title'         => __( 'Fax', BPFWP_TEXTDOMAIN ),
 			)
 		);
 
