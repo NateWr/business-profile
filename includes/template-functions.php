@@ -100,8 +100,8 @@ function bpwfwp_print_name() {
 
 	<?php endif; ?>
 
-	<meta itemprop="description" content="<?php echo esc_attr( get_bloginfo( 'url' ) ) ?>">
-	<meta itemprop="url" content="<?php echo esc_attr( get_bloginfo( 'description' ) ); ?>">
+	<meta itemprop="description" content="<?php echo esc_attr( get_bloginfo( 'description' ) ) ?>">
+	<meta itemprop="url" content="<?php echo esc_attr( get_bloginfo( 'url' ) ); ?>">
 
 	<?php
 }
