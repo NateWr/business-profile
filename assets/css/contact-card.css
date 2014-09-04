@@ -67,6 +67,7 @@
 
 .bp-directions:before,
 .bp-phone:before,
+.bp-fax:before,
 .bp-contact:before,
 .bp-booking:before,
 .bp-opening-hours-brief:before,
@@ -94,6 +95,9 @@
 
 .bp-phone:before {
 	content: "\f470";
+}
+.bp-fax:before {
+	content: "\f491";
 }
 
 .bp-contact:before {

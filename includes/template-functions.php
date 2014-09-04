@@ -186,7 +186,7 @@ function bpwfwp_print_fax() {
 
 	if ( $bpfwp_controller->display_settings['show_fax'] ) : ?>
 
-	<div class="bp-phone" itemprop="faxNumber">
+	<div class="bp-fax" itemprop="faxNumber">
 	<?php echo $bpfwp_controller->settings->get_setting( 'fax' ); ?>
 	</div>
 
