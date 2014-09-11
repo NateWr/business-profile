@@ -78,7 +78,7 @@ class bpfwpIntegrations {
 
 			if ( !empty( $pos ) ) {
 				$a = array_slice( $data, 0, $pos );
-				$b = array_slice( $data, $pos + 1 );
+				$b = array_slice( $data, $pos );
 				$data = array_merge( $a, array( 'booking_page' => array( $this, 'bpfwp_print_booking_link' ) ) , $b );
 
 			// If no short links are being displayed, just add it to the bottom.
