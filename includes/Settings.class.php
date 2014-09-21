@@ -148,14 +148,14 @@ class bpfwpSettings {
 		$sap->add_section(
 			'bpfwp-settings',
 			array(
-				'id'            => 'rtb-contact',
+				'id'            => 'bpfwp-contact',
 				'title'         => __( 'Contact Information', BPFWP_TEXTDOMAIN ),
 			)
 		);
 
 		$sap->add_setting(
 			'bpfwp-settings',
-			'rtb-contact',
+			'bpfwp-contact',
 			'text',
 			array(
 				'id'            => 'name',
@@ -167,7 +167,7 @@ class bpfwpSettings {
 
 		$sap->add_setting(
 			'bpfwp-settings',
-			'rtb-contact',
+			'bpfwp-contact',
 			'address',
 			array(
 				'id'			=> 'address',
@@ -177,7 +177,7 @@ class bpfwpSettings {
 
 		$sap->add_setting(
 			'bpfwp-settings',
-			'rtb-contact',
+			'bpfwp-contact',
 			'text',
 			array(
 				'id'            => 'phone',
@@ -187,7 +187,7 @@ class bpfwpSettings {
 
 		$sap->add_setting(
 			'bpfwp-settings',
-			'rtb-contact',
+			'bpfwp-contact',
 			'post',
 			array(
 				'id'            => 'contact-page',
@@ -204,7 +204,7 @@ class bpfwpSettings {
 
 		$sap->add_setting(
 			'bpfwp-settings',
-			'rtb-contact',
+			'bpfwp-contact',
 			'text',
 			array(
 				'id'            => 'contact-email',
@@ -216,14 +216,14 @@ class bpfwpSettings {
 		$sap->add_section(
 			'bpfwp-settings',
 			array(
-				'id'            => 'rtb-schedule',
+				'id'            => 'bpfwp-schedule',
 				'title'         => __( 'Schedule', BPFWP_TEXTDOMAIN ),
 			)
 		);
 
 		$sap->add_setting(
 			'bpfwp-settings',
-			'rtb-schedule',
+			'bpfwp-schedule',
 			'scheduler',
 			array(
 				'id'			=> 'opening-hours',
