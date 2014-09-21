@@ -123,7 +123,7 @@ class bpfwpIntegrations {
 
 		if ( !empty( $pos ) ) {
 			$a = array_slice( $toggles, 0, $pos );
-			$b = array_slice( $toggles, $pos + 1 );
+			$b = array_slice( $toggles, $pos );
 			$toggles = array_merge( $a, array( 'show_booking_link' => __( 'Show book a table link', BPFWP_TEXTDOMAIN ) ) , $b );
 
 		// If no short links are being displayed, just add it to the bottom.
