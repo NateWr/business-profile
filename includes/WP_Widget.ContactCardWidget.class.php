@@ -75,8 +75,8 @@ class bpfwpContactCardWidget extends WP_Widget {
 		<?php foreach( $this->toggles as $id => $label ) : ?>
 
 		<p>
-			<label for="<?php echo $this->get_field_id( $id ); ?>"> <?php echo $label; ?></label>
 			<input type="checkbox" id="<?php echo $this->get_field_id( $id ); ?>" name="<?php echo $this->get_field_name( $id ); ?>" value="1"<?php if ( !empty( $instance[$id] ) ) : ?> checked="checked"<?php endif; ?>>
+			<label for="<?php echo $this->get_field_id( $id ); ?>"> <?php echo $label; ?></label>
 		</p>
 
 		<?php endforeach;
