@@ -57,7 +57,7 @@ class bpfwpCustomPostTypes {
 				'all_items'          => __( 'All Locations',               BPFWP_TEXTDOMAIN ),
 			),
 			'public'       => true,
-			'show_in_menu' => 'bpfwp-settings',
+			'show_in_menu' => 'bpfwp-locations',
 			'has_archive'  => true,
 		);
 

@@ -79,17 +79,48 @@ class bpfwpSettings {
 			)
 		);
 
-		$sap->add_page(
-			'menu',
-			array(
-				'id'            => 'bpfwp-settings',
-				'title'         => __( 'Business Profile', BPFWP_TEXTDOMAIN ),
-				'menu_title'    => __( 'Business Profile', BPFWP_TEXTDOMAIN ),
-				'capability'    => 'manage_options',
-				'icon'			=> 'dashicons-businessman',
-				'position'		=> null
-			)
-		);
+		// Multiple location mode
+		if ( $this->get_setting( 'multiple-locations' ) ) {
+
+			$sap->add_page(
+				'menu',
+				array(
+					'id'            => 'bpfwp-locations',
+					'title'         => __( 'Locations', BPFWP_TEXTDOMAIN ),
+					'menu_title'    => __( 'Locations', BPFWP_TEXTDOMAIN ),
+					'capability'    => 'manage_options',
+					'icon'			=> 'dashicons-location',
+					'position'		=> null
+				)
+			);
+
+			$sap->add_page(
+				'submenu',
+				array(
+					'id'            => 'bpfwp-settings',
+					'parent_menu'	=> 'bpfwp-locations',
+					'title'         => __( 'Business Profile', BPFWP_TEXTDOMAIN ),
+					'menu_title'    => __( 'Business Profile', BPFWP_TEXTDOMAIN ),
+					'capability'    => 'manage_options',
+				)
+			);
+
+		// Single location mode
+		} else {
+
+			$sap->add_page(
+				'menu',
+				array(
+					'id'            => 'bpfwp-settings',
+					'title'         => __( 'Business Profile', BPFWP_TEXTDOMAIN ),
+					'menu_title'    => __( 'Business Profile', BPFWP_TEXTDOMAIN ),
+					'capability'    => 'manage_options',
+					'icon'			=> 'dashicons-businessman',
+					'position'		=> null
+				)
+			);
+
+		}
 
 		$sap->add_section(
 			'bpfwp-settings',
@@ -283,6 +314,25 @@ class bpfwpSettings {
 					'after'				=> _x( 'Starts at', 'Brief default description of a scheduling rule when a start time is set but no end time. If the start time is 6pm, it will read: Starts at 6pm', BPFWP_TEXTDOMAIN ),
 					'separator'			=> _x( '&mdash;', 'Separator between times of a scheduling rule', BPFWP_TEXTDOMAIN ),
 				),
+			)
+		);
+
+		$sap->add_section(
+			'bpfwp-settings',
+			array(
+				'id'            => 'bpfwp-locations',
+				'title'         => __( 'Multiple Locations', BPFWP_TEXTDOMAIN ),
+			)
+		);
+
+		$sap->add_setting(
+			'bpfwp-settings',
+			'bpfwp-locations',
+			'toggle',
+			array(
+				'id'			=> 'multiple-locations',
+				'title'			=> __( 'Multiple Locations', BPFWP_TEXTDOMAIN ),
+				'label'			=> __( 'Enable support for multiple business locations.', BPFWP_TEXTDOMAIN ),
 			)
 		);
 

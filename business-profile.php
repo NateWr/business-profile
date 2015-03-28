@@ -53,10 +53,12 @@ class bpfwpInit {
 		require_once( BPFWP_PLUGIN_DIR . '/includes/Settings.class.php' );
 		$this->settings = new bpfwpSettings();
 
-		// Load custom post type
-		require_once( BPFWP_PLUGIN_DIR . '/includes/CustomPostTypes.class.php' );
-		$this->cpts = new bpfwpCustomPostTypes();
-		register_activation_hook( __FILE__, array( $this->cpts, 'flush_rewrite_rules' ) );
+		// Load custom post type if in multi-location mode
+		if ( $this->settings->get_setting( 'multiple-locations' ) ) {
+			require_once( BPFWP_PLUGIN_DIR . '/includes/CustomPostTypes.class.php' );
+			$this->cpts = new bpfwpCustomPostTypes();
+			register_activation_hook( __FILE__, array( $this->cpts, 'flush_rewrite_rules' ) );
+		}
 
 		// Load the template functions which print the contact cards
 		require_once( BPFWP_PLUGIN_DIR . '/includes/template-functions.php' );
