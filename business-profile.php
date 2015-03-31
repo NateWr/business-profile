@@ -75,6 +75,10 @@ class bpfwpInit {
 		// Add links to plugin listing
 		add_filter('plugin_action_links', array( $this, 'plugin_action_links' ), 10, 2);
 
+		// Load backwards compatibility functions
+		require_once( BPFWP_PLUGIN_DIR . '/includes/Compatibility.class.php' );
+		new bpfwpCompatibility();
+
 	}
 
 	/**
