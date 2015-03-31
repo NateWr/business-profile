@@ -42,19 +42,19 @@ class bpfwpCustomPostTypes {
 		// Define the booking custom post type
 		$args = array(
 			'labels' => array(
-				'name'               => __( 'Locations',                   BPFWP_TEXTDOMAIN ),
-				'singular_name'      => __( 'Location',                    BPFWP_TEXTDOMAIN ),
-				'menu_name'          => __( 'Locations',                   BPFWP_TEXTDOMAIN ),
-				'name_admin_bar'     => __( 'Locations',                   BPFWP_TEXTDOMAIN ),
-				'add_new'            => __( 'Add New',                 	   BPFWP_TEXTDOMAIN ),
-				'add_new_item'       => __( 'Add New Location',            BPFWP_TEXTDOMAIN ),
-				'edit_item'          => __( 'Edit Location',               BPFWP_TEXTDOMAIN ),
-				'new_item'           => __( 'New Location',                BPFWP_TEXTDOMAIN ),
-				'view_item'          => __( 'View Location',               BPFWP_TEXTDOMAIN ),
-				'search_items'       => __( 'Search Locations',            BPFWP_TEXTDOMAIN ),
-				'not_found'          => __( 'No locations found',          BPFWP_TEXTDOMAIN ),
-				'not_found_in_trash' => __( 'No locations found in trash', BPFWP_TEXTDOMAIN ),
-				'all_items'          => __( 'All Locations',               BPFWP_TEXTDOMAIN ),
+				'name'               => __( 'Locations',                   'business-profile' ),
+				'singular_name'      => __( 'Location',                    'business-profile' ),
+				'menu_name'          => __( 'Locations',                   'business-profile' ),
+				'name_admin_bar'     => __( 'Locations',                   'business-profile' ),
+				'add_new'            => __( 'Add New',                 	   'business-profile' ),
+				'add_new_item'       => __( 'Add New Location',            'business-profile' ),
+				'edit_item'          => __( 'Edit Location',               'business-profile' ),
+				'new_item'           => __( 'New Location',                'business-profile' ),
+				'view_item'          => __( 'View Location',               'business-profile' ),
+				'search_items'       => __( 'Search Locations',            'business-profile' ),
+				'not_found'          => __( 'No locations found',          'business-profile' ),
+				'not_found_in_trash' => __( 'No locations found in trash', 'business-profile' ),
+				'all_items'          => __( 'All Locations',               'business-profile' ),
 			),
 			'public'       => true,
 			'show_in_menu' => 'bpfwp-locations',
@@ -100,7 +100,7 @@ class bpfwpCustomPostTypes {
 			// contact page.
 			array (
 				'id'		=>	'bpfwp_contact_metabox',
-				'title'		=> __( 'Contact Details', BPFWP_TEXTDOMAIN ),
+				'title'		=> __( 'Contact Details', 'business-profile' ),
 				'callback'	=> array( $this, 'print_contact_metabox' ),
 				'post_type'	=> $this->location_cpt_slug,
 				'context'	=> 'side',
@@ -139,7 +139,7 @@ class bpfwpCustomPostTypes {
 
 		<div class="bpfwp-meta-phone">
 			<label for="bpfwp_location_phone">
-				<?php _e( 'Phone Number', BPFWP_TEXTDOMAIN ); ?>
+				<?php _e( 'Phone Number', 'business-profile' ); ?>
 			</label>
 			<input type="text" name="_location_phone" id="bpfwp_location_phone">
 		</div>
