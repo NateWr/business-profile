@@ -3,7 +3,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'rtbCompatibility', false ) ) {
+if ( ! class_exists( 'bpfwpCompatibility', false ) ) {
 	/**
 	 * Class to handle backwards compatibility issues for Restaurant Reservations
 	 *
