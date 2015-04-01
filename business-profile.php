@@ -40,7 +40,6 @@ class bpfwpInit {
 	public function __construct() {
 
 		// Common strings
-		define( 'BPFWP_TEXTDOMAIN', 'bpfwpdomain' );
 		define( 'BPFWP_PLUGIN_DIR', untrailingslashit( plugin_dir_path( __FILE__ ) ) );
 		define( 'BPFWP_PLUGIN_URL', untrailingslashit( plugins_url( basename( plugin_dir_path( __FILE__ ) ), basename( __FILE__ ) ) ) );
 		define( 'BPFWP_PLUGIN_FNAME', plugin_basename( __FILE__ ) );
@@ -75,6 +74,10 @@ class bpfwpInit {
 		// Add links to plugin listing
 		add_filter('plugin_action_links', array( $this, 'plugin_action_links' ), 10, 2);
 
+		// Load backwards compatibility functions
+		require_once( BPFWP_PLUGIN_DIR . '/includes/Compatibility.class.php' );
+		new bpfwpCompatibility();
+
 	}
 
 	/**
@@ -82,7 +85,7 @@ class bpfwpInit {
 	 * @since 0.0.1
 	 */
 	public function load_textdomain() {
-		load_plugin_textdomain( BPFWP_TEXTDOMAIN, false, plugin_basename( dirname( __FILE__ ) ) . "/languages/" );
+		load_plugin_textdomain( 'business-profile', false, plugin_basename( dirname( __FILE__ ) ) . "/languages/" );
 	}
 
 	/**
@@ -111,7 +114,7 @@ class bpfwpInit {
 
 		if ( $plugin == BPFWP_PLUGIN_FNAME ) {
 
-			$links['help'] = '<a href="' . BPFWP_PLUGIN_URL . '/docs" title="' . __( 'View the help documentation for Business Profile', BPFWP_TEXTDOMAIN ) . '">' . __( 'Help', BPFWP_TEXTDOMAIN ) . '</a>';
+			$links['help'] = '<a href="' . BPFWP_PLUGIN_URL . '/docs" title="' . __( 'View the help documentation for Business Profile', 'business-profile' ) . '">' . __( 'Help', 'business-profile' ) . '</a>';
 		}
 
 		return $links;

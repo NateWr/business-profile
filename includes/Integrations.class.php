@@ -104,7 +104,7 @@ class bpfwpIntegrations {
 		?>
 
 	<div class="bp-booking">
-		<a href="<?php echo get_permalink( $rtb_controller->settings->get_setting( 'booking-page'  ) ); ?>"><?php _e( 'Book a table', BPFWP_TEXTDOMAIN ); ?></a>
+		<a href="<?php echo get_permalink( $rtb_controller->settings->get_setting( 'booking-page'  ) ); ?>"><?php _e( 'Book a table', 'business-profile' ); ?></a>
 	</div>
 
 		<?php
@@ -124,11 +124,11 @@ class bpfwpIntegrations {
 		if ( !empty( $pos ) ) {
 			$a = array_slice( $toggles, 0, $pos );
 			$b = array_slice( $toggles, $pos );
-			$toggles = array_merge( $a, array( 'show_booking_link' => __( 'Show book a table link', BPFWP_TEXTDOMAIN ) ) , $b );
+			$toggles = array_merge( $a, array( 'show_booking_link' => __( 'Show book a table link', 'business-profile' ) ) , $b );
 
 		// If no short links are being displayed, just add it to the bottom.
 		} else {
-			$toggles['show_booking_link'] = __( 'Show book a table link', BPFWP_TEXTDOMAIN );
+			$toggles['show_booking_link'] = __( 'Show book a table link', 'business-profile' );
 		}
 
 		return $toggles;

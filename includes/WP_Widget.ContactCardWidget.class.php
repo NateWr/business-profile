@@ -22,21 +22,21 @@ class bpfwpContactCardWidget extends WP_Widget {
 
 		// Display toggles
 		$this->toggles = apply_filters( 'bpfwp_widget_display_toggles', array(
-				'show_name'					=> __( 'Show Name', BPFWP_TEXTDOMAIN ),
-				'show_address'				=> __( 'Show Address', BPFWP_TEXTDOMAIN ),
-				'show_get_directions'		=> __( 'Show link to get directions on Google Maps', BPFWP_TEXTDOMAIN ),
-				'show_phone'				=> __( 'Show Phone number', BPFWP_TEXTDOMAIN ),
-				'show_contact'				=> __( 'Show contact details', BPFWP_TEXTDOMAIN ),
-				'show_opening_hours'		=> __( 'Show Opening Hours', BPFWP_TEXTDOMAIN ),
-				'show_opening_hours_brief'	=> __( 'Show brief opening hours on one line', BPFWP_TEXTDOMAIN ),
-				'show_map'					=> __( 'Show Google Map', BPFWP_TEXTDOMAIN ),
+				'show_name'					=> __( 'Show Name', 'business-profile' ),
+				'show_address'				=> __( 'Show Address', 'business-profile' ),
+				'show_get_directions'		=> __( 'Show link to get directions on Google Maps', 'business-profile' ),
+				'show_phone'				=> __( 'Show Phone number', 'business-profile' ),
+				'show_contact'				=> __( 'Show contact details', 'business-profile' ),
+				'show_opening_hours'		=> __( 'Show Opening Hours', 'business-profile' ),
+				'show_opening_hours_brief'	=> __( 'Show brief opening hours on one line', 'business-profile' ),
+				'show_map'					=> __( 'Show Google Map', 'business-profile' ),
 			)
 		);
 
 		parent::__construct(
 			'bpfwp_contact_card_widget',
-			__('Contact Card', BPFWP_TEXTDOMAIN),
-			array( 'description' => __( 'Display a contact card with your name, address, phone number, opening hours and map.', BPFWP_TEXTDOMAIN ), )
+			__('Contact Card', 'business-profile'),
+			array( 'description' => __( 'Display a contact card with your name, address, phone number, opening hours and map.', 'business-profile' ), )
 		);
 
 	}

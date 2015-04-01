@@ -132,7 +132,7 @@ function bpwfwp_print_address() {
 
 	<?php if ( $bpfwp_controller->display_settings['show_get_directions'] ) : ?>
 	<div class="bp-directions">
-		<a href="//maps.google.com/maps?saddr=current+location&daddr=<?php echo urlencode( esc_attr( $address['text'] ) ); ?>"><?php _e( 'Get directions', BPFWP_TEXTDOMAIN ); ?></a>
+		<a href="//maps.google.com/maps?saddr=current+location&daddr=<?php echo urlencode( esc_attr( $address['text'] ) ); ?>"><?php _e( 'Get directions', 'business-profile' ); ?></a>
 	</div>
 	<?php endif;
 
@@ -188,7 +188,7 @@ function bpwfwp_print_contact() {
 	?>
 
 	<div class="bp-contact bp-contact-page" itemprop="ContactPoint" itemscope itemtype="http://schema.org/ContactPoint">
-		<a href="<?php echo get_post_permalink( $contact ); ?>"><?php _e( 'Contact', BPFWP_TEXTDOMAIN ); ?></a>
+		<a href="<?php echo get_post_permalink( $contact ); ?>"><?php _e( 'Contact', 'business-profile' ); ?></a>
 	</div>
 
 	<?php endif;
@@ -293,7 +293,7 @@ function bpwfwp_print_opening_hours() {
 
 
 			if ( empty( $slot['time'] ) ) {
-				$string .= __( ' all day', BPFWP_TEXTDOMAIN );
+				$string .= __( ' all day', 'business-profile' );
 			} else {
 				if ( !empty( $slot['time']['start'] ) ) {
 					$start = new DateTime( $slot['time']['start'] );
@@ -303,18 +303,18 @@ function bpwfwp_print_opening_hours() {
 				}
 
 				if ( empty( $start ) ) {
-					$string .= __( ' open until ', BPFWP_TEXTDOMAIN ) . $end->format( get_option( 'time_format' ) );
+					$string .= __( ' open until ', 'business-profile' ) . $end->format( get_option( 'time_format' ) );
 				} elseif ( empty( $end ) ) {
-					$string .= __( ' open from ', BPFWP_TEXTDOMAIN ) . $start->format( get_option( 'time_format' ) );
+					$string .= __( ' open from ', 'business-profile' ) . $start->format( get_option( 'time_format' ) );
 				} else {
-					$string .= ' ' . $start->format( get_option( 'time_format' ) ) . _x( '-', 'Separator between opening and closing times. Example: 9:00am-5:00pm', BPFWP_TEXTDOMAIN ) . $end->format( get_option( 'time_format' ) );
+					$string .= ' ' . $start->format( get_option( 'time_format' ) ) . _x( '-', 'Separator between opening and closing times. Example: 9:00am-5:00pm', 'business-profile' ) . $end->format( get_option( 'time_format' ) );
 				}
 			}
 
 			$slots[] = $string;
 		}
 
-		echo join( _x( '; ', 'Separator between multiple opening times in the brief opening hours. Example: Mo,We 9:00 AM - 5:00 PM; Tu,Th 10:00 AM - 5:00 PM', BPFWP_TEXTDOMAIN ), $slots );
+		echo join( _x( '; ', 'Separator between multiple opening times in the brief opening hours. Example: Mo,We 9:00 AM - 5:00 PM; Tu,Th 10:00 AM - 5:00 PM', 'business-profile' ), $slots );
 	?>
 
 	</div>
@@ -342,7 +342,7 @@ function bpwfwp_print_opening_hours() {
 		}
 
 		if ( empty( $rule['time'] ) ) {
-			$time = __( 'Open', BPFWP_TEXTDOMAIN );
+			$time = __( 'Open', 'business-profile' );
 
 		} else {
 
@@ -354,11 +354,11 @@ function bpwfwp_print_opening_hours() {
 			}
 
 			if ( empty( $start ) ) {
-				$time = __( 'Open until ', BPFWP_TEXTDOMAIN ) . $end->format( get_option( 'time_format' ) );
+				$time = __( 'Open until ', 'business-profile' ) . $end->format( get_option( 'time_format' ) );
 			} elseif ( empty( $end ) ) {
-				$time = __( 'Open from ', BPFWP_TEXTDOMAIN ) . $start->format( get_option( 'time_format' ) );
+				$time = __( 'Open from ', 'business-profile' ) . $start->format( get_option( 'time_format' ) );
 			} else {
-				$time = $start->format( get_option( 'time_format' ) ) . _x( '-', 'Separator between opening and closing times. Example: 9:00am-5:00pm', BPFWP_TEXTDOMAIN ) . $end->format( get_option( 'time_format' ) );
+				$time = $start->format( get_option( 'time_format' ) ) . _x( '-', 'Separator between opening and closing times. Example: 9:00am-5:00pm', 'business-profile' ) . $end->format( get_option( 'time_format' ) );
 			}
 		}
 
@@ -378,7 +378,7 @@ function bpwfwp_print_opening_hours() {
 		$weekdays_ordered = array();
 		foreach( $weekdays_display as $slug => $name ) {
 			if ( !array_key_exists( $slug, $weekdays ) ) {
-				$weekdays_ordered[$slug] = array( __( 'Closed', BPFWP_TEXTDOMAIN ) );
+				$weekdays_ordered[$slug] = array( __( 'Closed', 'business-profile' ) );
 			} else {
 				$weekdays_ordered[$slug] = $weekdays[$slug];
 			}
@@ -386,7 +386,7 @@ function bpwfwp_print_opening_hours() {
 	?>
 
 	<div class="bp-opening-hours">
-		<span class="bp-title"><?php _e( 'Opening Hours', BPFWP_TEXTDOMAIN ); ?></span>
+		<span class="bp-title"><?php _e( 'Opening Hours', 'business-profile' ); ?></span>
 		<?php foreach ( $weekdays_ordered as $weekday => $times ) :	?>
 		<div class="bp-weekday">
 			<span class="bp-weekday-name bp-weekday-<?php echo $weekday; ?>"><?php echo $weekdays_display[$weekday]; ?></span>
@@ -421,7 +421,7 @@ function bpwfwp_print_map() {
 		'bpfwp_map',
 		array(
 			'strings' => array(
-				'get_directions' => __( 'Get directions', BPFWP_TEXTDOMAIN ),
+				'get_directions' => __( 'Get directions', 'business-profile' ),
 			)
 		)
 	);
