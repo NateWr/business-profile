@@ -5,7 +5,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 if ( ! class_exists( 'bpfwpCompatibility', false ) ) {
 	/**
-	 * Class to handle backwards compatibility issues for Restaurant Reservations
+	 * Class to handle backwards compatibility issues for Business Profile.
 	 *
 	 * @since 1.0.6
 	 */
