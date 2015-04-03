@@ -172,7 +172,7 @@ function bpwfwp_print_contact() {
 	if ( !empty( $email ) ) :
 	?>
 
-	<div class="bp-contact bp-contact-email" itemprop="email">
+	<div class="bp-contact bp-contact-email" itemprop="email" content="<?php echo esc_attr( $email ); ?>">
 		<a href="mailto:<?php echo esc_attr( $email ); ?>"><?php echo $email; ?></a>
 	</div>
 
@@ -185,7 +185,8 @@ function bpwfwp_print_contact() {
 	?>
 
 	<div class="bp-contact bp-contact-page" itemprop="ContactPoint" itemscope itemtype="http://schema.org/ContactPoint">
-		<a href="<?php echo get_post_permalink( $contact ); ?>"><?php _e( 'Contact', 'business-profile' ); ?></a>
+		<meta itemprop="contactType" content="customer support">
+		<a href="<?php echo get_post_permalink( $contact ); ?>" itemprop="url" content="<?php echo esc_attr( get_post_permalink( $contact ) ); ?>"><?php _e( 'Contact', 'business-profile' ); ?></a>
 	</div>
 
 	<?php endif;
