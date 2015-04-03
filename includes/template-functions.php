@@ -117,17 +117,14 @@ function bpwfwp_print_address() {
 	global $bpfwp_controller;
 
 	$address = $bpfwp_controller->settings->get_setting( 'address' );
-
-	if ( $bpfwp_controller->display_settings['show_address'] ) :
 	?>
 
-	<div class="bp-address" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-		<?php echo nl2br( $address['text'] ); ?>
-	</div>
-
-	<?php else : ?>
 	<meta itemprop="address" content="<?php echo esc_attr( $address['text'] ); ?>">
 
+	<?php if ( $bpfwp_controller->display_settings['show_address'] ) : ?>
+	<div class="bp-address">
+		<?php echo nl2br( $address['text'] ); ?>
+	</div>
 	<?php endif; ?>
 
 	<?php if ( $bpfwp_controller->display_settings['show_get_directions'] ) : ?>
