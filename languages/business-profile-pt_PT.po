@@ -8,7 +8,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-05-07 17:32-0000\n"
+"PO-Revision-Date: 2015-05-07 21:08-0000\n"
 "X-Generator: Poedit 1.8beta2\n"
 "X-Poedit-KeywordsList: __;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;"
 "_nx_noop:1,2,3c;esc_attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;"
@@ -41,7 +41,7 @@ msgstr "Mostrar link para reserva de mesa"
 #. Plugin Name of the plugin/theme
 #: includes/Settings.class.php:86 includes/Settings.class.php:87
 msgid "Business Profile"
-msgstr "Perfil da Empresa"
+msgstr "Business Profile"
 
 #: includes/Settings.class.php:98
 msgid "Search Engine Optimization"
@@ -234,15 +234,15 @@ msgstr "Contacto"
 
 #: includes/template-functions.php:294
 msgid " all day"
-msgstr "Todo o dia"
+msgstr " todo o dia"
 
 #: includes/template-functions.php:304
 msgid " open until "
-msgstr "aberto até"
+msgstr " aberto até "
 
 #: includes/template-functions.php:306
 msgid " open from "
-msgstr "aberto das"
+msgstr " aberto das "
 
 #: includes/template-functions.php:325
 msgid "Monday"
@@ -278,11 +278,11 @@ msgstr "Aberto"
 
 #: includes/template-functions.php:355
 msgid "Open until "
-msgstr "Aberto até"
+msgstr "Aberto até "
 
 #: includes/template-functions.php:357
 msgid "Open from "
-msgstr "Aberto das"
+msgstr "Aberto das "
 
 #: includes/template-functions.php:379
 msgid "Closed"
@@ -311,12 +311,12 @@ msgstr "Theme of the Crop"
 #: includes/Settings.class.php:176
 msgctxt "separator between admin action links in address component"
 msgid " | "
-msgstr "|"
+msgstr " | "
 
 #: includes/Settings.class.php:177
 msgctxt "separates latitude and longitude"
 msgid ", "
-msgstr ","
+msgstr ", "
 
 #: includes/Settings.class.php:249
 msgctxt "Monday abbreviation"
@@ -500,4 +500,4 @@ msgctxt ""
 "Separator between multiple opening times in the brief opening hours. Example: "
 "Mo,We 9:00 AM - 5:00 PM; Tu,Th 10:00 AM - 5:00 PM"
 msgid "; "
-msgstr ";"
+msgstr "; "
