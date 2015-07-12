@@ -98,13 +98,13 @@ class bpfwpCustomPostTypes {
 			// Metabox to enter phone number,
 			// contact email address and select a
 			// contact page.
-			array (
-				'id'		=>	'bpfwp_contact_metabox',
-				'title'		=> __( 'Contact Details', 'business-profile' ),
-				'callback'	=> array( $this, 'print_contact_metabox' ),
-				'post_type'	=> $this->location_cpt_slug,
-				'context'	=> 'side',
-				'priority'	=> 'default'
+			array(
+				'id'        => 'bpfwp_contact_metabox',
+				'title'     => __( 'Contact Details', 'business-profile' ),
+				'callback'  => array( $this, 'print_contact_metabox' ),
+				'post_type' => $this->location_cpt_slug,
+				'context'   => 'side',
+				'priority'  => 'default',
 			),
 
 		);
