@@ -24,94 +24,94 @@
  */
 defined( 'ABSPATH' ) || exit;
 
-if ( ! class_exists( 'bpfwpInit', false ) ) {
-class bpfwpInit {
+if ( ! class_exists( 'bpfwpInit', false ) ) :
+	class bpfwpInit {
 
-	/**
-	 * Settings for displaying the contact card currently being handled
-	 * @since 0.0.1
-	 */
-	public $display_settings = array();
+		/**
+		 * Settings for displaying the contact card currently being handled
+		 * @since 0.0.1
+		 */
+		public $display_settings = array();
 
-	/**
-	 * Initialize the plugin and register hooks
-	 */
-	public function __construct() {
-		// Common strings
-		define( 'BPFWP_PLUGIN_DIR', untrailingslashit( plugin_dir_path( __FILE__ ) ) );
-		define( 'BPFWP_PLUGIN_URL', untrailingslashit( plugins_url( basename( plugin_dir_path( __FILE__ ) ), basename( __FILE__ ) ) ) );
-		define( 'BPFWP_PLUGIN_FNAME', plugin_basename( __FILE__ ) );
-		define( 'BPFWP_VERSION', 1 );
+		/**
+		 * Initialize the plugin and register hooks
+		 */
+		public function __construct() {
+			// Common strings
+			define( 'BPFWP_PLUGIN_DIR', untrailingslashit( plugin_dir_path( __FILE__ ) ) );
+			define( 'BPFWP_PLUGIN_URL', untrailingslashit( plugins_url( basename( plugin_dir_path( __FILE__ ) ), basename( __FILE__ ) ) ) );
+			define( 'BPFWP_PLUGIN_FNAME', plugin_basename( __FILE__ ) );
+			define( 'BPFWP_VERSION', 1 );
 
-		// Load the textdomain
-		add_action( 'init', array( $this, 'load_textdomain' ) );
+			// Load the textdomain
+			add_action( 'init', array( $this, 'load_textdomain' ) );
 
-		// Load settings
-		require_once( BPFWP_PLUGIN_DIR . '/includes/Settings.class.php' );
-		$this->settings = new bpfwpSettings();
+			// Load settings
+			require_once( BPFWP_PLUGIN_DIR . '/includes/Settings.class.php' );
+			$this->settings = new bpfwpSettings();
 
-		// Load the template functions which print the contact cards
-		require_once( BPFWP_PLUGIN_DIR . '/includes/template-functions.php' );
+			// Load the template functions which print the contact cards
+			require_once( BPFWP_PLUGIN_DIR . '/includes/template-functions.php' );
 
-		// Load integrations with third-party plugins/apps
-		require_once( BPFWP_PLUGIN_DIR . '/includes/Integrations.class.php' );
+			// Load integrations with third-party plugins/apps
+			require_once( BPFWP_PLUGIN_DIR . '/includes/Integrations.class.php' );
 
-		// Load assets
-		add_action( 'wp_enqueue_scripts', array( $this, 'register_assets' ) );
+			// Load assets
+			add_action( 'wp_enqueue_scripts', array( $this, 'register_assets' ) );
 
-		// Register the widget
-		add_action( 'widgets_init', array( $this, 'register_widgets' ) );
+			// Register the widget
+			add_action( 'widgets_init', array( $this, 'register_widgets' ) );
 
-		// Add links to plugin listing
-		add_filter( 'plugin_action_links', array( $this, 'plugin_action_links' ), 10, 2 );
+			// Add links to plugin listing
+			add_filter( 'plugin_action_links', array( $this, 'plugin_action_links' ), 10, 2 );
 
-		// Load backwards compatibility functions
-		require_once( BPFWP_PLUGIN_DIR . '/includes/Compatibility.class.php' );
-		new bpfwpCompatibility();
-	}
-
-	/**
-	 * Load the plugin textdomain for localistion
-	 * @since 0.0.1
-	 */
-	public function load_textdomain() {
-		load_plugin_textdomain(
-			'business-profile',
-			false,
-			plugin_basename( dirname( __FILE__ ) ) . '/languages'
-		);
-	}
-
-	/**
-	 * Register the front-end CSS styles
-	 * @since 0.0.1
-	 */
-	function register_assets() {
-		wp_register_style( 'bpfwp-default', BPFWP_PLUGIN_URL . '/assets/css/contact-card.css' );
-		wp_register_script( 'bpfwp-map', BPFWP_PLUGIN_URL . '/assets/js/map.js' );
-	}
-
-	/**
-	 * Register the widgets
-	 * @since 0.0.1
-	 */
-	public function register_widgets() {
-		require_once( BPFWP_PLUGIN_DIR . '/includes/WP_Widget.ContactCardWidget.class.php' );
-		register_widget( 'bpfwpContactCardWidget' );
-	}
-
-	/**
-	 * Add links to the plugin listing on the installed plugins page
-	 * @since 0.0.1
-	 */
-	public function plugin_action_links( $links, $plugin ) {
-		if ( BPFWP_PLUGIN_FNAME === $plugin ) {
-			$links['help'] = '<a href="' . BPFWP_PLUGIN_URL . '/docs" title="' . __( 'View the help documentation for Business Profile', 'business-profile' ) . '">' . __( 'Help', 'business-profile' ) . '</a>';
+			// Load backwards compatibility functions
+			require_once( BPFWP_PLUGIN_DIR . '/includes/Compatibility.class.php' );
+			new bpfwpCompatibility();
 		}
 
-		return $links;
+		/**
+		 * Load the plugin textdomain for localistion
+		 * @since 0.0.1
+		 */
+		public function load_textdomain() {
+			load_plugin_textdomain(
+				'business-profile',
+				false,
+				plugin_basename( dirname( __FILE__ ) ) . '/languages'
+			);
+		}
+
+		/**
+		 * Register the front-end CSS styles
+		 * @since 0.0.1
+		 */
+		function register_assets() {
+			wp_register_style( 'bpfwp-default', BPFWP_PLUGIN_URL . '/assets/css/contact-card.css' );
+			wp_register_script( 'bpfwp-map', BPFWP_PLUGIN_URL . '/assets/js/map.js' );
+		}
+
+		/**
+		 * Register the widgets
+		 * @since 0.0.1
+		 */
+		public function register_widgets() {
+			require_once( BPFWP_PLUGIN_DIR . '/includes/WP_Widget.ContactCardWidget.class.php' );
+			register_widget( 'bpfwpContactCardWidget' );
+		}
+
+		/**
+		 * Add links to the plugin listing on the installed plugins page
+		 * @since 0.0.1
+		 */
+		public function plugin_action_links( $links, $plugin ) {
+			if ( BPFWP_PLUGIN_FNAME === $plugin ) {
+				$links['help'] = '<a href="' . BPFWP_PLUGIN_URL . '/docs" title="' . __( 'View the help documentation for Business Profile', 'business-profile' ) . '">' . __( 'Help', 'business-profile' ) . '</a>';
+			}
+
+			return $links;
+		}
 	}
-}
-} // endif;
+endif;
 
 $bpfwp_controller = new bpfwpInit();

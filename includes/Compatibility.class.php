@@ -1,7 +1,7 @@
 <?php
 defined( 'ABSPATH' ) || exit;
 
-if ( ! class_exists( 'bpfwpCompatibility', false ) ) {
+if ( ! class_exists( 'bpfwpCompatibility', false ) ) :
 	/**
 	 * Class to handle backwards compatibility issues for Business Profile.
 	 *
@@ -47,4 +47,4 @@ if ( ! class_exists( 'bpfwpCompatibility', false ) ) {
 		}
 
 	}
-} // end class exists check.
+endif;
