@@ -2,10 +2,10 @@
 function bpInitializeMap() {
 	'use strict';
 
-	jQuery( '.bp-map' ).each(function( $ ) {
+	jQuery( '.bp-map' ).each(function() {
 		var bpMaps        = [],
 			bpInfoWindows = [],
-			$that         = $( this ),
+			$that         = jQuery( this ),
 			id            = $that.attr( 'id' ),
 			data          = $that.data(),
 			latLon, bpMapOptions, content, bpMapIframe;
