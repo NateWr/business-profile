@@ -9,11 +9,11 @@
  */
 defined( 'ABSPATH' ) || exit;
 
-/**
- * Print a contact card and add a shortcode
- * @since 0.0.1
- */
 if ( ! function_exists( 'bpwfwp_print_contact_card' ) ) :
+	/**
+	 * Print a contact card and add a shortcode
+	 * @since 0.0.1
+	 */
 	function bpwfwp_print_contact_card( $args = array() ) {
 
 		// Define shortcode attributes
@@ -89,11 +89,11 @@ if ( ! function_exists( 'bpwfwp_print_contact_card' ) ) :
 	}
 endif;
 
-/**
- * Print the name
- * @since 0.0.1
- */
 if ( ! function_exists( 'bpwfwp_print_name' ) ) :
+	/**
+	 * Print the name
+	 * @since 0.0.1
+	 */
 	function bpwfwp_print_name() {
 
 		global $bpfwp_controller;
@@ -116,11 +116,11 @@ if ( ! function_exists( 'bpwfwp_print_name' ) ) :
 	}
 endif;
 
-/**
- * Print the address with a get directions link to Google Maps
- * @since 0.0.1
- */
 if ( ! function_exists( 'bpwfwp_print_address' ) ) :
+	/**
+	 * Print the address with a get directions link to Google Maps
+	 * @since 0.0.1
+	 */
 	function bpwfwp_print_address() {
 
 		global $bpfwp_controller;
@@ -145,11 +145,11 @@ if ( ! function_exists( 'bpwfwp_print_address' ) ) :
 	}
 endif;
 
-/**
- * Print the phone number
- * @since 0.0.1
- */
 if ( ! function_exists( 'bpwfwp_print_phone' ) ) :
+	/**
+	 * Print the phone number
+	 * @since 0.0.1
+	 */
 	function bpwfwp_print_phone() {
 
 		global $bpfwp_controller;
@@ -168,11 +168,11 @@ if ( ! function_exists( 'bpwfwp_print_phone' ) ) :
 	}
 endif;
 
-/**
- * Print the contact link
- * @since 0.0.1
- */
 if ( ! function_exists( 'bpwfwp_print_contact' ) ) :
+	/**
+	 * Print the contact link
+	 * @since 0.0.1
+	 */
 	function bpwfwp_print_contact() {
 
 		global $bpfwp_controller;
@@ -203,11 +203,11 @@ if ( ! function_exists( 'bpwfwp_print_contact' ) ) :
 	}
 endif;
 
-/**
- * Print the opening hours
- * @since 0.0.1
- */
 if ( ! function_exists( 'bpwfwp_print_opening_hours' ) ) :
+	/**
+	 * Print the opening hours
+	 * @since 0.0.1
+	 */
 	function bpwfwp_print_opening_hours() {
 
 		global $bpfwp_controller;
@@ -410,11 +410,11 @@ if ( ! function_exists( 'bpwfwp_print_opening_hours' ) ) :
 	}
 endif;
 
-/**
- * Print a map to the address
- * @since 0.0.1
- */
 if ( ! function_exists( 'bpwfwp_print_map' ) ) :
+	/**
+	 * Print a map to the address
+	 * @since 0.0.1
+	 */
 	function bpwfwp_print_map() {
 
 		global $bpfwp_controller;
