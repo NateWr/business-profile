@@ -135,5 +135,3 @@ if ( ! class_exists( 'bpfwpIntegrations', false ) ) :
 
 	}
 endif;
-
-new bpfwpIntegrations();

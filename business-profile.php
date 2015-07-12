@@ -37,37 +37,37 @@ if ( ! class_exists( 'bpfwpInit', false ) ) :
 		 * Initialize the plugin and register hooks
 		 */
 		public function __construct() {
-			// Common strings
+			self::constants();
+			self::includes();
+			self::instantiate();
+			self::wp_hooks();
+		}
+
+		protected function constants() {
 			define( 'BPFWP_PLUGIN_DIR', untrailingslashit( plugin_dir_path( __FILE__ ) ) );
 			define( 'BPFWP_PLUGIN_URL', untrailingslashit( plugins_url( basename( plugin_dir_path( __FILE__ ) ), basename( __FILE__ ) ) ) );
 			define( 'BPFWP_PLUGIN_FNAME', plugin_basename( __FILE__ ) );
 			define( 'BPFWP_VERSION', 1 );
+		}
 
-			// Load the textdomain
-			add_action( 'init', array( $this, 'load_textdomain' ) );
-
-			// Load settings
-			require_once BPFWP_PLUGIN_DIR . '/includes/class-settings.php';
-			$this->settings = new bpfwpSettings();
-
-			// Load the template functions which print the contact cards
-			require_once BPFWP_PLUGIN_DIR . '/includes/template-functions.php';
-
-			// Load integrations with third-party plugins/apps
-			require_once BPFWP_PLUGIN_DIR . '/includes/class-integrations.php';
-
-			// Load assets
-			add_action( 'wp_enqueue_scripts', array( $this, 'register_assets' ) );
-
-			// Register the widget
-			add_action( 'widgets_init', array( $this, 'register_widgets' ) );
-
-			// Add links to plugin listing
-			add_filter( 'plugin_action_links', array( $this, 'plugin_action_links' ), 10, 2 );
-
-			// Load backwards compatibility functions
+		protected function includes() {
 			require_once BPFWP_PLUGIN_DIR . '/includes/class-compatibility.php';
+			require_once BPFWP_PLUGIN_DIR . '/includes/class-integrations.php';
+			require_once BPFWP_PLUGIN_DIR . '/includes/class-settings.php';
+			require_once BPFWP_PLUGIN_DIR . '/includes/template-functions.php';
+		}
+
+		protected function instantiate() {
 			new bpfwpCompatibility();
+			new bpfwpIntegrations();
+			$this->settings = new bpfwpSettings();
+		}
+
+		protected function wp_hooks() {
+			add_action( 'init',                array( $this, 'load_textdomain' ) );
+			add_action( 'wp_enqueue_scripts',  array( $this, 'register_assets' ) );
+			add_action( 'widgets_init',        array( $this, 'register_widgets' ) );
+			add_filter( 'plugin_action_links', array( $this, 'plugin_action_links' ), 10, 2 );
 		}
 
 		/**
