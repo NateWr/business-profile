@@ -111,7 +111,25 @@ if ( ! class_exists( 'bpfwpInit', false ) ) :
 
 			return $links;
 		}
+
+		/**
+		 * Return a single instance of the main plugin class.
+		 *
+		 * Developers and tests may still create multiple instances by spinning
+		 * them up directly, but for most uses, this method is preferred.
+		 *
+		 * @since 0.1.0
+		 * @static
+		 * @return bpfwpInit
+		 */
+		public static function instance() {
+			static $instance;
+			if ( null === $instance ) {
+				$instance = new self;
+			}
+			return $instance;
+		}
 	}
 endif;
 
-$bpfwp_controller = new bpfwpInit();
+$bpfwp_controller = bpfwpInit::instance();
