@@ -13,19 +13,19 @@ function bpInitializeMap() {
 
 		// Google Maps API v3
 		if ( 'undefined' !== typeof data.lat ) {
-			latLon = new google.maps.LatLng( data.lat, data.lon );
-			bpMapOptions = {
+			latLon          = new google.maps.LatLng( data.lat, data.lon );
+			data.addressURI = encodeURIComponent( data.address.replace( /(<([^>]+)>)/ig, ', ' ) );
+			bpMapOptions    = {
 				zoom:   15,
 				center: latLon
 			};
-
-			bpMaps[ id ] = new google.maps.Map( document.getElementById( id ), bpMapOptions );
+			bpMaps[ id ]    = new google.maps.Map( document.getElementById( id ), bpMapOptions );
 
 			content = '<div class="bp-map-info-window">' + '<p><strong>' + data.name + '</strong></p>' + '<p>' + data.address + '</p>';
 			if ( 'undefined' !== typeof data.phone ) {
 				content += '<p>' + data.phone + '</p>';
 			}
-			content += '<p><a target="_blank" href="//maps.google.com/maps?saddr=current+location&daddr=' + encodeURIComponent( data.address.replace( /(<([^>]+)>)/ig, '' ) ) + '">' + strings.getDirections + '</a></p>' + '</div>';
+			content += '<p><a target="_blank" href="//maps.google.com/maps?saddr=current+location&daddr=' + data.addressURI + '">' + strings.getDirections + '</a></p>' + '</div>';
 
 			bpInfoWindows[ id ] = new google.maps.InfoWindow( {
 				position: latLon,
