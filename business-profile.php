@@ -1,11 +1,11 @@
 <?php
 /**
  * Plugin Name: Business Profile
- * Plugin URI: http://themeofthecrop.com
+ * Plugin URI:  http://themeofthecrop.com
  * Description: Contact information, Google Maps and opening hours made easy for businesses.
- * Version: 1.0.6
- * Author: Theme of the Crop
- * Author URI: http://themeofthecrop.com
+ * Version:     1.0.6
+ * Author:      Theme of the Crop
+ * Author URI:  http://themeofthecrop.com
  * License:     GNU General Public License v2.0 or later
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  *
@@ -24,7 +24,7 @@
  */
 defined( 'ABSPATH' ) || exit;
 
-if ( !class_exists( 'bpfwpInit' ) ) {
+if ( ! class_exists( 'bpfwpInit', false ) ) {
 class bpfwpInit {
 
 	/**
@@ -37,7 +37,6 @@ class bpfwpInit {
 	 * Initialize the plugin and register hooks
 	 */
 	public function __construct() {
-
 		// Common strings
 		define( 'BPFWP_PLUGIN_DIR', untrailingslashit( plugin_dir_path( __FILE__ ) ) );
 		define( 'BPFWP_PLUGIN_URL', untrailingslashit( plugins_url( basename( plugin_dir_path( __FILE__ ) ), basename( __FILE__ ) ) ) );
@@ -64,12 +63,11 @@ class bpfwpInit {
 		add_action( 'widgets_init', array( $this, 'register_widgets' ) );
 
 		// Add links to plugin listing
-		add_filter('plugin_action_links', array( $this, 'plugin_action_links' ), 10, 2);
+		add_filter( 'plugin_action_links', array( $this, 'plugin_action_links' ), 10, 2 );
 
 		// Load backwards compatibility functions
 		require_once( BPFWP_PLUGIN_DIR . '/includes/Compatibility.class.php' );
 		new bpfwpCompatibility();
-
 	}
 
 	/**
@@ -77,7 +75,11 @@ class bpfwpInit {
 	 * @since 0.0.1
 	 */
 	public function load_textdomain() {
-		load_plugin_textdomain( 'business-profile', false, plugin_basename( dirname( __FILE__ ) ) . "/languages/" );
+		load_plugin_textdomain(
+			'business-profile',
+			false,
+			plugin_basename( dirname( __FILE__ ) ) . '/languages'
+		);
 	}
 
 	/**
@@ -103,16 +105,12 @@ class bpfwpInit {
 	 * @since 0.0.1
 	 */
 	public function plugin_action_links( $links, $plugin ) {
-
-		if ( $plugin == BPFWP_PLUGIN_FNAME ) {
-
+		if ( BPFWP_PLUGIN_FNAME === $plugin ) {
 			$links['help'] = '<a href="' . BPFWP_PLUGIN_URL . '/docs" title="' . __( 'View the help documentation for Business Profile', 'business-profile' ) . '">' . __( 'Help', 'business-profile' ) . '</a>';
 		}
 
 		return $links;
-
 	}
-
 }
 } // endif;
 
