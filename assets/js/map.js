@@ -12,14 +12,15 @@ function bp_initialize_map() {
 		var data = jQuery(this).data();
 
 		// Google Maps API v3
-		if ( typeof data.lat !== 'undefined' ) {
+		if ( 'undefined' !== typeof data.lat ) {
+			latLon          = new google.maps.LatLng( data.lat, data.lon );
+			data.addressURI = encodeURIComponent( data.address.replace( /(<([^>]+)>)/ig, ', ' ) );
 			bpfwpMapVars.map_options = bpfwpMapVars.map_options || {};
 			bpfwpMapVars.map_options.center = new google.maps.LatLng( data.lat, data.lon );
 			if ( typeof bpfwpMapVars.map_options.zoom === 'undefined' ) {
 				bpfwpMapVars.map_options.zoom = bpfwpMapVars.map_options.zoom || 15;
 			}
-
-			bpfwpMapVars.maps[ id ] = new google.maps.Map( document.getElementById( id ), bpfwpMapVars.map_options );
+			bpMaps[ id ]    = new google.maps.Map( document.getElementById( id ), bpfwpMapVars.map_options );
 
 			var content = '<div class="bp-map-info-window">' +
 				'<p><strong>' + data.name + '</strong></p>' +
@@ -29,7 +30,7 @@ function bp_initialize_map() {
 				content += '<p>' + data.phone + '</p>';
 			}
 
-			content += '<p><a target="_blank" href="//maps.google.com/maps?saddr=current+location&daddr=' + encodeURIComponent( data.address.replace( /(<([^>]+)>)/ig, '' ) ) + '">' + strings.getDirections + '</a></p>' + '</div>';
+			content += '<p><a target="_blank" href="//maps.google.com/maps?saddr=current+location&daddr=' + data.addressURI + '">' + strings.getDirections + '</a></p>' + '</div>';
 
 			bpfwpMapVars.info_windows[ id ] = new google.maps.InfoWindow({
 				position: bpfwpMapVars.map_options.center,
