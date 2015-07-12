@@ -92,6 +92,7 @@ if ( ! class_exists( 'bpfwpInit', false ) ) :
 			$this->settings = new bpfwpSettings();
 			if ( $this->settings->get_setting( 'multiple-locations' ) ) {
 				$this->cpts = new bpfwpCustomPostTypes();
+				$this->cpts->run();
 			}
 		}
 
