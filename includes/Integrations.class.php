@@ -9,8 +9,7 @@
  * The code that is loaded here should only pertain to more advanced features
  * and functions that few users will ever touch if they are using this theme.
  */
-if ( ! defined( 'ABSPATH' ) )
-	exit;
+defined( 'ABSPATH' ) || exit;
 
 if ( !class_exists( 'bpfwpIntegrations' ) ) {
 class bpfwpIntegrations {

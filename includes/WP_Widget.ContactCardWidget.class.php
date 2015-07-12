@@ -1,5 +1,5 @@
 <?php
-if ( ! defined( 'ABSPATH' ) ) exit;
+defined( 'ABSPATH' ) || exit;
 
 if ( ! class_exists( 'WP_Widget' ) ) {
 	require_once ABSPATH . 'wp-admin/includes/widgets.php';

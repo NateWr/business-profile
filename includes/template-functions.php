@@ -3,6 +3,8 @@
  * Template functions for rendering contact cards
  */
 
+defined( 'ABSPATH' ) || exit;
+
 /**
  * Print a contact card and add a shortcode
  * @since 0.0.1
