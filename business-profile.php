@@ -106,7 +106,11 @@ if ( ! class_exists( 'bpfwpInit', false ) ) :
 		 */
 		public function plugin_action_links( $links, $plugin ) {
 			if ( BPFWP_PLUGIN_FNAME === $plugin ) {
-				$links['help'] = '<a href="' . BPFWP_PLUGIN_URL . '/docs" title="' . __( 'View the help documentation for Business Profile', 'business-profile' ) . '">' . __( 'Help', 'business-profile' ) . '</a>';
+				$links['help'] = sprintf( '<a href="%s/docs" title="%s">%s</a>',
+					BPFWP_PLUGIN_URL,
+					__( 'View the help documentation for Business Profile', 'business-profile' ),
+					__( 'Help', 'business-profile' )
+				);
 			}
 
 			return $links;
