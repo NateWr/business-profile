@@ -47,14 +47,14 @@ if ( ! class_exists( 'bpfwpInit', false ) ) :
 			add_action( 'init', array( $this, 'load_textdomain' ) );
 
 			// Load settings
-			require_once( BPFWP_PLUGIN_DIR . '/includes/Settings.class.php' );
+			require_once BPFWP_PLUGIN_DIR . '/includes/class-settings.php';
 			$this->settings = new bpfwpSettings();
 
 			// Load the template functions which print the contact cards
-			require_once( BPFWP_PLUGIN_DIR . '/includes/template-functions.php' );
+			require_once BPFWP_PLUGIN_DIR . '/includes/template-functions.php';
 
 			// Load integrations with third-party plugins/apps
-			require_once( BPFWP_PLUGIN_DIR . '/includes/Integrations.class.php' );
+			require_once BPFWP_PLUGIN_DIR . '/includes/class-integrations.php';
 
 			// Load assets
 			add_action( 'wp_enqueue_scripts', array( $this, 'register_assets' ) );
@@ -66,7 +66,7 @@ if ( ! class_exists( 'bpfwpInit', false ) ) :
 			add_filter( 'plugin_action_links', array( $this, 'plugin_action_links' ), 10, 2 );
 
 			// Load backwards compatibility functions
-			require_once( BPFWP_PLUGIN_DIR . '/includes/Compatibility.class.php' );
+			require_once BPFWP_PLUGIN_DIR . '/includes/class-compatibility.php';
 			new bpfwpCompatibility();
 		}
 
@@ -96,7 +96,7 @@ if ( ! class_exists( 'bpfwpInit', false ) ) :
 		 * @since 0.0.1
 		 */
 		public function register_widgets() {
-			require_once( BPFWP_PLUGIN_DIR . '/includes/WP_Widget.ContactCardWidget.class.php' );
+			require_once BPFWP_PLUGIN_DIR . '/includes/class-contact-card-widget.php';
 			register_widget( 'bpfwpContactCardWidget' );
 		}
 
