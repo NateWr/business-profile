@@ -1,30 +1,8 @@
 //* global bpfwpMapVars, google */
-* Frontend Javascript for Business Profile maps */
+/* Frontend Javascript for Business Profile maps */
 var bpfwpMapVars = bpfwpMapVars || {};
-
-jQuery(document).ready(function ($) {
-
-	// Allow developers to override the maps api loading and initializing
-	if ( !bpfwpMapVars.autoload_google_maps ) {
-		return;
-	}
-
-	// Load Google Maps API and initialize maps
-	if ( typeof google === 'undefined' || typeof google.maps === 'undefined' ) {
-		var bp_map_script = document.createElement( 'script' );
-		bp_map_script.type = 'text/javascript';
-		bp_map_script.src = '//maps.googleapis.com/maps/api/js?v=3.exp&callback=bp_initialize_map';
-		document.body.appendChild( bp_map_script );
-
-	// If the API is already loaded (eg - by a third-party theme or plugin),
-	// just initialize the map
-	} else {
-		bp_initialize_map();
-	}
-
-});
-
 function bp_initialize_map() {
+	'use strict';
 
 	bpfwpMapVars.maps = [];
 	bpfwpMapVars.info_windows = [];
@@ -63,13 +41,15 @@ function bp_initialize_map() {
 			jQuery(this).trigger( 'bpfwp.map_initialized', [ id, bpfwpMapVars.maps[id], bpfwpMapVars.info_windows[id] ] );
 
 		// Google Maps iframe embed (fallback if no lat/lon data available)
-		} else if ( typeof data.address !== '' ) {
+		} else if ( '' !== data.address ) {
+			bpMapIframe = document.createElement( 'iframe' );
+
 			var bp_map_iframe = document.createElement( 'iframe' );
 			bp_map_iframe.frameBorder = 0;
 			bp_map_iframe.style.width = '100%';
 			bp_map_iframe.style.height = '100%';
 
-			if ( typeof data.name !== '' ) {
+			if ( '' !== data.name ) {
 				data.address = data.name + ',' + data.address;
 			}
 			bp_map_iframe.src = '//maps.google.com/maps?output=embed&q=' + encodeURIComponent( data.address );
@@ -81,3 +61,25 @@ function bp_initialize_map() {
 		}
 	});
 }
+
+jQuery(document).ready(function ($) {
+
+	// Allow developers to override the maps api loading and initializing
+	if ( !bpfwpMapVars.autoload_google_maps ) {
+		return;
+	}
+
+	// Load Google Maps API and initialize maps
+	if ( typeof google === 'undefined' || typeof google.maps === 'undefined' ) {
+		var bp_map_script = document.createElement( 'script' );
+		bp_map_script.type = 'text/javascript';
+		bp_map_script.src = '//maps.googleapis.com/maps/api/js?v=3.exp&callback=bp_initialize_map';
+		document.body.appendChild( bp_map_script );
+
+	// If the API is already loaded (eg - by a third-party theme or plugin),
+	// just initialize the map
+	} else {
+		bp_initialize_map();
+	}
+
+});
