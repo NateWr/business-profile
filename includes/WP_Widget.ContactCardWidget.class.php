@@ -51,7 +51,7 @@ class bpfwpContactCardWidget extends WP_Widget {
 
 		// Print the widget's HTML markup
 		echo $args['before_widget'];
-		if( isset( $instance['title'] ) ) {
+		if ( isset( $instance['title'] ) ) {
 			$title = apply_filters( 'widget_title', $instance['title'] );
 			echo $args['before_title'] . $title . $args['after_title'];
 		}
@@ -72,10 +72,10 @@ class bpfwpContactCardWidget extends WP_Widget {
 			<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text"<?php if ( isset( $instance['title'] ) ) : ?> value="<?php echo esc_attr( $instance['title'] ); ?>"<?php endif; ?>>
 		</p>
 
-		<?php foreach( $this->toggles as $id => $label ) : ?>
+		<?php foreach ( $this->toggles as $id => $label ) : ?>
 
 		<p>
-			<input type="checkbox" id="<?php echo $this->get_field_id( $id ); ?>" name="<?php echo $this->get_field_name( $id ); ?>" value="1"<?php if ( !empty( $instance[$id] ) ) : ?> checked="checked"<?php endif; ?>>
+			<input type="checkbox" id="<?php echo $this->get_field_id( $id ); ?>" name="<?php echo $this->get_field_name( $id ); ?>" value="1"<?php if ( ! empty( $instance[$id] ) ) : ?> checked="checked"<?php endif; ?>>
 			<label for="<?php echo $this->get_field_id( $id ); ?>"> <?php echo $label; ?></label>
 		</p>
 
@@ -89,11 +89,11 @@ class bpfwpContactCardWidget extends WP_Widget {
 	public function update( $new_instance, $old_instance ) {
 
 		$instance = array();
-		if ( !empty( $new_instance['title'] ) ) {
+		if ( ! empty( $new_instance['title'] ) ) {
 			$instance['title'] = strip_tags( $new_instance['title'] );
 		}
 
-		foreach( $this->toggles as $id => $label ) {
+		foreach ( $this->toggles as $id => $label ) {
 			$instance[ $id ] = empty( $new_instance[ $id ] ) ? false : true;
 		}
 

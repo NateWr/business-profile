@@ -9,7 +9,7 @@ defined( 'ABSPATH' ) || exit;
  * Print a contact card and add a shortcode
  * @since 0.0.1
  */
-if ( !function_exists( 'bpwfwp_print_contact_card' ) ) {
+if ( ! function_exists( 'bpwfwp_print_contact_card' ) ) {
 function bpwfwp_print_contact_card( $args = array() ) {
 
 	// Define shortcode attributes
@@ -77,7 +77,7 @@ function bpwfwp_print_contact_card( $args = array() ) {
 
 	return apply_filters( 'bpwfwp_contact_card_output', $output );
 }
-if ( !shortcode_exists( 'contact-card' ) ) {
+if (  !shortcode_exists( 'contact-card' ) ) {
 	add_shortcode( 'contact-card', 'bpwfwp_print_contact_card' );
 }
 } // endif;
@@ -86,7 +86,7 @@ if ( !shortcode_exists( 'contact-card' ) ) {
  * Print the name
  * @since 0.0.1
  */
-if ( !function_exists( 'bpwfwp_print_name' ) ) {
+if ( ! function_exists( 'bpwfwp_print_name' ) ) {
 function bpwfwp_print_name() {
 
 	global $bpfwp_controller;
@@ -113,7 +113,7 @@ function bpwfwp_print_name() {
  * Print the address with a get directions link to Google Maps
  * @since 0.0.1
  */
-if ( !function_exists( 'bpwfwp_print_address' ) ) {
+if ( ! function_exists( 'bpwfwp_print_address' ) ) {
 function bpwfwp_print_address() {
 
 	global $bpfwp_controller;
@@ -142,7 +142,7 @@ function bpwfwp_print_address() {
  * Print the phone number
  * @since 0.0.1
  */
-if ( !function_exists( 'bpwfwp_print_phone' ) ) {
+if ( ! function_exists( 'bpwfwp_print_phone' ) ) {
 function bpwfwp_print_phone() {
 
 	global $bpfwp_controller;
@@ -165,13 +165,13 @@ function bpwfwp_print_phone() {
  * Print the contact link
  * @since 0.0.1
  */
-if ( !function_exists( 'bpwfwp_print_contact' ) ) {
+if ( ! function_exists( 'bpwfwp_print_contact' ) ) {
 function bpwfwp_print_contact() {
 
 	global $bpfwp_controller;
 
 	$email = $bpfwp_controller->settings->get_setting( 'contact-email' );
-	if ( !empty( $email ) ) :
+	if ( ! empty( $email ) ) :
 	?>
 
 	<div class="bp-contact bp-contact-email" itemprop="email" content="<?php echo esc_attr( $email ); ?>">
@@ -183,7 +183,7 @@ function bpwfwp_print_contact() {
 	endif;
 
 	$contact = $bpfwp_controller->settings->get_setting( 'contact-page' );
-	if ( !empty( $contact ) ) :
+	if ( ! empty( $contact ) ) :
 	?>
 
 	<div class="bp-contact bp-contact-page" itemprop="ContactPoint" itemscope itemtype="http://schema.org/ContactPoint">
@@ -200,7 +200,7 @@ function bpwfwp_print_contact() {
  * Print the opening hours
  * @since 0.0.1
  */
-if ( !function_exists( 'bpwfwp_print_opening_hours' ) ) {
+if ( ! function_exists( 'bpwfwp_print_opening_hours' ) ) {
 function bpwfwp_print_opening_hours() {
 
 	global $bpfwp_controller;
@@ -218,7 +218,7 @@ function bpwfwp_print_opening_hours() {
 	$hours = $bpfwp_controller->settings->get_setting( 'opening-hours' );
 
 	// Output proper schema.org format
-	foreach( $hours as $slot ) {
+	foreach ( $hours as $slot ) {
 
 		// Skip this entry if no weekdays are set
 		if ( empty( $slot['weekdays'] ) ) {
@@ -226,12 +226,12 @@ function bpwfwp_print_opening_hours() {
 		}
 
 		$days = array();
-		foreach( $slot['weekdays'] as $day => $val ) {
+		foreach ( $slot['weekdays'] as $day => $val ) {
 			$days[] = $weekdays_schema[ $day ];
 		}
-		$string = !empty( $days ) ? join( ',', $days ) : '';
+		$string = ! empty( $days ) ? join( ',', $days ) : '';
 
-		if ( !empty( $string) && !empty( $slot['time'] ) ) {
+		if ( ! empty( $string) && ! empty( $slot['time'] ) ) {
 
 			if ( empty( $slot['time']['start'] ) ) {
 				$start = '00:00';
@@ -278,7 +278,7 @@ function bpwfwp_print_opening_hours() {
 
 	<?php
 		$slots = array();
-		foreach( $hours as $slot ) {
+		foreach ( $hours as $slot ) {
 
 			// Skip this entry if no weekdays are set
 			if ( empty( $slot['weekdays'] ) ) {
@@ -286,19 +286,19 @@ function bpwfwp_print_opening_hours() {
 			}
 
 			$days = array();
-			foreach( $slot['weekdays'] as $day => $val ) {
+			foreach ( $slot['weekdays'] as $day => $val ) {
 				$days[] = $weekdays_schema[ $day ];
 			}
-			$string = !empty( $days ) ? join( ',', $days ) : '';
+			$string = ! empty( $days ) ? join( ',', $days ) : '';
 
 
 			if ( empty( $slot['time'] ) ) {
 				$string .= __( ' all day', 'business-profile' );
 			} else {
-				if ( !empty( $slot['time']['start'] ) ) {
+				if ( ! empty( $slot['time']['start'] ) ) {
 					$start = new DateTime( $slot['time']['start'] );
 				}
-				if ( !empty( $slot['time']['end'] ) ) {
+				if ( ! empty( $slot['time']['end'] ) ) {
 					$end = new DateTime( $slot['time']['end'] );
 				}
 
@@ -334,7 +334,7 @@ function bpwfwp_print_opening_hours() {
 	);
 
 	$weekdays = array();
-	foreach( $hours as $rule ) {
+	foreach ( $hours as $rule ) {
 
 		// Skip this entry if no weekdays are set
 		if ( empty( $rule['weekdays'] ) ) {
@@ -346,10 +346,10 @@ function bpwfwp_print_opening_hours() {
 
 		} else {
 
-			if ( !empty( $rule['time']['start'] ) ) {
+			if ( ! empty( $rule['time']['start'] ) ) {
 				$start = new DateTime( $rule['time']['start'] );
 			}
-			if ( !empty( $rule['time']['end'] ) ) {
+			if ( ! empty( $rule['time']['end'] ) ) {
 				$end = new DateTime( $rule['time']['end'] );
 			}
 
@@ -362,7 +362,7 @@ function bpwfwp_print_opening_hours() {
 			}
 		}
 
-		foreach( $rule['weekdays'] as $day => $val ) {
+		foreach ( $rule['weekdays'] as $day => $val ) {
 
 			if ( !array_key_exists( $day, $weekdays ) ) {
 				$weekdays[$day] = array();
@@ -376,7 +376,7 @@ function bpwfwp_print_opening_hours() {
 
 		// Order the weekdays and add any missing days as "closed"
 		$weekdays_ordered = array();
-		foreach( $weekdays_display as $slug => $name ) {
+		foreach ( $weekdays_display as $slug => $name ) {
 			if ( !array_key_exists( $slug, $weekdays ) ) {
 				$weekdays_ordered[$slug] = array( __( 'Closed', 'business-profile' ) );
 			} else {
@@ -408,7 +408,7 @@ function bpwfwp_print_opening_hours() {
  * Print a map to the address
  * @since 0.0.1
  */
-if ( !function_exists( 'bpwfwp_print_map' ) ) {
+if ( ! function_exists( 'bpwfwp_print_map' ) ) {
 function bpwfwp_print_map() {
 
 	global $bpfwp_controller;
@@ -438,11 +438,11 @@ function bpwfwp_print_map() {
 	$attr = '';
 
 	$phone = $bpfwp_controller->settings->get_setting( 'phone' );
-	if ( !empty( $phone ) ) {
+	if ( ! empty( $phone ) ) {
 		$attr .= ' data-phone="' . esc_attr( $phone ) . '"';
 	}
 
-	if ( !empty( $address['lat'] ) && !empty( $address['lon'] ) ) {
+	if ( ! empty( $address['lat'] ) && ! empty( $address['lon'] ) ) {
 		$attr .= ' data-lat="' . esc_attr( $address['lat'] ) . '" data-lon="' . esc_attr( $address['lon'] ) . '"';
 	}
 	?>

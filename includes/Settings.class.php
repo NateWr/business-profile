@@ -1,7 +1,7 @@
 <?php
 defined( 'ABSPATH' ) || exit;
 
-if ( !class_exists( 'bpfwpSettings' ) ) {
+if ( ! class_exists( 'bpfwpSettings' ) ) {
 /**
  * Class to handle configurable settings for Business Profile
  *
@@ -53,11 +53,11 @@ class bpfwpSettings {
 			$this->settings = get_option( 'bpfwp-settings' );
 		}
 
-		if ( !empty( $this->settings[ $setting ] ) ) {
+		if ( ! empty( $this->settings[ $setting ] ) ) {
 			return $this->settings[ $setting ];
 		}
 
-		if ( !empty( $this->defaults[ $setting ] ) ) {
+		if ( ! empty( $this->defaults[ $setting ] ) ) {
 			return $this->defaults[ $setting ];
 		}
 

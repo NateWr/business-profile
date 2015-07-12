@@ -11,7 +11,7 @@
  */
 defined( 'ABSPATH' ) || exit;
 
-if ( !class_exists( 'bpfwpIntegrations' ) ) {
+if ( ! class_exists( 'bpfwpIntegrations' ) ) {
 class bpfwpIntegrations {
 
 	public function __construct() {
@@ -63,7 +63,7 @@ class bpfwpIntegrations {
 		global $rtb_controller;
 		$booking_page = $rtb_controller->settings->get_setting( 'booking-page' );
 
-		if ( !empty( $booking_page ) ) {
+		if ( ! empty( $booking_page ) ) {
 
 			// Place the link at the end of other short links if they're
 			// displayed
@@ -75,7 +75,7 @@ class bpfwpIntegrations {
 				$pos = array_search( 'address', array_keys( $data ) );
 			}
 
-			if ( !empty( $pos ) ) {
+			if ( ! empty( $pos ) ) {
 				$a = array_slice( $data, 0, $pos );
 				$b = array_slice( $data, $pos );
 				$data = array_merge( $a, array( 'booking_page' => array( $this, 'bpfwp_print_booking_link' ) ) , $b );
@@ -120,7 +120,7 @@ class bpfwpIntegrations {
 		// Place the option below the contact option
 		$pos = array_search( 'show_contact', array_keys( $toggles ) );
 
-		if ( !empty( $pos ) ) {
+		if ( ! empty( $pos ) ) {
 			$a = array_slice( $toggles, 0, $pos );
 			$b = array_slice( $toggles, $pos );
 			$toggles = array_merge( $a, array( 'show_booking_link' => __( 'Show book a table link', 'business-profile' ) ) , $b );
