@@ -424,10 +424,10 @@ if ( ! function_exists( 'bpwfwp_print_map' ) ) :
 		wp_enqueue_script( 'bpfwp-map' );
 		wp_localize_script(
 			'bpfwp-map',
-			'bpfwp_map',
+			'bpfwpMapVars',
 			array(
 				'strings' => array(
-					'get_directions' => __( 'Get directions', 'business-profile' ),
+					'getDirections' => __( 'Get Directions', 'business-profile' ),
 				),
 			)
 		);

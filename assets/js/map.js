@@ -1,4 +1,4 @@
-
+/* global bpfwpMapVars, google */
 function bpInitializeMap() {
 	'use strict';
 
@@ -8,6 +8,7 @@ function bpInitializeMap() {
 			$that         = jQuery( this ),
 			id            = $that.attr( 'id' ),
 			data          = $that.data(),
+			strings       = bpfwpMapVars.strings,
 			latLon, bpMapOptions, content, bpMapIframe;
 
 		// Google Maps API v3
@@ -24,7 +25,7 @@ function bpInitializeMap() {
 			if ( 'undefined' !== typeof data.phone ) {
 				content += '<p>' + data.phone + '</p>';
 			}
-			content += '<p><a target="_blank" href="//maps.google.com/maps?saddr=current+location&daddr=' + encodeURIComponent( data.address ) + '">Get Directions</a></p>' + '</div>';
+			content += '<p><a target="_blank" href="//maps.google.com/maps?saddr=current+location&daddr=' + encodeURIComponent( data.address ) + '">' + strings.getDirections + '</a></p>' + '</div>';
 
 			bpInfoWindows[ id ] = new google.maps.InfoWindow( {
 				position: latLon,
