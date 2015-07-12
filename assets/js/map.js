@@ -34,14 +34,14 @@ function bpInitializeMap() {
 			bpInfoWindows[ id ].open( bpMaps[ id ] );
 
 		// Google Maps iframe embed (fallback if no lat/lon data available)
-		} else if ( '' !== typeof data.address ) {
+		} else if ( '' !== data.address ) {
 			bpMapIframe = document.createElement( 'iframe' );
 
 			bpMapIframe.frameBorder  = 0;
 			bpMapIframe.style.width  = '100%';
 			bpMapIframe.style.height = '100%';
 
-			if ( '' !== typeof data.name ) {
+			if ( '' !== data.name ) {
 				data.address = data.name + ',' + data.address;
 			}
 			bpMapIframe.src = '//maps.google.com/maps?output=embed&q=' + encodeURIComponent( data.address );
