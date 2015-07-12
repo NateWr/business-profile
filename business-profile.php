@@ -54,7 +54,7 @@ if ( ! class_exists( 'bpfwpInit', false ) ) :
 			define( 'BPFWP_PLUGIN_DIR', untrailingslashit( plugin_dir_path( __FILE__ ) ) );
 			define( 'BPFWP_PLUGIN_URL', untrailingslashit( plugin_dir_url( __FILE__ ) ) );
 			define( 'BPFWP_PLUGIN_FNAME', plugin_basename( __FILE__ ) );
-			define( 'BPFWP_VERSION', 1 );
+			define( 'BPFWP_VERSION', '1.0.6' );
 		}
 
 		/**
@@ -115,8 +115,19 @@ if ( ! class_exists( 'bpfwpInit', false ) ) :
 		 * @since 0.0.1
 		 */
 		function register_assets() {
-			wp_register_style( 'bpfwp-default', BPFWP_PLUGIN_URL . '/assets/css/contact-card.css' );
-			wp_register_script( 'bpfwp-map', BPFWP_PLUGIN_URL . '/assets/js/map.js' );
+			wp_register_style(
+				'bpfwp-default',
+				BPFWP_PLUGIN_URL . '/assets/css/contact-card.css',
+				null,
+				BPFWP_VERSION
+			);
+			wp_register_script(
+				'bpfwp-map',
+				BPFWP_PLUGIN_URL . '/assets/js/map.js',
+				array( 'jquery' ),
+				BPFWP_VERSION,
+				true
+			);
 		}
 
 		/**
