@@ -14,14 +14,14 @@ if ( ! function_exists( 'bpwfwp_print_contact_card' ) ) :
 
 		// Define shortcode attributes
 		$defaults = array(
-			'show_name'					=> true,
-			'show_address'				=> true,
-			'show_get_directions'		=> true,
-			'show_phone'				=> true,
-			'show_contact'				=> true,
-			'show_opening_hours'		=> true,
-			'show_opening_hours_brief'	=> false,
-			'show_map'					=> true,
+			'show_name'                => true,
+			'show_address'             => true,
+			'show_get_directions'      => true,
+			'show_phone'               => true,
+			'show_contact'             => true,
+			'show_opening_hours'       => true,
+			'show_opening_hours_brief' => false,
+			'show_map'                 => true,
 		);
 
 		$defaults = apply_filters( 'bpwfp_contact_card_defaults', $defaults );
@@ -59,7 +59,6 @@ if ( ! function_exists( 'bpwfwp_print_contact_card' ) ) :
 
 		$data = apply_filters( 'bpwfwp_component_callbacks', $data );
 
-
 		if ( apply_filters( 'bpfwp-load-frontend-assets', true ) ) {
 			wp_enqueue_style( 'dashicons' );
 			wp_enqueue_style( 'bpfwp-default' );
@@ -69,7 +68,11 @@ if ( ! function_exists( 'bpwfwp_print_contact_card' ) ) :
 		?>
 
 		<address class="bp-contact-card" itemscope itemtype="http://schema.org/<?php echo $bpfwp_controller->settings->get_setting( 'schema_type' ); ?>">
-			<?php foreach ( $data as $data => $callback ) { call_user_func( $callback ); } ?>
+			<?php
+			foreach ( $data as $data => $callback ) {
+				call_user_func( $callback );
+			}
+			?>
 		</address>
 
 		<?php
@@ -206,13 +209,13 @@ if ( ! function_exists( 'bpwfwp_print_opening_hours' ) ) :
 		global $bpfwp_controller;
 
 		$weekdays_schema = array(
-			'monday'	=> 'Mo',
-			'tuesday'	=> 'Tu',
-			'wednesday'	=> 'We',
-			'thursday'	=> 'Th',
-			'friday'	=> 'Fr',
-			'saturday'	=> 'Sa',
-			'sunday'	=> 'Su',
+			'monday'    => 'Mo',
+			'tuesday'   => 'Tu',
+			'wednesday' => 'We',
+			'thursday'  => 'Th',
+			'friday'    => 'Fr',
+			'saturday'  => 'Sa',
+			'sunday'    => 'Su',
 		);
 
 		$hours = $bpfwp_controller->settings->get_setting( 'opening-hours' );
@@ -237,12 +240,12 @@ if ( ! function_exists( 'bpwfwp_print_opening_hours' ) ) :
 					$start = '00:00';
 				} else {
 					$start = trim( substr( $slot['time']['start'], 0, -2 ) );
-					if ( substr( $slot['time']['start'], -2 ) == 'PM' && $start !== '12:00' ) {
+					if ( substr( $slot['time']['start'], -2 ) === 'PM' && '12:00' !== $start ) {
 						$split = explode( ':', $start );
 						$split[0] += 12;
 						$start = join( ':', $split );
 					}
-					if ( substr( $slot['time']['start'], -2 ) == 'AM' && $start == '12:00' ) {
+					if ( substr( $slot['time']['start'], -2 ) === 'AM' && '12:00' === $start ) {
 						$start = '00:00';
 					}
 				}
@@ -251,12 +254,12 @@ if ( ! function_exists( 'bpwfwp_print_opening_hours' ) ) :
 					$end = '24:00';
 				} else {
 					$end = trim( substr( $slot['time']['end'], 0, -2 ) );
-					if ( substr( $slot['time']['end'], -2 ) == 'PM' ) {
+					if ( substr( $slot['time']['end'], -2 ) === 'PM' ) {
 						$split = explode( ':', $end );
 						$split[0] += 12;
 						$end = join( ':', $split );
 					}
-					if ( substr( $slot['time']['start'], -2 ) == 'AM' && $start == '12:00' ) {
+					if ( substr( $slot['time']['start'], -2 ) === 'AM' && '12:00' === $start ) {
 						$end = '24:00';
 					}
 				}
@@ -267,7 +270,7 @@ if ( ! function_exists( 'bpwfwp_print_opening_hours' ) ) :
 		}
 
 		// Output display format
-		if ( !$bpfwp_controller->display_settings['show_opening_hours'] ) {
+		if ( ! $bpfwp_controller->display_settings['show_opening_hours'] ) {
 			return;
 		}
 
@@ -276,7 +279,7 @@ if ( ! function_exists( 'bpwfwp_print_opening_hours' ) ) :
 
 		<div class="bp-opening-hours-brief">
 
-		<?php
+			<?php
 			$slots = array();
 			foreach ( $hours as $slot ) {
 
@@ -290,7 +293,6 @@ if ( ! function_exists( 'bpwfwp_print_opening_hours' ) ) :
 					$days[] = $weekdays_schema[ $day ];
 				}
 				$string = ! empty( $days ) ? join( ',', $days ) : '';
-
 
 				if ( empty( $slot['time'] ) ) {
 					$string .= __( ' all day', 'business-profile' );
@@ -315,7 +317,7 @@ if ( ! function_exists( 'bpwfwp_print_opening_hours' ) ) :
 			}
 
 			echo join( _x( '; ', 'Separator between multiple opening times in the brief opening hours. Example: Mo,We 9:00 AM - 5:00 PM; Tu,Th 10:00 AM - 5:00 PM', 'business-profile' ), $slots );
-		?>
+			?>
 
 		</div>
 
@@ -324,13 +326,13 @@ if ( ! function_exists( 'bpwfwp_print_opening_hours' ) ) :
 		endif; // brief opening hours
 
 		$weekdays_display = array(
-			'monday'	=> __( 'Monday' ),
-			'tuesday'	=> __( 'Tuesday' ),
-			'wednesday'	=> __( 'Wednesday' ),
-			'thursday'	=> __( 'Thursday' ),
-			'friday'	=> __( 'Friday' ),
-			'saturday'	=> __( 'Saturday' ),
-			'sunday'	=> __( 'Sunday' ),
+			'monday'    => __( 'Monday' ),
+			'tuesday'   => __( 'Tuesday' ),
+			'wednesday' => __( 'Wednesday' ),
+			'thursday'  => __( 'Thursday' ),
+			'friday'    => __( 'Friday' ),
+			'saturday'  => __( 'Saturday' ),
+			'sunday'    => __( 'Sunday' ),
 		);
 
 		$weekdays = array();
@@ -364,11 +366,11 @@ if ( ! function_exists( 'bpwfwp_print_opening_hours' ) ) :
 
 			foreach ( $rule['weekdays'] as $day => $val ) {
 
-				if ( !array_key_exists( $day, $weekdays ) ) {
-					$weekdays[$day] = array();
+				if ( ! array_key_exists( $day, $weekdays ) ) {
+					$weekdays[ $day ] = array();
 				}
 
-				$weekdays[$day][] = $time;
+				$weekdays[ $day ][] = $time;
 			}
 		}
 
@@ -377,10 +379,10 @@ if ( ! function_exists( 'bpwfwp_print_opening_hours' ) ) :
 			// Order the weekdays and add any missing days as "closed"
 			$weekdays_ordered = array();
 			foreach ( $weekdays_display as $slug => $name ) {
-				if ( !array_key_exists( $slug, $weekdays ) ) {
-					$weekdays_ordered[$slug] = array( __( 'Closed', 'business-profile' ) );
+				if ( ! array_key_exists( $slug, $weekdays ) ) {
+					$weekdays_ordered[ $slug ] = array( __( 'Closed', 'business-profile' ) );
 				} else {
-					$weekdays_ordered[$slug] = $weekdays[$slug];
+					$weekdays_ordered[ $slug ] = $weekdays[ $slug ];
 				}
 			}
 		?>
@@ -389,7 +391,7 @@ if ( ! function_exists( 'bpwfwp_print_opening_hours' ) ) :
 			<span class="bp-title"><?php _e( 'Opening Hours', 'business-profile' ); ?></span>
 			<?php foreach ( $weekdays_ordered as $weekday => $times ) :	?>
 			<div class="bp-weekday">
-				<span class="bp-weekday-name bp-weekday-<?php echo $weekday; ?>"><?php echo $weekdays_display[$weekday]; ?></span>
+				<span class="bp-weekday-name bp-weekday-<?php echo $weekday; ?>"><?php echo $weekdays_display[ $weekday ]; ?></span>
 				<span class="bp-times">
 				<?php foreach ( $times as $time ) : ?>
 					<span class="bp-time"><?php echo $time; ?></span>
@@ -422,7 +424,7 @@ if ( ! function_exists( 'bpwfwp_print_map' ) ) :
 			array(
 				'strings' => array(
 					'get_directions' => __( 'Get directions', 'business-profile' ),
-				)
+				),
 			)
 		);
 
@@ -433,7 +435,6 @@ if ( ! function_exists( 'bpwfwp_print_map' ) ) :
 
 		$id = count( $bpfwp_map_ids );
 		$bpfwp_map_ids[] = $id;
-
 
 		$attr = '';
 

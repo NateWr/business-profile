@@ -100,13 +100,11 @@ if ( ! class_exists( 'bpfwpIntegrations', false ) ) :
 
 			if ( $bpfwp_controller->display_settings['show_booking_link'] ) :
 				global $rtb_controller;
-			?>
-
-		<div class="bp-booking">
-			<a href="<?php echo get_permalink( $rtb_controller->settings->get_setting( 'booking-page'  ) ); ?>"><?php _e( 'Book a table', 'business-profile' ); ?></a>
-		</div>
-
-			<?php
+				?>
+				<div class="bp-booking">
+					<a href="<?php echo get_permalink( $rtb_controller->settings->get_setting( 'booking-page'  ) ); ?>"><?php _e( 'Book a table', 'business-profile' ); ?></a>
+				</div>
+				<?php
 			endif;
 		}
 
