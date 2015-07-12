@@ -11,15 +11,16 @@ function bpInitializeMap() {
 			strings       = bpfwpMapVars.strings,
 			latLon, bpMapOptions, content, bpMapIframe;
 
+		data.addressURI = encodeURIComponent( data.address.replace( /(<([^>]+)>)/ig, ', ' ) );
+
 		// Google Maps API v3
 		if ( 'undefined' !== typeof data.lat ) {
-			latLon          = new google.maps.LatLng( data.lat, data.lon );
-			data.addressURI = encodeURIComponent( data.address.replace( /(<([^>]+)>)/ig, ', ' ) );
-			bpMapOptions    = {
+			latLon       = new google.maps.LatLng( data.lat, data.lon );
+			bpMapOptions = {
 				zoom:   15,
 				center: latLon
 			};
-			bpMaps[ id ]    = new google.maps.Map( document.getElementById( id ), bpMapOptions );
+			bpMaps[ id ] = new google.maps.Map( document.getElementById( id ), bpMapOptions );
 
 			content = '<div class="bp-map-info-window">' + '<p><strong>' + data.name + '</strong></p>' + '<p>' + data.address + '</p>';
 			if ( 'undefined' !== typeof data.phone ) {
@@ -44,7 +45,7 @@ function bpInitializeMap() {
 			if ( '' !== data.name ) {
 				data.address = data.name + ',' + data.address;
 			}
-			bpMapIframe.src = '//maps.google.com/maps?output=embed&q=' + encodeURIComponent( data.address );
+			bpMapIframe.src = '//maps.google.com/maps?output=embed&q=' + data.addressURI;
 
 			$that.html( bpMapIframe );
 		}
