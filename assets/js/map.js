@@ -11,6 +11,8 @@ function bp_initialize_map() {
 		var id = jQuery(this).attr( 'id' );
 		var data = jQuery(this).data();
 
+		data.addressURI = encodeURIComponent( data.address.replace( /(<([^>]+)>)/ig, ', ' ) );
+
 		// Google Maps API v3
 		if ( 'undefined' !== typeof data.lat ) {
 			latLon          = new google.maps.LatLng( data.lat, data.lon );
@@ -45,17 +47,19 @@ function bp_initialize_map() {
 		} else if ( '' !== data.address ) {
 			bpMapIframe = document.createElement( 'iframe' );
 
-			var bp_map_iframe = document.createElement( 'iframe' );
-			bp_map_iframe.frameBorder = 0;
-			bp_map_iframe.style.width = '100%';
-			bp_map_iframe.style.height = '100%';
+			var bpMapIframe = document.createElement( 'iframe' );
+			bpMapIframe.frameBorder = 0;
+			bpMapIframe.style.width = '100%';
+			bpMapIframe.style.height = '100%';
 
 			if ( '' !== data.name ) {
 				data.address = data.name + ',' + data.address;
 			}
-			bp_map_iframe.src = '//maps.google.com/maps?output=embed&q=' + encodeURIComponent( data.address );
 
-			jQuery(this).html( bp_map_iframe );
+			bpMapIframe.src = '//maps.google.com/maps?output=embed&q=' + encodeURIComponent( data.address );
+			bpMapIframe.src = '//maps.google.com/maps?output=embed&q=' + data.addressURI;
+
+			jQuery(this).html( bpMapIframe );
 
 			// Trigger an intiailized event on this dom element for third-party code
 			jQuery(this).trigger( 'bpfwp.map_initialized_in_iframe', [ jQuery(this) ] );
