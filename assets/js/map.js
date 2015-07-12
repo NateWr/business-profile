@@ -28,8 +28,8 @@ function bp_initialize_map() {
 			if ( typeof data.phone !== 'undefined' ) {
 				content += '<p>' + data.phone + '</p>';
 			}
-			content += '<p><a target="_blank" href="//maps.google.com/maps?saddr=current+location&daddr=' + encodeURIComponent( data.address ) + '">' + bpfwpMapVars.strings.getDirections + '</a></p>' +
-				'</div>';
+
+			content += '<p><a target="_blank" href="//maps.google.com/maps?saddr=current+location&daddr=' + encodeURIComponent( data.address.replace( /(<([^>]+)>)/ig, '' ) ) + '">' + strings.getDirections + '</a></p>' + '</div>';
 
 			bpfwpMapVars.info_windows[ id ] = new google.maps.InfoWindow({
 				position: bpfwpMapVars.map_options.center,
