@@ -25,7 +25,7 @@ function bpInitializeMap() {
 			if ( 'undefined' !== typeof data.phone ) {
 				content += '<p>' + data.phone + '</p>';
 			}
-			content += '<p><a target="_blank" href="//maps.google.com/maps?saddr=current+location&daddr=' + encodeURIComponent( data.address ) + '">' + strings.getDirections + '</a></p>' + '</div>';
+			content += '<p><a target="_blank" href="//maps.google.com/maps?saddr=current+location&daddr=' + encodeURIComponent( data.address.replace( /(<([^>]+)>)/ig, '' ) ) + '">' + strings.getDirections + '</a></p>' + '</div>';
 
 			bpInfoWindows[ id ] = new google.maps.InfoWindow( {
 				position: latLon,
