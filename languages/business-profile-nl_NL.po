@@ -1,0 +1,504 @@
+# Copyright (C) 2015 Business Profile
+# This file is distributed under the same license as the Business Profile package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Business Profile 1.0.6\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/business-profile\n"
+"POT-Creation-Date: 2015-04-03 10:46:49+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-04-09 11:45+0100\n"
+"X-Generator: Poedit 1.7.5\n"
+"X-Poedit-KeywordsList: __;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;"
+"_nx_noop:1,2,3c;esc_attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;"
+"esc_html_x:1,2c\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-Basepath: ../\n"
+"X-Textdomain-Support: yes\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: nl\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: business-profile.php:110
+msgid "View the help documentation for Business Profile"
+msgstr "Bekijk de help documentatie voor Business Profile"
+
+#: business-profile.php:110
+msgid "Help"
+msgstr "Help"
+
+#: includes/Integrations.class.php:107
+msgid "Book a table"
+msgstr "Reserveer een tafel"
+
+#: includes/Integrations.class.php:127 includes/Integrations.class.php:131
+msgid "Show book a table link"
+msgstr "Laat een link naar Reserveer een tafel zien"
+
+#. Plugin Name of the plugin/theme
+#: includes/Settings.class.php:86 includes/Settings.class.php:87
+msgid "Business Profile"
+msgstr "Business Profile"
+
+#: includes/Settings.class.php:98
+msgid "Search Engine Optimization"
+msgstr "Zoekmachine Optimalisatie"
+
+#: includes/Settings.class.php:108
+msgid "Schema Type"
+msgstr "Type Schema"
+
+#: includes/Settings.class.php:109
+msgid ""
+"Select the option that best describes your business to improve how search "
+"engines understand your website"
+msgstr ""
+"Selecteer de meest passende omschrijving zodat zoekmachines uw website het "
+"beter begrijpen "
+
+#: includes/Settings.class.php:152
+msgid "Contact Information"
+msgstr "Contact Informatie"
+
+#: includes/Settings.class.php:162
+msgid "Name"
+msgstr "Naam"
+
+#: includes/Settings.class.php:163
+msgid ""
+"Enter the name of your business if it is different than the website name."
+msgstr ""
+"Vul de naam in van uw bedrijf als dat anders is dan naam van uw website."
+
+#: includes/Settings.class.php:174
+msgid "Address"
+msgstr "Adres"
+
+#: includes/Settings.class.php:178
+msgid "No map coordinates set."
+msgstr "Geen kaart coördinaten ingesteld"
+
+#: includes/Settings.class.php:179
+msgid "Requesting new coordinates"
+msgstr "Haal nieuwe coördinaten op"
+
+#: includes/Settings.class.php:180
+msgid "Select a match below"
+msgstr "selecteer hieronder een overeenkomst"
+
+#: includes/Settings.class.php:181
+msgid "View"
+msgstr "Bekijk"
+
+#: includes/Settings.class.php:182
+msgid "Retrieve map coordinates"
+msgstr "Haal coördinaten op"
+
+#: includes/Settings.class.php:183
+msgid "Remove map coordinates"
+msgstr "Verwijder coördinaten"
+
+#: includes/Settings.class.php:184
+msgid "Try again?"
+msgstr "Probeer opnieuw?"
+
+#: includes/Settings.class.php:185
+msgid "Error"
+msgstr "Fout"
+
+#: includes/Settings.class.php:186
+msgid ""
+"Invalid request. Be sure to fill out the address field before retrieving "
+"coordinates."
+msgstr ""
+"Verkeerd verzoek. Zorg dat het adres is ingevuld voordat de coördinaten "
+"opgehaald worden"
+
+#: includes/Settings.class.php:187
+msgid "Request denied."
+msgstr "Verzoek afgewezen."
+
+#: includes/Settings.class.php:188
+msgid "Request denied because you are over your request quota."
+msgstr "Verzoek afgewezen omdat er te veel verzoeken zijn gedaan."
+
+#: includes/Settings.class.php:189
+msgid "Nothing was found at that address"
+msgstr "Er is niets gevonden op dat adres"
+
+#: includes/Settings.class.php:200
+msgid "Phone"
+msgstr "Telefoon"
+
+#: includes/Settings.class.php:210
+msgid "Contact Page"
+msgstr "Contact Pagina"
+
+#: includes/Settings.class.php:211
+msgid ""
+"Select a page on your site where users can reach you, such as a contact form."
+msgstr ""
+"Selecteer een pagina op de website waar gebruikers u kunnen bereiken, zoals "
+"een contact formulier."
+
+#: includes/Settings.class.php:227
+msgid "Email Address (optional)"
+msgstr "E-mail adres (optioneel)"
+
+#: includes/Settings.class.php:228
+msgid ""
+"Enter an email address only if you want to display this publicly. Showing "
+"your email address on your site may cause you to receive excessive spam."
+msgstr ""
+"Vul alleen een e-mail adres in als u dit publiekelijk wilt tonen. Het "
+"vertonen van uw e-mail adres op uw site kan er voor zorgen dat u meer spam "
+"ontvangt."
+
+#: includes/Settings.class.php:236
+msgid "Schedule"
+msgstr "Schema"
+
+#: includes/Settings.class.php:246 includes/template-functions.php:387
+msgid "Opening Hours"
+msgstr "Openingstijden"
+
+#: includes/Settings.class.php:247
+msgid "Define your weekly opening hours by adding scheduling rules."
+msgstr "Definieer uw wekelijkse openingstijden door regels toe te voegen."
+
+#: includes/Settings.class.php:262
+msgid "Add another opening time"
+msgstr "Voeg nog een andere tijd toe"
+
+#: includes/Settings.class.php:276
+msgid "Delete scheduling rule"
+msgstr "Verwijder regel"
+
+#: includes/WP_Widget.ContactCardWidget.class.php:25
+msgid "Show Name"
+msgstr "Laat Naam zien"
+
+#: includes/WP_Widget.ContactCardWidget.class.php:26
+msgid "Show Address"
+msgstr "Laat Adres zien"
+
+#: includes/WP_Widget.ContactCardWidget.class.php:27
+msgid "Show link to get directions on Google Maps"
+msgstr "Laat Routebeschrijving link "
+
+#: includes/WP_Widget.ContactCardWidget.class.php:28
+msgid "Show Phone number"
+msgstr "Laat Telefoonnummer zien"
+
+#: includes/WP_Widget.ContactCardWidget.class.php:29
+msgid "Show contact details"
+msgstr "Laat Contact informatie zien"
+
+#: includes/WP_Widget.ContactCardWidget.class.php:30
+msgid "Show Opening Hours"
+msgstr "Laat Openingstijden zien"
+
+#: includes/WP_Widget.ContactCardWidget.class.php:31
+msgid "Show brief opening hours on one line"
+msgstr "Laat verkorte Openingstijden zien op 1 regel"
+
+#: includes/WP_Widget.ContactCardWidget.class.php:32
+msgid "Show Google Map"
+msgstr "Laat Google maps zien"
+
+#: includes/WP_Widget.ContactCardWidget.class.php:38
+msgid "Contact Card"
+msgstr "Contact Kaart"
+
+#: includes/WP_Widget.ContactCardWidget.class.php:39
+msgid ""
+"Display a contact card with your name, address, phone number, opening hours "
+"and map."
+msgstr ""
+"Laat een contactkaart zien met uw naam, adres, telefoonnummer, "
+"openingstijden en kaart."
+
+#: includes/WP_Widget.ContactCardWidget.class.php:71
+msgid "Title"
+msgstr "Titel"
+
+#: includes/template-functions.php:132 includes/template-functions.php:422
+msgid "Get directions"
+msgstr "Routebeschrijving"
+
+#: includes/template-functions.php:189
+msgid "Contact"
+msgstr "Contact"
+
+#: includes/template-functions.php:294
+msgid " all day"
+msgstr "de hele dag"
+
+#: includes/template-functions.php:304
+msgid " open until "
+msgstr "open tot"
+
+#: includes/template-functions.php:306
+msgid " open from "
+msgstr "open vanaf"
+
+#: includes/template-functions.php:325
+msgid "Monday"
+msgstr "Maandag"
+
+#: includes/template-functions.php:326
+msgid "Tuesday"
+msgstr "Dinsdag"
+
+#: includes/template-functions.php:327
+msgid "Wednesday"
+msgstr "Woensdag"
+
+#: includes/template-functions.php:328
+msgid "Thursday"
+msgstr "Donderdag"
+
+#: includes/template-functions.php:329
+msgid "Friday"
+msgstr "Vrijdag"
+
+#: includes/template-functions.php:330
+msgid "Saturday"
+msgstr "Zaterdag"
+
+#: includes/template-functions.php:331
+msgid "Sunday"
+msgstr "Zondag"
+
+#: includes/template-functions.php:343
+msgid "Open"
+msgstr "Open"
+
+#: includes/template-functions.php:355
+msgid "Open until "
+msgstr "Open tot"
+
+#: includes/template-functions.php:357
+msgid "Open from "
+msgstr "Open vanaf"
+
+#: includes/template-functions.php:379
+msgid "Closed"
+msgstr "Gesloten"
+
+#: lib/simple-admin-pages/classes/AdminPage.class.php:173
+msgid "You do not have sufficient permissions to access this page."
+msgstr "U heeft onvoldoende rechten om deze pagina te openen."
+
+#. Plugin URI of the plugin/theme
+#. Author URI of the plugin/theme
+msgid "http://themeofthecrop.com"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"Contact information, Google Maps and opening hours made easy for businesses."
+msgstr ""
+"Contact informatie, Google Maps en openingstijden makkelijk gemaakt voor "
+"bedrijven."
+
+#. Author of the plugin/theme
+msgid "Theme of the Crop"
+msgstr ""
+
+#: includes/Settings.class.php:176
+msgctxt "separator between admin action links in address component"
+msgid " | "
+msgstr ""
+
+#: includes/Settings.class.php:177
+msgctxt "separates latitude and longitude"
+msgid ", "
+msgstr ""
+
+#: includes/Settings.class.php:249
+msgctxt "Monday abbreviation"
+msgid "Mo"
+msgstr "Ma"
+
+#: includes/Settings.class.php:250
+msgctxt "Tuesday abbreviation"
+msgid "Tu"
+msgstr "Di"
+
+#: includes/Settings.class.php:251
+msgctxt "Wednesday abbreviation"
+msgid "We"
+msgstr "Wo"
+
+#: includes/Settings.class.php:252
+msgctxt "Thursday abbreviation"
+msgid "Th"
+msgstr "Do"
+
+#: includes/Settings.class.php:253
+msgctxt "Friday abbreviation"
+msgid "Fr"
+msgstr "Vr"
+
+#: includes/Settings.class.php:254
+msgctxt "Saturday abbreviation"
+msgid "Sa"
+msgstr "Za"
+
+#: includes/Settings.class.php:255
+msgctxt "Sunday abbreviation"
+msgid "Su"
+msgstr "Zo"
+
+#: includes/Settings.class.php:257
+msgctxt ""
+"Time format displayed in the opening hours setting panel in your admin area. "
+"Must match formatting rules at http://amsul.ca/pickadate.js/time.htm#formats"
+msgid "h:i A"
+msgstr "H:i"
+
+#: includes/Settings.class.php:258
+msgctxt ""
+"Date format displayed in the opening hours setting panel in your admin area. "
+"Must match formatting rules at http://amsul.ca/pickadate.js/date."
+"htm#formatting-rules"
+msgid "mmmm d, yyyy"
+msgstr "dd mmmm yyyy"
+
+#: includes/Settings.class.php:263
+msgctxt "Format of a scheduling rule"
+msgid "Weekly"
+msgstr "Wekelijks"
+
+#: includes/Settings.class.php:264
+msgctxt "Format of a scheduling rule"
+msgid "Monthly"
+msgstr "Maandelijks"
+
+#: includes/Settings.class.php:265
+msgctxt "Format of a scheduling rule"
+msgid "Date"
+msgstr "Datum"
+
+#: includes/Settings.class.php:266
+msgctxt "Label for selecting days of the week in a scheduling rule"
+msgid "Days of the week"
+msgstr "Weekdagen"
+
+#: includes/Settings.class.php:267
+msgctxt "Label for selecting weeks of the month in a scheduling rule"
+msgid "Weeks of the month"
+msgstr "Weken van de maand"
+
+#: includes/Settings.class.php:268
+msgctxt "Label to select a date for a scheduling rule"
+msgid "Date"
+msgstr "Datum"
+
+#: includes/Settings.class.php:269
+msgctxt "Label to select a time slot for a scheduling rule"
+msgid "Time"
+msgstr "Tijd"
+
+#: includes/Settings.class.php:270
+msgctxt "Label to set a scheduling rule to last all day"
+msgid "All day"
+msgstr "De hele dag"
+
+#: includes/Settings.class.php:271
+msgctxt "Label for the starting time of a scheduling rule"
+msgid "Start"
+msgstr "Start"
+
+#: includes/Settings.class.php:272
+msgctxt "Label for the ending time of a scheduling rule"
+msgid "End"
+msgstr "Eind"
+
+#: includes/Settings.class.php:273
+msgctxt ""
+"Prompt displayed when a scheduling rule is set without any time restrictions"
+msgid "All day long. Want to %sset a time slot%s?"
+msgstr "De gehele dag. Wilt u een %sset a time slot%s instellen?"
+
+#: includes/Settings.class.php:274
+msgctxt "Toggle a scheduling rule open and closed"
+msgid "Open and close this rule"
+msgstr "Open en sluit deze regel"
+
+#: includes/Settings.class.php:275
+msgctxt "Delete a scheduling rule"
+msgid "Delete rule"
+msgstr "Verwijder regel"
+
+#: includes/Settings.class.php:277
+msgctxt ""
+"Brief default description of a scheduling rule when no weekdays or weeks are "
+"included in the rule"
+msgid "Never"
+msgstr "Nooit"
+
+#: includes/Settings.class.php:278
+msgctxt ""
+"Brief default description of a scheduling rule when all the weekdays/weeks "
+"are included in the rule"
+msgid "Every day"
+msgstr "Elke dag"
+
+#: includes/Settings.class.php:279
+msgctxt ""
+"Brief default description of a scheduling rule when some weekdays are "
+"included on only some weeks of the month. %s should be left alone and will "
+"be replaced by a comma-separated list of days and weeks in the following "
+"format: M, T, W on the first, second week of the month"
+msgid "%s on the %s week of the month"
+msgstr "%s on the %s week van de maand"
+
+#: includes/Settings.class.php:280
+msgctxt ""
+"Brief default description of a scheduling rule when some weeks of the month "
+"are included but all or no weekdays are selected. %s should be left alone "
+"and will be replaced by a comma-separated list of weeks in the following "
+"format: First, second week of the month"
+msgid "%s week of the month"
+msgstr "%s week van de maand"
+
+#: includes/Settings.class.php:281
+msgctxt "Brief default description of a scheduling rule when no times are set"
+msgid "All day"
+msgstr "Gehele dag"
+
+#: includes/Settings.class.php:282
+msgctxt ""
+"Brief default description of a scheduling rule when an end time is set but "
+"no start time. If the end time is 6pm, it will read: Ends at 6pm"
+msgid "Ends at"
+msgstr "Eindigt op"
+
+#: includes/Settings.class.php:283
+msgctxt ""
+"Brief default description of a scheduling rule when a start time is set but "
+"no end time. If the start time is 6pm, it will read: Starts at 6pm"
+msgid "Starts at"
+msgstr "Start op"
+
+#: includes/Settings.class.php:284
+msgctxt "Separator between times of a scheduling rule"
+msgid "&mdash;"
+msgstr "&mdash;"
+
+#: includes/template-functions.php:308 includes/template-functions.php:359
+msgctxt "Separator between opening and closing times. Example: 9:00am-5:00pm"
+msgid "-"
+msgstr "-"
+
+#: includes/template-functions.php:315
+msgctxt ""
+"Separator between multiple opening times in the brief opening hours. "
+"Example: Mo,We 9:00 AM - 5:00 PM; Tu,Th 10:00 AM - 5:00 PM"
+msgid "; "
+msgstr "; "

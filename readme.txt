@@ -3,9 +3,9 @@ Contributors: NateWr
 Author URI: https://github.com/NateWr
 Plugin URL: http://themeofthecrop.com
 Requires at Least: 3.9
-Tested Up To: 4.1
+Tested Up To: 4.2
 Tags: business profile, address, google map, schema, contact, phone, address, seo
-Stable tag: 1.0.5
+Stable tag: 1.0.6
 License: GPLv2 or later
 Donate link: http://themeofthecrop.com
 
@@ -52,6 +52,10 @@ This plugin is packed with hooks so you can extend it as needed. Development tak
 
 == Changelog ==
 
+= 1.0.6 (2015-04-03) =
+* Fix: validation errors with address markup
+* Fix: validation errors with contactPoint markup
+
 = 1.0.5 (2014-09-21) =
 * Fix: restore lost option to show contact info in widget options when Restaurant Reservations is activated
 
@@ -76,6 +80,9 @@ This plugin is packed with hooks so you can extend it as needed. Development tak
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.0.6 =
+This update fixes validation errors with the address and contact point schema.org markup. It is strongly recommended that you update to improve Google compatibility.
 
 = 1.0.5 =
 This minor update fixes a problem in which the option to show or hide the contact details in a widget had disappeared.
