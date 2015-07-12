@@ -1,10 +1,11 @@
-/* Frontend Javascript for Business Profile maps */
-var bpfwp_map = bpfwp_map || {};
+//* global bpfwpMapVars, google */
+* Frontend Javascript for Business Profile maps */
+var bpfwpMapVars = bpfwpMapVars || {};
 
 jQuery(document).ready(function ($) {
 
 	// Allow developers to override the maps api loading and initializing
-	if ( !bpfwp_map.autoload_google_maps ) {
+	if ( !bpfwpMapVars.autoload_google_maps ) {
 		return;
 	}
 
@@ -25,8 +26,8 @@ jQuery(document).ready(function ($) {
 
 function bp_initialize_map() {
 
-	bpfwp_map.maps = [];
-	bpfwp_map.info_windows = [];
+	bpfwpMapVars.maps = [];
+	bpfwpMapVars.info_windows = [];
 
 	jQuery( '.bp-map' ).each( function() {
 		var id = jQuery(this).attr( 'id' );
@@ -34,13 +35,13 @@ function bp_initialize_map() {
 
 		// Google Maps API v3
 		if ( typeof data.lat !== 'undefined' ) {
-			bpfwp_map.map_options = bpfwp_map.map_options || {};
-			bpfwp_map.map_options.center = new google.maps.LatLng( data.lat, data.lon );
-			if ( typeof bpfwp_map.map_options.zoom === 'undefined' ) {
-				bpfwp_map.map_options.zoom = bpfwp_map.map_options.zoom || 15;
+			bpfwpMapVars.map_options = bpfwpMapVars.map_options || {};
+			bpfwpMapVars.map_options.center = new google.maps.LatLng( data.lat, data.lon );
+			if ( typeof bpfwpMapVars.map_options.zoom === 'undefined' ) {
+				bpfwpMapVars.map_options.zoom = bpfwpMapVars.map_options.zoom || 15;
 			}
 
-			bpfwp_map.maps[ id ] = new google.maps.Map( document.getElementById( id ), bpfwp_map.map_options );
+			bpfwpMapVars.maps[ id ] = new google.maps.Map( document.getElementById( id ), bpfwpMapVars.map_options );
 
 			var content = '<div class="bp-map-info-window">' +
 				'<p><strong>' + data.name + '</strong></p>' +
@@ -49,17 +50,17 @@ function bp_initialize_map() {
 			if ( typeof data.phone !== 'undefined' ) {
 				content += '<p>' + data.phone + '</p>';
 			}
-			content += '<p><a target="_blank" href="//maps.google.com/maps?saddr=current+location&daddr=' + encodeURIComponent( data.address ) + '">Get Directions</a></p>' +
+			content += '<p><a target="_blank" href="//maps.google.com/maps?saddr=current+location&daddr=' + encodeURIComponent( data.address ) + '">' + bpfwpMapVars.strings.getDirections + '</a></p>' +
 				'</div>';
 
-			bpfwp_map.info_windows[ id ] = new google.maps.InfoWindow({
-				position: bpfwp_map.map_options.center,
+			bpfwpMapVars.info_windows[ id ] = new google.maps.InfoWindow({
+				position: bpfwpMapVars.map_options.center,
 				content: content,
 			});
-			bpfwp_map.info_windows[ id ].open( bpfwp_map.maps[ id ]);
+			bpfwpMapVars.info_windows[ id ].open( bpfwpMapVars.maps[ id ]);
 
 			// Trigger an intiailized event on this dom element for third-party code
-			jQuery(this).trigger( 'bpfwp.map_initialized', [ id, bpfwp_map.maps[id], bpfwp_map.info_windows[id] ] );
+			jQuery(this).trigger( 'bpfwp.map_initialized', [ id, bpfwpMapVars.maps[id], bpfwpMapVars.info_windows[id] ] );
 
 		// Google Maps iframe embed (fallback if no lat/lon data available)
 		} else if ( typeof data.address !== '' ) {

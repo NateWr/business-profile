@@ -427,14 +427,14 @@ if ( !function_exists( 'bpwfwp_print_map' ) ) {
 		wp_enqueue_script( 'bpfwp-map' );
 		wp_localize_script(
 			'bpfwp-map',
-			'bpfwp_map',
+			'bpfwpMapVars',
 			array(
 				// Override loading and intialization of Google Maps api
 				'autoload_google_maps' => apply_filters( 'bpfwp_autoload_google_maps', true ),
 				'map_options' => apply_filters( 'bpfwp_google_map_options', array() ),
 				'strings' => array(
-					'get_directions' => __( 'Get directions', 'business-profile' ),
-				)
+					'getDirections' => __( 'Get Directions', 'business-profile' ),
+				),
 			)
 		);
 
