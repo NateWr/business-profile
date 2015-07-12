@@ -1,4 +1,12 @@
 <?php
+/**
+ * The contact card widget class.
+ *
+ * @package   BusinessProfile
+ * @copyright Copyright (c) 2015, Theme of the Crop
+ * @license   GPL-2.0+
+ * @since     0.0.1
+ */
 defined( 'ABSPATH' ) || exit;
 
 if ( ! class_exists( 'WP_Widget', false ) ) {

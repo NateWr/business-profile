@@ -43,6 +43,13 @@ if ( ! class_exists( 'bpfwpInit', false ) ) :
 			self::wp_hooks();
 		}
 
+		/**
+		 * Define plugin constants.
+		 *
+		 * @since  1.1.0
+		 * @access protected
+		 * @return void
+		 */
 		protected function constants() {
 			define( 'BPFWP_PLUGIN_DIR', untrailingslashit( plugin_dir_path( __FILE__ ) ) );
 			define( 'BPFWP_PLUGIN_URL', untrailingslashit( plugin_dir_url( __FILE__ ) ) );
@@ -50,6 +57,13 @@ if ( ! class_exists( 'bpfwpInit', false ) ) :
 			define( 'BPFWP_VERSION', 1 );
 		}
 
+		/**
+		 * Include all plugin files.
+		 *
+		 * @since  1.1.0
+		 * @access protected
+		 * @return void
+		 */
 		protected function includes() {
 			require_once BPFWP_PLUGIN_DIR . '/includes/class-compatibility.php';
 			require_once BPFWP_PLUGIN_DIR . '/includes/class-integrations.php';
@@ -57,12 +71,26 @@ if ( ! class_exists( 'bpfwpInit', false ) ) :
 			require_once BPFWP_PLUGIN_DIR . '/includes/template-functions.php';
 		}
 
+		/**
+		 * Spin up instances of our plugin classes.
+		 *
+		 * @since  1.1.0
+		 * @access protected
+		 * @return void
+		 */
 		protected function instantiate() {
 			new bpfwpCompatibility();
 			new bpfwpIntegrations();
 			$this->settings = new bpfwpSettings();
 		}
 
+		/**
+		 * Hook into WordPress.
+		 *
+		 * @since  1.1.0
+		 * @access protected
+		 * @return void
+		 */
 		protected function wp_hooks() {
 			add_action( 'init',                array( $this, 'load_textdomain' ) );
 			add_action( 'wp_enqueue_scripts',  array( $this, 'register_assets' ) );
@@ -122,7 +150,7 @@ if ( ! class_exists( 'bpfwpInit', false ) ) :
 		 * Developers and tests may still create multiple instances by spinning
 		 * them up directly, but for most uses, this method is preferred.
 		 *
-		 * @since 0.1.0
+		 * @since 1.1.0
 		 * @static
 		 * @return bpfwpInit
 		 */

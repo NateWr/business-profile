@@ -1,4 +1,12 @@
 <?php
+/**
+ * Provide backwards compatibility for older versions of Business Profile.
+ *
+ * @package   BusinessProfile
+ * @copyright Copyright (c) 2015, Theme of the Crop
+ * @license   GPL-2.0+
+ * @since     1.0.6
+ */
 defined( 'ABSPATH' ) || exit;
 
 if ( ! class_exists( 'bpfwpCompatibility', false ) ) :

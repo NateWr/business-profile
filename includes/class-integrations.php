@@ -8,6 +8,11 @@
  * is typically customized by users will be accessible through functions.php.
  * The code that is loaded here should only pertain to more advanced features
  * and functions that few users will ever touch if they are using this theme.
+ *
+ * @package   BusinessProfile
+ * @copyright Copyright (c) 2015, Theme of the Crop
+ * @license   GPL-2.0+
+ * @since     0.0.1
  */
 defined( 'ABSPATH' ) || exit;
 
@@ -79,15 +84,14 @@ if ( ! class_exists( 'bpfwpIntegrations', false ) ) :
 					$a = array_slice( $data, 0, $pos );
 					$b = array_slice( $data, $pos );
 					$data = array_merge( $a, array( 'booking_page' => array( $this, 'bpfwp_print_booking_link' ) ) , $b );
-
-				// If no short links are being displayed, just add it to the bottom.
 				} else {
+					// If no short links are being displayed, just add it to the bottom.
 					$data['booking_page'] = array( $this, 'bpfwp_print_booking_link' );
 				}
 			}
 
 			return $data;
-		 }
+		}
 
 		/**
 		 * Print the booking link
@@ -122,9 +126,8 @@ if ( ! class_exists( 'bpfwpIntegrations', false ) ) :
 				$a = array_slice( $toggles, 0, $pos );
 				$b = array_slice( $toggles, $pos );
 				$toggles = array_merge( $a, array( 'show_booking_link' => __( 'Show book a table link', 'business-profile' ) ) , $b );
-
-			// If no short links are being displayed, just add it to the bottom.
 			} else {
+				// If no short links are being displayed, just add it to the bottom.
 				$toggles['show_booking_link'] = __( 'Show book a table link', 'business-profile' );
 			}
 
