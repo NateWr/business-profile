@@ -7,7 +7,7 @@
  * @since     0.0.1
  */
 
-function bp_initilalize_map() {
+function bpInitializeMap() {
 	'use strict';
 
 	jQuery( '.bp-map' ).each(function() {
@@ -60,12 +60,16 @@ function bp_initilalize_map() {
 	});
 }
 
+function bp_initialize_map() {
+	bpInitializeMap();
+}
+
 jQuery( document ).ready(function() {
 	// Load Google Maps API and initialize maps
 	var bpMapScript = document.createElement( 'script' );
 
 	bpMapScript.type = 'text/javascript';
-	bpMapScript.src  = 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&callback=bp_initilalize_map';
+	bpMapScript.src  = 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&callback=bpInitializeMap';
 
 	document.body.appendChild( bpMapScript );
 });
