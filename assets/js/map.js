@@ -6,6 +6,14 @@
  * @license   GPL-2.0+
  * @since     0.0.1
  */
+
+ /**
+  * Set up a map using the Google Maps API and data attributes added to `.bp-map`
+  * elements on a given page.
+  *
+  * @uses  Google Maps API (https://developers.google.com/maps/web/)
+  * @since 1.1.0
+  */
 function bpInitializeMap() {
 	'use strict';
 
@@ -72,6 +80,12 @@ function bpInitializeMap() {
 	});
 }
 
+/**
+ * Backwards-compatable alias function.
+ *
+ * @todo  Remove in a future release
+ * @since 1.1.0
+ */
 function bp_initialize_map() {
 	bpInitializeMap();
 }
