@@ -70,7 +70,6 @@ function bpInitializeMap() {
 /**
  * Backwards-compatable alias function.
  *
- * @todo  Remove in a future release
  * @since 1.1.0
  */
 function bp_initialize_map() {
