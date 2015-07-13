@@ -6,8 +6,7 @@
  * @license   GPL-2.0+
  * @since     0.0.1
  */
-
-function bp_initilalize_map() {
+function bpInitializeMap() {
 	'use strict';
 
 	bpfwpMapVars.maps = [];
@@ -73,13 +72,16 @@ function bp_initilalize_map() {
 	});
 }
 
-jQuery(document).ready(function ($) {
+function bp_initialize_map() {
+	bpInitializeMap();
+}
+
+jQuery( document ).ready(function() {
 
 	// Allow developers to override the maps api loading and initializing
 	if ( !bpfwpMapVars.autoload_google_maps ) {
 		return;
 	}
-
 	// Load Google Maps API and initialize maps
 	if ( typeof google === 'undefined' || typeof google.maps === 'undefined' ) {
 		var bp_map_script = document.createElement( 'script' );
@@ -94,5 +96,7 @@ jQuery(document).ready(function ($) {
 	}
 
 	bpMapScript.type = 'text/javascript';
-	bpMapScript.src  = 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&callback=bp_initilalize_map';
+	bpMapScript.src  = 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&callback=bpInitializeMap';
+
+	document.body.appendChild( bpMapScript );
 });
