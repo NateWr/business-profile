@@ -1,7 +1,13 @@
-//* global bpfwpMapVars, google */
-/* Frontend Javascript for Business Profile maps */
-var bpfwpMapVars = bpfwpMapVars || {};
-function bp_initialize_map() {
+/* global bpfwpMapVars, google */
+/**
+ * Front-end JavaScript for Business Profile maps
+ *
+ * @copyright Copyright (c) 2015, Theme of the Crop
+ * @license   GPL-2.0+
+ * @since     0.0.1
+ */
+
+function bp_initilalize_map() {
 	'use strict';
 
 	bpfwpMapVars.maps = [];
@@ -87,4 +93,6 @@ jQuery(document).ready(function ($) {
 		bp_initialize_map();
 	}
 
+	bpMapScript.type = 'text/javascript';
+	bpMapScript.src  = 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&callback=bp_initilalize_map';
 });
