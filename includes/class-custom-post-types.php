@@ -33,6 +33,7 @@ if ( ! class_exists( 'bpfwpCustomPostTypes', false ) ) :
 			add_action( 'init',           array( $this, 'load_cpts' ) );
 			add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ) );
 			add_action( 'save_post',      array( $this, 'save_meta' ) );
+			add_action( 'current_screen', array( $this, 'maybe_flush_rewrite_rules' ) );
 		}
 
 		/**
@@ -87,6 +88,32 @@ if ( ! class_exists( 'bpfwpCustomPostTypes', false ) ) :
 			$this->load_cpts();
 
 			flush_rewrite_rules();
+		}
+
+		/**
+		 * Maybe flush the rewrite rules if the multiple locations option has
+		 * been turned on.
+		 *
+		 * Should only be run on the Business Profile settings page
+		 *
+		 * @since 0.1
+		 */
+		public function maybe_flush_rewrite_rules( $current_screen ) {
+
+			global $admin_page_hooks;
+			if ( empty( $admin_page_hooks['bpfwp-locations'] ) || $current_screen->base != $admin_page_hooks['bpfwp-locations'] . '_page_bpfwp-settings' ) {
+				return;
+			}
+
+			global $bpfwp_controller;
+			if ( !$bpfwp_controller->settings->get_setting( 'multiple-locations' ) ) {
+				return;
+			}
+
+			$rules = get_option( 'rewrite_rules' );
+			if ( !array_key_exists( $this->location_cpt_slug . '/?$', $rules ) ) {
+				$this->flush_rewrite_rules();
+			}
 		}
 
 		/**
