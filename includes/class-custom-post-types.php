@@ -168,10 +168,10 @@ if ( ! class_exists( 'bpfwpCustomPostTypes', false ) ) :
 			?>
 
 			<div class="bpfwp-meta-phone">
-				<label for="bpfwp_location_phone">
+				<label for="bpfwp_phone">
 					<?php esc_attr_e( 'Phone Number', 'business-profile' ); ?>
 				</label>
-				<input type="text" name="_location_phone" id="bpfwp_location_phone">
+				<input type="text" name="phone" id="bpfwp_phone">
 			</div>
 
 			<?php
