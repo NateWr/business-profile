@@ -186,7 +186,7 @@ function bpwfwp_print_contact() {
 
 	<div class="bp-contact bp-contact-page" itemprop="ContactPoint" itemscope itemtype="http://schema.org/ContactPoint">
 		<meta itemprop="contactType" content="customer support">
-		<a href="<?php echo get_post_permalink( $contact ); ?>" itemprop="url" content="<?php echo esc_attr( get_post_permalink( $contact ) ); ?>"><?php _e( 'Contact', 'business-profile' ); ?></a>
+		<a href="<?php echo get_permalink( $contact ); ?>" itemprop="url" content="<?php echo esc_attr( get_permalink( $contact ) ); ?>"><?php _e( 'Contact', 'business-profile' ); ?></a>
 	</div>
 
 	<?php endif;
