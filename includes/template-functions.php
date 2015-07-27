@@ -254,7 +254,7 @@ function bpwfwp_print_opening_hours() {
 					$split[0] += 12;
 					$end = join( ':', $split );
 				}
-				if ( substr( $slot['time']['start'], -2 ) == 'AM' && $start == '12:00' ) {
+				if ( !empty( $slot['time']['start'] ) && substr( $slot['time']['start'], -2 ) == 'AM' && $start == '12:00' ) {
 					$end = '24:00';
 				}
 			}
@@ -287,12 +287,13 @@ function bpwfwp_print_opening_hours() {
 			foreach( $slot['weekdays'] as $day => $val ) {
 				$days[] = $weekdays_schema[ $day ];
 			}
-			$string = !empty( $days ) ? join( ',', $days ) : '';
-
+			$days_string = !empty( $days ) ? join( _x( ',', 'Separator between days of the week when displaying opening hours in brief. Example: Mo,Tu,We', 'business-profile' ), $days ) : '';
 
 			if ( empty( $slot['time'] ) ) {
-				$string .= __( ' all day', 'business-profile' );
+				$string = sprintf( _x( '%s all day', 'Brief opening hours description which lists days_strings when open all day. Example: Mo,Tu,We all day', 'business-profile' ), $days_string );
 			} else {
+				unset( $start );
+				unset( $end );
 				if ( !empty( $slot['time']['start'] ) ) {
 					$start = new DateTime( $slot['time']['start'] );
 				}
@@ -301,11 +302,11 @@ function bpwfwp_print_opening_hours() {
 				}
 
 				if ( empty( $start ) ) {
-					$string .= __( ' open until ', 'business-profile' ) . $end->format( get_option( 'time_format' ) );
+					$string = sprintf( _x( '%s open until %s', 'Brief opening hours description which lists the days followed by the closing time. Example: Mo,Tu,We open until 9:00pm', 'business-profile' ), $days_string, $end->format( get_option( 'time_format' ) ) );
 				} elseif ( empty( $end ) ) {
-					$string .= __( ' open from ', 'business-profile' ) . $start->format( get_option( 'time_format' ) );
+					$string = sprintf( _x( '%s open from %s', 'Brief opening hours description which lists the days followed by the opening time. Example: Mo,Tu,We open from 9:00am', 'business-profile' ), $days_string, $start->format( get_option( 'time_format' ) ) );
 				} else {
-					$string .= ' ' . $start->format( get_option( 'time_format' ) ) . _x( '-', 'Separator between opening and closing times. Example: 9:00am-5:00pm', 'business-profile' ) . $end->format( get_option( 'time_format' ) );
+					$string = sprintf( _x( '%s %s-%s', 'Brief opening hours description which lists the days followed by the opening and closing times. Example: Mo,Tu,We 9:00am-5:00pm', 'business-profile' ), $days_string, $start->format( get_option( 'time_format' ) ),  $end->format( get_option( 'time_format' ) ) );
 				}
 			}
 
