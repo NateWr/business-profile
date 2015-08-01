@@ -17,6 +17,10 @@ function bp_initialize_map() {
 	jQuery( '.bp-map' ).each( function() {
 		var id = jQuery(this).attr( 'id' );
 		var data = jQuery(this).data();
+		
+		// Remove break tags froms address that get added in the editor
+		var cleanAddress = data.address;
+		cleanAddress = cleanAddress.replace(/(<|&lt;)br\s*\/*(>|&gt;)/g,' ');
 
 		// Google Maps API v3
 		if ( typeof data.lat !== 'undefined' ) {
@@ -35,7 +39,7 @@ function bp_initialize_map() {
 			if ( typeof data.phone !== 'undefined' ) {
 				content += '<p>' + data.phone + '</p>';
 			}
-			content += '<p><a target="_blank" href="//maps.google.com/maps?saddr=current+location&daddr=' + encodeURIComponent( data.address ) + '">Get Directions</a></p>' +
+			content += '<p><a target="_blank" href="//maps.google.com/maps?saddr=current+location&daddr=' + encodeURIComponent( cleanAddress ) + '">Get Directions</a></p>' +
 				'</div>';
 			
 			bp_info_windows[ id ] = new google.maps.InfoWindow({
