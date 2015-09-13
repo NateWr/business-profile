@@ -170,10 +170,11 @@ function bpwfwp_print_contact() {
 
 	$email = $bpfwp_controller->settings->get_setting( 'contact-email' );
 	if ( !empty( $email ) ) :
+		$antispam_email = antispambot( $email );
 	?>
 
-	<div class="bp-contact bp-contact-email" itemprop="email" content="<?php echo esc_attr( $email ); ?>">
-		<a href="mailto:<?php echo esc_attr( $email ); ?>"><?php echo $email; ?></a>
+	<div class="bp-contact bp-contact-email" itemprop="email" content="<?php echo esc_attr( $antispam_email ); ?>">
+		<a href="mailto:<?php echo esc_attr( $antispam_email ); ?>"><?php echo $antispam_email; ?></a>
 	</div>
 
 	<?php
