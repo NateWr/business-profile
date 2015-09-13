@@ -419,6 +419,8 @@ function bpwfwp_print_map() {
 		'bpfwp-map',
 		'bpfwp_map',
 		array(
+			// Override loading and intialization of Google Maps api
+			'autoload_google_maps' => apply_filters( 'bpfwp_autoload_google_maps', true ),
 			'strings' => array(
 				'get_directions' => __( 'Get directions', 'business-profile' ),
 			)
