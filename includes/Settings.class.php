@@ -286,6 +286,26 @@ class bpfwpSettings {
 			)
 		);
 
+		$sap->add_section(
+			'bpfwp-settings',
+			array(
+				'id'            => 'bpfwp-display',
+				'title'         => __( 'Display', 'business-profile' ),
+			)
+		);
+
+		$sap->add_setting(
+			'bpfwp-settings',
+			'bpfwp-display',
+			'html',
+			array(
+				'id'			=> 'shortcode',
+				'title'			=> __( 'Shortcode', 'business-profile' ),
+				'description'	=> '',
+				'html'			=> '<div><code>[contact-card]</code></div><p class="description">' . sprintf( __( 'Paste this shortcode into any page or post to display your contact details. Learn about %sall of the attributes%s in the documentation.', 'business-profile' ), '<a href="' . BPFWP_PLUGIN_URL . DIRECTORY_SEPARATOR . 'docs#shortcode">', '</a>' ) . ' </p>',
+			)
+		);
+
 		$sap = apply_filters( 'bpfwp_settings_page', $sap );
 
 		$sap->add_admin_menus();
