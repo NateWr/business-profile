@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Business Profile 1.0.6\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/business-profile\n"
-"POT-Creation-Date: 2015-04-03 10:46:49+00:00\n"
+"POT-Creation-Date: 2015-09-13 11:33:46+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -154,7 +154,7 @@ msgstr ""
 msgid "Schedule"
 msgstr ""
 
-#: includes/Settings.class.php:246 includes/template-functions.php:387
+#: includes/Settings.class.php:246 includes/template-functions.php:389
 msgid "Opening Hours"
 msgstr ""
 
@@ -168,6 +168,20 @@ msgstr ""
 
 #: includes/Settings.class.php:276
 msgid "Delete scheduling rule"
+msgstr ""
+
+#: includes/Settings.class.php:293
+msgid "Display"
+msgstr ""
+
+#: includes/Settings.class.php:303
+msgid "Shortcode"
+msgstr ""
+
+#: includes/Settings.class.php:305
+msgid ""
+"Paste this shortcode into any page or post to display your contact details. "
+"Learn about %sall of the attributes%s in the documentation."
 msgstr ""
 
 #: includes/WP_Widget.ContactCardWidget.class.php:25
@@ -216,67 +230,55 @@ msgstr ""
 msgid "Title"
 msgstr ""
 
-#: includes/template-functions.php:132 includes/template-functions.php:422
+#: includes/template-functions.php:132 includes/template-functions.php:426
 msgid "Get directions"
 msgstr ""
 
-#: includes/template-functions.php:189
+#: includes/template-functions.php:190
 msgid "Contact"
 msgstr ""
 
-#: includes/template-functions.php:294
-msgid " all day"
-msgstr ""
-
-#: includes/template-functions.php:304
-msgid " open until "
-msgstr ""
-
-#: includes/template-functions.php:306
-msgid " open from "
-msgstr ""
-
-#: includes/template-functions.php:325
+#: includes/template-functions.php:327
 msgid "Monday"
 msgstr ""
 
-#: includes/template-functions.php:326
+#: includes/template-functions.php:328
 msgid "Tuesday"
 msgstr ""
 
-#: includes/template-functions.php:327
+#: includes/template-functions.php:329
 msgid "Wednesday"
 msgstr ""
 
-#: includes/template-functions.php:328
+#: includes/template-functions.php:330
 msgid "Thursday"
 msgstr ""
 
-#: includes/template-functions.php:329
+#: includes/template-functions.php:331
 msgid "Friday"
 msgstr ""
 
-#: includes/template-functions.php:330
+#: includes/template-functions.php:332
 msgid "Saturday"
 msgstr ""
 
-#: includes/template-functions.php:331
+#: includes/template-functions.php:333
 msgid "Sunday"
 msgstr ""
 
-#: includes/template-functions.php:343
+#: includes/template-functions.php:345
 msgid "Open"
 msgstr ""
 
-#: includes/template-functions.php:355
+#: includes/template-functions.php:357
 msgid "Open until "
 msgstr ""
 
-#: includes/template-functions.php:357
+#: includes/template-functions.php:359
 msgid "Open from "
 msgstr ""
 
-#: includes/template-functions.php:379
+#: includes/template-functions.php:381
 msgid "Closed"
 msgstr ""
 
@@ -481,14 +483,49 @@ msgctxt "Separator between times of a scheduling rule"
 msgid "&mdash;"
 msgstr ""
 
-#: includes/template-functions.php:308 includes/template-functions.php:359
-msgctxt "Separator between opening and closing times. Example: 9:00am-5:00pm"
-msgid "-"
+#: includes/template-functions.php:291
+msgctxt ""
+"Separator between days of the week when displaying opening hours in brief. "
+"Example: Mo,Tu,We"
+msgid ","
 msgstr ""
 
-#: includes/template-functions.php:315
+#: includes/template-functions.php:294
+msgctxt ""
+"Brief opening hours description which lists days_strings when open all day. "
+"Example: Mo,Tu,We all day"
+msgid "%s all day"
+msgstr ""
+
+#: includes/template-functions.php:306
+msgctxt ""
+"Brief opening hours description which lists the days followed by the "
+"closing time. Example: Mo,Tu,We open until 9:00pm"
+msgid "%s open until %s"
+msgstr ""
+
+#: includes/template-functions.php:308
+msgctxt ""
+"Brief opening hours description which lists the days followed by the "
+"opening time. Example: Mo,Tu,We open from 9:00am"
+msgid "%s open from %s"
+msgstr ""
+
+#: includes/template-functions.php:310
+msgctxt ""
+"Brief opening hours description which lists the days followed by the "
+"opening and closing times. Example: Mo,Tu,We 9:00am-5:00pm"
+msgid "%s %s-%s"
+msgstr ""
+
+#: includes/template-functions.php:317
 msgctxt ""
 "Separator between multiple opening times in the brief opening hours. "
 "Example: Mo,We 9:00 AM - 5:00 PM; Tu,Th 10:00 AM - 5:00 PM"
 msgid "; "
+msgstr ""
+
+#: includes/template-functions.php:361
+msgctxt "Separator between opening and closing times. Example: 9:00am-5:00pm"
+msgid "-"
 msgstr ""
