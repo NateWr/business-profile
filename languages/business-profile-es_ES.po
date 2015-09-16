@@ -1,22 +1,30 @@
+# Copyright (C) 2015 Business Profile
+# This file is distributed under the same license as the Business Profile package.
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: Business Profile 1.0.6\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/business-profile\n"
-"POT-Creation-Date: 2015-04-03 10:46:49+00:00\n"
-"PO-Revision-Date: 2015-05-09 10:43+0100\n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"Language: es_ES\n"
+"POT-Creation-Date: 2015-09-13 17:50+0200\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.7.6\n"
-"X-Poedit-Basepath: .\n"
+"PO-Revision-Date: 2015-09-13 18:12+0200\n"
+"Language-Team: \n"
+"X-Generator: Poedit 1.8.4\n"
+"X-Poedit-KeywordsList: __;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;"
+"_nx_noop:1,2,3c;esc_attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;"
+"esc_html_x:1,2c\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-Basepath: ..\n"
+"X-Textdomain-Support: yes\n"
+"Last-Translator: \n"
+"Language: es_ES\n"
+"X-Poedit-SearchPath-0: .\n"
 
 #: business-profile.php:110
 msgid "View the help documentation for Business Profile"
-msgstr "Ver la documentación de ayuda para su Negocio Perfil"
+msgstr "Ver la documentación de ayuda para su Perfil Empresarial"
 
 #: business-profile.php:110
 msgid "Help"
@@ -24,7 +32,7 @@ msgstr "Ayuda"
 
 #: includes/Integrations.class.php:107
 msgid "Book a table"
-msgstr " Reservar mesa"
+msgstr "Reservar mesa"
 
 #: includes/Integrations.class.php:127 includes/Integrations.class.php:131
 msgid "Show book a table link"
@@ -33,7 +41,7 @@ msgstr "Mostrar enlace a libro de Reservas"
 #. Plugin Name of the plugin/theme
 #: includes/Settings.class.php:86 includes/Settings.class.php:87
 msgid "Business Profile"
-msgstr "Perfil empresarial"
+msgstr "Perfil Empresarial"
 
 #: includes/Settings.class.php:98
 msgid "Search Engine Optimization"
@@ -53,7 +61,7 @@ msgstr ""
 
 #: includes/Settings.class.php:152
 msgid "Contact Information"
-msgstr "Información de contacto"
+msgstr "Información de Contacto"
 
 #: includes/Settings.class.php:162
 msgid "Name"
@@ -72,7 +80,7 @@ msgstr "Dirección"
 
 #: includes/Settings.class.php:178
 msgid "No map coordinates set."
-msgstr "No hay ningún mapa coordenadas establecido."
+msgstr "No hay ningunas coordenadas establecidas para mapa."
 
 #: includes/Settings.class.php:179
 msgid "Requesting new coordinates"
@@ -80,7 +88,7 @@ msgstr "Solicitar nuevas coordenadas"
 
 #: includes/Settings.class.php:180
 msgid "Select a match below"
-msgstr ""
+msgstr "Seleccionar de debajo"
 
 #: includes/Settings.class.php:181
 msgid "View"
@@ -100,7 +108,7 @@ msgstr "¿Reintentar?"
 
 #: includes/Settings.class.php:185
 msgid "Error"
-msgstr "Error"
+msgstr "Error:"
 
 #: includes/Settings.class.php:186
 msgid ""
@@ -146,17 +154,17 @@ msgid ""
 "Enter an email address only if you want to display this publicly. Showing "
 "your email address on your site may cause you to receive excessive spam."
 msgstr ""
-"Introduzca una dirección de correo electrónico sólo si desea mostrar "
-"públicamente. Mostrando su dirección de correo electrónico en su sitio puede "
-"hacer que usted recibe spam excesivo."
+"Introduzca una dirección de correo electrónico sólo si desea mostrarla "
+"públicamente. Mostrar su dirección de correo electrónico puede hacer que "
+"usted reciba un exceso de spam."
 
 #: includes/Settings.class.php:236
 msgid "Schedule"
-msgstr "Programar"
+msgstr "Agenda"
 
-#: includes/Settings.class.php:246 includes/template-functions.php:387
+#: includes/Settings.class.php:246 includes/template-functions.php:389
 msgid "Opening Hours"
-msgstr "Horario de Apertura"
+msgstr "Horario de apertura"
 
 #: includes/Settings.class.php:247
 msgid "Define your weekly opening hours by adding scheduling rules."
@@ -171,13 +179,29 @@ msgstr "Añadir otra hora de apertura"
 msgid "Delete scheduling rule"
 msgstr "Eliminar regla de programación"
 
+#: includes/Settings.class.php:293
+msgid "Display"
+msgstr "Mostrar"
+
+#: includes/Settings.class.php:303
+msgid "Shortcode"
+msgstr "Código"
+
+#: includes/Settings.class.php:305
+msgid ""
+"Paste this shortcode into any page or post to display your contact details. "
+"Learn about %sall of the attributes%s in the documentation."
+msgstr ""
+"Pegar este código en cualquier página o post para mostrar sus datos de "
+"contacto. Aprenda sobre %stodos los atributos%s en la documentación."
+
 #: includes/WP_Widget.ContactCardWidget.class.php:25
 msgid "Show Name"
-msgstr "Mostrar nombre"
+msgstr "Mostrar Nombre"
 
 #: includes/WP_Widget.ContactCardWidget.class.php:26
 msgid "Show Address"
-msgstr "Mostrar dirección"
+msgstr "Mostrar Dirección"
 
 #: includes/WP_Widget.ContactCardWidget.class.php:27
 msgid "Show link to get directions on Google Maps"
@@ -219,73 +243,61 @@ msgstr ""
 msgid "Title"
 msgstr "Título"
 
-#: includes/template-functions.php:132 includes/template-functions.php:422
+#: includes/template-functions.php:132 includes/template-functions.php:426
 msgid "Get directions"
 msgstr "Como llegar"
 
-#: includes/template-functions.php:189
+#: includes/template-functions.php:190
 msgid "Contact"
 msgstr "Contacto"
 
-#: includes/template-functions.php:294
-msgid " all day"
-msgstr " Todo el día"
-
-#: includes/template-functions.php:304
-msgid " open until "
-msgstr " abierto hasta "
-
-#: includes/template-functions.php:306
-msgid " open from "
-msgstr " abierto desde "
-
-#: includes/template-functions.php:325
+#: includes/template-functions.php:327
 msgid "Monday"
 msgstr "Lunes"
 
-#: includes/template-functions.php:326
+#: includes/template-functions.php:328
 msgid "Tuesday"
 msgstr "Martes"
 
-#: includes/template-functions.php:327
+#: includes/template-functions.php:329
 msgid "Wednesday"
 msgstr "Miércoles"
 
-#: includes/template-functions.php:328
+#: includes/template-functions.php:330
 msgid "Thursday"
 msgstr "Jueves"
 
-#: includes/template-functions.php:329
+#: includes/template-functions.php:331
 msgid "Friday"
 msgstr "Viernes"
 
-#: includes/template-functions.php:330
+#: includes/template-functions.php:332
 msgid "Saturday"
 msgstr "Sábado"
 
-#: includes/template-functions.php:331
+#: includes/template-functions.php:333
 msgid "Sunday"
 msgstr "Domingo"
 
-#: includes/template-functions.php:343
+#: includes/template-functions.php:345
 msgid "Open"
 msgstr "Abrierto"
 
-#: includes/template-functions.php:355
+#: includes/template-functions.php:357
 msgid "Open until "
 msgstr "Abierto hasta "
 
-#: includes/template-functions.php:357
+#: includes/template-functions.php:359
 msgid "Open from "
 msgstr "Abierto de "
 
-#: includes/template-functions.php:379
+#: includes/template-functions.php:381
 msgid "Closed"
 msgstr "Cerrado"
 
 #: lib/simple-admin-pages/classes/AdminPage.class.php:173
 msgid "You do not have sufficient permissions to access this page."
-msgstr "No tienes permisos para acceder a esta página"
+msgstr "No tienes suficientes permisos para acceder a esta página."
 
 #. Plugin URI of the plugin/theme
 #. Author URI of the plugin/theme
@@ -341,7 +353,7 @@ msgstr "Vi"
 #: includes/Settings.class.php:254
 msgctxt "Saturday abbreviation"
 msgid "Sa"
-msgstr "Sa"
+msgstr "Sá"
 
 #: includes/Settings.class.php:255
 msgctxt "Sunday abbreviation"
@@ -406,12 +418,12 @@ msgstr "Todo el día"
 #: includes/Settings.class.php:271
 msgctxt "Label for the starting time of a scheduling rule"
 msgid "Start"
-msgstr "Comienza:"
+msgstr "Comienza"
 
 #: includes/Settings.class.php:272
 msgctxt "Label for the ending time of a scheduling rule"
 msgid "End"
-msgstr "Finaliza:"
+msgstr "Finaliza"
 
 #: includes/Settings.class.php:273
 msgctxt ""
@@ -450,7 +462,7 @@ msgctxt ""
 "be replaced by a comma-separated list of days and weeks in the following "
 "format: M, T, W on the first, second week of the month"
 msgid "%s on the %s week of the month"
-msgstr "%s en el %s de cada mes"
+msgstr "%s en la %s semana del mes"
 
 #: includes/Settings.class.php:280
 msgctxt ""
@@ -485,14 +497,49 @@ msgctxt "Separator between times of a scheduling rule"
 msgid "&mdash;"
 msgstr "&mdash;"
 
-#: includes/template-functions.php:308 includes/template-functions.php:359
-msgctxt "Separator between opening and closing times. Example: 9:00am-5:00pm"
-msgid "-"
-msgstr "-"
+#: includes/template-functions.php:291
+msgctxt ""
+"Separator between days of the week when displaying opening hours in brief. "
+"Example: Mo,Tu,We"
+msgid ","
+msgstr ","
 
-#: includes/template-functions.php:315
+#: includes/template-functions.php:294
+msgctxt ""
+"Brief opening hours description which lists days_strings when open all day. "
+"Example: Mo,Tu,We all day"
+msgid "%s all day"
+msgstr "%s durante todo el día"
+
+#: includes/template-functions.php:306
+msgctxt ""
+"Brief opening hours description which lists the days followed by the closing "
+"time. Example: Mo,Tu,We open until 9:00pm"
+msgid "%s open until %s"
+msgstr "abierto hasta las %s %s"
+
+#: includes/template-functions.php:308
+msgctxt ""
+"Brief opening hours description which lists the days followed by the opening "
+"time. Example: Mo,Tu,We open from 9:00am"
+msgid "%s open from %s"
+msgstr "%s abierto desde %s"
+
+#: includes/template-functions.php:310
+msgctxt ""
+"Brief opening hours description which lists the days followed by the opening "
+"and closing times. Example: Mo,Tu,We 9:00am-5:00pm"
+msgid "%s %s-%s"
+msgstr "%s %s-%s"
+
+#: includes/template-functions.php:317
 msgctxt ""
 "Separator between multiple opening times in the brief opening hours. "
 "Example: Mo,We 9:00 AM - 5:00 PM; Tu,Th 10:00 AM - 5:00 PM"
 msgid "; "
 msgstr "; "
+
+#: includes/template-functions.php:361
+msgctxt "Separator between opening and closing times. Example: 9:00am-5:00pm"
+msgid "-"
+msgstr "-"
