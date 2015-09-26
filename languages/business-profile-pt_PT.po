@@ -4,12 +4,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Business Profile 1.0.6\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/business-profile\n"
-"POT-Creation-Date: 2015-04-03 10:46:49+00:00\n"
+"POT-Creation-Date: 2015-09-26 20:17-0000\n"
+"PO-Revision-Date: 2015-09-26 20:20-0000\n"
+"Last-Translator: Luis Martins <luis.martins@multiweb.pt>\n"
+"Language-Team: Luis Martins <luis.martins@multiweb.pt>\n"
+"Language: pt_PT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-05-07 21:08-0000\n"
-"X-Generator: Poedit 1.8beta2\n"
+"X-Generator: Poedit 1.8.1\n"
 "X-Poedit-KeywordsList: __;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;"
 "_nx_noop:1,2,3c;esc_attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;"
 "esc_html_x:1,2c\n"
@@ -17,9 +20,6 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-Basepath: ../\n"
 "X-Textdomain-Support: yes\n"
-"Last-Translator: Luis Martins <luis.martins@multiweb.pt>\n"
-"Language-Team: Luis Martins <luis.martins@multiweb.pt>\n"
-"Language: pt_PT\n"
 "X-Poedit-SearchPath-0: .\n"
 
 #: business-profile.php:110
@@ -38,7 +38,6 @@ msgstr "Reservar Mesa"
 msgid "Show book a table link"
 msgstr "Mostrar link para reserva de mesa"
 
-#. Plugin Name of the plugin/theme
 #: includes/Settings.class.php:86 includes/Settings.class.php:87
 msgid "Business Profile"
 msgstr "Business Profile"
@@ -76,6 +75,16 @@ msgstr ""
 #: includes/Settings.class.php:174
 msgid "Address"
 msgstr "Endereço"
+
+#: includes/Settings.class.php:176
+msgctxt "separator between admin action links in address component"
+msgid " | "
+msgstr " | "
+
+#: includes/Settings.class.php:177
+msgctxt "separates latitude and longitude"
+msgid ", "
+msgstr ", "
 
 #: includes/Settings.class.php:178
 msgid "No map coordinates set."
@@ -160,7 +169,7 @@ msgstr ""
 msgid "Schedule"
 msgstr "Agendamento"
 
-#: includes/Settings.class.php:246 includes/template-functions.php:387
+#: includes/Settings.class.php:246 includes/template-functions.php:389
 msgid "Opening Hours"
 msgstr "Horário de Funcionamento"
 
@@ -169,154 +178,6 @@ msgid "Define your weekly opening hours by adding scheduling rules."
 msgstr ""
 "Defina o horário de funcionamento da empresa, adicionando as regras de "
 "agendamento."
-
-#: includes/Settings.class.php:262
-msgid "Add another opening time"
-msgstr "Adicione outra hora de abertura"
-
-#: includes/Settings.class.php:276
-msgid "Delete scheduling rule"
-msgstr "Eliminar regra de agendamento"
-
-#: includes/WP_Widget.ContactCardWidget.class.php:25
-msgid "Show Name"
-msgstr "Mostrar Nome"
-
-#: includes/WP_Widget.ContactCardWidget.class.php:26
-msgid "Show Address"
-msgstr "Mostrar Endereço"
-
-#: includes/WP_Widget.ContactCardWidget.class.php:27
-msgid "Show link to get directions on Google Maps"
-msgstr "Mostrar link para obter direcções no Google Maps"
-
-#: includes/WP_Widget.ContactCardWidget.class.php:28
-msgid "Show Phone number"
-msgstr "Mostrar Número de Telefone"
-
-#: includes/WP_Widget.ContactCardWidget.class.php:29
-msgid "Show contact details"
-msgstr "Mostrar detalhes de contacto"
-
-#: includes/WP_Widget.ContactCardWidget.class.php:30
-msgid "Show Opening Hours"
-msgstr "Mostrar Horário de Funcionamento"
-
-#: includes/WP_Widget.ContactCardWidget.class.php:31
-msgid "Show brief opening hours on one line"
-msgstr "Mostrar Horário de Funcionamento resumido"
-
-#: includes/WP_Widget.ContactCardWidget.class.php:32
-msgid "Show Google Map"
-msgstr "Mostrar Google Map"
-
-#: includes/WP_Widget.ContactCardWidget.class.php:38
-msgid "Contact Card"
-msgstr "Cartão de Contato"
-
-#: includes/WP_Widget.ContactCardWidget.class.php:39
-msgid ""
-"Display a contact card with your name, address, phone number, opening hours and "
-"map."
-msgstr "Mostrar um cartão de contacto com as informações de contacto da empresa."
-
-#: includes/WP_Widget.ContactCardWidget.class.php:71
-msgid "Title"
-msgstr "Título"
-
-#: includes/template-functions.php:132 includes/template-functions.php:422
-msgid "Get directions"
-msgstr "Obter direcções"
-
-#: includes/template-functions.php:189
-msgid "Contact"
-msgstr "Contacto"
-
-#: includes/template-functions.php:294
-msgid " all day"
-msgstr " todo o dia"
-
-#: includes/template-functions.php:304
-msgid " open until "
-msgstr " aberto até "
-
-#: includes/template-functions.php:306
-msgid " open from "
-msgstr " aberto das "
-
-#: includes/template-functions.php:325
-msgid "Monday"
-msgstr "Segunda-feira"
-
-#: includes/template-functions.php:326
-msgid "Tuesday"
-msgstr "Terça-feira"
-
-#: includes/template-functions.php:327
-msgid "Wednesday"
-msgstr "Quarta-feira"
-
-#: includes/template-functions.php:328
-msgid "Thursday"
-msgstr "Quinta-feira"
-
-#: includes/template-functions.php:329
-msgid "Friday"
-msgstr "Sexta-feira"
-
-#: includes/template-functions.php:330
-msgid "Saturday"
-msgstr "Sábado"
-
-#: includes/template-functions.php:331
-msgid "Sunday"
-msgstr "Domingo"
-
-#: includes/template-functions.php:343
-msgid "Open"
-msgstr "Aberto"
-
-#: includes/template-functions.php:355
-msgid "Open until "
-msgstr "Aberto até "
-
-#: includes/template-functions.php:357
-msgid "Open from "
-msgstr "Aberto das "
-
-#: includes/template-functions.php:379
-msgid "Closed"
-msgstr "Fechado"
-
-#: lib/simple-admin-pages/classes/AdminPage.class.php:173
-msgid "You do not have sufficient permissions to access this page."
-msgstr "Não tem permissões suficientes para aceder a esta página."
-
-#. Plugin URI of the plugin/theme
-#. Author URI of the plugin/theme
-msgid "http://themeofthecrop.com"
-msgstr "http://themeofthecrop.com"
-
-#. Description of the plugin/theme
-msgid ""
-"Contact information, Google Maps and opening hours made easy for businesses."
-msgstr ""
-"Informações de contacto, Google Maps e horário de funcionamento de forma "
-"simples para empresas."
-
-#. Author of the plugin/theme
-msgid "Theme of the Crop"
-msgstr "Theme of the Crop"
-
-#: includes/Settings.class.php:176
-msgctxt "separator between admin action links in address component"
-msgid " | "
-msgstr " | "
-
-#: includes/Settings.class.php:177
-msgctxt "separates latitude and longitude"
-msgid ", "
-msgstr ", "
 
 #: includes/Settings.class.php:249
 msgctxt "Monday abbreviation"
@@ -367,6 +228,10 @@ msgctxt ""
 "rules"
 msgid "mmmm d, yyyy"
 msgstr "yyyy/mm/dd"
+
+#: includes/Settings.class.php:262
+msgid "Add another opening time"
+msgstr "Adicione outra hora de abertura"
 
 #: includes/Settings.class.php:263
 msgctxt "Format of a scheduling rule"
@@ -419,6 +284,7 @@ msgid "End"
 msgstr "Fim"
 
 #: includes/Settings.class.php:273
+#, php-format
 msgctxt ""
 "Prompt displayed when a scheduling rule is set without any time restrictions"
 msgid "All day long. Want to %sset a time slot%s?"
@@ -433,6 +299,10 @@ msgstr "Abrir e fechar esta regra"
 msgctxt "Delete a scheduling rule"
 msgid "Delete rule"
 msgstr "Eliminar regra"
+
+#: includes/Settings.class.php:276
+msgid "Delete scheduling rule"
+msgstr "Eliminar regra de agendamento"
 
 #: includes/Settings.class.php:277
 msgctxt ""
@@ -449,6 +319,7 @@ msgid "Every day"
 msgstr "Todos os dias"
 
 #: includes/Settings.class.php:279
+#, php-format
 msgctxt ""
 "Brief default description of a scheduling rule when some weekdays are included "
 "on only some weeks of the month. %s should be left alone and will be replaced "
@@ -458,6 +329,7 @@ msgid "%s on the %s week of the month"
 msgstr "%s de %s semana do mês"
 
 #: includes/Settings.class.php:280
+#, php-format
 msgctxt ""
 "Brief default description of a scheduling rule when some weeks of the month are "
 "included but all or no weekdays are selected. %s should be left alone and will "
@@ -490,14 +362,194 @@ msgctxt "Separator between times of a scheduling rule"
 msgid "&mdash;"
 msgstr "&mdash;"
 
-#: includes/template-functions.php:308 includes/template-functions.php:359
-msgctxt "Separator between opening and closing times. Example: 9:00am-5:00pm"
-msgid "-"
-msgstr "-"
+#: includes/Settings.class.php:293
+msgid "Display"
+msgstr "Apresentação"
 
-#: includes/template-functions.php:315
+#: includes/Settings.class.php:303
+msgid "Shortcode"
+msgstr "Shortcode"
+
+#: includes/Settings.class.php:305
+#, php-format
+msgid ""
+"Paste this shortcode into any page or post to display your contact details. "
+"Learn about %sall of the attributes%s in the documentation."
+msgstr ""
+"Cole este código (shortcode) em qualquer página ou artigo para apresentar os "
+"seus detalhes de contacto. Saiba mais sobre %stodos os atributos%s na "
+"documentação."
+
+#: includes/WP_Widget.ContactCardWidget.class.php:25
+msgid "Show Name"
+msgstr "Mostrar Nome"
+
+#: includes/WP_Widget.ContactCardWidget.class.php:26
+msgid "Show Address"
+msgstr "Mostrar Endereço"
+
+#: includes/WP_Widget.ContactCardWidget.class.php:27
+msgid "Show link to get directions on Google Maps"
+msgstr "Mostrar link para obter direcções no Google Maps"
+
+#: includes/WP_Widget.ContactCardWidget.class.php:28
+msgid "Show Phone number"
+msgstr "Mostrar Número de Telefone"
+
+#: includes/WP_Widget.ContactCardWidget.class.php:29
+msgid "Show contact details"
+msgstr "Mostrar detalhes de contacto"
+
+#: includes/WP_Widget.ContactCardWidget.class.php:30
+msgid "Show Opening Hours"
+msgstr "Mostrar Horário de Funcionamento"
+
+#: includes/WP_Widget.ContactCardWidget.class.php:31
+msgid "Show brief opening hours on one line"
+msgstr "Mostrar Horário de Funcionamento resumido"
+
+#: includes/WP_Widget.ContactCardWidget.class.php:32
+msgid "Show Google Map"
+msgstr "Mostrar Google Map"
+
+#: includes/WP_Widget.ContactCardWidget.class.php:38
+msgid "Contact Card"
+msgstr "Cartão de Contato"
+
+#: includes/WP_Widget.ContactCardWidget.class.php:39
+msgid ""
+"Display a contact card with your name, address, phone number, opening hours and "
+"map."
+msgstr "Mostrar um cartão de contacto com as informações de contacto da empresa."
+
+#: includes/WP_Widget.ContactCardWidget.class.php:71
+msgid "Title"
+msgstr "Título"
+
+#: includes/template-functions.php:132 includes/template-functions.php:426
+msgid "Get directions"
+msgstr "Obter direcções"
+
+#: includes/template-functions.php:190
+msgid "Contact"
+msgstr "Contacto"
+
+#: includes/template-functions.php:291
+msgctxt ""
+"Separator between days of the week when displaying opening hours in brief. "
+"Example: Mo,Tu,We"
+msgid ","
+msgstr ","
+
+#: includes/template-functions.php:294
+#, php-format
+msgctxt ""
+"Brief opening hours description which lists days_strings when open all day. "
+"Example: Mo,Tu,We all day"
+msgid "%s all day"
+msgstr "%s todo o dia"
+
+#: includes/template-functions.php:306
+#, php-format
+msgctxt ""
+"Brief opening hours description which lists the days followed by the closing "
+"time. Example: Mo,Tu,We open until 9:00pm"
+msgid "%s open until %s"
+msgstr "%s aberto até %s"
+
+#: includes/template-functions.php:308
+#, php-format
+msgctxt ""
+"Brief opening hours description which lists the days followed by the opening "
+"time. Example: Mo,Tu,We open from 9:00am"
+msgid "%s open from %s"
+msgstr "%s aberto das %s"
+
+#: includes/template-functions.php:310
+#, php-format
+msgctxt ""
+"Brief opening hours description which lists the days followed by the opening "
+"and closing times. Example: Mo,Tu,We 9:00am-5:00pm"
+msgid "%s %s-%s"
+msgstr "%s %s-%s"
+
+#: includes/template-functions.php:317
 msgctxt ""
 "Separator between multiple opening times in the brief opening hours. Example: "
 "Mo,We 9:00 AM - 5:00 PM; Tu,Th 10:00 AM - 5:00 PM"
 msgid "; "
-msgstr "; "
+msgstr ";"
+
+#: includes/template-functions.php:327
+msgid "Monday"
+msgstr "Segunda-feira"
+
+#: includes/template-functions.php:328
+msgid "Tuesday"
+msgstr "Terça-feira"
+
+#: includes/template-functions.php:329
+msgid "Wednesday"
+msgstr "Quarta-feira"
+
+#: includes/template-functions.php:330
+msgid "Thursday"
+msgstr "Quinta-feira"
+
+#: includes/template-functions.php:331
+msgid "Friday"
+msgstr "Sexta-feira"
+
+#: includes/template-functions.php:332
+msgid "Saturday"
+msgstr "Sábado"
+
+#: includes/template-functions.php:333
+msgid "Sunday"
+msgstr "Domingo"
+
+#: includes/template-functions.php:345
+msgid "Open"
+msgstr "Aberto"
+
+#: includes/template-functions.php:357
+msgid "Open until "
+msgstr "Aberto até "
+
+#: includes/template-functions.php:359
+msgid "Open from "
+msgstr "Aberto das "
+
+#: includes/template-functions.php:361
+msgctxt "Separator between opening and closing times. Example: 9:00am-5:00pm"
+msgid "-"
+msgstr "-"
+
+#: includes/template-functions.php:381
+msgid "Closed"
+msgstr "Fechado"
+
+#: lib/simple-admin-pages/classes/AdminPage.class.php:173
+msgid "You do not have sufficient permissions to access this page."
+msgstr "Não tem permissões suficientes para aceder a esta página."
+
+#~ msgid " all day"
+#~ msgstr " todo o dia"
+
+#~ msgid " open until "
+#~ msgstr " aberto até "
+
+#~ msgid " open from "
+#~ msgstr " aberto das "
+
+#~ msgid "http://themeofthecrop.com"
+#~ msgstr "http://themeofthecrop.com"
+
+#~ msgid ""
+#~ "Contact information, Google Maps and opening hours made easy for businesses."
+#~ msgstr ""
+#~ "Informações de contacto, Google Maps e horário de funcionamento de forma "
+#~ "simples para empresas."
+
+#~ msgid "Theme of the Crop"
+#~ msgstr "Theme of the Crop"
