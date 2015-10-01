@@ -3,9 +3,9 @@ Contributors: NateWr
 Author URI: https://github.com/NateWr
 Plugin URL: http://themeofthecrop.com
 Requires at Least: 3.9
-Tested Up To: 4.2
+Tested Up To: 4.3.1
 Tags: business profile, address, google map, schema, contact, phone, address, seo
-Stable tag: 1.0.6
+Stable tag: 1.0.7
 License: GPLv2 or later
 Donate link: http://themeofthecrop.com
 
@@ -51,6 +51,12 @@ This plugin is packed with hooks so you can extend it as needed. Development tak
 3. Choose what information to display with the widget, or check out the shortcode attributes in the help document included.
 
 == Changelog ==
+
+= 1.0.7 (2015-10-01) =
+* Add: show shortcode on business profile page
+* Add: obfuscate email address if displayed in contact details
+* Fix: compatibility problems when the Google Maps API is already loaded
+* New and updated translations: Dutch, Hebrew, Spanish (Colombia), Portugese, Spanish, Czech
 
 = 1.0.6 (2015-04-03) =
 * Fix: validation errors with address markup
