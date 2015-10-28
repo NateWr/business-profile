@@ -5,7 +5,7 @@ Plugin URL: http://themeofthecrop.com
 Requires at Least: 3.9
 Tested Up To: 4.3.1
 Tags: business profile, address, google map, schema, contact, phone, address, seo
-Stable tag: 1.0.7
+Stable tag: 1.0.8
 License: GPLv2 or later
 Donate link: http://themeofthecrop.com
 
@@ -52,6 +52,10 @@ This plugin is packed with hooks so you can extend it as needed. Development tak
 
 == Changelog ==
 
+= 1.0.8 (2015-10-01) =
+* Update: Simple Admin Pages lib to v2.0 (#27)
+* Fix: line breaks can disrupt get directions link in embedded map (#17)
+
 = 1.0.7 (2015-10-01) =
 * Add: show shortcode on business profile page
 * Add: obfuscate email address if displayed in contact details
@@ -86,6 +90,12 @@ This plugin is packed with hooks so you can extend it as needed. Development tak
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.0.8 =
+This update fixes an error in the Get Directions link that appears inside of embedded maps. I recommend you update as it likely effects a lot of people.
+
+= 1.0.7 =
+This update fixes some compatibility problems with third-party plugins or themes, disguises the email address if displayed, and updates a bunch of translations.
 
 = 1.0.6 =
 This update fixes validation errors with the address and contact point schema.org markup. It is strongly recommended that you update to improve Google compatibility.
