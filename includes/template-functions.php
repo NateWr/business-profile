@@ -449,8 +449,7 @@ function bpwfwp_print_map() {
 	}
 	?>
 
-	<div id="bp-map-<?php echo $id; ?>" class="bp-map" itemprop="map" data-name="<?php echo esc_attr( $bpfwp_controller->settings->get_setting( 'name' ) ); ?>" data-address="<?php echo esc_attr( nl2br( $address['text'] ) ); ?>"<?php echo $attr; ?>>
-	</div>
+	<div id="bp-map-<?php echo $id; ?>" class="bp-map" itemprop="map" data-name="<?php echo esc_attr( $bpfwp_controller->settings->get_setting( 'name' ) ); ?>" data-address="<?php echo esc_attr( $address['text'] ); ?>"<?php echo $attr; ?>></div>
 
 	<?php
 }

@@ -42,7 +42,7 @@ function bp_initialize_map() {
 
 			var content = '<div class="bp-map-info-window">' +
 				'<p><strong>' + data.name + '</strong></p>' +
-				'<p>' + data.address + '</p>';
+				'<p>' + data.address.replace(/(?:\r\n|\r|\n)/g, '<br>') + '</p>';
 
 			if ( typeof data.phone !== 'undefined' ) {
 				content += '<p>' + data.phone + '</p>';
