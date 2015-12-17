@@ -117,4 +117,5 @@ class bpfwpInit {
 }
 } // endif;
 
+global $bpfwp_controller;
 $bpfwp_controller = new bpfwpInit();
