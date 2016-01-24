@@ -6,6 +6,7 @@
 /**
  * Print a contact card and add a shortcode
  * @since 0.0.1
+ * cellphone and fax added
  */
 if ( !function_exists( 'bpwfwp_print_contact_card' ) ) {
 function bpwfwp_print_contact_card( $args = array() ) {
@@ -16,6 +17,8 @@ function bpwfwp_print_contact_card( $args = array() ) {
 		'show_address'				=> true,
 		'show_get_directions'		=> true,
 		'show_phone'				=> true,
+		'show_cellphone'			=> true,
+ 		'show_faxphone'				=> true,
 		'show_contact'				=> true,
 		'show_opening_hours'		=> true,
 		'show_opening_hours_brief'	=> false,
@@ -41,6 +44,16 @@ function bpwfwp_print_contact_card( $args = array() ) {
 	if ( $bpfwp_controller->settings->get_setting( 'phone' ) ) {
 		$data['phone'] = 'bpwfwp_print_phone';
 	}
+
+    if ( $bpfwp_controller->settings->get_setting( 'cellphone' ) ) {
+        $data['cellphone'] = 'bpwfwp_print_cellphone';
+    }
+    
+
+    if ( $bpfwp_controller->settings->get_setting( 'faxphone' ) ) {
+        $data['faxphone'] = 'bpwfwp_print_faxphone';
+    }
+    
 
 	if ( $bpfwp_controller->display_settings['show_contact'] &&
 			( $bpfwp_controller->settings->get_setting( 'contact-email' ) || $bpfwp_controller->settings->get_setting( 'contact-page' ) ) ) {
@@ -158,6 +171,53 @@ function bpwfwp_print_phone() {
 	<?php endif;
 }
 } // endif;
+        
+/**
+* Print the cellphone number
+* @since 1.0.8
+*/
+if ( !function_exists( 'bpwfwp_print_cell' ) ) {
+function bpwfwp_print_cellphone() {
+                
+    global $bpfwp_controller;
+                
+    if ( $bpfwp_controller->display_settings['show_cellphone'] ) :
+    ?>
+
+    <div class="bp-cellphone" itemprop="cellphone">
+    <?php echo $bpfwp_controller->settings->get_setting( 'cellphone' ); ?>
+    </div>
+
+    <?php else : ?>
+    <meta itemprop="cellphone" content="<?php echo esc_attr( $bpfwp_controller->settings->get_setting( 'cellphone' ) ); ?>">
+
+    <?php endif;
+}
+} // endif;
+    
+/**
+* Print the fax number
+* @since 1.0.8
+*/
+if ( !function_exists( 'bpwfwp_print_faxphone' ) ) {
+function bpwfwp_print_faxphone() {
+            
+    global $bpfwp_controller;
+            
+    if ( $bpfwp_controller->display_settings['show_faxphone'] ) :
+    ?>
+
+    <div class="bp-faxphone" itemprop="faxphone">
+    <?php echo $bpfwp_controller->settings->get_setting( 'faxphone' ); ?>
+    </div>
+
+    <?php else : ?>
+    <meta itemprop="faxphone" content="<?php echo esc_attr( $bpfwp_controller->settings->get_setting( 'faxphone' ) ); ?>">
+
+    <?php endif;
+}
+} // endif;
+    
 
 /**
  * Print the contact link

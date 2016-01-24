@@ -26,6 +26,8 @@ class bpfwpContactCardWidget extends WP_Widget {
 				'show_address'				=> __( 'Show Address', 'business-profile' ),
 				'show_get_directions'		=> __( 'Show link to get directions on Google Maps', 'business-profile' ),
 				'show_phone'				=> __( 'Show Phone number', 'business-profile' ),
+				'show_cellphone'			=> __( 'Show Cellphone number', 'business-profile' ),
+				'show_faxphone'				=> __( 'Show Fax number', 'business-profile' ),
 				'show_contact'				=> __( 'Show contact details', 'business-profile' ),
 				'show_opening_hours'		=> __( 'Show Opening Hours', 'business-profile' ),
 				'show_opening_hours_brief'	=> __( 'Show brief opening hours on one line', 'business-profile' ),
