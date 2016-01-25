@@ -58,6 +58,7 @@ class bpfwpIntegrations {
 	 * Add the callback to print the booking link
 	 * Restaurant Reservations plugin
 	 * @since 0.0.1
+     * changed on 24 jan 2016 to add cellphone and fax
 	 */
 	public function bpwfp_booking_link_callback( $data ) {
 
@@ -68,11 +69,16 @@ class bpfwpIntegrations {
 
 			// Place the link at the end of other short links if they're
 			// displayed
+            // added cellphone and faxphone , names are chosen so they don't interfere with other snippets that already would exits
 			if ( isset( $data['contact'] ) ) {
 				$pos = array_search( 'contact', array_keys( $data ) );
 			} elseif ( isset( $data['phone'] ) ) {
 				$pos = array_search( 'phone', array_keys( $data ) );
-			} elseif ( isset( $data['address'] ) ) {
+            } elseif ( isset( $data['cellphone'] ) ) {
+                $pos = array_search( 'cellphone', array_keys( $data ) );
+            } elseif ( isset( $data['faxphone'] ) ) {
+                $pos = array_search( 'faxphone', array_keys( $data ) );
+            } elseif ( isset( $data['address'] ) ) {
 				$pos = array_search( 'address', array_keys( $data ) );
 			}
 

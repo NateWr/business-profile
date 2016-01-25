@@ -68,6 +68,7 @@ class bpfwpSettings {
 	 * Load the admin settings page
 	 * @since 0.0.1
 	 * @sa https://github.com/NateWr/simple-admin-pages
+     * added cellphone and fax
 	 */
 	public function load_settings_panel() {
 
@@ -200,7 +201,26 @@ class bpfwpSettings {
 				'title'         => __( 'Phone', 'business-profile' ),
 			)
 		);
-
+        
+        $sap->add_setting(
+            'bpfwp-settings',
+            'bpfwp-contact',
+            'text',
+            array(
+                'id'            => 'cellphone',
+                'title'         => __( 'Cellphone', 'business-profile' ),
+            )
+        );
+        $sap->add_setting(
+            'bpfwp-settings',
+            'bpfwp-contact',
+            'text',
+            array(
+                'id'            => 'faxphone',
+                'title'         => __( 'Fax', 'business-profile' ),
+            )
+        );
+       
 		$sap->add_setting(
 			'bpfwp-settings',
 			'bpfwp-contact',
