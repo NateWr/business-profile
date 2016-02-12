@@ -1,14 +1,14 @@
-# Copyright (C) 2015 Business Profile
+# Copyright (C) 2016 Business Profile
 # This file is distributed under the same license as the Business Profile package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Business Profile 1.0.6\n"
+"Project-Id-Version: Business Profile 1.0.8\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/business-profile\n"
-"POT-Creation-Date: 2015-09-13 11:33:46+00:00\n"
+"POT-Creation-Date: 2016-02-12 16:47:11+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2016-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "X-Generator: grunt-wp-i18n 0.4.9\n"
@@ -41,7 +41,7 @@ msgid "Show book a table link"
 msgstr ""
 
 #: includes/Settings.class.php:86 includes/Settings.class.php:87
-#. #-#-#-#-#  business-profile.pot (Business Profile 1.0.6)  #-#-#-#-#
+#. #-#-#-#-#  business-profile.pot (Business Profile 1.0.8)  #-#-#-#-#
 #. Plugin Name of the plugin/theme
 msgid "Business Profile"
 msgstr ""
@@ -154,7 +154,7 @@ msgstr ""
 msgid "Schedule"
 msgstr ""
 
-#: includes/Settings.class.php:246 includes/template-functions.php:389
+#: includes/Settings.class.php:246 includes/template-functions.php:398
 msgid "Opening Hours"
 msgstr ""
 
@@ -226,11 +226,11 @@ msgid ""
 "and map."
 msgstr ""
 
-#: includes/WP_Widget.ContactCardWidget.class.php:71
+#: includes/WP_Widget.ContactCardWidget.class.php:85
 msgid "Title"
 msgstr ""
 
-#: includes/template-functions.php:132 includes/template-functions.php:426
+#: includes/template-functions.php:132 includes/template-functions.php:436
 msgid "Get directions"
 msgstr ""
 
@@ -238,47 +238,75 @@ msgstr ""
 msgid "Contact"
 msgstr ""
 
-#: includes/template-functions.php:327
+#: includes/template-functions.php:289
+msgid "Mo"
+msgstr ""
+
+#: includes/template-functions.php:290
+msgid "Tu"
+msgstr ""
+
+#: includes/template-functions.php:291
+msgid "We"
+msgstr ""
+
+#: includes/template-functions.php:292
+msgid "Th"
+msgstr ""
+
+#: includes/template-functions.php:293
+msgid "Fr"
+msgstr ""
+
+#: includes/template-functions.php:294
+msgid "Sa"
+msgstr ""
+
+#: includes/template-functions.php:295
+msgid "Su"
+msgstr ""
+
+#: includes/template-functions.php:336
 msgid "Monday"
 msgstr ""
 
-#: includes/template-functions.php:328
+#: includes/template-functions.php:337
 msgid "Tuesday"
 msgstr ""
 
-#: includes/template-functions.php:329
+#: includes/template-functions.php:338
 msgid "Wednesday"
 msgstr ""
 
-#: includes/template-functions.php:330
+#: includes/template-functions.php:339
 msgid "Thursday"
 msgstr ""
 
-#: includes/template-functions.php:331
+#: includes/template-functions.php:340
 msgid "Friday"
 msgstr ""
 
-#: includes/template-functions.php:332
+#: includes/template-functions.php:341
 msgid "Saturday"
 msgstr ""
 
-#: includes/template-functions.php:333
+#: includes/template-functions.php:342
 msgid "Sunday"
 msgstr ""
 
-#: includes/template-functions.php:345
+#: includes/template-functions.php:354
 msgid "Open"
 msgstr ""
 
-#: includes/template-functions.php:357
+#: includes/template-functions.php:366
 msgid "Open until "
 msgstr ""
 
-#: includes/template-functions.php:359
+#: includes/template-functions.php:368
 msgid "Open from "
 msgstr ""
 
-#: includes/template-functions.php:381
+#: includes/template-functions.php:390
 msgid "Closed"
 msgstr ""
 
@@ -286,9 +314,9 @@ msgstr ""
 msgid "You do not have sufficient permissions to access this page."
 msgstr ""
 
-#. #-#-#-#-#  business-profile.pot (Business Profile 1.0.6)  #-#-#-#-#
+#. #-#-#-#-#  business-profile.pot (Business Profile 1.0.8)  #-#-#-#-#
 #. Plugin URI of the plugin/theme
-#. #-#-#-#-#  business-profile.pot (Business Profile 1.0.6)  #-#-#-#-#
+#. #-#-#-#-#  business-profile.pot (Business Profile 1.0.8)  #-#-#-#-#
 #. Author URI of the plugin/theme
 msgid "http://themeofthecrop.com"
 msgstr ""
@@ -483,49 +511,49 @@ msgctxt "Separator between times of a scheduling rule"
 msgid "&mdash;"
 msgstr ""
 
-#: includes/template-functions.php:291
+#: includes/template-functions.php:300
 msgctxt ""
 "Separator between days of the week when displaying opening hours in brief. "
 "Example: Mo,Tu,We"
 msgid ","
 msgstr ""
 
-#: includes/template-functions.php:294
+#: includes/template-functions.php:303
 msgctxt ""
 "Brief opening hours description which lists days_strings when open all day. "
 "Example: Mo,Tu,We all day"
 msgid "%s all day"
 msgstr ""
 
-#: includes/template-functions.php:306
+#: includes/template-functions.php:315
 msgctxt ""
 "Brief opening hours description which lists the days followed by the "
 "closing time. Example: Mo,Tu,We open until 9:00pm"
 msgid "%s open until %s"
 msgstr ""
 
-#: includes/template-functions.php:308
+#: includes/template-functions.php:317
 msgctxt ""
 "Brief opening hours description which lists the days followed by the "
 "opening time. Example: Mo,Tu,We open from 9:00am"
 msgid "%s open from %s"
 msgstr ""
 
-#: includes/template-functions.php:310
+#: includes/template-functions.php:319
 msgctxt ""
 "Brief opening hours description which lists the days followed by the "
 "opening and closing times. Example: Mo,Tu,We 9:00am-5:00pm"
 msgid "%s %s-%s"
 msgstr ""
 
-#: includes/template-functions.php:317
+#: includes/template-functions.php:326
 msgctxt ""
 "Separator between multiple opening times in the brief opening hours. "
 "Example: Mo,We 9:00 AM - 5:00 PM; Tu,Th 10:00 AM - 5:00 PM"
 msgid "; "
 msgstr ""
 
-#: includes/template-functions.php:361
+#: includes/template-functions.php:370
 msgctxt "Separator between opening and closing times. Example: 9:00am-5:00pm"
 msgid "-"
 msgstr ""
