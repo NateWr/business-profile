@@ -129,7 +129,7 @@ function bpwfwp_print_address() {
 
 	<?php if ( $bpfwp_controller->display_settings['show_get_directions'] ) : ?>
 	<div class="bp-directions">
-		<a href="//maps.google.com/maps?saddr=current+location&daddr=<?php echo urlencode( esc_attr( $address['text'] ) ); ?>"><?php _e( 'Get directions', 'business-profile' ); ?></a>
+		<a href="//maps.google.com/maps?saddr=current+location&daddr=<?php echo urlencode( esc_attr( $address['text'] ) ); ?>" target="_blank"><?php _e( 'Get directions', 'business-profile' ); ?></a>
 	</div>
 	<?php endif;
 
