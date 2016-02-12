@@ -5,7 +5,7 @@ Plugin URL: http://themeofthecrop.com
 Requires at Least: 3.9
 Tested Up To: 4.4
 Tags: business profile, address, google map, schema, contact, phone, address, seo
-Stable tag: 1.0.8
+Stable tag: 1.0.9
 License: GPLv2 or later
 Donate link: http://themeofthecrop.com
 
@@ -52,6 +52,16 @@ This plugin is packed with hooks so you can extend it as needed. Development tak
 
 == Changelog ==
 
+= 1.0.9 (2016-02-12) =
+* Fix: compatibility with wp-cli
+* Fix: allow short weekday names to be translated
+* Update: "get directions" link now opens in a new window/tab
+* Update: widget now uses shortcode to print output
+* Update: remove deprecated sensor attribute from Google Maps api call
+* Add: make Google Maps objects and options available in global scope
+* Add: allow map options to be filtered
+* Add: javascript event triggered when map initialized
+
 = 1.0.8 (2015-10-01) =
 * Update: Simple Admin Pages lib to v2.0 (#27)
 * Fix: line breaks can disrupt get directions link in embedded map (#17)
@@ -90,6 +100,9 @@ This plugin is packed with hooks so you can extend it as needed. Development tak
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.0.9 =
+This update fixes wp-cli compatibility and adds a number of useful development filters/features for interacting with the map objects.
 
 = 1.0.8 =
 This update fixes an error in the Get Directions link that appears inside of embedded maps. I recommend you update as it likely effects a lot of people.
