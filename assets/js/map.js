@@ -36,13 +36,13 @@ function bp_initialize_map() {
 
 		// Google Maps API v3
 		if ( typeof data.lat !== 'undefined' ) {
-			var latlon = new google.maps.LatLng( data.lat, data.lon );
-			var bp_map_options = {
-				zoom: 15,
-				center: latlon,
-			};
+			bpfwp_map.map_options = bpfwp_map.map_options || {};
+			bpfwp_map.map_options.center = new google.maps.LatLng( data.lat, data.lon );
+			if ( typeof bpfwp_map.map_options.zoom === 'undefined' ) {
+				bpfwp_map.map_options.zoom = bpfwp_map.map_options.zoom || 15;
+			}
 
-			bpfwp_map.maps[ id ] = new google.maps.Map( document.getElementById( id ), bp_map_options );
+			bpfwp_map.maps[ id ] = new google.maps.Map( document.getElementById( id ), bpfwp_map.map_options );
 
 			var content = '<div class="bp-map-info-window">' +
 				'<p><strong>' + data.name + '</strong></p>' +
@@ -55,7 +55,7 @@ function bp_initialize_map() {
 				'</div>';
 
 			bpfwp_map.info_windows[ id ] = new google.maps.InfoWindow({
-				position: latlon,
+				position: bpfwp_map.map_options.center,
 				content: content,
 			});
 			bpfwp_map.info_windows[ id ].open( bpfwp_map.maps[ id ]);

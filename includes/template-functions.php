@@ -422,6 +422,7 @@ function bpwfwp_print_map() {
 		array(
 			// Override loading and intialization of Google Maps api
 			'autoload_google_maps' => apply_filters( 'bpfwp_autoload_google_maps', true ),
+			'map_options' => apply_filters( 'bpfwp_google_map_options', array() ),
 			'strings' => array(
 				'get_directions' => __( 'Get directions', 'business-profile' ),
 			)
