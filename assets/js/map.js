@@ -1,4 +1,6 @@
 /* Frontend Javascript for Business Profile maps */
+var bpfwp_map = bpfwp_map || {};
+
 jQuery(document).ready(function ($) {
 
 	// Allow developers to override the maps api loading and initializing
@@ -21,10 +23,12 @@ jQuery(document).ready(function ($) {
 
 });
 
+// Global variables so third-party code can hook in and modify
+
 function bp_initialize_map() {
 
-	var bp_maps = [];
-	var bp_info_windows = [];
+	bpfwp_map.maps = [];
+	bpfwp_map.info_windows = [];
 
 	jQuery( '.bp-map' ).each( function() {
 		var id = jQuery(this).attr( 'id' );
@@ -38,7 +42,7 @@ function bp_initialize_map() {
 				center: latlon,
 			};
 
-			bp_maps[ id ] = new google.maps.Map( document.getElementById( id ), bp_map_options );
+			bpfwp_map.maps[ id ] = new google.maps.Map( document.getElementById( id ), bp_map_options );
 
 			var content = '<div class="bp-map-info-window">' +
 				'<p><strong>' + data.name + '</strong></p>' +
@@ -50,11 +54,11 @@ function bp_initialize_map() {
 			content += '<p><a target="_blank" href="//maps.google.com/maps?saddr=current+location&daddr=' + encodeURIComponent( data.address ) + '">Get Directions</a></p>' +
 				'</div>';
 
-			bp_info_windows[ id ] = new google.maps.InfoWindow({
+			bpfwp_map.info_windows[ id ] = new google.maps.InfoWindow({
 				position: latlon,
 				content: content,
 			});
-			bp_info_windows[ id ].open( bp_maps[ id ]);
+			bpfwp_map.info_windows[ id ].open( bpfwp_map.maps[ id ]);
 
 		// Google Maps iframe embed (fallback if no lat/lon data available)
 		} else if ( typeof data.address !== '' ) {
