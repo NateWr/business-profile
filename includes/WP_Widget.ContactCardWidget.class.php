@@ -65,7 +65,7 @@ class bpfwpContactCardWidget extends WP_Widget {
 
 		$shortcode_atts = array();
 		foreach( $shortcode_args as $key => $val ) {
-			$shortcode_atts[] = esc_attr( $key ) . '=' . !empty( $val );
+			$shortcode_atts[] = esc_attr( $key ) . '=' . empty( $val ) ? 0 : 1;
 		}
 		echo do_shortcode( '[contact-card ' . join( ' ', $shortcode_atts ) . ']' );
 
