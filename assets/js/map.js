@@ -10,7 +10,7 @@ jQuery(document).ready(function ($) {
 	if ( typeof google === 'undefined' || typeof google.maps === 'undefined' ) {
 		var bp_map_script = document.createElement( 'script' );
 		bp_map_script.type = 'text/javascript';
-		bp_map_script.src = '//maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&callback=bp_initialize_map';
+		bp_map_script.src = '//maps.googleapis.com/maps/api/js?v=3.exp&callback=bp_initialize_map';
 		document.body.appendChild( bp_map_script );
 
 	// If the API is already loaded (eg - by a third-party theme or plugin),
