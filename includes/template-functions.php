@@ -285,8 +285,17 @@ function bpwfwp_print_opening_hours() {
 			}
 
 			$days = array();
+			$weekdays_i18n = array(
+				'monday'	=> esc_html__( 'Mo', 'business-profile' ),
+				'tuesday'	=> esc_html__( 'Tu', 'business-profile' ),
+				'wednesday'	=> esc_html__( 'We', 'business-profile' ),
+				'thursday'	=> esc_html__( 'Th', 'business-profile' ),
+				'friday'	=> esc_html__( 'Fr', 'business-profile' ),
+				'saturday'	=> esc_html__( 'Sa', 'business-profile' ),
+				'sunday'	=> esc_html__( 'Su', 'business-profile' ),
+			);
 			foreach( $slot['weekdays'] as $day => $val ) {
-				$days[] = $weekdays_schema[ $day ];
+				$days[] = $weekdays_i18n[ $day ];
 			}
 			$days_string = !empty( $days ) ? join( _x( ',', 'Separator between days of the week when displaying opening hours in brief. Example: Mo,Tu,We', 'business-profile' ), $days ) : '';
 
