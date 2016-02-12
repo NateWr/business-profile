@@ -55,7 +55,20 @@ class bpfwpContactCardWidget extends WP_Widget {
 			$title = apply_filters( 'widget_title', $instance['title'] );
 			echo $args['before_title'] . $title . $args['after_title'];
 		}
-		echo bpwfwp_print_contact_card( $instance );
+
+		$shortcode_args = $instance;
+		unset( $shortcode_args['title'] );
+		unset( $shortcode_args['before_widget'] );
+		unset( $shortcode_args['after_widget'] );
+		unset( $shortcode_args['before_title'] );
+		unset( $shortcode_args['after_title'] );
+
+		$shortcode_atts = array();
+		foreach( $shortcode_args as $key => $val ) {
+			$shortcode_atts[] = esc_attr( $key ) . '=' . !empty( $val );
+		}
+		echo do_shortcode( '[contact-card ' . join( ' ', $shortcode_atts ) . ']' );
+
 		echo $args['after_widget'];
 
 	}
