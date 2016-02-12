@@ -23,8 +23,6 @@ jQuery(document).ready(function ($) {
 
 });
 
-// Global variables so third-party code can hook in and modify
-
 function bp_initialize_map() {
 
 	bpfwp_map.maps = [];
@@ -60,6 +58,9 @@ function bp_initialize_map() {
 			});
 			bpfwp_map.info_windows[ id ].open( bpfwp_map.maps[ id ]);
 
+			// Trigger an intiailized event on this dom element for third-party code
+			jQuery(this).trigger( 'bpfwp.map_initialized', [ id, bpfwp_map.maps[id], bpfwp_map.info_windows[id] ] );
+
 		// Google Maps iframe embed (fallback if no lat/lon data available)
 		} else if ( typeof data.address !== '' ) {
 			var bp_map_iframe = document.createElement( 'iframe' );
@@ -73,6 +74,9 @@ function bp_initialize_map() {
 			bp_map_iframe.src = '//maps.google.com/maps?output=embed&q=' + encodeURIComponent( data.address );
 
 			jQuery(this).html( bp_map_iframe );
+
+			// Trigger an intiailized event on this dom element for third-party code
+			jQuery(this).trigger( 'bpfwp.map_initialized_in_iframe', [ jQuery(this) ] );
 		}
 	});
 }
