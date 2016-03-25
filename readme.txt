@@ -3,7 +3,7 @@ Contributors: NateWr
 Author URI: https://github.com/NateWr
 Plugin URL: http://themeofthecrop.com
 Requires at Least: 3.9
-Tested Up To: 4.4
+Tested Up To: 4.5
 Tags: business profile, address, google map, schema, contact, phone, address, seo
 Stable tag: 1.0.9
 License: GPLv2 or later
