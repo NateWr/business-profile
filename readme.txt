@@ -31,7 +31,7 @@ This plugin is part of a group of plugins for restaurants. Check out the [Food a
 
 = How to use =
 
-There is a short guide to using the plugin in the /docs/ folder. It can be accessed by following the Help link listed under the plugin on the Plugins page in your WordPress admin area.
+View the [help guide](http://doc.themeofthecrop.com/plugins/business-profile/?utm_source=Plugin&utm_medium=Plugin%Description&utm_campaign=Business%20Profile) to learn how to set up and display your Business Profile.
 
 = Developers =
 

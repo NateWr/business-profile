@@ -107,7 +107,7 @@ class bpfwpInit {
 
 		if ( $plugin == BPFWP_PLUGIN_FNAME ) {
 
-			$links['help'] = '<a href="' . BPFWP_PLUGIN_URL . '/docs" title="' . __( 'View the help documentation for Business Profile', 'business-profile' ) . '">' . __( 'Help', 'business-profile' ) . '</a>';
+			$links['help'] = '<a href="http://doc.themeofthecrop.com/plugins/business-profile/?utm_source=Plugin&utm_medium=Plugin%Help&utm_campaign=Business%20Profile" title="' . __( 'View the help documentation for Business Profile', 'business-profile' ) . '">' . __( 'Help', 'business-profile' ) . '</a>';
 		}
 
 		return $links;
