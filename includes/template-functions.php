@@ -12,6 +12,7 @@ if ( !function_exists( 'bpwfwp_print_contact_card' ) ) {
 
 		// Define shortcode attributes
 		$defaults = array(
+			'location'                  => false,
 			'show_name'					=> true,
 			'show_address'				=> true,
 			'show_get_directions'		=> true,
@@ -67,7 +68,7 @@ if ( !function_exists( 'bpwfwp_print_contact_card' ) ) {
 		?>
 
 		<address class="bp-contact-card" itemscope itemtype="http://schema.org/<?php echo $bpfwp_controller->settings->get_setting( 'schema_type' ); ?>">
-			<?php foreach ( $data as $data => $callback ) { call_user_func( $callback ); } ?>
+			<?php foreach ( $data as $data => $callback ) { call_user_func( $callback, $bpfwp_controller->display_settings['location'] ); } ?>
 		</address>
 
 		<?php
@@ -200,7 +201,7 @@ if ( !function_exists( 'bpwfwp_print_opening_hours' ) ) {
 	 * Print the opening hours
 	 * @since 0.0.1
 	 */
-	function bpwfwp_print_opening_hours() {
+	function bpwfwp_print_opening_hours( $location = false ) {
 
 		global $bpfwp_controller;
 
@@ -418,7 +419,7 @@ if ( !function_exists( 'bpwfwp_print_map' ) ) {
 	 * Print a map to the address
 	 * @since 0.0.1
 	 */
-	function bpwfwp_print_map() {
+	function bpwfwp_print_map( $location = false ) {
 
 		global $bpfwp_controller;
 

@@ -147,40 +147,7 @@ if ( ! class_exists( 'bpfwpSettings' ) ) :
 					'title'        => __( 'Schema Type', 'business-profile' ),
 					'description'  => __( 'Select the option that best describes your business to improve how search engines understand your website', 'business-profile' ) . ' <a href="http://schema.org/" target="_blank">Schema.org</a>',
 					'blank_option' => false,
-					'options'      => array(
-						'Organization'                => 'Organization',
-						'Corporation'                 => 'Corporation',
-						'EducationalOrganization'     => 'Educational Organization',
-						'GovernmentOrganization'      => 'Government Organization',
-						'LocalBusiness'               => 'Local Business',
-						'AnimalShelter'               => '- Animal Shelter',
-						'AutomotiveBusiness'          => '- Automotive Business',
-						'ChildCare'                   => '- Child Care',
-						'DryCleaningOrLaundry'        => '- Dry Cleaning or Laundry',
-						'EmergencyService'            => '- Emergency Service',
-						'EmploymentAgency'            => '- Employment Agency',
-						'EntertainmentBusiness'       => '- Entertainment Business',
-						'FinancialService'            => '- Financial Service',
-						'FoodEstablishment'           => '- Food Establishment',
-						'GovernmentOffice'            => '- Government Office',
-						'HealthAndBeautyBusiness'     => '- Health and Beauty Business',
-						'HomeAndConstructionBusiness' => '- Home and Construction Business',
-						'InternetCafe'                => '- Internet Cafe',
-						'Library'                     => '- Library',
-						'LodgingBusiness'             => '- Lodging Business',
-						'MedicalOrganization'         => '- Medical Organization',
-						'RadioStation'                => '- Radio Station',
-						'RealEstateAgent'             => '- Real Estate Agent',
-						'RecyclingCenter'             => '- Recycling Center',
-						'SelfStorage'                 => '- Self Storage',
-						'SportsActivityLocation'      => '- Sports Activity Location',
-						'Store'                       => '- Store',
-						'TouristInformationCenter'    => '- Tourist Information Center',
-						'TravelAgency'                => '- Travel Agency',
-						'NGO'                         => 'NGO',
-						'PerformingGroup'             => 'PerformingGroup',
-						'SportsTeam'                  => 'SportsTeam',
-					),
+					'options'      => $this->get_schema_types(),
 				)
 			);
 
@@ -350,5 +317,45 @@ if ( ! class_exists( 'bpfwpSettings' ) ) :
 
 		}
 
+		/**
+		 * Array of schema type options
+		 * @since 1.1
+		 */
+		public function get_schema_types() {
+			return array(
+				'Organization'                => 'Organization',
+				'Corporation'                 => 'Corporation',
+				'EducationalOrganization'     => 'Educational Organization',
+				'GovernmentOrganization'      => 'Government Organization',
+				'LocalBusiness'               => 'Local Business',
+				'AnimalShelter'               => '- Animal Shelter',
+				'AutomotiveBusiness'          => '- Automotive Business',
+				'ChildCare'                   => '- Child Care',
+				'DryCleaningOrLaundry'        => '- Dry Cleaning or Laundry',
+				'EmergencyService'            => '- Emergency Service',
+				'EmploymentAgency'            => '- Employment Agency',
+				'EntertainmentBusiness'       => '- Entertainment Business',
+				'FinancialService'            => '- Financial Service',
+				'FoodEstablishment'           => '- Food Establishment',
+				'GovernmentOffice'            => '- Government Office',
+				'HealthAndBeautyBusiness'     => '- Health and Beauty Business',
+				'HomeAndConstructionBusiness' => '- Home and Construction Business',
+				'InternetCafe'                => '- Internet Cafe',
+				'Library'                     => '- Library',
+				'LodgingBusiness'             => '- Lodging Business',
+				'MedicalOrganization'         => '- Medical Organization',
+				'RadioStation'                => '- Radio Station',
+				'RealEstateAgent'             => '- Real Estate Agent',
+				'RecyclingCenter'             => '- Recycling Center',
+				'SelfStorage'                 => '- Self Storage',
+				'SportsActivityLocation'      => '- Sports Activity Location',
+				'Store'                       => '- Store',
+				'TouristInformationCenter'    => '- Tourist Information Center',
+				'TravelAgency'                => '- Travel Agency',
+				'NGO'                         => 'NGO',
+				'PerformingGroup'             => 'PerformingGroup',
+				'SportsTeam'                  => 'SportsTeam',
+			);
+		}
 	}
 endif;

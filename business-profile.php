@@ -104,10 +104,11 @@ if ( ! class_exists( 'bpfwpInit', false ) ) :
 		 * @return void
 		 */
 		protected function wp_hooks() {
-			add_action( 'init',                array( $this, 'load_textdomain' ) );
-			add_action( 'wp_enqueue_scripts',  array( $this, 'register_assets' ) );
-			add_action( 'widgets_init',        array( $this, 'register_widgets' ) );
-			add_filter( 'plugin_action_links', array( $this, 'plugin_action_links' ), 10, 2 );
+			add_action( 'init',                  array( $this, 'load_textdomain' ) );
+			add_action( 'wp_enqueue_scripts',    array( $this, 'register_assets' ) );
+			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_assets' ) );
+			add_action( 'widgets_init',          array( $this, 'register_widgets' ) );
+			add_filter( 'plugin_action_links',   array( $this, 'plugin_action_links' ), 10, 2 );
 		}
 
 		/**
@@ -149,6 +150,21 @@ if ( ! class_exists( 'bpfwpInit', false ) ) :
 		public function register_widgets() {
 			require_once BPFWP_PLUGIN_DIR . '/includes/class-contact-card-widget.php';
 			register_widget( 'bpfwpContactCardWidget' );
+		}
+
+		/**
+		 * Enqueue the admin CSS for locations
+		 * @since 1.1
+		 */
+		public function enqueue_admin_assets( $hook_suffix ) {
+
+			global $post;
+
+			if ( $hook_suffix == 'post-new.php' || $hook_suffix == 'post.php' ) {
+				if ( $this->cpts->location_cpt_slug === $post->post_type ) {
+					wp_enqueue_style( 'bpfwp-admin-location', BPFWP_PLUGIN_URL . '/assets/css/admin.css' );
+				}
+			}
 		}
 
 		/**
