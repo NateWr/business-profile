@@ -29,6 +29,9 @@ if ( ! class_exists( 'bpfwpCompatibility', false ) ) :
 			// Load a .mo file for an old textdomain if one exists
 			add_filter( 'load_textdomain_mofile', array( $this, 'load_old_textdomain' ), 10, 2 );
 
+			// Run a filter that was renamed in version 1.1
+			add_filter( 'bpfwp_default_display_settings', array( $this, 'run_contact_card_defaults' ) );
+
 		}
 
 		/**
@@ -54,5 +57,13 @@ if ( ! class_exists( 'bpfwpCompatibility', false ) ) :
 			return $mofile;
 		}
 
+		/**
+		 * Run a filter that was renamed in version 1.1
+		 *
+		 * @since 1.1
+		 */
+		 public function run_contact_card_defaults( $defaults ) {
+			 return apply_filters( 'bpwfp_contact_card_defaults', $defaults );
+		 }
 	}
 endif;

@@ -35,7 +35,7 @@ if ( ! class_exists( 'bpfwpIntegrations', false ) ) :
 			if ( defined( 'RTB_PLUGIN_DIR' ) ) {
 
 				// Add default setting for booking link to template function/shortcode
-				add_filter( 'bpwfp_contact_card_defaults', array( $this, 'bpwfp_booking_link_default' ) );
+				add_filter( 'bpfwp_default_display_settings', array( $this, 'bpwfp_booking_link_default' ) );
 
 				// Add the callback to print the booking link
 				add_filter( 'bpwfwp_component_callbacks', array( $this, 'bpwfp_booking_link_callback' ) );

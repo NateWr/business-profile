@@ -73,7 +73,7 @@ if ( ! class_exists( 'bpfwpSettings' ) ) :
 			}
 
 			$this->default_display_settings = apply_filters(
-				'bpwfp_contact_card_defaults',
+				'bpfwp_default_display_settings',
 				array(
 					'location'                  => false,
 					'show_name'					=> true,
