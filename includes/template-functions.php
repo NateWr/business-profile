@@ -26,23 +26,10 @@ if ( !function_exists( 'bpwfwp_print_contact_card' ) ) {
 	 */
 	function bpwfwp_print_contact_card( $args = array() ) {
 
-		// Define shortcode attributes
-		$defaults = array(
-			'location'                  => false,
-			'show_name'					=> true,
-			'show_address'				=> true,
-			'show_get_directions'		=> true,
-			'show_phone'				=> true,
-			'show_contact'				=> true,
-			'show_opening_hours'		=> true,
-			'show_opening_hours_brief'	=> false,
-			'show_map'					=> true,
-		);
-
-		$defaults = apply_filters( 'bpwfp_contact_card_defaults', $defaults );
-
 		global $bpfwp_controller;
-		$bpfwp_controller->display_settings = shortcode_atts( $defaults, $args, 'contact-card' );
+
+		// Define shortcode attributes
+		$bpfwp_controller->display_settings = shortcode_atts( $bpfwp_controller->settings->get_default_display_settings(), $args, 'contact-card' );
 
 		// Setup components and callback functions to render them
 		$data = array();
@@ -89,6 +76,9 @@ if ( !function_exists( 'bpwfwp_print_contact_card' ) ) {
 
 		<?php
 		$output = ob_get_clean();
+
+		// Reset display settings
+		$bpfwp_controller->display_settings = $bpfwp_controller->settings->get_default_display_settings();
 
 		return apply_filters( 'bpwfwp_contact_card_output', $output );
 	}

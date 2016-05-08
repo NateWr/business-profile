@@ -24,6 +24,12 @@ if ( ! class_exists( 'bpfwpSettings' ) ) :
 		public $defaults = array();
 
 		/**
+		 * Default values for display settings
+		 * @since 1.1
+		 */
+		public $default_display_settings = array();
+
+		/**
 		 * Stored values for settings
 		 * @since 0.0.1
 		 */
@@ -49,6 +55,39 @@ if ( ! class_exists( 'bpfwpSettings' ) ) :
 			);
 
 			$this->defaults = apply_filters( 'bpfwp_defaults', $this->defaults );
+		}
+
+		/**
+		 * Get default display settings
+		 *
+		 * Controls default visibility of elements in the contact card as well
+		 * as when template functions, like bpfwp_print_name, are called
+		 * directly.
+		 *
+		 * @since 1.1
+		 */
+		public function get_default_display_settings() {
+
+			if ( !empty( $this->default_display_settings ) ) {
+				return $this->default_display_settings;
+			}
+
+			$this->default_display_settings = apply_filters(
+				'bpwfp_contact_card_defaults',
+				array(
+					'location'                  => false,
+					'show_name'					=> true,
+					'show_address'				=> true,
+					'show_get_directions'		=> true,
+					'show_phone'				=> true,
+					'show_contact'				=> true,
+					'show_opening_hours'		=> true,
+					'show_opening_hours_brief'	=> false,
+					'show_map'					=> true,
+				)
+			);
+
+			return $this->default_display_settings;
 		}
 
 		/**
