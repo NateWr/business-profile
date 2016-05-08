@@ -38,7 +38,7 @@ if ( ! class_exists( 'bpfwpIntegrations', false ) ) :
 				add_filter( 'bpfwp_default_display_settings', array( $this, 'bpwfp_booking_link_default' ) );
 
 				// Add the callback to print the booking link
-				add_filter( 'bpwfwp_component_callbacks', array( $this, 'bpwfp_booking_link_callback' ) );
+				add_filter( 'bpwfwp_component_callbacks', array( $this, 'bpfwp_booking_link_callback' ) );
 
 				// Add display toggle for the booking link to the widget options
 				add_filter( 'bpfwp_widget_display_toggles', array( $this, 'bpfwp_booking_link_widget_option' ) );
@@ -63,7 +63,7 @@ if ( ! class_exists( 'bpfwpIntegrations', false ) ) :
 		 * Restaurant Reservations plugin
 		 * @since 0.0.1
 		 */
-		public function bpwfp_booking_link_callback( $data ) {
+		public function bpfwp_booking_link_callback( $data ) {
 
 			global $rtb_controller;
 			$booking_page = $rtb_controller->settings->get_setting( 'booking-page' );
