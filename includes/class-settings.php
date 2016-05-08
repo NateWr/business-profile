@@ -55,18 +55,54 @@ if ( ! class_exists( 'bpfwpSettings' ) ) :
 		 * Get a setting's value or fallback to a default if one exists
 		 * @since 0.0.1
 		 */
-		public function get_setting( $setting ) {
+		public function get_setting( $setting, $location = false ) {
 
-			if ( empty( $this->settings ) ) {
-				$this->settings = get_option( 'bpfwp-settings' );
-			}
+			if ( empty( $location ) ) {
+				if ( empty( $this->settings ) ) {
+					$this->settings = get_option( 'bpfwp-settings' );
+				}
 
-			if ( !empty( $this->settings[ $setting ] ) ) {
-				return $this->settings[ $setting ];
-			}
+				if ( !empty( $this->settings[ $setting ] ) ) {
+					return $this->settings[ $setting ];
+				}
 
-			if ( !empty( $this->defaults[ $setting ] ) ) {
-				return $this->defaults[ $setting ];
+				if ( !empty( $this->defaults[ $setting ] ) ) {
+					return $this->defaults[ $setting ];
+				}
+
+			} else {
+
+				// Map setting slugs to post data
+				switch ( $setting ) {
+
+					case 'schema-type' :
+						return get_post_meta( $location, 'schema_type', true );
+
+					case 'name' :
+						return get_the_title( $location );
+
+					case 'description' :
+						return get_the_content( $location );
+
+					case 'address' :
+						return array(
+							'text' => get_post_meta( $location, 'geo_address', true ),
+							'lat'  => get_post_meta( $location, 'geo_latitude', true ),
+							'lon'  => get_post_meta( $location, 'geo_longitude', true ),
+						);
+
+					case 'phone' :
+						return get_post_meta( $location, 'phone', true );
+
+					case 'contact-page' :
+						return get_post_meta( $location, 'contact_post', true );
+
+					case 'contact-email' :
+						return get_post_meta( $location, 'contact_email', true );
+
+					case 'opening-hours' :
+						return get_post_meta( $location, 'opening_hours', true );
+				}
 			}
 
 			return null;

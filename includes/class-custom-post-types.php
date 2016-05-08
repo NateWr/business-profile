@@ -197,11 +197,11 @@ if ( ! class_exists( 'bpfwpCustomPostTypes', false ) ) :
 
 			global $bpfwp_controller;
 			$schema_types = $bpfwp_controller->settings->get_schema_types();
-			$selected = get_post_meta( $post->ID, 'schema_type', true );
+			$selected = $bpfwp_controller->settings->get_setting( 'schema-type', $post->ID );
 
 			// Fall back to general setting
 			if ( empty( $selected ) ) {
-				$selected = $bpfwp_controller->settings->get_setting( 'schema_type' );
+				$selected = $bpfwp_controller->settings->get_setting( 'schema-type' );
 			}
 
 
