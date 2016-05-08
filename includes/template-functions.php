@@ -3,6 +3,22 @@
  * Template functions for rendering contact cards
  */
 
+if ( !function_exists( 'bpfwp_setting' ) ) {
+	/**
+	 * Retrieve the value of any stored setting
+	 *
+	 * A wrapper for $bpfw_controller->settings->get_setting() that should be
+	 * used to access any data for the global location or one of the location
+	 * custom posts.
+	 *
+	 * @since 1.1
+	 */
+	function bpfwp_setting( $setting, $location = false ) {
+		global $bpfwp_controller;
+		return $bpfwp_controller->settings->get_setting( $setting, $location );
+	}
+}
+
 if ( !function_exists( 'bpwfwp_print_contact_card' ) ) {
 	/**
 	 * Print a contact card and add a shortcode
@@ -31,28 +47,28 @@ if ( !function_exists( 'bpwfwp_print_contact_card' ) ) {
 		// Setup components and callback functions to render them
 		$data = array();
 
-		if ( $bpfwp_controller->settings->get_setting( 'name', $bpfwp_controller->display_settings['location'] ) ) {
+		if ( bpfwp_setting( 'name', $bpfwp_controller->display_settings['location'] ) ) {
 			$data['name'] = 'bpwfwp_print_name';
 		}
 
-		if ( $bpfwp_controller->settings->get_setting( 'address', $bpfwp_controller->display_settings['location'] ) ) {
+		if ( bpfwp_setting( 'address', $bpfwp_controller->display_settings['location'] ) ) {
 			$data['address'] = 'bpwfwp_print_address';
 		}
 
-		if ( $bpfwp_controller->settings->get_setting( 'phone', $bpfwp_controller->display_settings['location'] ) ) {
+		if ( bpfwp_setting( 'phone', $bpfwp_controller->display_settings['location'] ) ) {
 			$data['phone'] = 'bpwfwp_print_phone';
 		}
 
 		if ( $bpfwp_controller->display_settings['show_contact'] &&
-				( $bpfwp_controller->settings->get_setting( 'contact-email', $bpfwp_controller->display_settings['location'] ) || $bpfwp_controller->settings->get_setting( 'contact-page', $bpfwp_controller->display_settings['location'] ) ) ) {
+				( bpfwp_setting( 'contact-email', $bpfwp_controller->display_settings['location'] ) || bpfwp_setting( 'contact-page', $bpfwp_controller->display_settings['location'] ) ) ) {
 			$data['contact'] = 'bpwfwp_print_contact';
 		}
 
-		if ( $bpfwp_controller->settings->get_setting( 'opening-hours', $bpfwp_controller->display_settings['location'] ) ) {
+		if ( bpfwp_setting( 'opening-hours', $bpfwp_controller->display_settings['location'] ) ) {
 			$data['opening_hours'] = 'bpwfwp_print_opening_hours';
 		}
 
-		if ( $bpfwp_controller->display_settings['show_map'] && $bpfwp_controller->settings->get_setting( 'address', $bpfwp_controller->display_settings['location'] ) ) {
+		if ( $bpfwp_controller->display_settings['show_map'] && bpfwp_setting( 'address', $bpfwp_controller->display_settings['location'] ) ) {
 			$data['map'] = 'bpwfwp_print_map';
 		}
 
@@ -67,7 +83,7 @@ if ( !function_exists( 'bpwfwp_print_contact_card' ) ) {
 		ob_start();
 		?>
 
-		<address class="bp-contact-card" itemscope itemtype="http://schema.org/<?php echo $bpfwp_controller->settings->get_setting( 'schema-type', $bpfwp_controller->display_settings['location'] ); ?>">
+		<address class="bp-contact-card" itemscope itemtype="http://schema.org/<?php echo bpfwp_setting( 'schema-type', $bpfwp_controller->display_settings['location'] ); ?>">
 			<?php foreach ( $data as $data => $callback ) { call_user_func( $callback, $bpfwp_controller->display_settings['location'] ); } ?>
 		</address>
 
@@ -93,11 +109,11 @@ if ( !function_exists( 'bpwfwp_print_name' ) ) {
 		if ( $bpfwp_controller->display_settings['show_name'] ) :
 		?>
 		<div class="bp-name" itemprop="name">
-			<?php echo esc_attr( $bpfwp_controller->settings->get_setting( 'name', $location ) ); ?>
+			<?php echo esc_attr( bpfwp_setting( 'name', $location ) ); ?>
 		</div>
 
 		<?php else : ?>
-		<meta itemprop="name" content="<?php echo esc_attr( $bpfwp_controller->settings->get_setting( 'name', $location ) ); ?>">
+		<meta itemprop="name" content="<?php echo esc_attr( bpfwp_setting( 'name', $location ) ); ?>">
 
 		<?php endif; ?>
 
@@ -117,7 +133,7 @@ if ( !function_exists( 'bpwfwp_print_address' ) ) {
 
 		global $bpfwp_controller;
 
-		$address = $bpfwp_controller->settings->get_setting( 'address', $location );
+		$address = bpfwp_setting( 'address', $location );
 		?>
 
 		<meta itemprop="address" content="<?php echo esc_attr( $address['text'] ); ?>">
@@ -150,11 +166,11 @@ if ( !function_exists( 'bpwfwp_print_phone' ) ) {
 		?>
 
 		<div class="bp-phone" itemprop="telephone">
-			<?php echo $bpfwp_controller->settings->get_setting( 'phone', $location ); ?>
+			<?php echo bpfwp_setting( 'phone', $location ); ?>
 		</div>
 
 		<?php else : ?>
-		<meta itemprop="telephone" content="<?php echo esc_attr( $bpfwp_controller->settings->get_setting( 'phone', $location ) ); ?>">
+		<meta itemprop="telephone" content="<?php echo esc_attr( bpfwp_setting( 'phone', $location ) ); ?>">
 
 		<?php endif;
 	}
@@ -167,9 +183,7 @@ if ( !function_exists( 'bpwfwp_print_contact' ) ) {
 	 */
 	function bpwfwp_print_contact( $location = false ) {
 
-		global $bpfwp_controller;
-
-		$email = $bpfwp_controller->settings->get_setting( 'contact-email', $location );
+		$email = bpfwp_setting( 'contact-email', $location );
 		if ( !empty( $email ) ) :
 			$antispam_email = antispambot( $email );
 		?>
@@ -182,7 +196,7 @@ if ( !function_exists( 'bpwfwp_print_contact' ) ) {
 			return;
 		endif;
 
-		$contact = $bpfwp_controller->settings->get_setting( 'contact-page', $location );
+		$contact = bpfwp_setting( 'contact-page', $location );
 		if ( !empty( $contact ) ) :
 		?>
 
@@ -215,7 +229,7 @@ if ( !function_exists( 'bpwfwp_print_opening_hours' ) ) {
 			'sunday'	=> 'Su',
 		);
 
-		$hours = $bpfwp_controller->settings->get_setting( 'opening-hours', $location );
+		$hours = bpfwp_setting( 'opening-hours', $location );
 
 		// Output proper schema.org format
 		foreach( $hours as $slot ) {
@@ -421,9 +435,7 @@ if ( !function_exists( 'bpwfwp_print_map' ) ) {
 	 */
 	function bpwfwp_print_map( $location = false ) {
 
-		global $bpfwp_controller;
-
-		$address = $bpfwp_controller->settings->get_setting( 'address', $location );
+		$address = bpfwp_setting( 'address', $location );
 
 		wp_enqueue_script( 'bpfwp-map' );
 		wp_localize_script(
@@ -450,7 +462,7 @@ if ( !function_exists( 'bpwfwp_print_map' ) ) {
 
 		$attr = '';
 
-		$phone = $bpfwp_controller->settings->get_setting( 'phone', $location );
+		$phone = bpfwp_setting( 'phone', $location );
 		if ( !empty( $phone ) ) {
 			$attr .= ' data-phone="' . esc_attr( $phone ) . '"';
 		}
@@ -460,7 +472,7 @@ if ( !function_exists( 'bpwfwp_print_map' ) ) {
 		}
 		?>
 
-		<div id="bp-map-<?php echo $id; ?>" class="bp-map" itemprop="map" data-name="<?php echo esc_attr( $bpfwp_controller->settings->get_setting( 'name', $location ) ); ?>" data-address="<?php echo esc_attr( $address['text'] ); ?>"<?php echo $attr; ?>></div>
+		<div id="bp-map-<?php echo $id; ?>" class="bp-map" itemprop="map" data-name="<?php echo esc_attr( bpfwp_setting( 'name', $location ) ); ?>" data-address="<?php echo esc_attr( $address['text'] ); ?>"<?php echo $attr; ?>></div>
 
 		<?php
 	}

@@ -106,8 +106,7 @@ if ( ! class_exists( 'bpfwpCustomPostTypes', false ) ) :
 				return;
 			}
 
-			global $bpfwp_controller;
-			if ( !$bpfwp_controller->settings->get_setting( 'multiple-locations' ) ) {
+			if ( !bpfwp_setting( 'multiple-locations' ) ) {
 				return;
 			}
 
@@ -197,11 +196,11 @@ if ( ! class_exists( 'bpfwpCustomPostTypes', false ) ) :
 
 			global $bpfwp_controller;
 			$schema_types = $bpfwp_controller->settings->get_schema_types();
-			$selected = $bpfwp_controller->settings->get_setting( 'schema-type', $post->ID );
+			$selected = bpfwp_setting( 'schema-type', $post->ID );
 
 			// Fall back to general setting
 			if ( empty( $selected ) ) {
-				$selected = $bpfwp_controller->settings->get_setting( 'schema-type' );
+				$selected = bpfwp_setting( 'schema-type' );
 			}
 
 

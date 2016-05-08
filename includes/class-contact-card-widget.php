@@ -54,10 +54,6 @@ if ( ! class_exists( 'bpfwpContactCardWidget', false ) ) :
 		 * @since 0.0.1
 		 */
 		public function widget( $args, $instance ) {
-
-			global $bpfwp_controller;
-
-			// Print the widget's HTML markup
 			echo $args['before_widget'];
 			if ( isset( $instance['title'] ) ) {
 				$title = apply_filters( 'widget_title', $instance['title'] );
@@ -65,7 +61,6 @@ if ( ! class_exists( 'bpfwpContactCardWidget', false ) ) :
 			}
 			echo bpwfwp_print_contact_card( $instance );
 			echo $args['after_widget'];
-
 		}
 
 		/**
