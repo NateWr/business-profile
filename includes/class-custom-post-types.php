@@ -234,35 +234,74 @@ if ( ! class_exists( 'bpfwpCustomPostTypes', false ) ) :
 		 */
 		public function print_contact_metabox( $post ) {
 
-			// Get an array of all pages with sane limits
-			$pages = array();
-			$query = new WP_Query(
+			// Address mimics HTML markup from Simple Admin Pages component
+			wp_enqueue_script( 'bpfwp-admin-location-address', BPFWP_PLUGIN_URL . '/lib/simple-admin-pages/js/address.js', array( 'jquery' ) );
+			wp_localize_script(
+				'bpfwp-admin-location-address',
+				'sap_address',
 				array(
-					'post_type' => array( 'page' ),
-					'no_found_rows' => true,
-					'update_post_meta_cache' => false,
-					'update_post_term_cache' => false,
-					'posts_per_page' => 500,
+					'strings' => array(
+						'no-setting'     => __( 'No map coordinates set.', 'business-profile' ),
+						'sep-lat-lon'    => _x( ', ', 'separates latitude and longitude', 'business-profile' ),
+						'retrieving'     => __( 'Requesting new coordinates', 'business-profile' ),
+						'select'         => __( 'Select a match below', 'business-profile' ),
+						'view'           => __( 'View', 'business-profile' ),
+						'result_error'   => __( 'Error', 'business-profile' ),
+						'result_invalid' => __( 'Invalid request. Be sure to fill out the address field before retrieving coordinates.', 'business-profile' ),
+						'result_denied'  => __( 'Request denied.', 'business-profile' ),
+						'result_limit'   => __( 'Request denied because you are over your request quota.', 'business-profile' ),
+						'result_empty'   => __( 'Nothing was found at that address.', 'business-profile' ),
+					)
 				)
 			);
-			if ( $query->have_posts() ) {
-				while ( $query->have_posts() ) {
-					$query->the_post();
-					$pages[get_the_ID()] = get_the_title();
-				}
-			}
-			wp_reset_postdata();
-
-			// @todo Address component should use the address component from
-			// simple-admin-pages
 			?>
 
-			<div class="bpfwp-meta-input bpfwp-meta-address">
-				<label for="bpfwp_address">
-					<?php esc_html_e( 'Address', 'business-profile' ); ?>
-				</label>
+			<div class="bpfwp-meta-input bpfwp-meta-geo_address sap-address">
 				<textarea name="geo_address" id="bpfwp_address"><?php echo esc_textarea( get_post_meta( $post->ID, 'geo_address', true ) ); ?></textarea>
+				<p class="sap-map-coords-wrapper">
+					<span class="dashicons dashicons-location-alt"></span>
+					<span class="sap-map-coords">
+						<?php if ( empty( get_post_meta( $post->ID, 'geo_latitude', true ) ) || empty( get_post_meta( $post->ID, 'geo_longitude', true ) ) ) : ?>
+							<?php esc_html_e( 'No map coordinates set.', 'business-profile' ); ?>
+						<?php else : ?>
+							<?php echo get_post_meta( $post->ID, 'geo_latitude', true ) . esc_html_x( ', ', 'separates latitude and longitude', 'business-profile' ) . get_post_meta( $post->ID, 'geo_longitude', true ); ?>
+							<a href="//maps.google.com/maps?q=<?php echo esc_attr( get_post_meta( $post->ID, 'geo_latitude', true ) ) . ',' . esc_attr( get_post_meta( $post->ID, 'geo_longitude', true ) ); ?>" class="sap-view-coords" target="_blank"><?php esc_html_e( 'View', 'business-profile' ); ?></a>
+						<?php endif; ?>
+					</span>
+				</p>
+				<p class="sap-coords-action-wrapper">
+					<a href="#" class="sap-get-coords">
+						<?php esc_html_e( 'Retrieve map coordinates', 'business-profile' ); ?>
+					</a>
+					<?php echo esc_html_x( ' | ', 'separator between admin action links in address component', 'business-profile' ); ?>
+					<a href="#" class="sap-remove-coords">
+						<?php esc_html_e( 'Remove map coordinates', 'business-profile' ); ?>
+					</a>
+				</p>
+				<input type="hidden" class="lat" name="geo_latitude" value="<?php echo esc_attr( get_post_meta( $post->ID, 'geo_latitude', true ) ); ?>">
+				<input type="hidden" class="lon" name="geo_longitude" value="<?php echo esc_attr( get_post_meta( $post->ID, 'geo_longitude', true ) ); ?>">
 			</div>
+
+			<?php
+				// Get an array of all pages with sane limits
+				$pages = array();
+				$query = new WP_Query(
+					array(
+						'post_type' => array( 'page' ),
+						'no_found_rows' => true,
+						'update_post_meta_cache' => false,
+						'update_post_term_cache' => false,
+						'posts_per_page' => 500,
+					)
+				);
+				if ( $query->have_posts() ) {
+					while ( $query->have_posts() ) {
+						$query->the_post();
+						$pages[get_the_ID()] = get_the_title();
+					}
+				}
+				wp_reset_postdata();
+			?>
 
 			<div class="bpfwp-meta-input bpfwp-meta-contact-page">
 				<label for="bpfwp_contact-page">
