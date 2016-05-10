@@ -430,7 +430,7 @@ if ( !function_exists( 'bpwfwp_print_map' ) ) {
 		wp_enqueue_script( 'bpfwp-map' );
 		wp_localize_script(
 			'bpfwp-map',
-			'bpfwpMapVars',
+			'bpfwp_map',
 			array(
 				// Override loading and intialization of Google Maps api
 				'autoload_google_maps' => apply_filters( 'bpfwp_autoload_google_maps', true ),
