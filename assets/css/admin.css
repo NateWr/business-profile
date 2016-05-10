@@ -29,3 +29,7 @@
 .sap-coords-result .dashicons {
 	color: #aaa;
 }
+
+.bpfwp-meta-opening-hours .sap-scheduler-rule {
+	border: 1px solid #eee;
+}
