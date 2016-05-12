@@ -297,7 +297,7 @@ if ( ! class_exists( 'bpfwpCustomPostTypes', false ) ) :
 				if ( $query->have_posts() ) {
 					while ( $query->have_posts() ) {
 						$query->next_post();
-						$pages[get_the_ID()] = get_the_title();
+						$pages[$query->post->ID] = $query->post->post_title;
 					}
 				}
 				wp_reset_postdata();
