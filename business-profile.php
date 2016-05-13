@@ -185,6 +185,25 @@ if ( ! class_exists( 'bpfwpInit', false ) ) :
 		}
 
 		/**
+		 * Retrieve the get_theme_supports() value for a feature
+		 *
+		 * @since 1.1
+		 */
+		public function get_theme_support( $feature ) {
+
+			$theme_support = get_theme_support( 'business-profile' );
+
+			if ( $theme_support === true ) {
+				return true;
+			} elseif( $theme_support === false ) {
+				return false;
+			} else {
+				$theme_support = array_shift( $theme_support );
+				return isset( $theme_support[ $feature ] ) && $theme_support[ $feature ] == true;
+			}
+		}
+
+		/**
 		 * Return a single instance of the main plugin class.
 		 *
 		 * Developers and tests may still create multiple instances by spinning

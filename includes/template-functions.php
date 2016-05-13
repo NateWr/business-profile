@@ -61,10 +61,19 @@ if ( !function_exists( 'bpwfwp_print_contact_card' ) ) {
 
 		$data = apply_filters( 'bpwfwp_component_callbacks', $data );
 
-
-		if ( apply_filters( 'bpfwp-load-frontend-assets', true ) ) {
-			wp_enqueue_style( 'dashicons' );
-			wp_enqueue_style( 'bpfwp-default' );
+		if ( !$bpfwp_controller->get_theme_support( 'disable_styles' ) ) {
+			/**
+			 * Filter to override whether the frontend stylesheets are loaded.
+			 *
+			 * This is deprecated in favor of add_theme_support(). To prevent
+			 * styles from being loaded, add the following to your theme:
+			 *
+			 * add_theme_support( 'business-profile', array( 'disable_styles' => true ) );
+			 */
+			if ( apply_filters( 'bpfwp-load-frontend-assets', true ) ) {
+				wp_enqueue_style( 'dashicons' );
+				wp_enqueue_style( 'bpfwp-default' );
+			}
 		}
 
 		ob_start();
@@ -429,19 +438,22 @@ if ( !function_exists( 'bpwfwp_print_map' ) ) {
 
 		$address = bpfwp_setting( 'address', $location );
 
-		wp_enqueue_script( 'bpfwp-map' );
-		wp_localize_script(
-			'bpfwp-map',
-			'bpfwp_map',
-			array(
-				// Override loading and intialization of Google Maps api
-				'autoload_google_maps' => apply_filters( 'bpfwp_autoload_google_maps', true ),
-				'map_options' => apply_filters( 'bpfwp_google_map_options', array() ),
-				'strings' => array(
-					'getDirections' => __( 'Get Directions', 'business-profile' ),
-				),
-			)
-		);
+		global $bpfwp_controller;
+		if ( !$bpfwp_controller->get_theme_support( 'disable_scripts' ) ) {
+			wp_enqueue_script( 'bpfwp-map' );
+			wp_localize_script(
+				'bpfwp-map',
+				'bpfwp_map',
+				array(
+					// Override loading and intialization of Google Maps api
+					'autoload_google_maps' => apply_filters( 'bpfwp_autoload_google_maps', true ),
+					'map_options' => apply_filters( 'bpfwp_google_map_options', array() ),
+					'strings' => array(
+						'getDirections' => __( 'Get Directions', 'business-profile' ),
+					),
+				)
+			);
+		}
 
 		global $bpfwp_map_ids;
 		if ( empty( $bpfwp_map_ids ) ) {

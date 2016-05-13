@@ -509,9 +509,8 @@ if ( ! class_exists( 'bpfwpCustomPostTypes', false ) ) :
 				return $content;
 			}
 
-			$theme_support = get_theme_support( 'business-profile' );
-			$theme_support = array_shift( $theme_support );
-			if ( isset( $theme_support['append_to_content'] ) && $theme_support['append_to_content'] == false ) {
+			global $bpfwp_controller;
+			if ( $bpfwp_controller->get_theme_support( 'disable_append_to_content' ) ) {
 				return $content;
 			}
 
