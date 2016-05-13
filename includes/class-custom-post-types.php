@@ -35,6 +35,7 @@ if ( ! class_exists( 'bpfwpCustomPostTypes', false ) ) :
 			add_action( 'edit_form_after_title', array( $this, 'add_meta_nonce' ) );
 			add_action( 'save_post',             array( $this, 'save_meta' ) );
 			add_action( 'current_screen',        array( $this, 'maybe_flush_rewrite_rules' ) );
+			add_action( 'the_content',           array( $this, 'append_to_content' ) );
 		}
 
 		/**
@@ -494,6 +495,33 @@ if ( ! class_exists( 'bpfwpCustomPostTypes', false ) ) :
 		public function sanitize_opening_hours( $values ) {
 			$scheduler = $this->get_scheduler_meta_object( $values );
 			return $scheduler->sanitize_callback_wrapper( $values );
+		}
+
+		/**
+		 * Automatically append a contact card to `the_content` on location
+		 * single pages
+		 *
+		 * @since 1.1
+		 */
+		public function append_to_content( $content ) {
+
+			if ( !is_main_query() || !in_the_loop() || post_password_required() ) {
+				return $content;
+			}
+
+			$theme_support = get_theme_support( 'business-profile' );
+			$theme_support = array_shift( $theme_support );
+			if ( isset( $theme_support['append_to_content'] ) && $theme_support['append_to_content'] == false ) {
+				return $content;
+			}
+
+			global $post;
+			global $bpfwp_controller;
+			if ( !is_a( $post, 'WP_POST' ) || $post->post_type !== $bpfwp_controller->cpts->location_cpt_slug ) {
+				return $content;
+			}
+
+			return $content . '[contact-card location=' . $post->ID . ' show_name=0]';
 		}
 
 
