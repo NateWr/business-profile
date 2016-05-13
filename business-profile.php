@@ -198,7 +198,7 @@ if ( ! class_exists( 'bpfwpInit', false ) ) :
 			} elseif( $theme_support === false ) {
 				return false;
 			} else {
-				$theme_suppot = (array) $theme_support;
+				$theme_support = (array) $theme_support;
 				$theme_support = array_shift( $theme_support );
 				return isset( $theme_support[ $feature ] ) && $theme_support[ $feature ] == true;
 			}
