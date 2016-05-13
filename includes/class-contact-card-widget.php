@@ -75,6 +75,44 @@ if ( ! class_exists( 'bpfwpContactCardWidget', false ) ) :
 				<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text"<?php if ( isset( $instance['title'] ) ) : ?> value="<?php echo esc_attr( $instance['title'] ); ?>"<?php endif; ?>>
 			</p>
 
+			<?php
+				global $bpfwp_controller;
+				if ( $bpfwp_controller->settings->get_setting( 'multiple-locations' ) ) :
+
+					// Get an array of all locations with sane limits
+					$locations = array();
+					$query = new WP_Query(
+						array(
+							'post_type' => array( $bpfwp_controller->cpts->location_cpt_slug ),
+							'no_found_rows' => true,
+							'update_post_meta_cache' => false,
+							'update_post_term_cache' => false,
+							'posts_per_page' => 500,
+						)
+					);
+					if ( $query->have_posts() ) {
+						while ( $query->have_posts() ) {
+							$query->next_post();
+							$locations[$query->post->ID] = $query->post->post_title;
+						}
+					}
+					wp_reset_postdata();
+				?>
+
+				<p>
+					<label for="<?php echo $this->get_field_id( 'location' ); ?>"> <?php _e( 'Location' ); ?></label>
+					<select name="<?php echo $this->get_field_name( 'location' ); ?>" id="<?php echo $this->get_field_id( 'location' ); ?>" class="widefat">
+						<option><?php esc_html_e( 'Use Primary Business Profile' ); ?></option>
+						<?php foreach( $locations as $id => $title ) : ?>
+							<option value="<?php echo absint( $id ); ?>"<?php if ( isset( $instance['location'] ) && $instance['location'] == $id ) : ?> selected<?php endif; ?>>
+								<?php esc_attr_e( $title ); ?>
+							</option>
+						<?php endforeach; ?>
+					</select>
+				</p>
+
+			<?php endif; // locations ?>
+
 			<?php foreach ( $this->toggles as $id => $label ) : ?>
 
 			<p>
@@ -94,6 +132,10 @@ if ( ! class_exists( 'bpfwpContactCardWidget', false ) ) :
 			$instance = array();
 			if ( ! empty( $new_instance['title'] ) ) {
 				$instance['title'] = strip_tags( $new_instance['title'] );
+			}
+
+			if ( ! empty( $new_instance['location'] ) ) {
+				$instance['location'] = absint( $new_instance['location'] );
 			}
 
 			foreach ( $this->toggles as $id => $label ) {
