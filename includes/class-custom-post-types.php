@@ -448,7 +448,7 @@ if ( ! class_exists( 'bpfwpCustomPostTypes', false ) ) :
 				return $post_id;
 			}
 
-			if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTHOSAVE ) {
+			if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
 				return $post_id;
 			}
 
