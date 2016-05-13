@@ -68,13 +68,15 @@ if ( !function_exists( 'bpwfwp_print_contact_card' ) ) {
 		}
 
 		ob_start();
-		?>
+		$template = new bpfwpTemplateLoader;
+		$template->set_template_data( $data );
 
-		<address class="bp-contact-card" itemscope itemtype="http://schema.org/<?php echo bpfwp_setting( 'schema-type', $bpfwp_controller->display_settings['location'] ); ?>">
-			<?php foreach ( $data as $data => $callback ) { call_user_func( $callback, $bpfwp_controller->display_settings['location'] ); } ?>
-		</address>
+		if ( $bpfwp_controller->display_settings['location'] ) {
+			$template->get_template_part( 'contact-card', $bpfwp_controller->display_settings['location'] );
+		} else {
+			$template->get_template_part( 'contact-card');
+		}
 
-		<?php
 		$output = ob_get_clean();
 
 		// Reset display settings

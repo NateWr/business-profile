@@ -73,10 +73,11 @@ if ( ! class_exists( 'bpfwpInit', false ) ) :
 		 */
 		protected function includes() {
 			require_once BPFWP_PLUGIN_DIR . '/includes/class-compatibility.php';
+			require_once BPFWP_PLUGIN_DIR . '/includes/class-custom-post-types.php';
 			require_once BPFWP_PLUGIN_DIR . '/includes/class-integrations.php';
 			require_once BPFWP_PLUGIN_DIR . '/includes/class-settings.php';
+			require_once BPFWP_PLUGIN_DIR . '/includes/class-template-loader.php';
 			require_once BPFWP_PLUGIN_DIR . '/includes/template-functions.php';
-			require_once BPFWP_PLUGIN_DIR . '/includes/class-custom-post-types.php';
 		}
 
 		/**
