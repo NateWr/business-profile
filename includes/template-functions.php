@@ -367,7 +367,7 @@ function bpwfwp_print_opening_hours() {
 			} elseif ( empty( $end ) ) {
 				$time = __( 'Open from ', 'business-profile' ) . $start->format( get_option( 'time_format' ) );
 			} else {
-				$time = $start->format( get_option( 'time_format' ) ) . _x( '-', 'Separator between opening and closing times. Example: 9:00am-5:00pm', 'business-profile' ) . $end->format( get_option( 'time_format' ) );
+				$time = $start->format( get_option( 'time_format' ) ) . _x( '&thinsp;&ndash;&thinsp;', 'Separator between opening and closing times. Example: 9:00am-5:00pm', 'business-profile' ) . $end->format( get_option( 'time_format' ) );
 			}
 		}
 
