@@ -82,6 +82,7 @@
  * @since     1.1.0
  */
 global $bpfwp_controller; ?>
+
 <address class="bp-contact-card" itemscope itemtype="http://schema.org/<?php echo bpfwp_setting( 'schema-type', $bpfwp_controller->display_settings['location'] ); ?>">
 	<?php foreach ( $data as $data => $callback ) { call_user_func( $callback, $bpfwp_controller->display_settings['location'] ); } ?>
 </address>
