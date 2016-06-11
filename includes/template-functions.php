@@ -59,6 +59,10 @@ if ( !function_exists( 'bpwfwp_print_contact_card' ) ) {
 			$data['map'] = 'bpwfwp_print_map';
 		}
 
+		if ( !empty( $bpfwp_controller->display_settings['location'] ) ) {
+			$data['parent_organization'] = 'bpfwp_print_parent_organization';
+		}
+
 		$data = apply_filters( 'bpwfwp_component_callbacks', $data );
 
 		if ( !$bpfwp_controller->get_theme_support( 'disable_styles' ) ) {
@@ -481,3 +485,18 @@ if ( !function_exists( 'bpwfwp_print_map' ) ) {
 		<?php
 	}
 } // endif;
+
+if ( !function_exists( 'bpfwp_print_parent_organization') ) {
+	/**
+	 * Print a meta tag which connects a location to a `parentOrganization`
+	 *
+	 * @since 1.1
+	 */
+	function bpfwp_print_parent_organization() {
+		?>
+
+		<meta itemprop="parentOrganization" itemtype="http://schema.org/<?php echo esc_attr( bpfwp_setting( 'schema-type' ) ); ?>" content="<?php echo esc_attr( bpfwp_setting( 'name' ) ); ?>">
+
+		<?php
+	}
+}

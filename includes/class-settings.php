@@ -96,6 +96,13 @@ if ( ! class_exists( 'bpfwpSettings' ) ) :
 		 */
 		public function get_setting( $setting, $location = false ) {
 
+			// Most settings are named with hyphens, but the schema_type uses
+			// an underscore. This just provides a small convenience by allowing
+			// users to look up the setting by `schema-type`.
+			if ( $setting == 'schema-type' ) {
+				$setting = 'schema_type';
+			}
+
 			if ( empty( $location ) ) {
 				if ( empty( $this->settings ) ) {
 					$this->settings = get_option( 'bpfwp-settings' );
@@ -114,7 +121,7 @@ if ( ! class_exists( 'bpfwpSettings' ) ) :
 				// Map setting slugs to post data
 				switch ( $setting ) {
 
-					case 'schema-type' :
+					case 'schema_type' :
 						return get_post_meta( $location, 'schema_type', true );
 
 					case 'name' :
