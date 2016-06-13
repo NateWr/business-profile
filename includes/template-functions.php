@@ -19,6 +19,47 @@ if ( !function_exists( 'bpfwp_setting' ) ) {
 	}
 }
 
+if ( !function_exists( 'bpfwp_get_display' ) ) {
+	/**
+	 * A helper function to check if a setting should be displayed visually or
+	 * added as metadata
+	 *
+	 * @since 1.1
+	 */
+	function bpfwp_get_display( $setting ) {
+
+		global $bpfwp_controller;
+
+		if ( empty( $bpfwp_controller->display_settings ) ) {
+			$bpfwp_controller->display_settings = $bpfwp_controller->settings->get_default_display_settings();
+		}
+
+		return isset( $bpfwp_controller->display_settings[$setting] ) ? $bpfwp_controller->display_settings[$setting] : false;
+	}
+}
+
+if ( !function_exists( 'bpfwp_set_display' ) ) {
+	/**
+	 * A helper function to set a setting's visibility on the fly
+	 *
+	 * These visibility flags are usually set when the shortcode or widget is
+	 * loaded, or bpwfwp_print_contact_card() is called. This helper function
+	 * makes it easy to set a flag if you're building your own template.
+	 *
+	 * @since 1.1
+	 */
+	function bpfwp_set_display( $setting, $value ) {
+
+		global $bpfwp_controller;
+
+		if ( empty( $bpfwp_controller->display_settings ) ) {
+			$bpfwp_controller->display_settings = $bpfwp_controller->settings->get_default_display_settings();
+		}
+
+		$bpfwp_controller->display_settings[$setting] = $value;
+	}
+}
+
 if ( !function_exists( 'bpwfwp_print_contact_card' ) ) {
 	/**
 	 * Print a contact card and add a shortcode
@@ -34,32 +75,32 @@ if ( !function_exists( 'bpwfwp_print_contact_card' ) ) {
 		// Setup components and callback functions to render them
 		$data = array();
 
-		if ( bpfwp_setting( 'name', $bpfwp_controller->display_settings['location'] ) ) {
+		if ( bpfwp_setting( 'name', bpfwp_get_display( 'location' ) ) ) {
 			$data['name'] = 'bpwfwp_print_name';
 		}
 
-		if ( bpfwp_setting( 'address', $bpfwp_controller->display_settings['location'] ) ) {
+		if ( bpfwp_setting( 'address', bpfwp_get_display( 'location' ) ) ) {
 			$data['address'] = 'bpwfwp_print_address';
 		}
 
-		if ( bpfwp_setting( 'phone', $bpfwp_controller->display_settings['location'] ) ) {
+		if ( bpfwp_setting( 'phone', bpfwp_get_display( 'location' ) ) ) {
 			$data['phone'] = 'bpwfwp_print_phone';
 		}
 
-		if ( $bpfwp_controller->display_settings['show_contact'] &&
-				( bpfwp_setting( 'contact-email', $bpfwp_controller->display_settings['location'] ) || bpfwp_setting( 'contact-page', $bpfwp_controller->display_settings['location'] ) ) ) {
+		if ( bpfwp_get_display( 'show_contact' ) &&
+				( bpfwp_setting( 'contact-email', bpfwp_get_display( 'location' ) ) || bpfwp_setting( 'contact-page', bpfwp_get_display( 'location' ) ) ) ) {
 			$data['contact'] = 'bpwfwp_print_contact';
 		}
 
-		if ( bpfwp_setting( 'opening-hours', $bpfwp_controller->display_settings['location'] ) ) {
+		if ( bpfwp_setting( 'opening-hours', bpfwp_get_display( 'location' ) ) ) {
 			$data['opening_hours'] = 'bpwfwp_print_opening_hours';
 		}
 
-		if ( $bpfwp_controller->display_settings['show_map'] && bpfwp_setting( 'address', $bpfwp_controller->display_settings['location'] ) ) {
+		if ( bpfwp_get_display( 'show_map' ) && bpfwp_setting( 'address', bpfwp_get_display( 'location' ) ) ) {
 			$data['map'] = 'bpwfwp_print_map';
 		}
 
-		if ( !empty( $bpfwp_controller->display_settings['location'] ) ) {
+		if ( !empty( bpfwp_get_display( 'location' ) ) ) {
 			$data['parent_organization'] = 'bpfwp_print_parent_organization';
 		}
 
@@ -84,8 +125,8 @@ if ( !function_exists( 'bpwfwp_print_contact_card' ) ) {
 		$template = new bpfwpTemplateLoader;
 		$template->set_template_data( $data );
 
-		if ( $bpfwp_controller->display_settings['location'] ) {
-			$template->get_template_part( 'contact-card', $bpfwp_controller->display_settings['location'] );
+		if ( bpfwp_get_display( 'location' ) ) {
+			$template->get_template_part( 'contact-card', bpfwp_get_display( 'location' ) );
 		} else {
 			$template->get_template_part( 'contact-card');
 		}
@@ -111,7 +152,7 @@ if ( !function_exists( 'bpwfwp_print_name' ) ) {
 
 		global $bpfwp_controller;
 
-		if ( $bpfwp_controller->display_settings['show_name'] ) :
+		if ( bpfwp_get_display( 'show_name' ) ) :
 		?>
 		<div class="bp-name" itemprop="name">
 			<?php echo esc_attr( bpfwp_setting( 'name', $location ) ); ?>
@@ -147,13 +188,13 @@ if ( !function_exists( 'bpwfwp_print_address' ) ) {
 
 		<meta itemprop="address" content="<?php echo esc_attr( $address['text'] ); ?>">
 
-		<?php if ( $bpfwp_controller->display_settings['show_address'] ) : ?>
+		<?php if ( bpfwp_get_display( 'show_address' ) ) : ?>
 		<div class="bp-address">
 			<?php echo nl2br( $address['text'] ); ?>
 		</div>
 		<?php endif; ?>
 
-		<?php if ( $bpfwp_controller->display_settings['show_get_directions'] ) : ?>
+		<?php if ( bpfwp_get_display( 'show_get_directions' ) ) : ?>
 		<div class="bp-directions">
 			<a href="//maps.google.com/maps?saddr=current+location&daddr=<?php echo urlencode( esc_attr( $address['text'] ) ); ?>" target="_blank"><?php _e( 'Get directions', 'business-profile' ); ?></a>
 		</div>
@@ -171,7 +212,7 @@ if ( !function_exists( 'bpwfwp_print_phone' ) ) {
 
 		global $bpfwp_controller;
 
-		if ( $bpfwp_controller->display_settings['show_phone'] ) :
+		if ( bpfwp_get_display( 'show_phone' ) ) :
 		?>
 
 		<div class="bp-phone" itemprop="telephone">
@@ -289,12 +330,12 @@ if ( !function_exists( 'bpwfwp_print_opening_hours' ) ) {
 			echo '<meta itemprop="openingHours" content="' . esc_attr( $string ) . '">';
 		}
 
-		// Output display format
-		if ( !$bpfwp_controller->display_settings['show_opening_hours'] ) {
+		if ( !bpfwp_get_display( 'show_opening_hours' ) ) {
 			return;
 		}
 
-		if ( $bpfwp_controller->display_settings['show_opening_hours_brief'] ) :
+		// Output display format
+		if ( bpfwp_get_display( 'show_opening_hours_brief' ) ) :
 		?>
 
 		<div class="bp-opening-hours-brief">

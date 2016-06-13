@@ -109,7 +109,7 @@ if ( ! class_exists( 'bpfwpIntegrations', false ) ) :
 				$booking_page = $location;
 			}
 
-			if ( $bpfwp_controller->display_settings['show_booking_link'] ) :
+			if ( bpfwp_get_display( 'show_booking_link' ) ) :
 				global $rtb_controller;
 				?>
 				<div class="bp-booking">

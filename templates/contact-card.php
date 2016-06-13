@@ -42,25 +42,27 @@
  * or via a widget (or you can use bpwfwp_print_contact_card() to print it
  * anywhere you want). For that reason, the location requested may not be the
  * same as the global post (eg - get_the_ID()). To ensure compatibility with the
- * plugin's [contact-card] shortcode and Contact Card widget, you should use the
- * $bpfwp_controller global to access the location post ID. Example:
+ * plugin's [contact-card] shortcode and Contact Card widget, you should use
+ * bpfwp_setting() to retrieve any possible location post ID. Example:
  *
  * <?php
- *   global $bpfwp_controller;
- *   $location = $bpfwp_controller->display_settings['location'];
+ *   $location = bpfwp_setting( 'location' );
  *   bpfwp_setting( 'address', $location );
  * ?>
  *
  * The $bpfwp_controller->display_settings array also contains information on
  * any content that has been hidden with shortcode attributes or widget options.
- * You should check the bool values before printing. Example:
+ * This allows a value to be printed for proper schema markup without being
+ * displayed. You should check the bool values with the bpfwp_get_display()
+ * helper function before printing. Example:
  *
  * <?php
- *   global $bpfwp_controller;
- *   $location = $bpfwp_controller->display_settings['location'];
- *   if ( $bpfwp_controller->display_settings['show_address'] ) {
+ *   $location = bpfwp_setting( 'location' );
+ *   if ( bpfwp_get_display( 'show_address' ) ) {
  *     ?>
- *     <meta itemprop="address" content="<?php bpfwp_setting( 'address', $location ); ?>">
+ *     <div itemprop="address">
+ *       <?php bpfwp_setting( 'address', $location ); ?>
+ *     </div>
  *     <?php
  *   }
  * ?>
@@ -68,6 +70,16 @@
  * If you use the template functions to have the schema markup printed for you,
  * they will take account of these display settings and use hidden meta where
  * appropriate.
+ *
+ * If you want to explicitly set the visibility of a type of information before
+ * calling it's template function, you can do that. For instance, to show only
+ * the brief opening hours, you can do the following:
+ *
+ * <?php
+ *   $location = bpfwp_setting( 'location' );
+ *   bpfwp_set_display( 'show_opening_hours_brief', true );
+ *   bpwfwp_print_opening_hours( $location );
+ * ?>
  *
  * Google provides a Structured Data Testing Tool which is useful for validating
  * your schema markup once you've changed it.
@@ -83,6 +95,6 @@
  */
 global $bpfwp_controller; ?>
 
-<address class="bp-contact-card" itemscope itemtype="http://schema.org/<?php echo bpfwp_setting( 'schema-type', $bpfwp_controller->display_settings['location'] ); ?>">
-	<?php foreach ( $data as $data => $callback ) { call_user_func( $callback, $bpfwp_controller->display_settings['location'] ); } ?>
+<address class="bp-contact-card" itemscope itemtype="http://schema.org/<?php echo bpfwp_setting( 'schema-type', bpfwp_get_display( 'location' ) ); ?>">
+	<?php foreach ( $data as $data => $callback ) { call_user_func( $callback, bpfwp_get_display( 'location' ) ); } ?>
 </address>
