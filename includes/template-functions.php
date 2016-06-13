@@ -122,10 +122,14 @@ if ( !function_exists( 'bpwfwp_print_name' ) ) {
 
 		<?php endif; ?>
 
-		<meta itemprop="description" content="<?php echo esc_attr( get_bloginfo( 'description' ) ) ?>">
-		<meta itemprop="url" content="<?php echo esc_attr( get_bloginfo( 'url' ) ); ?>">
+		<?php if ( empty( $location ) ) : ?>
+			<meta itemprop="description" content="<?php echo esc_attr( get_bloginfo( 'description' ) ) ?>">
+			<meta itemprop="url" content="<?php echo esc_url( get_bloginfo( 'url' ) ); ?>">
 
-		<?php
+		<?php else : ?>
+			<meta itemprop="url" content="<?php echo esc_url( get_permalink( $location ) ); ?>">
+
+		<?php endif;
 	}
 } // endif;
 
