@@ -150,8 +150,6 @@ if ( !function_exists( 'bpwfwp_print_name' ) ) {
 	 */
 	function bpwfwp_print_name( $location = false ) {
 
-		global $bpfwp_controller;
-
 		if ( bpfwp_get_display( 'show_name' ) ) :
 		?>
 		<div class="bp-name" itemprop="name">
@@ -181,8 +179,6 @@ if ( !function_exists( 'bpwfwp_print_address' ) ) {
 	 */
 	function bpwfwp_print_address( $location = false ) {
 
-		global $bpfwp_controller;
-
 		$address = bpfwp_setting( 'address', $location );
 		?>
 
@@ -209,8 +205,6 @@ if ( !function_exists( 'bpwfwp_print_phone' ) ) {
 	 * @since 0.0.1
 	 */
 	function bpwfwp_print_phone( $location = false ) {
-
-		global $bpfwp_controller;
 
 		if ( bpfwp_get_display( 'show_phone' ) ) :
 		?>
@@ -266,8 +260,6 @@ if ( !function_exists( 'bpwfwp_print_opening_hours' ) ) {
 	 * @since 0.0.1
 	 */
 	function bpwfwp_print_opening_hours( $location = false ) {
-
-		global $bpfwp_controller;
 
 		$weekdays_schema = array(
 			'monday'	=> 'Mo',
