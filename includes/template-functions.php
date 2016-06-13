@@ -73,38 +73,18 @@ if ( !function_exists( 'bpwfwp_print_contact_card' ) ) {
 		$bpfwp_controller->display_settings = shortcode_atts( $bpfwp_controller->settings->get_default_display_settings(), $args, 'contact-card' );
 
 		// Setup components and callback functions to render them
-		$data = array();
-
-		if ( bpfwp_setting( 'name', bpfwp_get_display( 'location' ) ) ) {
-			$data['name'] = 'bpwfwp_print_name';
-		}
-
-		if ( bpfwp_setting( 'address', bpfwp_get_display( 'location' ) ) ) {
-			$data['address'] = 'bpwfwp_print_address';
-		}
-
-		if ( bpfwp_setting( 'phone', bpfwp_get_display( 'location' ) ) ) {
-			$data['phone'] = 'bpwfwp_print_phone';
-		}
-
-		if ( bpfwp_get_display( 'show_contact' ) &&
-				( bpfwp_setting( 'contact-email', bpfwp_get_display( 'location' ) ) || bpfwp_setting( 'contact-page', bpfwp_get_display( 'location' ) ) ) ) {
-			$data['contact'] = 'bpwfwp_print_contact';
-		}
-
-		if ( bpfwp_setting( 'opening-hours', bpfwp_get_display( 'location' ) ) ) {
-			$data['opening_hours'] = 'bpwfwp_print_opening_hours';
-		}
-
-		if ( bpfwp_get_display( 'show_map' ) && bpfwp_setting( 'address', bpfwp_get_display( 'location' ) ) ) {
-			$data['map'] = 'bpwfwp_print_map';
-		}
-
-		if ( !empty( bpfwp_get_display( 'location' ) ) ) {
-			$data['parent_organization'] = 'bpfwp_print_parent_organization';
-		}
-
-		$data = apply_filters( 'bpwfwp_component_callbacks', $data );
+		$data = apply_filters(
+			'bpwfwp_component_callbacks',
+			array(
+				'name'                => 'bpwfwp_print_name',
+				'address'             => 'bpwfwp_print_address',
+				'phone'               => 'bpwfwp_print_phone',
+				'contact'             => 'bpwfwp_print_contact',
+				'opening_hours'       => 'bpwfwp_print_opening_hours',
+				'map'                 => 'bpwfwp_print_map',
+				'parent_organization' => 'bpfwp_print_parent_organization',
+			)
+		);
 
 		if ( !$bpfwp_controller->get_theme_support( 'disable_styles' ) ) {
 			/**
@@ -180,6 +160,10 @@ if ( !function_exists( 'bpwfwp_print_address' ) ) {
 	function bpwfwp_print_address( $location = false ) {
 
 		$address = bpfwp_setting( 'address', $location );
+
+		if ( empty( $address['text'] ) ) {
+			return '';
+		}
 		?>
 
 		<meta itemprop="address" content="<?php echo esc_attr( $address['text'] ); ?>">
@@ -206,6 +190,12 @@ if ( !function_exists( 'bpwfwp_print_phone' ) ) {
 	 */
 	function bpwfwp_print_phone( $location = false ) {
 
+		$phone = bpfwp_setting( 'phone', $location );
+
+		if ( empty( $phone ) ) {
+			return '';
+		}
+
 		if ( bpfwp_get_display( 'show_phone' ) ) :
 		?>
 
@@ -230,18 +220,25 @@ if ( !function_exists( 'bpwfwp_print_contact' ) ) {
 		$email = bpfwp_setting( 'contact-email', $location );
 		if ( !empty( $email ) ) :
 			$antispam_email = antispambot( $email );
-		?>
 
-		<div class="bp-contact bp-contact-email" itemprop="email" content="<?php echo esc_attr( $antispam_email ); ?>">
-			<a href="mailto:<?php echo esc_attr( $antispam_email ); ?>"><?php echo $antispam_email; ?></a>
-		</div>
+			if ( bpfwp_get_display( 'show_contact' ) ) :
+				?>
+				<meta itemprop="email" content="<?php echo esc_attr( $antispam_email ); ?>">
+
+			<?php else : ?>
+
+				<div class="bp-contact bp-contact-email" itemprop="email" content="<?php echo esc_attr( $antispam_email ); ?>">
+					<a href="mailto:<?php echo esc_attr( $antispam_email ); ?>"><?php echo $antispam_email; ?></a>
+				</div>
+
+			<?php endif; ?>
 
 		<?php
 			return;
 		endif;
 
 		$contact = bpfwp_setting( 'contact-page', $location );
-		if ( !empty( $contact ) ) :
+		if ( !empty( $contact ) && bpfwp_get_display( 'show_contact' ) ) :
 		?>
 
 		<div class="bp-contact bp-contact-page" itemprop="ContactPoint" itemscope itemtype="http://schema.org/ContactPoint">
@@ -272,6 +269,10 @@ if ( !function_exists( 'bpwfwp_print_opening_hours' ) ) {
 		);
 
 		$hours = bpfwp_setting( 'opening-hours', $location );
+
+		if ( empty( $hours ) ) {
+			return '';
+		}
 
 		// Output proper schema.org format
 		foreach( $hours as $slot ) {
@@ -479,7 +480,12 @@ if ( !function_exists( 'bpwfwp_print_map' ) ) {
 
 		$address = bpfwp_setting( 'address', $location );
 
+		if ( empty( $address['text'] ) || !bpfwp_get_display( 'show_map' ) ) {
+			return '';
+		}
+
 		global $bpfwp_controller;
+
 		if ( !$bpfwp_controller->get_theme_support( 'disable_scripts' ) ) {
 			wp_enqueue_script( 'bpfwp-map' );
 			wp_localize_script(
@@ -530,6 +536,13 @@ if ( !function_exists( 'bpfwp_print_parent_organization') ) {
 	 * @since 1.1
 	 */
 	function bpfwp_print_parent_organization() {
+
+		$location = bpfwp_get_display( 'location' );
+
+		if ( empty( $location ) ) {
+			return '';
+		}
+
 		?>
 
 		<meta itemprop="parentOrganization" itemtype="http://schema.org/<?php echo esc_attr( bpfwp_setting( 'schema-type' ) ); ?>" content="<?php echo esc_attr( bpfwp_setting( 'name' ) ); ?>">
