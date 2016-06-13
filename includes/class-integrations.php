@@ -83,7 +83,7 @@ if ( ! class_exists( 'bpfwpIntegrations', false ) ) :
 				if ( ! empty( $pos ) ) {
 					$a = array_slice( $data, 0, $pos );
 					$b = array_slice( $data, $pos );
-					$data = array_merge( $a, array( 'booking_page' => array( $this, 'bpfwp_print_booking_link' ) ) , $b );
+					$data = array_merge( $a, array( 'booking_page' => array( $this, 'bpfwp_print_booking_link' ) ), $b );
 				} else {
 					// If no short links are being displayed, just add it to the bottom.
 					$data['booking_page'] = array( $this, 'bpfwp_print_booking_link' );
@@ -98,15 +98,22 @@ if ( ! class_exists( 'bpfwpIntegrations', false ) ) :
 		 * Restaurant Reservations plugin
 		 * @since 0.0.1
 		 */
-		public function bpfwp_print_booking_link() {
+		public function bpfwp_print_booking_link( $location = false ) {
 
 			global $bpfwp_controller;
+			global $rtb_controller;
+
+			$booking_page = $rtb_controller->settings->get_setting( 'booking-page'  );
+
+			if ( $location && get_post_meta( $location, 'rtb_append_booking_form', true ) ) {
+				$booking_page = $location;
+			}
 
 			if ( $bpfwp_controller->display_settings['show_booking_link'] ) :
 				global $rtb_controller;
 				?>
 				<div class="bp-booking">
-					<a href="<?php echo get_permalink( $rtb_controller->settings->get_setting( 'booking-page'  ) ); ?>"><?php _e( 'Book a table', 'business-profile' ); ?></a>
+					<a href="<?php echo get_permalink( $booking_page ); ?>"><?php _e( 'Book a table', 'business-profile' ); ?></a>
 				</div>
 				<?php
 			endif;
