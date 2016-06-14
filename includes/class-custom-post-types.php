@@ -262,11 +262,14 @@ if ( ! class_exists( 'bpfwpCustomPostTypes', false ) ) :
 				<p class="sap-map-coords-wrapper">
 					<span class="dashicons dashicons-location-alt"></span>
 					<span class="sap-map-coords">
-						<?php if ( empty( get_post_meta( $post->ID, 'geo_latitude', true ) ) || empty( get_post_meta( $post->ID, 'geo_longitude', true ) ) ) : ?>
-							<?php esc_html_e( 'No map coordinates set.', 'business-profile' ); ?>
-						<?php else : ?>
-							<?php echo get_post_meta( $post->ID, 'geo_latitude', true ) . esc_html_x( ', ', 'separates latitude and longitude', 'business-profile' ) . get_post_meta( $post->ID, 'geo_longitude', true ); ?>
-							<a href="//maps.google.com/maps?q=<?php echo esc_attr( get_post_meta( $post->ID, 'geo_latitude', true ) ) . ',' . esc_attr( get_post_meta( $post->ID, 'geo_longitude', true ) ); ?>" class="sap-view-coords" target="_blank"><?php esc_html_e( 'View', 'business-profile' ); ?></a>
+						<?php
+							$geo_latitude = get_post_meta( $post->ID, 'geo_latitude', true );
+							$geo_longitude = get_post_meta( $post->ID, 'geo_longitude', true );
+							if ( empty( $geo_latitude ) || empty( $geo_longitude ) ) :
+								esc_html_e( 'No map coordinates set.', 'business-profile' );
+							else : ?>
+								<?php echo get_post_meta( $post->ID, 'geo_latitude', true ) . esc_html_x( ', ', 'separates latitude and longitude', 'business-profile' ) . get_post_meta( $post->ID, 'geo_longitude', true ); ?>
+								<a href="//maps.google.com/maps?q=<?php echo esc_attr( get_post_meta( $post->ID, 'geo_latitude', true ) ) . ',' . esc_attr( get_post_meta( $post->ID, 'geo_longitude', true ) ); ?>" class="sap-view-coords" target="_blank"><?php esc_html_e( 'View', 'business-profile' ); ?></a>
 						<?php endif; ?>
 					</span>
 				</p>
