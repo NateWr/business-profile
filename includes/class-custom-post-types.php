@@ -470,7 +470,7 @@ if ( ! class_exists( 'bpfwpCustomPostTypes', false ) ) :
 			foreach( $post_meta as $key => $callback ) {
 
 				if ( !isset( $_POST[$key] ) ) {
-					continue;
+					$_POST[$key] = '';
 				}
 
 				$cur = get_post_meta( $post_id, $key, true );
