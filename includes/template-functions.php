@@ -258,70 +258,14 @@ if ( !function_exists( 'bpwfwp_print_opening_hours' ) ) {
 	 */
 	function bpwfwp_print_opening_hours( $location = false ) {
 
-		$weekdays_schema = array(
-			'monday'	=> 'Mo',
-			'tuesday'	=> 'Tu',
-			'wednesday'	=> 'We',
-			'thursday'	=> 'Th',
-			'friday'	=> 'Fr',
-			'saturday'	=> 'Sa',
-			'sunday'	=> 'Su',
-		);
-
 		$hours = bpfwp_setting( 'opening-hours', $location );
 
 		if ( empty( $hours ) ) {
 			return '';
 		}
 
-		// Output proper schema.org format
-		foreach( $hours as $slot ) {
-
-			// Skip this entry if no weekdays are set
-			if ( empty( $slot['weekdays'] ) ) {
-				continue;
-			}
-
-			$days = array();
-			foreach( $slot['weekdays'] as $day => $val ) {
-				$days[] = $weekdays_schema[ $day ];
-			}
-			$string = !empty( $days ) ? join( ',', $days ) : '';
-
-			if ( !empty( $string) && !empty( $slot['time'] ) ) {
-
-				if ( empty( $slot['time']['start'] ) ) {
-					$start = '00:00';
-				} else {
-					$start = trim( substr( $slot['time']['start'], 0, -2 ) );
-					if ( substr( $slot['time']['start'], -2 ) == 'PM' && $start !== '12:00' ) {
-						$split = explode( ':', $start );
-						$split[0] += 12;
-						$start = join( ':', $split );
-					}
-					if ( substr( $slot['time']['start'], -2 ) == 'AM' && $start == '12:00' ) {
-						$start = '00:00';
-					}
-				}
-
-				if ( empty( $slot['time']['end'] ) ) {
-					$end = '24:00';
-				} else {
-					$end = trim( substr( $slot['time']['end'], 0, -2 ) );
-					if ( substr( $slot['time']['end'], -2 ) == 'PM' ) {
-						$split = explode( ':', $end );
-						$split[0] += 12;
-						$end = join( ':', $split );
-					}
-					if ( !empty( $slot['time']['start'] ) && substr( $slot['time']['start'], -2 ) == 'AM' && $start == '12:00' ) {
-						$end = '24:00';
-					}
-				}
-
-				$string .= ' ' . $start . '-' . $end;
-			}
-			echo '<meta itemprop="openingHours" content="' . esc_attr( $string ) . '">';
-		}
+		// Print the metatags with proper schema formatting
+		bpfwp_print_opening_hours_metatag( $hours );
 
 		if ( !bpfwp_get_display( 'show_opening_hours' ) ) {
 			return;
@@ -439,7 +383,7 @@ if ( !function_exists( 'bpwfwp_print_opening_hours' ) ) {
 			}
 		}
 
-		if ( count( $weekdays ) ) :
+		if ( count( $weekdays ) ) {
 
 			// Order the weekdays and add any missing days as "closed"
 			$weekdays_ordered = array();
@@ -450,26 +394,92 @@ if ( !function_exists( 'bpwfwp_print_opening_hours' ) ) {
 					$weekdays_ordered[$slug] = $weekdays[$slug];
 				}
 			}
-		?>
 
-		<div class="bp-opening-hours">
-			<span class="bp-title"><?php _e( 'Opening Hours', 'business-profile' ); ?></span>
-			<?php foreach ( $weekdays_ordered as $weekday => $times ) :	?>
-			<div class="bp-weekday">
-				<span class="bp-weekday-name bp-weekday-<?php echo $weekday; ?>"><?php echo $weekdays_display[$weekday]; ?></span>
-				<span class="bp-times">
-				<?php foreach ( $times as $time ) : ?>
-					<span class="bp-time"><?php echo $time; ?></span>
-				<?php endforeach; ?>
-				</span>
-			</div>
-			<?php endforeach; ?>
-		</div>
+			$data = array(
+				'weekday_hours' => $weekdays_ordered,
+				'weekday_names' => $weekdays_display,
+			);
 
-		<?php
-		endif;
+			$template = new bpfwpTemplateLoader;
+			$template->set_template_data( $data );
+
+			if ( bpfwp_get_display( 'location' ) ) {
+				$template->get_template_part( 'opening-hours', bpfwp_get_display( 'location' ) );
+			} else {
+				$template->get_template_part( 'opening-hours');
+			}
+		}
 	}
 } // endif;
+
+if ( !function_exists( 'bpfwp_print_opening_hours_metatag' ) ) {
+	/**
+	 * Print a schema metatags with the opening hours
+	 *
+	 * @since 1.1
+	 */
+	function bpfwp_print_opening_hours_metatag( $hours ) {
+
+		$weekdays_schema = array(
+			'monday'	=> 'Mo',
+			'tuesday'	=> 'Tu',
+			'wednesday'	=> 'We',
+			'thursday'	=> 'Th',
+			'friday'	=> 'Fr',
+			'saturday'	=> 'Sa',
+			'sunday'	=> 'Su',
+		);
+
+		// Output proper schema.org format
+		foreach( $hours as $slot ) {
+
+			// Skip this entry if no weekdays are set
+			if ( empty( $slot['weekdays'] ) ) {
+				continue;
+			}
+
+			$days = array();
+			foreach( $slot['weekdays'] as $day => $val ) {
+				$days[] = $weekdays_schema[ $day ];
+			}
+			$string = !empty( $days ) ? join( ',', $days ) : '';
+
+			if ( !empty( $string) && !empty( $slot['time'] ) ) {
+
+				if ( empty( $slot['time']['start'] ) ) {
+					$start = '00:00';
+				} else {
+					$start = trim( substr( $slot['time']['start'], 0, -2 ) );
+					if ( substr( $slot['time']['start'], -2 ) == 'PM' && $start !== '12:00' ) {
+						$split = explode( ':', $start );
+						$split[0] += 12;
+						$start = join( ':', $split );
+					}
+					if ( substr( $slot['time']['start'], -2 ) == 'AM' && $start == '12:00' ) {
+						$start = '00:00';
+					}
+				}
+
+				if ( empty( $slot['time']['end'] ) ) {
+					$end = '24:00';
+				} else {
+					$end = trim( substr( $slot['time']['end'], 0, -2 ) );
+					if ( substr( $slot['time']['end'], -2 ) == 'PM' ) {
+						$split = explode( ':', $end );
+						$split[0] += 12;
+						$end = join( ':', $split );
+					}
+					if ( !empty( $slot['time']['start'] ) && substr( $slot['time']['start'], -2 ) == 'AM' && $start == '12:00' ) {
+						$end = '24:00';
+					}
+				}
+
+				$string .= ' ' . $start . '-' . $end;
+			}
+			echo '<meta itemprop="openingHours" content="' . esc_attr( $string ) . '">';
+		}
+	}
+}
 
 if ( !function_exists( 'bpwfwp_print_map' ) ) {
 	/**

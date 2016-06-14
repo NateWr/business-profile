@@ -93,7 +93,7 @@
  * @license   GPL-2.0+
  * @since     1.1.0
  */
-global $bpfwp_controller; ?>
+?>
 
 <address class="bp-contact-card" itemscope itemtype="http://schema.org/<?php echo bpfwp_setting( 'schema-type', bpfwp_get_display( 'location' ) ); ?>">
 	<?php foreach ( $data as $data => $callback ) { call_user_func( $callback, bpfwp_get_display( 'location' ) ); } ?>
