@@ -74,7 +74,7 @@ if ( ! class_exists( 'bpfwpInit', false ) ) :
 		protected function includes() {
 			require_once BPFWP_PLUGIN_DIR . '/includes/class-compatibility.php';
 			require_once BPFWP_PLUGIN_DIR . '/includes/class-custom-post-types.php';
-			require_once BPFWP_PLUGIN_DIR . '/includes/class-integrations.php';
+			require_once BPFWP_PLUGIN_DIR . '/includes/deprecated/class-integrations.php';
 			require_once BPFWP_PLUGIN_DIR . '/includes/class-settings.php';
 			require_once BPFWP_PLUGIN_DIR . '/includes/class-template-loader.php';
 			require_once BPFWP_PLUGIN_DIR . '/includes/template-functions.php';
@@ -89,7 +89,7 @@ if ( ! class_exists( 'bpfwpInit', false ) ) :
 		 */
 		protected function instantiate() {
 			new bpfwpCompatibility();
-			new bpfwpIntegrations();
+			new bpfwpIntegrations(); // deprecated in v1.1
 			$this->settings = new bpfwpSettings();
 			if ( $this->settings->get_setting( 'multiple-locations' ) ) {
 				$this->cpts = new bpfwpCustomPostTypes();

@@ -2,6 +2,8 @@
 /**
  * Initialize third-party integrations
  *
+ * DEPRECATED in version 1.1
+ *
  * This file loads and runs code to help the theme that can be found in
  * wp-content/themes/plate-up/includes. This code is separated from the normal
  * functions.php file to make that file easier to read. Ideally, all code that
@@ -31,8 +33,11 @@ if ( ! class_exists( 'bpfwpIntegrations', false ) ) :
 		 */
 		public function plugins_loaded() {
 
-			// Restaurant Reservations plugin
-			if ( defined( 'RTB_PLUGIN_DIR' ) ) {
+			// Restaurant Reservations handles the integration from v1.6+.
+			// This code is deprecated but will load if Restaurant
+			// Reservations is active but below v1.6. The RTB_VERSION constant
+			// was introduced in v1.6.
+			if ( defined( 'RTB_PLUGIN_DIR' ) && !defined( 'RTB_VERSION' ) ) {
 
 				// Add default setting for booking link to template function/shortcode
 				add_filter( 'bpfwp_default_display_settings', array( $this, 'bpwfp_booking_link_default' ) );
