@@ -1,0 +1,35 @@
+/* Admin CSS styles for Business Profile */
+.bpfwp-meta-input {
+	padding-top: 1em;
+}
+
+.bpfwp-meta-input textarea,
+.bpfwp-meta-input select,
+.bpfwp-meta-input input[type="text"],
+.bpfwp-meta-input input[type="email"],
+.bpfwp-meta-input input[type="tel"] {
+	width: 100%;
+}
+
+.bpfwp-meta-input textarea {
+	height: 8em;
+}
+
+.bpfwp-meta-geo_address,
+.sap-coords-result {
+	margin: 0 -1em;
+	padding: 1em;
+	border-bottom: 1px solid #eee;
+}
+
+.sap-coords-result {
+	padding: 0.25em 1em;
+}
+
+.sap-coords-result .dashicons {
+	color: #aaa;
+}
+
+.bpfwp-meta-opening-hours .sap-scheduler-rule {
+	border: 1px solid #eee;
+}

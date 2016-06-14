@@ -5,7 +5,7 @@ Plugin URL: http://themeofthecrop.com
 Requires at Least: 3.9
 Tested Up To: 4.5
 Tags: business profile, address, google map, schema, contact, phone, address, seo
-Stable tag: 1.0.9
+Stable tag: 1.1
 License: GPLv2 or later
 Donate link: http://themeofthecrop.com
 

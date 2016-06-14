@@ -1,9 +1,15 @@
 <?php
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
+/**
+ * Provide backwards compatibility for older versions of Business Profile.
+ *
+ * @package   BusinessProfile
+ * @copyright Copyright (c) 2015, Theme of the Crop
+ * @license   GPL-2.0+
+ * @since     1.0.6
+ */
+defined( 'ABSPATH' ) || exit;
 
-if ( ! class_exists( 'bpfwpCompatibility', false ) ) {
+if ( ! class_exists( 'bpfwpCompatibility', false ) ) :
 	/**
 	 * Class to handle backwards compatibility issues for Business Profile.
 	 *
@@ -22,6 +28,9 @@ if ( ! class_exists( 'bpfwpCompatibility', false ) ) {
 
 			// Load a .mo file for an old textdomain if one exists
 			add_filter( 'load_textdomain_mofile', array( $this, 'load_old_textdomain' ), 10, 2 );
+
+			// Run a filter that was renamed in version 1.1
+			add_filter( 'bpfwp_default_display_settings', array( $this, 'run_contact_card_defaults' ) );
 
 		}
 
@@ -48,5 +57,13 @@ if ( ! class_exists( 'bpfwpCompatibility', false ) ) {
 			return $mofile;
 		}
 
+		/**
+		 * Run a filter that was renamed in version 1.1
+		 *
+		 * @since 1.1
+		 */
+		 public function run_contact_card_defaults( $defaults ) {
+			 return apply_filters( 'bpwfp_contact_card_defaults', $defaults );
+		 }
 	}
-} // end class exists check.
+endif;
