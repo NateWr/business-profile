@@ -3,8 +3,8 @@ Contributors: NateWr
 Author URI: https://github.com/NateWr
 Plugin URL: http://themeofthecrop.com
 Requires at Least: 3.9
-Tested Up To: 4.5
-Tags: business profile, address, google map, schema, contact, phone, address, seo
+Tested Up To: 4.5.2
+Tags: business profile, seo, local seo, schema, address, google map, contact, phone
 Stable tag: 1.1
 License: GPLv2 or later
 Donate link: http://themeofthecrop.com
@@ -25,9 +25,9 @@ Add your business contact details to your site with seo-friendly Schema.org mark
 
 Schema.org markup helps search engines like Google discover your address, phone number and opening hours so that they can display them with your listing on Google.
 
-**Sorry, it does not support multiple locations.**
+**Supports multi-location businesses with a custom Locations post type.**
 
-This plugin is part of a group of plugins for restaurants. Check out the [Food and Drink Menu](http://wordpress.org/plugins/food-and-drink-menu/), [Restaurant Reservations](http://wordpress.org/plugins/restaurant-reservations/) and [Good Reviews for WordPress](http://wordpress.org/plugins/good-reviews-wp/) plugins as well.
+This plugin is part of a group of plugins for restaurants. Check out the [Restaurant Reservations](http://wordpress.org/plugins/restaurant-reservations/), [Food and Drink Menu](http://wordpress.org/plugins/food-and-drink-menu/), and [Good Reviews for WordPress](http://wordpress.org/plugins/good-reviews-wp/) plugins as well.
 
 = How to use =
 
@@ -35,7 +35,7 @@ View the [help guide](http://doc.themeofthecrop.com/plugins/business-profile/?ut
 
 = Developers =
 
-This plugin is packed with hooks so you can extend it as needed. Development takes place on [GitHub](https://github.com/NateWr/business-profile/), so fork it up.
+This plugin is packed with templates and hooks so you can extend it as needed. Development takes place on [GitHub](https://github.com/NateWr/business-profile/), so fork it up.
 
 == Installation ==
 
@@ -49,8 +49,17 @@ This plugin is packed with hooks so you can extend it as needed. Development tak
 1. Display a full contact card on the front-end with the shortcode [contact-card] or use the widget to add it to a sidebar.
 2. An easy-to-use form lets you add all of the information, locate the correct map coordinates and set up your opening hours.
 3. Choose what information to display with the widget, or check out the shortcode attributes in the help document included.
+4. Optional multi-location support to easily display all of your locations.
 
 == Changelog ==
+
+= 1.1 (2016-06-15) =
+* Add: multi-location support
+* Add: filter to adjust available schema types
+* Add: templates for contact cards and opening hours
+* Add: helper functions for templating
+* Add: add_theme_support() args for disabling scripts, styles and append to content
+* Update: implement WP coding standards. h/t @robnue
 
 = 1.0.9 (2016-02-12) =
 * Fix: compatibility with wp-cli
@@ -100,6 +109,9 @@ This plugin is packed with hooks so you can extend it as needed. Development tak
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.1 =
+This major update adds support for multiple locations, refactors the codebase to follow WP coding guidelines, and adds several templates and helper functions for customization.
 
 = 1.0.9 =
 This update fixes wp-cli compatibility and adds a number of useful development filters/features for interacting with the map objects.
