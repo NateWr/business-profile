@@ -46,7 +46,7 @@
  * bpfwp_setting() to retrieve any possible location post ID. Example:
  *
  * <?php
- *   $location = bpfwp_setting( 'location' );
+ *   $location = bpfwp_get_display( 'location' );
  *   bpfwp_setting( 'address', $location );
  * ?>
  *
@@ -57,7 +57,7 @@
  * helper function before printing. Example:
  *
  * <?php
- *   $location = bpfwp_setting( 'location' );
+ *   $location = bpfwp_get_display( 'location' );
  *   if ( bpfwp_get_display( 'show_address' ) ) {
  *     ?>
  *     <div itemprop="address">
@@ -76,7 +76,7 @@
  * the brief opening hours, you can do the following:
  *
  * <?php
- *   $location = bpfwp_setting( 'location' );
+ *   $location = bpfwp_get_display( 'location' );
  *   bpfwp_set_display( 'show_opening_hours_brief', true );
  *   bpwfwp_print_opening_hours( $location );
  * ?>
