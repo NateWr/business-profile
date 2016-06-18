@@ -462,18 +462,17 @@ if ( ! class_exists( 'bpfwpCustomPostTypes', false ) ) :
 		 * handle all the location data, and perform loading
 		 * and saving.
 		 *
-		 * @since 1.1
+		 * @since  1.1
 		 * @access public
 		 * @param  int $post_id The current post ID.
 		 * @return int $post_id The current post ID.
 		 */
 		public function save_meta( $post_id ) {
-
-			if ( ! isset( $_POST['post_type'] ) || $_POST['post_type'] !== $this->location_cpt_slug ) {
+			if ( ! isset( $_POST['bpfwp_location_meta_nonce'] ) || ! wp_verify_nonce( sanitize_key( $_POST['bpfwp_location_meta_nonce'] ), 'bpfwp_location_meta' ) ) { // Input var okay.
 				return $post_id;
 			}
 
-			if ( ! isset( $_POST['bpfwp_location_meta_nonce'] ) || ! wp_verify_nonce( $_POST['bpfwp_location_meta_nonce'], 'bpfwp_location_meta' ) ) {
+			if ( ! isset( $_POST['post_type'] ) || $_POST['post_type'] !== $this->location_cpt_slug ) { // Input var okay.
 				return $post_id;
 			}
 
@@ -496,14 +495,15 @@ if ( ! class_exists( 'bpfwpCustomPostTypes', false ) ) :
 				'opening_hours' => array( $this, 'sanitize_opening_hours' ),
 			);
 
-			foreach ( $post_meta as $key => $callback ) {
+			foreach ( $post_meta as $key => $sanitizer ) {
 
-				if ( ! isset( $_POST[ $key ] ) ) {
+				if ( ! isset( $_POST[ $key ] ) ) { // Input var okay.
 					$_POST[ $key ] = '';
 				}
 
 				$cur = get_post_meta( $post_id, $key, true );
-				$new = call_user_func( $callback, $_POST[ $key ] );
+				$new = call_user_func( $sanitizer, wp_unslash( $_POST[ $key ] ) ); // Input var okay.
+
 				if ( $new !== $cur ) {
 					update_post_meta( $post_id, $key, $new );
 				}
