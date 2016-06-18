@@ -25,9 +25,9 @@ class bpfwpTemplateLoader extends Bpfwp_Gamajo_Template_Loader {
 	/**
 	 * Prefix for filter names.
 	 *
-	 * @since 1.0.0
-	 *
-	 * @var string
+	 * @since  1.0.0
+	 * @access protected
+	 * @var    string
 	 */
 	protected $filter_prefix = 'bpfwp';
 
@@ -36,9 +36,9 @@ class bpfwpTemplateLoader extends Bpfwp_Gamajo_Template_Loader {
 	 *
 	 * For example: 'your-plugin-templates'.
 	 *
-	 * @since 1.0.0
-	 *
-	 * @var string
+	 * @since  1.0.0
+	 * @access protected
+	 * @var    string
 	 */
 	protected $theme_template_directory = 'business-profile-templates';
 
@@ -49,9 +49,9 @@ class bpfwpTemplateLoader extends Bpfwp_Gamajo_Template_Loader {
 	 *
 	 * e.g. YOUR_PLUGIN_TEMPLATE or plugin_dir_path( dirname( __FILE__ ) ); etc.
 	 *
-	 * @since 1.0.0
-	 *
-	 * @var string
+	 * @since  1.0.0
+	 * @access protected
+	 * @var    string
 	 */
 	protected $plugin_directory = BPFWP_PLUGIN_DIR;
 
@@ -62,9 +62,9 @@ class bpfwpTemplateLoader extends Bpfwp_Gamajo_Template_Loader {
 	 *
 	 * e.g. 'templates' or 'includes/templates', etc.
 	 *
-	 * @since 1.1.0
-	 *
-	 * @var string
+	 * @since  1.1.0
+	 * @access protected
+	 * @var    string
 	 */
 	protected $plugin_template_directory = 'templates';
 }

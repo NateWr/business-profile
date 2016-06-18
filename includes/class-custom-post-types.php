@@ -7,9 +7,11 @@
  * @license   GPL-2.0+
  * @since     1.1.0
  */
+
 defined( 'ABSPATH' ) || exit;
 
 if ( ! class_exists( 'bpfwpCustomPostTypes', false ) ) :
+
 	/**
 	 * Class to handle custom post type and post meta fields
 	 *
@@ -20,14 +22,18 @@ if ( ! class_exists( 'bpfwpCustomPostTypes', false ) ) :
 		/**
 		 * Location post type slug
 		 *
-		 * @since 1.1
+		 * @since  1.1
+		 * @access public
+		 * @var    string
 		 */
 		public $location_cpt_slug = 'location';
 
 		/**
 		 * Register hooks
 		 *
-		 * @since 1.1
+		 * @since  1.1
+		 * @access public
+		 * @return void
 		 */
 		public function run() {
 			add_action( 'init',                  array( $this, 'load_cpts' ) );
@@ -41,11 +47,13 @@ if ( ! class_exists( 'bpfwpCustomPostTypes', false ) ) :
 		/**
 		 * Register custom post types
 		 *
-		 * @since 1.1
+		 * @since  1.1
+		 * @access public
+		 * @return void
 		 */
 		public function load_cpts() {
 
-			// Define the booking custom post type
+			// Define the booking custom post type.
 			$args = array(
 				'labels' => array(
 					'name'               => __( 'Locations',                   'business-profile' ),
@@ -69,10 +77,10 @@ if ( ! class_exists( 'bpfwpCustomPostTypes', false ) ) :
 
 			$this->location_cpt_slug = apply_filters( 'bpfwp_location_cpt_slug', $this->location_cpt_slug );
 
-			// Create filter so addons can modify the arguments
+			// Create filter so addons can modify the arguments.
 			$args = apply_filters( 'bpfwp_location_cpt_args', $args );
 
-			// Register the post type
+			// Register the post type.
 			register_post_type( $this->location_cpt_slug, $args );
 		}
 
@@ -81,12 +89,13 @@ if ( ! class_exists( 'bpfwpCustomPostTypes', false ) ) :
 		 *
 		 * This should only be called on plugin activation.
 		 *
-		 * @since 1.1
+		 * @since  1.1
+		 * @access public
+		 * @return void
 		 */
 		public function flush_rewrite_rules() {
 
-			// Load CPTs before flushing, as recommended in the
-			// Codex
+			// Load CPTs before flushing, as recommended in the Codex.
 			$this->load_cpts();
 
 			flush_rewrite_rules();
@@ -98,21 +107,24 @@ if ( ! class_exists( 'bpfwpCustomPostTypes', false ) ) :
 		 *
 		 * Should only be run on the Business Profile settings page
 		 *
-		 * @since 0.1
+		 * @since  1.1
+		 * @access public
+		 * @param  string $current_screen The current admin screen slug.
+		 * @return void
 		 */
 		public function maybe_flush_rewrite_rules( $current_screen ) {
 
 			global $admin_page_hooks;
-			if ( empty( $admin_page_hooks['bpfwp-locations'] ) || $current_screen->base != $admin_page_hooks['bpfwp-locations'] . '_page_bpfwp-settings' ) {
+			if ( empty( $admin_page_hooks['bpfwp-locations'] ) || $current_screen->base !== $admin_page_hooks['bpfwp-locations'] . '_page_bpfwp-settings' ) {
 				return;
 			}
 
-			if ( !bpfwp_setting( 'multiple-locations' ) ) {
+			if ( ! bpfwp_setting( 'multiple-locations' ) ) {
 				return;
 			}
 
 			$rules = get_option( 'rewrite_rules' );
-			if ( !array_key_exists( $this->location_cpt_slug . '/?$', $rules ) ) {
+			if ( ! array_key_exists( $this->location_cpt_slug . '/?$', $rules ) ) {
 				$this->flush_rewrite_rules();
 			}
 		}
@@ -120,13 +132,15 @@ if ( ! class_exists( 'bpfwpCustomPostTypes', false ) ) :
 		/**
 		 * Add meta boxes when adding/editing locations
 		 *
-		 * @since 1.1
+		 * @since  1.1
+		 * @access public
+		 * @return void
 		 */
 		public function add_meta_boxes() {
 
 			$meta_boxes = array(
 
-				// Metabox to enter schema type
+				// Metabox to enter schema type.
 				array(
 					'id'        => 'bpfwp_schema_metabox',
 					'title'     => __( 'Schema Type', 'business-profile' ),
@@ -136,9 +150,8 @@ if ( ! class_exists( 'bpfwpCustomPostTypes', false ) ) :
 					'priority'  => 'default',
 				),
 
-				// Metabox to enter phone number,
-				// contact email address and select a
-				// contact page.
+				// Metabox to enter phone number, contact email address and
+				// select a contact page.
 				array(
 					'id'        => 'bpfwp_contact_metabox',
 					'title'     => __( 'Contact Details', 'business-profile' ),
@@ -148,7 +161,7 @@ if ( ! class_exists( 'bpfwpCustomPostTypes', false ) ) :
 					'priority'  => 'default',
 				),
 
-				// Metabox to enter opening hours
+				// Metabox to enter opening hours.
 				array(
 					'id'        => 'bpfwp_opening_hours_metabox',
 					'title'     => __( 'Opening Hours', 'business-profile' ),
@@ -160,10 +173,10 @@ if ( ! class_exists( 'bpfwpCustomPostTypes', false ) ) :
 
 			);
 
-			// Create filter so addons can modify the metaboxes
+			// Create filter so addons can modify the metaboxes.
 			$meta_boxes = apply_filters( 'bpfwp_meta_boxes', $meta_boxes );
 
-			// Create the metaboxes
+			// Create the metaboxes.
 			foreach ( $meta_boxes as $meta_box ) {
 				add_meta_box(
 					$meta_box['id'],
@@ -179,32 +192,35 @@ if ( ! class_exists( 'bpfwpCustomPostTypes', false ) ) :
 		/**
 		 * Output a hidden nonce field to secure the saving of post meta
 		 *
-		 * @since 1.1
+		 * @since  1.1
+		 * @access public
+		 * @return void
 		 */
 		public function add_meta_nonce() {
 			global $post;
-			if ( $post->post_type == $this->location_cpt_slug ) {
+			if ( $post->post_type === $this->location_cpt_slug ) {
 				wp_nonce_field( 'bpfwp_location_meta', 'bpfwp_location_meta_nonce' );
 			}
 		}
 
 		/**
-		* Output the metabox HTML to select a schema type
-		*
-		* @since 1.1
-		*/
+		 * Output the metabox HTML to select a schema type
+		 *
+		 * @since  1.1
+		 * @access public
+		 * @param  WP_Post $post The current post object.
+		 * @return void
+		 */
 		public function print_schema_metabox( $post ) {
 
 			global $bpfwp_controller;
 			$schema_types = $bpfwp_controller->settings->get_schema_types();
 			$selected = bpfwp_setting( 'schema-type', $post->ID );
 
-			// Fall back to general setting
+			// Fall back to general setting.
 			if ( empty( $selected ) ) {
 				$selected = bpfwp_setting( 'schema-type' );
 			}
-
-
 			?>
 
 			<div class="bpfwp-meta-input bpfwp-meta-schema-type">
@@ -212,7 +228,7 @@ if ( ! class_exists( 'bpfwpCustomPostTypes', false ) ) :
 					<?php esc_html_e( 'Schema type', 'business-profile' ); ?>
 				</label>
 				<select name="schema_type" id="bpfwp_schema-type" aria-describedby="bpfwp_schema-type_description">
-					<?php foreach( $schema_types as $key => $label ) : ?>
+					<?php foreach ( $schema_types as $key => $label ) : ?>
 						<option value="<?php esc_attr_e( $key ); ?>"<?php if ( $selected === $key ) : ?> selected<?php endif; ?>>
 							<?php esc_attr_e( $label ); ?>
 						</option>
@@ -231,11 +247,14 @@ if ( ! class_exists( 'bpfwpCustomPostTypes', false ) ) :
 		 * Output the metabox HTML to enter a phone number,
 		 * contact email address and select a contact page.
 		 *
-		 * @since 1.1
+		 * @since  1.1
+		 * @access public
+		 * @param  WP_Post $post The current post object.
+		 * @return void
 		 */
 		public function print_contact_metabox( $post ) {
 
-			// Address mimics HTML markup from Simple Admin Pages component
+			// Address mimics HTML markup from Simple Admin Pages component.
 			wp_enqueue_script( 'bpfwp-admin-location-address', BPFWP_PLUGIN_URL . '/lib/simple-admin-pages/js/address.js', array( 'jquery' ) );
 			wp_localize_script(
 				'bpfwp-admin-location-address',
@@ -252,7 +271,7 @@ if ( ! class_exists( 'bpfwpCustomPostTypes', false ) ) :
 						'result_denied'  => __( 'Request denied.', 'business-profile' ),
 						'result_limit'   => __( 'Request denied because you are over your request quota.', 'business-profile' ),
 						'result_empty'   => __( 'Nothing was found at that address.', 'business-profile' ),
-					)
+					),
 				)
 			);
 			?>
@@ -263,14 +282,15 @@ if ( ! class_exists( 'bpfwpCustomPostTypes', false ) ) :
 					<span class="dashicons dashicons-location-alt"></span>
 					<span class="sap-map-coords">
 						<?php
-							$geo_latitude = get_post_meta( $post->ID, 'geo_latitude', true );
-							$geo_longitude = get_post_meta( $post->ID, 'geo_longitude', true );
-							if ( empty( $geo_latitude ) || empty( $geo_longitude ) ) :
-								esc_html_e( 'No map coordinates set.', 'business-profile' );
-							else : ?>
-								<?php echo get_post_meta( $post->ID, 'geo_latitude', true ) . esc_html_x( ', ', 'separates latitude and longitude', 'business-profile' ) . get_post_meta( $post->ID, 'geo_longitude', true ); ?>
-								<a href="//maps.google.com/maps?q=<?php echo esc_attr( get_post_meta( $post->ID, 'geo_latitude', true ) ) . ',' . esc_attr( get_post_meta( $post->ID, 'geo_longitude', true ) ); ?>" class="sap-view-coords" target="_blank"><?php esc_html_e( 'View', 'business-profile' ); ?></a>
-						<?php endif; ?>
+						$geo_latitude = get_post_meta( $post->ID, 'geo_latitude', true );
+						$geo_longitude = get_post_meta( $post->ID, 'geo_longitude', true );
+						if ( empty( $geo_latitude ) || empty( $geo_longitude ) ) :
+							esc_html_e( 'No map coordinates set.', 'business-profile' );
+						else : ?>
+							<?php echo get_post_meta( $post->ID, 'geo_latitude', true ) . esc_html_x( ', ', 'separates latitude and longitude', 'business-profile' ) . get_post_meta( $post->ID, 'geo_longitude', true ); ?>
+							<a href="//maps.google.com/maps?q=<?php echo esc_attr( get_post_meta( $post->ID, 'geo_latitude', true ) ) . ',' . esc_attr( get_post_meta( $post->ID, 'geo_longitude', true ) ); ?>" class="sap-view-coords" target="_blank"><?php esc_html_e( 'View', 'business-profile' ); ?></a>
+						<?php
+						endif; ?>
 					</span>
 				</p>
 				<p class="sap-coords-action-wrapper">
@@ -287,21 +307,19 @@ if ( ! class_exists( 'bpfwpCustomPostTypes', false ) ) :
 			</div>
 
 			<?php
-				// Get an array of all pages with sane limits
+				// Get an array of all pages with sane limits.
 				$pages = array();
-				$query = new WP_Query(
-					array(
-						'post_type' => array( 'page' ),
-						'no_found_rows' => true,
-						'update_post_meta_cache' => false,
-						'update_post_term_cache' => false,
-						'posts_per_page' => 500,
-					)
-				);
+				$query = new WP_Query( array(
+					'post_type'              => array( 'page' ),
+					'no_found_rows'          => true,
+					'update_post_meta_cache' => false,
+					'update_post_term_cache' => false,
+					'posts_per_page'         => 500,
+				) );
 				if ( $query->have_posts() ) {
 					while ( $query->have_posts() ) {
 						$query->next_post();
-						$pages[$query->post->ID] = $query->post->post_title;
+						$pages[ $query->post->ID ] = $query->post->post_title;
 					}
 				}
 				wp_reset_postdata();
@@ -313,8 +331,8 @@ if ( ! class_exists( 'bpfwpCustomPostTypes', false ) ) :
 				</label>
 				<select name="contact_post" id="bpfwp_contact-page">
 					<option></option>
-					<?php foreach( $pages as $id => $title ) : ?>
-						<option value="<?php echo absint( $id ); ?>"<?php if ( $id == get_post_meta( $post->ID, 'contact_post', true ) ) : ?> selected<?php endif; ?>>
+					<?php foreach ( $pages as $id => $title ) : ?>
+						<option value="<?php echo absint( $id ); ?>"<?php if ( get_post_meta( $post->ID, 'contact_post', true ) === $id ) : ?> selected<?php endif; ?>>
 							<?php esc_attr_e( $title ); ?>
 						</option>
 					<?php endforeach; ?>
@@ -341,18 +359,21 @@ if ( ! class_exists( 'bpfwpCustomPostTypes', false ) ) :
 		/**
 		 * Output the metabox HTML to define opening hours
 		 *
-		 * @since 1.1
+		 * @since  1.1
+		 * @access public
+		 * @param  WP_Post $post The current post object.
+		 * @return void
 		 */
 		public function print_opening_hours_metabox( $post ) {
 
 			$scheduler = $this->get_scheduler_meta_object( get_post_meta( $post->ID, 'opening_hours', true ) );
 
-			// Load required scripts and styles
+			// Load required scripts and styles.
 			wp_enqueue_style( 'bpfwp-admin-location-sap', BPFWP_PLUGIN_URL . '/lib/simple-admin-pages/css/admin.css' );
-			foreach( $scheduler->styles as $handle => $style ) {
+			foreach ( $scheduler->styles as $handle => $style ) {
 				wp_enqueue_style( $handle, BPFWP_PLUGIN_URL . '/lib/simple-admin-pages/' . $style['path'], $style['dependencies'], $style['version'], $style['media'] );
 			}
-			foreach( $scheduler->scripts as $handle => $script ) {
+			foreach ( $scheduler->scripts as $handle => $script ) {
 				wp_enqueue_script( $handle, BPFWP_PLUGIN_URL . '/lib/simple-admin-pages/' . $script['path'], $script['dependencies'], $script['version'], $script['footer'] );
 			}
 			?>
@@ -370,15 +391,18 @@ if ( ! class_exists( 'bpfwpCustomPostTypes', false ) ) :
 		 * This modified scheduler is used to display and sanitize a scheduler
 		 * component on the location post editing screen.
 		 *
-		 * @since 1.1
-		 * @see lib/simple-admin-pages/classes/AdminPageSetting.Scheduler.class.php
+		 * @since  1.1
+		 * @access public
+		 * @see    lib/simple-admin-pages/classes/AdminPageSetting.Scheduler.class.php
+		 * @param  string $values Optional values to be set.
+		 * @return bpfwpSAPSchedulerMeta $scheduler An instance of the scheduler class.
 		 */
 		public function get_scheduler_meta_object( $values = null ) {
 
 			require_once BPFWP_PLUGIN_DIR . '/includes/class-sap-scheduler-meta.php';
 			$scheduler = new bpfwpSAPSchedulerMeta(
 				array(
-					'page'          => 'dummy_page', // required but not used
+					'page'          => 'dummy_page', // Required but not used.
 					'id'            => 'opening_hours',
 					'title'         => __( 'Opening Hours', 'business-profile' ),
 					'description'   => __( 'Define your weekly opening hours by adding scheduling rules.', 'business-profile' ),
@@ -389,7 +413,7 @@ if ( ! class_exists( 'bpfwpCustomPostTypes', false ) ) :
 						'thursday'  => _x( 'Th', 'Thursday abbreviation', 'business-profile' ),
 						'friday'    => _x( 'Fr', 'Friday abbreviation', 'business-profile' ),
 						'saturday'  => _x( 'Sa', 'Saturday abbreviation', 'business-profile' ),
-						'sunday'    => _x( 'Su', 'Sunday abbreviation', 'business-profile' )
+						'sunday'    => _x( 'Su', 'Sunday abbreviation', 'business-profile' ),
 					),
 					'time_format'   => _x( 'h:i A', 'Time format displayed in the opening hours setting panel in your admin area. Must match formatting rules at http://amsul.ca/pickadate.js/time.htm#formats', 'business-profile' ),
 					'date_format'   => _x( 'mmmm d, yyyy', 'Date format displayed in the opening hours setting panel in your admin area. Must match formatting rules at http://amsul.ca/pickadate.js/date.htm#formatting-rules', 'business-profile' ),
@@ -423,13 +447,12 @@ if ( ! class_exists( 'bpfwpCustomPostTypes', false ) ) :
 				)
 			);
 
-			if ( !empty( $values ) ) {
+			if ( ! empty( $values ) ) {
 				$scheduler->set_value( $values );
 			}
 
 			return $scheduler;
 		}
-
 
 		/**
 		 * Sanitize and save the post meta
@@ -440,14 +463,17 @@ if ( ! class_exists( 'bpfwpCustomPostTypes', false ) ) :
 		 * and saving.
 		 *
 		 * @since 1.1
+		 * @access public
+		 * @param  int $post_id The current post ID.
+		 * @return int $post_id The current post ID.
 		 */
 		public function save_meta( $post_id ) {
 
-			if ( !isset( $_POST['post_type'] ) || $_POST['post_type'] != $this->location_cpt_slug ) {
+			if ( ! isset( $_POST['post_type'] ) || $_POST['post_type'] !== $this->location_cpt_slug ) {
 				return $post_id;
 			}
 
-			if ( !isset( $_POST['bpfwp_location_meta_nonce'] ) || !wp_verify_nonce( $_POST['bpfwp_location_meta_nonce'], 'bpfwp_location_meta' ) ) {
+			if ( ! isset( $_POST['bpfwp_location_meta_nonce'] ) || ! wp_verify_nonce( $_POST['bpfwp_location_meta_nonce'], 'bpfwp_location_meta' ) ) {
 				return $post_id;
 			}
 
@@ -455,7 +481,7 @@ if ( ! class_exists( 'bpfwpCustomPostTypes', false ) ) :
 				return $post_id;
 			}
 
-			if ( !current_user_can( 'edit_post', $post_id ) ) {
+			if ( ! current_user_can( 'edit_post', $post_id ) ) {
 				return $post_id;
 			}
 
@@ -470,14 +496,14 @@ if ( ! class_exists( 'bpfwpCustomPostTypes', false ) ) :
 				'opening_hours' => array( $this, 'sanitize_opening_hours' ),
 			);
 
-			foreach( $post_meta as $key => $callback ) {
+			foreach ( $post_meta as $key => $callback ) {
 
-				if ( !isset( $_POST[$key] ) ) {
-					$_POST[$key] = '';
+				if ( ! isset( $_POST[ $key ] ) ) {
+					$_POST[ $key ] = '';
 				}
 
 				$cur = get_post_meta( $post_id, $key, true );
-				$new = call_user_func( $callback, $_POST[$key] );
+				$new = call_user_func( $callback, $_POST[ $key ] );
 				if ( $new !== $cur ) {
 					update_post_meta( $post_id, $key, $new );
 				}
@@ -492,8 +518,11 @@ if ( ! class_exists( 'bpfwpCustomPostTypes', false ) ) :
 		 * This is a wrapper for the sanitization callback in the Scheduler
 		 * component of Simple Admin Pages
 		 *
-		 * @see lib/simple-admin-pages/classes/AdminPageSetting.Scheduler.class.php
 		 * @since 1.1
+		 * @access public
+		 * @see    lib/simple-admin-pages/classes/AdminPageSetting.Scheduler.class.php
+		 * @param  array $values Raw values for the opening hours.
+		 * @return array $values Sanitized values for the opening hours.
 		 */
 		public function sanitize_opening_hours( $values ) {
 			$scheduler = $this->get_scheduler_meta_object( $values );
@@ -504,11 +533,14 @@ if ( ! class_exists( 'bpfwpCustomPostTypes', false ) ) :
 		 * Automatically append a contact card to `the_content` on location
 		 * single pages
 		 *
-		 * @since 1.1
+		 * @since  1.1
+		 * @access public
+		 * @param  string $content The current WordPress content.
+		 * @return string $content The modified WordPress content.
 		 */
 		public function append_to_content( $content ) {
 
-			if ( !is_main_query() || !in_the_loop() || post_password_required() ) {
+			if ( ! is_main_query() || ! in_the_loop() || post_password_required() ) {
 				return $content;
 			}
 
@@ -519,13 +551,11 @@ if ( ! class_exists( 'bpfwpCustomPostTypes', false ) ) :
 
 			global $post;
 			global $bpfwp_controller;
-			if ( !is_a( $post, 'WP_POST' ) || $post->post_type !== $bpfwp_controller->cpts->location_cpt_slug ) {
+			if ( ! is_a( $post, 'WP_POST' ) || $post->post_type !== $bpfwp_controller->cpts->location_cpt_slug ) {
 				return $content;
 			}
 
 			return $content . '[contact-card location=' . $post->ID . ' show_name=0]';
 		}
-
-
 	}
 endif;

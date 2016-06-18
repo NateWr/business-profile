@@ -16,20 +16,35 @@
  * @license   GPL-2.0+
  * @since     0.0.1
  */
+
 defined( 'ABSPATH' ) || exit;
 
 if ( ! class_exists( 'bpfwpIntegrations', false ) ) :
+
+	/**
+	 * Deprecated 3rd party integrations class.
+	 *
+	 * @since 0.0.1
+	 * @deprecated 1.1
+	 */
 	class bpfwpIntegrations {
 
+		/**
+		 * Initialize the class and register hooks.
+		 *
+		 * @since  0.0.1
+		 * @access public
+		 * @return void
+		 */
 		public function __construct() {
-
 			add_action( 'plugins_loaded', array( $this, 'plugins_loaded' ) );
-
 		}
 
 		/**
 		 * Integrations run after the plugins are loaded
-		 * @since 0.0.1
+		 *
+		 * @since  0.0.1
+		 * @access public
 		 */
 		public function plugins_loaded() {
 
@@ -37,15 +52,15 @@ if ( ! class_exists( 'bpfwpIntegrations', false ) ) :
 			// This code is deprecated but will load if Restaurant
 			// Reservations is active but below v1.6. The RTB_VERSION constant
 			// was introduced in v1.6.
-			if ( defined( 'RTB_PLUGIN_DIR' ) && !defined( 'RTB_VERSION' ) ) {
+			if ( defined( 'RTB_PLUGIN_DIR' ) && ! defined( 'RTB_VERSION' ) ) {
 
-				// Add default setting for booking link to template function/shortcode
+				// Add default setting for booking link to template function/shortcode.
 				add_filter( 'bpfwp_default_display_settings', array( $this, 'bpwfp_booking_link_default' ) );
 
-				// Add the callback to print the booking link
+				// Add the callback to print the booking link.
 				add_filter( 'bpwfwp_component_callbacks', array( $this, 'bpfwp_booking_link_callback' ) );
 
-				// Add display toggle for the booking link to the widget options
+				// Add display toggle for the booking link to the widget options.
 				add_filter( 'bpfwp_widget_display_toggles', array( $this, 'bpfwp_booking_link_widget_option' ) );
 
 			}
@@ -54,7 +69,11 @@ if ( ! class_exists( 'bpfwpIntegrations', false ) ) :
 		/**
 		 * Add default setting for booking link to template function/shortcode
 		 * Restaurant Reservations plugin
-		 * @since 0.0.1
+		 *
+		 * @since  0.0.1
+		 * @access public
+		 * @param  array $defaults The booking link defaults.
+		 * @return array $defaults The modified booking link defaults.
 		 */
 		public function bpwfp_booking_link_default( $defaults ) {
 
@@ -66,7 +85,11 @@ if ( ! class_exists( 'bpfwpIntegrations', false ) ) :
 		/**
 		 * Add the callback to print the booking link
 		 * Restaurant Reservations plugin
-		 * @since 0.0.1
+		 *
+		 * @since  0.0.1
+		 * @access public
+		 * @param  array $data The booking link data.
+		 * @return array $data The modified booking link data.
 		 */
 		public function bpfwp_booking_link_callback( $data ) {
 
@@ -76,7 +99,7 @@ if ( ! class_exists( 'bpfwpIntegrations', false ) ) :
 			if ( ! empty( $booking_page ) ) {
 
 				// Place the link at the end of other short links if they're
-				// displayed
+				// displayed.
 				if ( isset( $data['contact'] ) ) {
 					$pos = array_search( 'contact', array_keys( $data ) );
 				} elseif ( isset( $data['phone'] ) ) {
@@ -99,16 +122,19 @@ if ( ! class_exists( 'bpfwpIntegrations', false ) ) :
 		}
 
 		/**
-		 * Print the booking link
-		 * Restaurant Reservations plugin
-		 * @since 0.0.1
+		 * Print the booking link from the Restaurant Reservations plugin.
+		 *
+		 * @since  0.0.1
+		 * @access public
+		 * @param  string $location The location associated with the booking link.
+		 * @return void
 		 */
 		public function bpfwp_print_booking_link( $location = false ) {
 
 			global $bpfwp_controller;
 			global $rtb_controller;
 
-			$booking_page = $rtb_controller->settings->get_setting( 'booking-page'  );
+			$booking_page = $rtb_controller->settings->get_setting( 'booking-page' );
 
 			if ( $location && get_post_meta( $location, 'rtb_append_booking_form', true ) ) {
 				$booking_page = $location;
@@ -127,11 +153,15 @@ if ( ! class_exists( 'bpfwpIntegrations', false ) ) :
 		/**
 		 * Add the booking page display option to the widget options
 		 * Restaurant Reservations plugin
+		 *
 		 * @since 0.0.1
+		 * @access public
+		 * @param  array $toggles The toggle options for the widget.
+		 * @return array $toggles The modified toggle options for the widget.
 		 */
 		public function bpfwp_booking_link_widget_option( $toggles ) {
 
-			// Place the option below the contact option
+			// Place the option below the contact option.
 			$pos = array_search( 'show_contact', array_keys( $toggles ) );
 
 			if ( ! empty( $pos ) ) {
@@ -145,6 +175,5 @@ if ( ! class_exists( 'bpfwpIntegrations', false ) ) :
 
 			return $toggles;
 		}
-
 	}
 endif;
