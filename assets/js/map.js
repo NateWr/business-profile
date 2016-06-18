@@ -2,7 +2,7 @@
 /**
  * Front-end JavaScript for Business Profile maps
  *
- * @copyright Copyright (c) 2015, Theme of the Crop
+ * @copyright Copyright (c) 2016, Theme of the Crop
  * @license   GPL-2.0+
  * @since     0.0.1
  */

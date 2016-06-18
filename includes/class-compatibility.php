@@ -3,7 +3,7 @@
  * Provide backwards compatibility for older versions of Business Profile.
  *
  * @package   BusinessProfile
- * @copyright Copyright (c) 2015, Theme of the Crop
+ * @copyright Copyright (c) 2016, Theme of the Crop
  * @license   GPL-2.0+
  * @since     1.0.6
  */

@@ -6,7 +6,7 @@
  * @see lib/simple-admin-pages/classes/AdminPageSetting.Scheduler.class.php
  *
  * @package   BusinessProfile
- * @copyright Copyright (c) 2015, Theme of the Crop
+ * @copyright Copyright (c) 2016, Theme of the Crop
  * @license   GPL-2.0+
  * @since     1.1
  */
