@@ -545,13 +545,14 @@ if ( ! class_exists( 'bpfwpCustomPostTypes', false ) ) :
 			}
 
 			global $bpfwp_controller;
+
 			if ( $bpfwp_controller->get_theme_support( 'disable_append_to_content' ) ) {
 				return $content;
 			}
 
 			global $post;
-			global $bpfwp_controller;
-			if ( ! is_a( $post, 'WP_POST' ) || $post->post_type !== $bpfwp_controller->cpts->location_cpt_slug ) {
+
+			if ( ! $post instanceof WP_Post || $post->post_type !== $bpfwp_controller->cpts->location_cpt_slug ) {
 				return $content;
 			}
 
