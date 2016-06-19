@@ -332,7 +332,7 @@ if ( ! class_exists( 'bpfwpCustomPostTypes', false ) ) :
 				<select name="contact_post" id="bpfwp_contact-page">
 					<option></option>
 					<?php foreach ( $pages as $id => $title ) : ?>
-						<option value="<?php echo absint( $id ); ?>"<?php if ( get_post_meta( $post->ID, 'contact_post', true ) === $id ) : ?> selected<?php endif; ?>>
+						<option value="<?php echo absint( $id ); ?>"<?php if ( get_post_meta( $post->ID, 'contact_post', true ) == $id ) : ?> selected<?php endif; ?>>
 							<?php esc_attr_e( $title ); ?>
 						</option>
 					<?php endforeach; ?>
