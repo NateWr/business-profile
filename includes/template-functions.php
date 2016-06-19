@@ -1,9 +1,14 @@
 <?php
 /**
- * Template functions for rendering contact cards
+ * Template functions for rendering contact cards.
+ *
+ * @package   BusinessProfile
+ * @copyright Copyright (c) 2016, Theme of the Crop
+ * @license   GPL-2.0+
+ * @since     0.0.1
  */
 
-if ( !function_exists( 'bpfwp_setting' ) ) {
+if ( ! function_exists( 'bpfwp_setting' ) ) {
 	/**
 	 * Retrieve the value of any stored setting
 	 *
@@ -11,7 +16,11 @@ if ( !function_exists( 'bpfwp_setting' ) ) {
 	 * used to access any data for the global location or one of the location
 	 * custom posts.
 	 *
-	 * @since 1.1
+	 * @since  1.1
+	 * @access public
+	 * @param  string $setting The setting to retrieve.
+	 * @param  string $location The location associated with the setting.
+	 * @return mixed A setting based on the key provided.
 	 */
 	function bpfwp_setting( $setting, $location = false ) {
 		global $bpfwp_controller;
@@ -19,12 +28,15 @@ if ( !function_exists( 'bpfwp_setting' ) ) {
 	}
 }
 
-if ( !function_exists( 'bpfwp_get_display' ) ) {
+if ( ! function_exists( 'bpfwp_get_display' ) ) {
 	/**
 	 * A helper function to check if a setting should be displayed visually or
 	 * added as metadata
 	 *
 	 * @since 1.1
+	 * @access public
+	 * @param  string $setting The setting to retrieve.
+	 * @return mixed A setting based on the key provided.
 	 */
 	function bpfwp_get_display( $setting ) {
 
@@ -34,11 +46,11 @@ if ( !function_exists( 'bpfwp_get_display' ) ) {
 			$bpfwp_controller->display_settings = $bpfwp_controller->settings->get_default_display_settings();
 		}
 
-		return isset( $bpfwp_controller->display_settings[$setting] ) ? $bpfwp_controller->display_settings[$setting] : false;
+		return isset( $bpfwp_controller->display_settings[ $setting ] ) ? $bpfwp_controller->display_settings[ $setting ] : false;
 	}
 }
 
-if ( !function_exists( 'bpfwp_set_display' ) ) {
+if ( ! function_exists( 'bpfwp_set_display' ) ) {
 	/**
 	 * A helper function to set a setting's visibility on the fly
 	 *
@@ -46,7 +58,11 @@ if ( !function_exists( 'bpfwp_set_display' ) ) {
 	 * loaded, or bpwfwp_print_contact_card() is called. This helper function
 	 * makes it easy to set a flag if you're building your own template.
 	 *
-	 * @since 1.1
+	 * @since  1.1
+	 * @access public
+	 * @param  string $setting The setting to be changed.
+	 * @param  string $value The setting value to be used.
+	 * @return void
 	 */
 	function bpfwp_set_display( $setting, $value ) {
 
@@ -56,23 +72,31 @@ if ( !function_exists( 'bpfwp_set_display' ) ) {
 			$bpfwp_controller->display_settings = $bpfwp_controller->settings->get_default_display_settings();
 		}
 
-		$bpfwp_controller->display_settings[$setting] = $value;
+		$bpfwp_controller->display_settings[ $setting ] = $value;
 	}
 }
 
-if ( !function_exists( 'bpwfwp_print_contact_card' ) ) {
+if ( ! function_exists( 'bpwfwp_print_contact_card' ) ) {
 	/**
-	 * Print a contact card and add a shortcode
-	 * @since 0.0.1
+	 * Print a contact card and add a shortcode.
+	 *
+	 * @since  0.0.1
+	 * @access public
+	 * @param  array $args Options for outputting the contact card.
+	 * @return string Markup for displaying a contact card.
 	 */
 	function bpwfwp_print_contact_card( $args = array() ) {
 
 		global $bpfwp_controller;
 
-		// Define shortcode attributes
-		$bpfwp_controller->display_settings = shortcode_atts( $bpfwp_controller->settings->get_default_display_settings(), $args, 'contact-card' );
+		// Define shortcode attributes.
+		$bpfwp_controller->display_settings = shortcode_atts(
+			$bpfwp_controller->settings->get_default_display_settings(),
+			$args,
+			'contact-card'
+		);
 
-		// Setup components and callback functions to render them
+		// Setup components and callback functions to render them.
 		$data = apply_filters(
 			'bpwfwp_component_callbacks',
 			array(
@@ -86,7 +110,7 @@ if ( !function_exists( 'bpwfwp_print_contact_card' ) ) {
 			)
 		);
 
-		if ( !$bpfwp_controller->get_theme_support( 'disable_styles' ) ) {
+		if ( ! $bpfwp_controller->get_theme_support( 'disable_styles' ) ) {
 			/**
 			 * Filter to override whether the frontend stylesheets are loaded.
 			 *
@@ -108,25 +132,30 @@ if ( !function_exists( 'bpwfwp_print_contact_card' ) ) {
 		if ( bpfwp_get_display( 'location' ) ) {
 			$template->get_template_part( 'contact-card', bpfwp_get_display( 'location' ) );
 		} else {
-			$template->get_template_part( 'contact-card');
+			$template->get_template_part( 'contact-card' );
 		}
 
 		$output = ob_get_clean();
 
-		// Reset display settings
+		// Reset display settings.
 		$bpfwp_controller->display_settings = $bpfwp_controller->settings->get_default_display_settings();
 
 		return apply_filters( 'bpwfwp_contact_card_output', $output );
 	}
-	if ( !shortcode_exists( 'contact-card' ) ) {
+
+	if ( ! shortcode_exists( 'contact-card' ) ) {
 		add_shortcode( 'contact-card', 'bpwfwp_print_contact_card' );
 	}
-} // endif;
+}
 
-if ( !function_exists( 'bpwfwp_print_name' ) ) {
+if ( ! function_exists( 'bpwfwp_print_name' ) ) {
 	/**
-	 * Print the name
-	 * @since 0.0.1
+	 * Print the name.
+	 *
+	 * @since  0.0.1
+	 * @access public
+	 * @param  string $location The location associated with the name.
+	 * @return void
 	 */
 	function bpwfwp_print_name( $location = false ) {
 
@@ -150,12 +179,16 @@ if ( !function_exists( 'bpwfwp_print_name' ) ) {
 
 		<?php endif;
 	}
-} // endif;
+}
 
-if ( !function_exists( 'bpwfwp_print_address' ) ) {
+if ( ! function_exists( 'bpwfwp_print_address' ) ) {
 	/**
-	 * Print the address with a get directions link to Google Maps
-	 * @since 0.0.1
+	 * Print the address with a get directions link to Google Maps.
+	 *
+	 * @since  0.0.1
+	 * @access public
+	 * @param  string $location The location associated with the address.
+	 * @return string|void Returns an empty string if no address exists.
 	 */
 	function bpwfwp_print_address( $location = false ) {
 
@@ -181,12 +214,16 @@ if ( !function_exists( 'bpwfwp_print_address' ) ) {
 		<?php endif;
 
 	}
-} // endif;
+}
 
-if ( !function_exists( 'bpwfwp_print_phone' ) ) {
+if ( ! function_exists( 'bpwfwp_print_phone' ) ) {
 	/**
-	 * Print the phone number
-	 * @since 0.0.1
+	 * Print the phone number.
+	 *
+	 * @since  0.0.1
+	 * @access public
+	 * @param  string $location The location associated with the phone.
+	 * @return string|void Returns an empty string if no phone exists.
 	 */
 	function bpwfwp_print_phone( $location = false ) {
 
@@ -208,20 +245,24 @@ if ( !function_exists( 'bpwfwp_print_phone' ) ) {
 
 		<?php endif;
 	}
-} // endif;
+}
 
-if ( !function_exists( 'bpwfwp_print_contact' ) ) {
+if ( ! function_exists( 'bpwfwp_print_contact' ) ) {
 	/**
-	 * Print the contact link
-	 * @since 0.0.1
+	 * Print the contact link.
+	 *
+	 * @since  0.0.1
+	 * @access public
+	 * @param  string $location The location associated with the contact.
+	 * @return string|void Returns an empty string if no contact exists.
 	 */
 	function bpwfwp_print_contact( $location = false ) {
 
 		$email = bpfwp_setting( 'contact-email', $location );
-		if ( !empty( $email ) ) :
+		if ( ! empty( $email ) ) :
 			$antispam_email = antispambot( $email );
 
-			if ( bpfwp_get_display( 'show_contact' ) ) :
+			if ( ! bpfwp_get_display( 'show_contact' ) ) :
 				?>
 				<meta itemprop="email" content="<?php echo esc_attr( $antispam_email ); ?>">
 
@@ -238,7 +279,7 @@ if ( !function_exists( 'bpwfwp_print_contact' ) ) {
 		endif;
 
 		$contact = bpfwp_setting( 'contact-page', $location );
-		if ( !empty( $contact ) && bpfwp_get_display( 'show_contact' ) ) :
+		if ( ! empty( $contact ) && bpfwp_get_display( 'show_contact' ) ) :
 		?>
 
 		<div class="bp-contact bp-contact-page" itemprop="ContactPoint" itemscope itemtype="http://schema.org/ContactPoint">
@@ -247,14 +288,17 @@ if ( !function_exists( 'bpwfwp_print_contact' ) ) {
 		</div>
 
 		<?php endif;
-
 	}
-} // endif;
+}
 
-if ( !function_exists( 'bpwfwp_print_opening_hours' ) ) {
+if ( ! function_exists( 'bpwfwp_print_opening_hours' ) ) {
 	/**
-	 * Print the opening hours
-	 * @since 0.0.1
+	 * Print the opening hours.
+	 *
+	 * @since  0.0.1
+	 * @access public
+	 * @param  string $location The location associated with the hours.
+	 * @return string|void Returns an empty string if no hours exist.
 	 */
 	function bpwfwp_print_opening_hours( $location = false ) {
 
@@ -264,24 +308,24 @@ if ( !function_exists( 'bpwfwp_print_opening_hours' ) ) {
 			return '';
 		}
 
-		// Print the metatags with proper schema formatting
+		// Print the metatags with proper schema formatting.
 		bpfwp_print_opening_hours_metatag( $hours );
 
-		if ( !bpfwp_get_display( 'show_opening_hours' ) ) {
+		if ( ! bpfwp_get_display( 'show_opening_hours' ) ) {
 			return;
 		}
 
-		// Output display format
+		// Output display format.
 		if ( bpfwp_get_display( 'show_opening_hours_brief' ) ) :
 		?>
 
 		<div class="bp-opening-hours-brief">
 
-		<?php
+			<?php
 			$slots = array();
-			foreach( $hours as $slot ) {
+			foreach ( $hours as $slot ) {
 
-				// Skip this entry if no weekdays are set
+				// Skip this entry if no weekdays are set.
 				if ( empty( $slot['weekdays'] ) ) {
 					continue;
 				}
@@ -296,20 +340,20 @@ if ( !function_exists( 'bpwfwp_print_opening_hours' ) ) {
 					'saturday'	=> esc_html__( 'Sa', 'business-profile' ),
 					'sunday'	=> esc_html__( 'Su', 'business-profile' ),
 				);
-				foreach( $slot['weekdays'] as $day => $val ) {
+				foreach ( $slot['weekdays'] as $day => $val ) {
 					$days[] = $weekdays_i18n[ $day ];
 				}
-				$days_string = !empty( $days ) ? join( _x( ',', 'Separator between days of the week when displaying opening hours in brief. Example: Mo,Tu,We', 'business-profile' ), $days ) : '';
+				$days_string = ! empty( $days ) ? join( _x( ',', 'Separator between days of the week when displaying opening hours in brief. Example: Mo,Tu,We', 'business-profile' ), $days ) : '';
 
 				if ( empty( $slot['time'] ) ) {
 					$string = sprintf( _x( '%s all day', 'Brief opening hours description which lists days_strings when open all day. Example: Mo,Tu,We all day', 'business-profile' ), $days_string );
 				} else {
 					unset( $start );
 					unset( $end );
-					if ( !empty( $slot['time']['start'] ) ) {
+					if ( ! empty( $slot['time']['start'] ) ) {
 						$start = new DateTime( $slot['time']['start'] );
 					}
-					if ( !empty( $slot['time']['end'] ) ) {
+					if ( ! empty( $slot['time']['end'] ) ) {
 						$end = new DateTime( $slot['time']['end'] );
 					}
 
@@ -326,13 +370,13 @@ if ( !function_exists( 'bpwfwp_print_opening_hours' ) ) {
 			}
 
 			echo join( _x( '; ', 'Separator between multiple opening times in the brief opening hours. Example: Mo,We 9:00 AM&thinsp;&ndash;&thinsp;5:00 PM; Tu,Th 10:00 AM&thinsp;&ndash;&thinsp;5:00 PM', 'business-profile' ), $slots );
-		?>
+			?>
 
 		</div>
 
 		<?php
 			return;
-		endif; // brief opening hours
+		endif; // Brief opening hours.
 
 		$weekdays_display = array(
 			'monday'	=> __( 'Monday' ),
@@ -345,9 +389,9 @@ if ( !function_exists( 'bpwfwp_print_opening_hours' ) ) {
 		);
 
 		$weekdays = array();
-		foreach( $hours as $rule ) {
+		foreach ( $hours as $rule ) {
 
-			// Skip this entry if no weekdays are set
+			// Skip this entry if no weekdays are set.
 			if ( empty( $rule['weekdays'] ) ) {
 				continue;
 			}
@@ -357,10 +401,10 @@ if ( !function_exists( 'bpwfwp_print_opening_hours' ) ) {
 
 			} else {
 
-				if ( !empty( $rule['time']['start'] ) ) {
+				if ( ! empty( $rule['time']['start'] ) ) {
 					$start = new DateTime( $rule['time']['start'] );
 				}
-				if ( !empty( $rule['time']['end'] ) ) {
+				if ( ! empty( $rule['time']['end'] ) ) {
 					$end = new DateTime( $rule['time']['end'] );
 				}
 
@@ -373,25 +417,25 @@ if ( !function_exists( 'bpwfwp_print_opening_hours' ) ) {
 				}
 			}
 
-			foreach( $rule['weekdays'] as $day => $val ) {
+			foreach ( $rule['weekdays'] as $day => $val ) {
 
-				if ( !array_key_exists( $day, $weekdays ) ) {
-					$weekdays[$day] = array();
+				if ( ! array_key_exists( $day, $weekdays ) ) {
+					$weekdays[ $day ] = array();
 				}
 
-				$weekdays[$day][] = $time;
+				$weekdays[ $day ][] = $time;
 			}
 		}
 
 		if ( count( $weekdays ) ) {
 
-			// Order the weekdays and add any missing days as "closed"
+			// Order the weekdays and add any missing days as "closed".
 			$weekdays_ordered = array();
-			foreach( $weekdays_display as $slug => $name ) {
-				if ( !array_key_exists( $slug, $weekdays ) ) {
-					$weekdays_ordered[$slug] = array( __( 'Closed', 'business-profile' ) );
+			foreach ( $weekdays_display as $slug => $name ) {
+				if ( ! array_key_exists( $slug, $weekdays ) ) {
+					$weekdays_ordered[ $slug ] = array( __( 'Closed', 'business-profile' ) );
 				} else {
-					$weekdays_ordered[$slug] = $weekdays[$slug];
+					$weekdays_ordered[ $slug ] = $weekdays[ $slug ];
 				}
 			}
 
@@ -406,17 +450,19 @@ if ( !function_exists( 'bpwfwp_print_opening_hours' ) ) {
 			if ( bpfwp_get_display( 'location' ) ) {
 				$template->get_template_part( 'opening-hours', bpfwp_get_display( 'location' ) );
 			} else {
-				$template->get_template_part( 'opening-hours');
+				$template->get_template_part( 'opening-hours' );
 			}
 		}
 	}
-} // endif;
+}
 
-if ( !function_exists( 'bpfwp_print_opening_hours_metatag' ) ) {
+if ( ! function_exists( 'bpfwp_print_opening_hours_metatag' ) ) {
 	/**
 	 * Print a schema metatags with the opening hours
 	 *
-	 * @since 1.1
+	 * @access public
+	 * @param  array $hours A list of opening hours.
+	 * @return void
 	 */
 	function bpfwp_print_opening_hours_metatag( $hours ) {
 
@@ -430,32 +476,32 @@ if ( !function_exists( 'bpfwp_print_opening_hours_metatag' ) ) {
 			'sunday'	=> 'Su',
 		);
 
-		// Output proper schema.org format
-		foreach( $hours as $slot ) {
+		// Output proper schema.org format.
+		foreach ( $hours as $slot ) {
 
-			// Skip this entry if no weekdays are set
+			// Skip this entry if no weekdays are set.
 			if ( empty( $slot['weekdays'] ) ) {
 				continue;
 			}
 
 			$days = array();
-			foreach( $slot['weekdays'] as $day => $val ) {
+			foreach ( $slot['weekdays'] as $day => $val ) {
 				$days[] = $weekdays_schema[ $day ];
 			}
-			$string = !empty( $days ) ? join( ',', $days ) : '';
+			$string = ! empty( $days ) ? join( ',', $days ) : '';
 
-			if ( !empty( $string) && !empty( $slot['time'] ) ) {
+			if ( ! empty( $string ) && ! empty( $slot['time'] ) ) {
 
 				if ( empty( $slot['time']['start'] ) ) {
 					$start = '00:00';
 				} else {
 					$start = trim( substr( $slot['time']['start'], 0, -2 ) );
-					if ( substr( $slot['time']['start'], -2 ) == 'PM' && $start !== '12:00' ) {
+					if ( 'PM' === substr( $slot['time']['start'], -2 ) && '12:00' !== $start ) {
 						$split = explode( ':', $start );
 						$split[0] += 12;
 						$start = join( ':', $split );
 					}
-					if ( substr( $slot['time']['start'], -2 ) == 'AM' && $start == '12:00' ) {
+					if ( 'AM' === substr( $slot['time']['start'], -2 ) && '12:00' === $start ) {
 						$start = '00:00';
 					}
 				}
@@ -464,12 +510,12 @@ if ( !function_exists( 'bpfwp_print_opening_hours_metatag' ) ) {
 					$end = '24:00';
 				} else {
 					$end = trim( substr( $slot['time']['end'], 0, -2 ) );
-					if ( substr( $slot['time']['end'], -2 ) == 'PM' ) {
+					if ( 'PM' === substr( $slot['time']['end'], -2 ) ) {
 						$split = explode( ':', $end );
 						$split[0] += 12;
 						$end = join( ':', $split );
 					}
-					if ( !empty( $slot['time']['start'] ) && substr( $slot['time']['start'], -2 ) == 'AM' && $start == '12:00' ) {
+					if ( ! empty( $slot['time']['start'] ) && 'AM' === substr( $slot['time']['start'], -2 ) && '12:00' === $start ) {
 						$end = '24:00';
 					}
 				}
@@ -481,28 +527,32 @@ if ( !function_exists( 'bpfwp_print_opening_hours_metatag' ) ) {
 	}
 }
 
-if ( !function_exists( 'bpwfwp_print_map' ) ) {
+if ( ! function_exists( 'bpwfwp_print_map' ) ) {
 	/**
 	 * Print a map to the address
-	 * @since 0.0.1
+	 *
+	 * @since  0.0.1
+	 * @access public
+	 * @param  string $location The location associated with the map.
+	 * @return string|void Returns an empty string if no map exists.
 	 */
 	function bpwfwp_print_map( $location = false ) {
 
 		$address = bpfwp_setting( 'address', $location );
 
-		if ( empty( $address['text'] ) || !bpfwp_get_display( 'show_map' ) ) {
+		if ( empty( $address['text'] ) || ! bpfwp_get_display( 'show_map' ) ) {
 			return '';
 		}
 
 		global $bpfwp_controller;
 
-		if ( !$bpfwp_controller->get_theme_support( 'disable_scripts' ) ) {
+		if ( ! $bpfwp_controller->get_theme_support( 'disable_scripts' ) ) {
 			wp_enqueue_script( 'bpfwp-map' );
 			wp_localize_script(
 				'bpfwp-map',
 				'bpfwp_map',
 				array(
-					// Override loading and intialization of Google Maps api
+					// Override loading and intialization of Google Maps api.
 					'autoload_google_maps' => apply_filters( 'bpfwp_autoload_google_maps', true ),
 					'map_options' => apply_filters( 'bpfwp_google_map_options', array() ),
 					'strings' => array(
@@ -520,15 +570,14 @@ if ( !function_exists( 'bpwfwp_print_map' ) ) {
 		$id = count( $bpfwp_map_ids );
 		$bpfwp_map_ids[] = $id;
 
-
 		$attr = '';
 
 		$phone = bpfwp_setting( 'phone', $location );
-		if ( !empty( $phone ) ) {
+		if ( ! empty( $phone ) ) {
 			$attr .= ' data-phone="' . esc_attr( $phone ) . '"';
 		}
 
-		if ( !empty( $address['lat'] ) && !empty( $address['lon'] ) ) {
+		if ( ! empty( $address['lat'] ) && ! empty( $address['lon'] ) ) {
 			$attr .= ' data-lat="' . esc_attr( $address['lat'] ) . '" data-lon="' . esc_attr( $address['lon'] ) . '"';
 		}
 		?>
@@ -537,13 +586,15 @@ if ( !function_exists( 'bpwfwp_print_map' ) ) {
 
 		<?php
 	}
-} // endif;
+}
 
-if ( !function_exists( 'bpfwp_print_parent_organization') ) {
+if ( ! function_exists( 'bpfwp_print_parent_organization' ) ) {
 	/**
 	 * Print a meta tag which connects a location to a `parentOrganization`
 	 *
-	 * @since 1.1
+	 * @since  1.1
+	 * @access public
+	 * @return string|void Returns an empty string if no parent location exists.
 	 */
 	function bpfwp_print_parent_organization() {
 
