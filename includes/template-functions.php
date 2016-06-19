@@ -262,7 +262,7 @@ if ( ! function_exists( 'bpwfwp_print_contact' ) ) {
 		if ( ! empty( $email ) ) :
 			$antispam_email = antispambot( $email );
 
-			if ( bpfwp_get_display( 'show_contact' ) ) :
+			if ( ! bpfwp_get_display( 'show_contact' ) ) :
 				?>
 				<meta itemprop="email" content="<?php echo esc_attr( $antispam_email ); ?>">
 
