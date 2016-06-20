@@ -53,7 +53,7 @@ This plugin is packed with templates and hooks so you can extend it as needed. D
 
 == Changelog ==
 
-= 1.1 (2016-06-15) =
+= 1.1 (2016-06-20) =
 * Add: multi-location support
 * Add: filter to adjust available schema types
 * Add: templates for contact cards and opening hours
