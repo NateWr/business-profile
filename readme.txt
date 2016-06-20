@@ -25,7 +25,7 @@ Add your business contact details to your site with seo-friendly Schema.org mark
 
 Schema.org markup helps search engines like Google discover your address, phone number and opening hours so that they can display them with your listing on Google.
 
-**Supports multi-location businesses with a custom Locations post type.**
+**Supports [multi-location businesses](http://doc.themeofthecrop.com/plugins/business-profile/user/getting-started/locations) with a custom Locations post type.**
 
 This plugin is part of a group of plugins for restaurants. Check out the [Restaurant Reservations](http://wordpress.org/plugins/restaurant-reservations/), [Food and Drink Menu](http://wordpress.org/plugins/food-and-drink-menu/), and [Good Reviews for WordPress](http://wordpress.org/plugins/good-reviews-wp/) plugins as well.
 
@@ -35,7 +35,7 @@ View the [help guide](http://doc.themeofthecrop.com/plugins/business-profile/?ut
 
 = Developers =
 
-This plugin is packed with templates and hooks so you can extend it as needed. Development takes place on [GitHub](https://github.com/NateWr/business-profile/), so fork it up.
+This plugin is packed with templates and hooks so you can extend it as needed. Read the [developer documentation](http://doc.themeofthecrop.com/plugins/business-profile/developer/). Development takes place on [GitHub](https://github.com/NateWr/business-profile/), so fork it up.
 
 == Installation ==
 
