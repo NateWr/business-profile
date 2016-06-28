@@ -99,6 +99,11 @@ jQuery( document ).ready( function() {
 		var bpMapScript = document.createElement( 'script' );
 		bpMapScript.type = 'text/javascript';
 		bpMapScript.src = '//maps.googleapis.com/maps/api/js?v=3.exp&callback=bp_initialize_map';
+
+		if ( 'undefined' !== typeof bpfwp_map.google_maps_api_key ) {
+			bpMapScript.src += '&key=' + bpfwp_map.google_maps_api_key;
+		}
+
 		document.body.appendChild( bpMapScript );
 	} else {
 		// If the API is already loaded (eg - by a third-party theme or plugin),

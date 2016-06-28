@@ -553,6 +553,7 @@ if ( ! function_exists( 'bpwfwp_print_map' ) ) {
 				'bpfwp_map',
 				array(
 					// Override loading and intialization of Google Maps api.
+					'google_maps_api_key' => bpfwp_setting( 'google-maps-api-key' ),
 					'autoload_google_maps' => apply_filters( 'bpfwp_autoload_google_maps', true ),
 					'map_options' => apply_filters( 'bpfwp_google_map_options', array() ),
 					'strings' => array(

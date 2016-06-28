@@ -312,6 +312,23 @@ if ( ! class_exists( 'bpfwpSettings' ) ) :
 				'bpfwp-contact',
 				'text',
 				array(
+					'id'          => 'google-maps-api-key',
+					'title'       => __( 'Google Maps API Key', 'business-profile' ),
+					'description' => sprintf(
+						__( 'Google requires an API key to use their maps. %sGet an API key%s. A full walk-through is available in the %sdocumentiaton%s.', 'business-profile' ),
+						'<a href="https://developers.google.com/maps/documentation/javascript/get-api-key">',
+						'</a>',
+						'<a href="http://doc.themeofthecrop.com/plugins/business-profile/user/faq#google-maps-api-key">',
+						'</a>'
+					),
+				)
+			);
+
+			$sap->add_setting(
+				'bpfwp-settings',
+				'bpfwp-contact',
+				'text',
+				array(
 					'id'    => 'phone',
 					'title' => __( 'Phone', 'business-profile' ),
 				)
