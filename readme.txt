@@ -3,9 +3,9 @@ Contributors: NateWr
 Author URI: https://github.com/NateWr
 Plugin URL: http://themeofthecrop.com
 Requires at Least: 3.9
-Tested Up To: 4.5.2
+Tested Up To: 4.5.3
 Tags: business profile, seo, local seo, schema, address, google map, contact, phone
-Stable tag: 1.1
+Stable tag: 1.1.1
 License: GPLv2 or later
 Donate link: http://themeofthecrop.com
 
@@ -85,6 +85,9 @@ You'll find more help in the [User Guide](http://doc.themeofthecrop.com/plugins/
 
 == Changelog ==
 
+= 1.1.1 (2016-06-28) =
+* Add field for Google Maps API Key to follow new API guidelines
+
 = 1.1 (2016-06-20) =
 * Add: multi-location support
 * Add: filter to adjust available schema types
@@ -141,6 +144,9 @@ You'll find more help in the [User Guide](http://doc.themeofthecrop.com/plugins/
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.1.1 =
+This update adds support for a Google Maps API Key. Since June 22, 2016, Google Maps will require all _new_ websites to use an API key in order to display maps. Instructions can be found near the new API Key field in your Business Profile.
 
 = 1.1 =
 This major update adds support for multiple locations, refactors the codebase to follow WP coding guidelines, and adds several templates and helper functions for customization.
