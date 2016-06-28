@@ -44,6 +44,38 @@ This plugin is packed with templates and hooks so you can extend it as needed. R
 3. Activate the plugin through the 'Plugins' menu in WordPress
 4. Go to the Business Profile page in your admin menu. You will find it near the bottom.
 
+== Frequently Asked Questions ==
+
+= Is there a shortcode to print the contact card? =
+
+Yes, you can use `[contact-card]`. The documentation includes [all of the shortcode attributes](http://doc.themeofthecrop.com/plugins/business-profile/user/faq#shortcode).
+
+= It asks me for a Google Maps API Key but I don’t know what it is or how to get it. =
+
+Google now requires that you have your own API key to display a map on your website. The documentation includes a walkthrough to help you [generate a Google Maps API key](http://doc.themeofthecrop.com/plugins/business-profile/user/faq#google-maps-api-key).
+
+= Google Maps shows my business in the wrong location =
+
+Unfortunately, in some cases Google is unable to find the right latitude and longitude to match your address.
+
+In some cases, you may be able to get it to properly locate you by tweaking the address. Sometimes Google just needs a bit of help. Once you’ve got the right coordinates you can go back and restore your original address, and save the form without touching the coordinates again.
+
+If you’re unable to get Google to recognize your location, the best thing to do is to leave the Google Map out when you print your contact card. You will also want to hide the Get Directions link, because Google will guide your customers to the wrong location.
+
+There’s not much I can do about this, unfortunately. Even if you were able to manually set the latitude and longitude, Google would still show bad directions, because it uses the address, not the coordinates, for this feature.
+
+= What’s the Schema Type? =
+
+This allows you to let search engines like Google know exactly what kind of business you run.
+
+That way, when someone looks for a real estate agent or a restaurant in your area, they’ll know to include you in their search results.
+
+You may not find a type that’s a perfect match for your business. Choose the option that’s most appropriate for your business, and fall back to a more generic type, such as Local Business, if you need.
+
+= More questions =
+
+You'll find more help in the [User Guide](http://doc.themeofthecrop.com/plugins/business-profile/user/). Developers interested in templates, filters and theme support can view the [Developer Documentation](http://doc.themeofthecrop.com/plugins/business-profile/developer/).
+
 == Screenshots ==
 
 1. Display a full contact card on the front-end with the shortcode [contact-card] or use the widget to add it to a sidebar.
