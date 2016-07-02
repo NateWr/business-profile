@@ -3,13 +3,15 @@
  * Define settings used throughout the plugin.
  *
  * @package   BusinessProfile
- * @copyright Copyright (c) 2015, Theme of the Crop
+ * @copyright Copyright (c) 2016, Theme of the Crop
  * @license   GPL-2.0+
  * @since     0.0.1
  */
+
 defined( 'ABSPATH' ) || exit;
 
 if ( ! class_exists( 'bpfwpSettings' ) ) :
+
 	/**
 	 * Class to handle configurable settings for Business Profile
 	 *
@@ -19,22 +21,38 @@ if ( ! class_exists( 'bpfwpSettings' ) ) :
 
 		/**
 		 * Default values for settings
-		 * @since 0.0.1
+		 *
+		 * @since  0.0.1
+		 * @access public
+		 * @var    array
 		 */
 		public $defaults = array();
 
 		/**
 		 * Default values for display settings
-		 * @since 1.1
+		 *
+		 * @since  0.0.1
+		 * @access public
+		 * @var    array
 		 */
 		public $default_display_settings = array();
 
 		/**
 		 * Stored values for settings
-		 * @since 0.0.1
+		 *
+		 * @since  0.0.1
+		 * @access public
+		 * @var    array
 		 */
 		public $settings = array();
 
+		/**
+		 * Initialize the class and register hooks.
+		 *
+		 * @since  0.0.1
+		 * @access public
+		 * @return void
+		 */
 		public function __construct() {
 
 			add_action( 'init', array( $this, 'set_defaults' ) );
@@ -45,7 +63,10 @@ if ( ! class_exists( 'bpfwpSettings' ) ) :
 
 		/**
 		 * Load the plugin's default settings
-		 * @since 0.0.1
+		 *
+		 * @since  0.0.1
+		 * @access public
+		 * @return void
 		 */
 		public function set_defaults() {
 
@@ -64,11 +85,13 @@ if ( ! class_exists( 'bpfwpSettings' ) ) :
 		 * as when template functions, like bpfwp_print_name, are called
 		 * directly.
 		 *
-		 * @since 1.1
+		 * @since  1.1
+		 * @access public
+		 * @return array $default_display_settings The display settings defaults.
 		 */
 		public function get_default_display_settings() {
 
-			if ( !empty( $this->default_display_settings ) ) {
+			if ( ! empty( $this->default_display_settings ) ) {
 				return $this->default_display_settings;
 			}
 
@@ -92,14 +115,19 @@ if ( ! class_exists( 'bpfwpSettings' ) ) :
 
 		/**
 		 * Get a setting's value or fallback to a default if one exists
-		 * @since 0.0.1
+		 *
+		 * @since  0.0.1
+		 * @access public
+		 * @param  string $setting The setting to retrieve.
+		 * @param  string $location The location where the setting is used.
+		 * @return mixed A setting based on the key provided.
 		 */
 		public function get_setting( $setting, $location = false ) {
 
 			// Most settings are named with hyphens, but the schema_type uses
 			// an underscore. This just provides a small convenience by allowing
 			// users to look up the setting by `schema-type`.
-			if ( $setting == 'schema-type' ) {
+			if ( 'schema-type' === $setting ) {
 				$setting = 'schema_type';
 			}
 
@@ -108,17 +136,16 @@ if ( ! class_exists( 'bpfwpSettings' ) ) :
 					$this->settings = get_option( 'bpfwp-settings' );
 				}
 
-				if ( !empty( $this->settings[ $setting ] ) ) {
+				if ( ! empty( $this->settings[ $setting ] ) ) {
 					return $this->settings[ $setting ];
 				}
 
-				if ( !empty( $this->defaults[ $setting ] ) ) {
+				if ( ! empty( $this->defaults[ $setting ] ) ) {
 					return $this->defaults[ $setting ];
 				}
-
 			} else {
 
-				// Map setting slugs to post data
+				// Map setting slugs to post data.
 				switch ( $setting ) {
 
 					case 'schema_type' :
@@ -155,9 +182,11 @@ if ( ! class_exists( 'bpfwpSettings' ) ) :
 		}
 
 		/**
-		 * Load the admin settings page
+		 * Load the admin settings page.
+		 *
 		 * @since 0.0.1
-		 * @sa https://github.com/NateWr/simple-admin-pages
+		 * @access public
+		 * @link  https://github.com/NateWr/simple-admin-pages
 		 */
 		public function load_settings_panel() {
 
@@ -169,7 +198,7 @@ if ( ! class_exists( 'bpfwpSettings' ) ) :
 				)
 			);
 
-			// Multiple location mode
+			// Multiple location mode.
 			if ( $this->get_setting( 'multiple-locations' ) ) {
 
 				$sap->add_page(
@@ -180,7 +209,7 @@ if ( ! class_exists( 'bpfwpSettings' ) ) :
 						'menu_title'    => __( 'Locations', 'business-profile' ),
 						'capability'    => 'manage_options',
 						'icon'			=> 'dashicons-location',
-						'position'		=> null
+						'position'		=> null,
 					)
 				);
 
@@ -194,8 +223,7 @@ if ( ! class_exists( 'bpfwpSettings' ) ) :
 						'capability'    => 'manage_options',
 					)
 				);
-
-			// Single location mode
+				// Single location mode.
 			} else {
 
 				$sap->add_page(
@@ -206,7 +234,7 @@ if ( ! class_exists( 'bpfwpSettings' ) ) :
 						'menu_title'    => __( 'Business Profile', 'business-profile' ),
 						'capability'    => 'manage_options',
 						'icon'			=> 'dashicons-businessman',
-						'position'		=> null
+						'position'		=> null,
 					)
 				);
 
@@ -284,6 +312,23 @@ if ( ! class_exists( 'bpfwpSettings' ) ) :
 				'bpfwp-contact',
 				'text',
 				array(
+					'id'          => 'google-maps-api-key',
+					'title'       => __( 'Google Maps API Key', 'business-profile' ),
+					'description' => sprintf(
+						__( 'Google requires an API key to use their maps. %sGet an API key%s. A full walk-through is available in the %sdocumentiaton%s.', 'business-profile' ),
+						'<a href="https://developers.google.com/maps/documentation/javascript/get-api-key">',
+						'</a>',
+						'<a href="http://doc.themeofthecrop.com/plugins/business-profile/user/faq#google-maps-api-key">',
+						'</a>'
+					),
+				)
+			);
+
+			$sap->add_setting(
+				'bpfwp-settings',
+				'bpfwp-contact',
+				'text',
+				array(
 					'id'    => 'phone',
 					'title' => __( 'Phone', 'business-profile' ),
 				)
@@ -340,7 +385,7 @@ if ( ! class_exists( 'bpfwpSettings' ) ) :
 						'thursday'  => _x( 'Th', 'Thursday abbreviation', 'business-profile' ),
 						'friday'    => _x( 'Fr', 'Friday abbreviation', 'business-profile' ),
 						'saturday'  => _x( 'Sa', 'Saturday abbreviation', 'business-profile' ),
-						'sunday'    => _x( 'Su', 'Sunday abbreviation', 'business-profile' )
+						'sunday'    => _x( 'Su', 'Sunday abbreviation', 'business-profile' ),
 					),
 					'time_format'   => _x( 'h:i A', 'Time format displayed in the opening hours setting panel in your admin area. Must match formatting rules at http://amsul.ca/pickadate.js/time.htm#formats', 'business-profile' ),
 					'date_format'   => _x( 'mmmm d, yyyy', 'Date format displayed in the opening hours setting panel in your admin area. Must match formatting rules at http://amsul.ca/pickadate.js/date.htm#formatting-rules', 'business-profile' ),
@@ -401,7 +446,10 @@ if ( ! class_exists( 'bpfwpSettings' ) ) :
 
 		/**
 		 * Array of schema type options
-		 * @since 1.1
+		 *
+		 * @since  1.1
+		 * @access public
+		 * @return array A filtered list of schema types.
 		 */
 		public function get_schema_types() {
 			return apply_filters(

@@ -3,7 +3,7 @@
  * Plugin Name: Business Profile
  * Plugin URI:  http://themeofthecrop.com
  * Description: Contact information, Google Maps and opening hours made easy for businesses.
- * Version:     1.1
+ * Version:     1.1.1
  * Author:      Theme of the Crop
  * Author URI:  http://themeofthecrop.com
  * License:     GNU General Public License v2.0 or later
@@ -21,24 +21,52 @@
  *
  * You should have received a copy of the GNU General Public License along with this program; if not, write
  * to the Free Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
+ *
+ * @package   BusinessProfile
+ * @copyright Copyright (c) 2016, Theme of the Crop
+ * @license   GPL-2.0+
+ * @since     0.0.1
  */
+
 defined( 'ABSPATH' ) || exit;
 
 if ( ! class_exists( 'bpfwpInit', false ) ) :
+
 	class bpfwpInit {
 
 		/**
-		 * Settings for displaying the contact card currently being handled
-		 * @since 0.0.1
+		 * Settings for displaying the contact card currently being handled.
+		 *
+		 * @since  0.0.1
+		 * @access public
+		 * @var    array
 		 */
 		public $display_settings = array();
 
+		/**
+		 * Placeholder for the main settings class instance.
+		 *
+		 * @since  0.0.1
+		 * @access public
+		 * @var    object bpfwpSettings
+		 */
 		public $settings;
 
+		/**
+		 * Placeholder for the main CPTs class instance.
+		 *
+		 * @since  0.0.1
+		 * @access public
+		 * @var    object bpfwpCustomPostTypes
+		 */
 		public $cpts;
 
 		/**
-		 * Initialize the plugin and register hooks
+		 * Initialize the plugin and register hooks.
+		 *
+		 * @since  0.0.1
+		 * @access public
+		 * @return void
 		 */
 		public function __construct() {
 			self::constants();
@@ -61,7 +89,7 @@ if ( ! class_exists( 'bpfwpInit', false ) ) :
 			define( 'BPFWP_PLUGIN_DIR', untrailingslashit( plugin_dir_path( __FILE__ ) ) );
 			define( 'BPFWP_PLUGIN_URL', untrailingslashit( plugin_dir_url( __FILE__ ) ) );
 			define( 'BPFWP_PLUGIN_FNAME', plugin_basename( __FILE__ ) );
-			define( 'BPFWP_VERSION', '1.1' );
+			define( 'BPFWP_VERSION', '1.1.1' );
 		}
 
 		/**
@@ -89,7 +117,7 @@ if ( ! class_exists( 'bpfwpInit', false ) ) :
 		 */
 		protected function instantiate() {
 			new bpfwpCompatibility();
-			new bpfwpIntegrations(); // deprecated in v1.1
+			new bpfwpIntegrations(); // Deprecated in v1.1.
 			$this->settings = new bpfwpSettings();
 			if ( $this->settings->get_setting( 'multiple-locations' ) ) {
 				$this->cpts = new bpfwpCustomPostTypes();
@@ -113,8 +141,11 @@ if ( ! class_exists( 'bpfwpInit', false ) ) :
 		}
 
 		/**
-		 * Load the plugin textdomain for localistion
-		 * @since 0.0.1
+		 * Load the plugin textdomain for localistion.
+		 *
+		 * @since  0.0.1
+		 * @access public
+		 * @return void
 		 */
 		public function load_textdomain() {
 			load_plugin_textdomain(
@@ -126,7 +157,10 @@ if ( ! class_exists( 'bpfwpInit', false ) ) :
 
 		/**
 		 * Register the front-end CSS styles
-		 * @since 0.0.1
+		 *
+		 * @since  0.0.1
+		 * @access public
+		 * @return void
 		 */
 		function register_assets() {
 			wp_register_style(
@@ -146,7 +180,10 @@ if ( ! class_exists( 'bpfwpInit', false ) ) :
 
 		/**
 		 * Register the widgets
-		 * @since 0.0.1
+		 *
+		 * @since  0.0.1
+		 * @access public
+		 * @return void
 		 */
 		public function register_widgets() {
 			require_once BPFWP_PLUGIN_DIR . '/includes/class-contact-card-widget.php';
@@ -155,13 +192,18 @@ if ( ! class_exists( 'bpfwpInit', false ) ) :
 
 		/**
 		 * Enqueue the admin CSS for locations
-		 * @since 1.1
+		 *
+		 * @since  1.1
+		 * @access public
+		 * @global WP_Post $post The current WordPress post object.
+		 * @param  string $hook_suffix The current admin screen slug.
+		 * @return void
 		 */
 		public function enqueue_admin_assets( $hook_suffix ) {
 
 			global $post;
 
-			if ( $hook_suffix == 'post-new.php' || $hook_suffix == 'post.php' ) {
+			if ( 'post-new.php' === $hook_suffix || 'post.php' === $hook_suffix ) {
 				if ( $this->cpts->location_cpt_slug === $post->post_type ) {
 					wp_enqueue_style( 'bpfwp-admin-location', BPFWP_PLUGIN_URL . '/assets/css/admin.css' );
 				}
@@ -170,7 +212,12 @@ if ( ! class_exists( 'bpfwpInit', false ) ) :
 
 		/**
 		 * Add links to the plugin listing on the installed plugins page
-		 * @since 0.0.1
+		 *
+		 * @since  0.0.1
+		 * @access public
+		 * @param  array  $links The current plugin action links.
+		 * @param  string $plugin The current plugin slug.
+		 * @return array $links Modified action links.
 		 */
 		public function plugin_action_links( $links, $plugin ) {
 			if ( BPFWP_PLUGIN_FNAME === $plugin ) {
@@ -187,20 +234,23 @@ if ( ! class_exists( 'bpfwpInit', false ) ) :
 		/**
 		 * Retrieve the get_theme_supports() value for a feature
 		 *
-		 * @since 1.1
+		 * @since  1.1
+		 * @access public
+		 * @param  string $feature A theme support feature to get.
+		 * @return bool Whether or not a feature is supported.
 		 */
 		public function get_theme_support( $feature ) {
 
 			$theme_support = get_theme_support( 'business-profile' );
 
-			if ( $theme_support === true ) {
+			if ( true === $theme_support ) {
 				return true;
-			} elseif( $theme_support === false ) {
+			} elseif ( false === $theme_support ) {
 				return false;
 			} else {
 				$theme_support = (array) $theme_support;
 				$theme_support = array_shift( $theme_support );
-				return isset( $theme_support[ $feature ] ) && $theme_support[ $feature ] == true;
+				return isset( $theme_support[ $feature ] ) && true === $theme_support[ $feature ];
 			}
 		}
 
@@ -211,8 +261,9 @@ if ( ! class_exists( 'bpfwpInit', false ) ) :
 		 * them up directly, but for most uses, this method is preferred.
 		 *
 		 * @since 1.1.0
+		 * @access public
 		 * @static
-		 * @return bpfwpInit
+		 * @return object bpfwpInit A single instance of the main plugin class.
 		 */
 		public static function instance() {
 			static $instance;

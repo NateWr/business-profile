@@ -3,9 +3,9 @@ Contributors: NateWr
 Author URI: https://github.com/NateWr
 Plugin URL: http://themeofthecrop.com
 Requires at Least: 3.9
-Tested Up To: 4.5.2
+Tested Up To: 4.5.3
 Tags: business profile, seo, local seo, schema, address, google map, contact, phone
-Stable tag: 1.1
+Stable tag: 1.1.1
 License: GPLv2 or later
 Donate link: http://themeofthecrop.com
 
@@ -25,7 +25,7 @@ Add your business contact details to your site with seo-friendly Schema.org mark
 
 Schema.org markup helps search engines like Google discover your address, phone number and opening hours so that they can display them with your listing on Google.
 
-**Supports multi-location businesses with a custom Locations post type.**
+**Supports [multi-location businesses](http://doc.themeofthecrop.com/plugins/business-profile/user/getting-started/locations) with a custom Locations post type.**
 
 This plugin is part of a group of plugins for restaurants. Check out the [Restaurant Reservations](http://wordpress.org/plugins/restaurant-reservations/), [Food and Drink Menu](http://wordpress.org/plugins/food-and-drink-menu/), and [Good Reviews for WordPress](http://wordpress.org/plugins/good-reviews-wp/) plugins as well.
 
@@ -35,7 +35,7 @@ View the [help guide](http://doc.themeofthecrop.com/plugins/business-profile/?ut
 
 = Developers =
 
-This plugin is packed with templates and hooks so you can extend it as needed. Development takes place on [GitHub](https://github.com/NateWr/business-profile/), so fork it up.
+This plugin is packed with templates and hooks so you can extend it as needed. Read the [developer documentation](http://doc.themeofthecrop.com/plugins/business-profile/developer/). Development takes place on [GitHub](https://github.com/NateWr/business-profile/), so fork it up.
 
 == Installation ==
 
@@ -43,6 +43,38 @@ This plugin is packed with templates and hooks so you can extend it as needed. D
 2. Upload the contents of `business-profile.zip` to the `/wp-content/plugins/` directory
 3. Activate the plugin through the 'Plugins' menu in WordPress
 4. Go to the Business Profile page in your admin menu. You will find it near the bottom.
+
+== Frequently Asked Questions ==
+
+= Is there a shortcode to print the contact card? =
+
+Yes, you can use `[contact-card]`. The documentation includes [all of the shortcode attributes](http://doc.themeofthecrop.com/plugins/business-profile/user/faq#shortcode).
+
+= It asks me for a Google Maps API Key but I don’t know what it is or how to get it. =
+
+Google now requires that you have your own API key to display a map on your website. The documentation includes a walkthrough to help you [generate a Google Maps API key](http://doc.themeofthecrop.com/plugins/business-profile/user/faq#google-maps-api-key).
+
+= Google Maps shows my business in the wrong location =
+
+Unfortunately, in some cases Google is unable to find the right latitude and longitude to match your address.
+
+In some cases, you may be able to get it to properly locate you by tweaking the address. Sometimes Google just needs a bit of help. Once you’ve got the right coordinates you can go back and restore your original address, and save the form without touching the coordinates again.
+
+If you’re unable to get Google to recognize your location, the best thing to do is to leave the Google Map out when you print your contact card. You will also want to hide the Get Directions link, because Google will guide your customers to the wrong location.
+
+There’s not much I can do about this, unfortunately. Even if you were able to manually set the latitude and longitude, Google would still show bad directions, because it uses the address, not the coordinates, for this feature.
+
+= What’s the Schema Type? =
+
+This allows you to let search engines like Google know exactly what kind of business you run.
+
+That way, when someone looks for a real estate agent or a restaurant in your area, they’ll know to include you in their search results.
+
+You may not find a type that’s a perfect match for your business. Choose the option that’s most appropriate for your business, and fall back to a more generic type, such as Local Business, if you need.
+
+= More questions =
+
+You'll find more help in the [User Guide](http://doc.themeofthecrop.com/plugins/business-profile/user/). Developers interested in templates, filters and theme support can view the [Developer Documentation](http://doc.themeofthecrop.com/plugins/business-profile/developer/).
 
 == Screenshots ==
 
@@ -53,7 +85,10 @@ This plugin is packed with templates and hooks so you can extend it as needed. D
 
 == Changelog ==
 
-= 1.1 (2016-06-15) =
+= 1.1.1 (2016-06-28) =
+* Add field for Google Maps API Key to follow new API guidelines
+
+= 1.1 (2016-06-20) =
 * Add: multi-location support
 * Add: filter to adjust available schema types
 * Add: templates for contact cards and opening hours
@@ -109,6 +144,9 @@ This plugin is packed with templates and hooks so you can extend it as needed. D
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.1.1 =
+This update adds support for a Google Maps API Key. Since June 22, 2016, Google Maps will require all _new_ websites to use an API key in order to display maps. Instructions can be found near the new API Key field in your Business Profile.
 
 = 1.1 =
 This major update adds support for multiple locations, refactors the codebase to follow WP coding guidelines, and adds several templates and helper functions for customization.
