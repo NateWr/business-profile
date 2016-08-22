@@ -204,7 +204,7 @@ if ( ! class_exists( 'bpfwpInit', false ) ) :
 			global $post;
 
 			if ( 'post-new.php' === $hook_suffix || 'post.php' === $hook_suffix ) {
-				if ( $this->cpts->location_cpt_slug === $post->post_type ) {
+				if ( is_object( $this->cpts ) && $this->cpts->location_cpt_slug === $post->post_type ) {
 					wp_enqueue_style( 'bpfwp-admin-location', BPFWP_PLUGIN_URL . '/assets/css/admin.css' );
 				}
 			}
