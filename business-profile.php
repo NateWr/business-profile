@@ -119,8 +119,9 @@ if ( ! class_exists( 'bpfwpInit', false ) ) :
 			new bpfwpCompatibility();
 			new bpfwpIntegrations(); // Deprecated in v1.1.
 			$this->settings = new bpfwpSettings();
+			$this->cpts = new bpfwpCustomPostTypes();
+
 			if ( $this->settings->get_setting( 'multiple-locations' ) ) {
-				$this->cpts = new bpfwpCustomPostTypes();
 				$this->cpts->run();
 			}
 		}
@@ -204,7 +205,7 @@ if ( ! class_exists( 'bpfwpInit', false ) ) :
 			global $post;
 
 			if ( 'post-new.php' === $hook_suffix || 'post.php' === $hook_suffix ) {
-				if ( is_object( $this->cpts ) && $this->cpts->location_cpt_slug === $post->post_type ) {
+				if ( $this->settings->get_setting( 'multiple-locations' ) && $this->cpts->location_cpt_slug === $post->post_type ) {
 					wp_enqueue_style( 'bpfwp-admin-location', BPFWP_PLUGIN_URL . '/assets/css/admin.css' );
 				}
 			}
