@@ -1,8 +1,8 @@
 === Business Profile ===
-Contributors: NateWr
+Contributors: NateWr, fatmedia
 Author URI: https://github.com/NateWr
 Plugin URL: http://themeofthecrop.com
-Requires at Least: 4.4 
+Requires at Least: 4.4
 Tested Up To: 4.6
 Tags: business profile, seo, local seo, schema, address, google map, contact, phone
 Stable tag: 1.1.1
