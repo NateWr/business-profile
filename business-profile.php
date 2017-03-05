@@ -134,7 +134,7 @@ if ( ! class_exists( 'bpfwpInit', false ) ) :
 		 * @return void
 		 */
 		protected function wp_hooks() {
-			add_action( 'init',                  array( $this, 'load_textdomain' ) );
+			add_action( 'plugins_loaded',        array( $this, 'load_textdomain' ) );
 			add_action( 'wp_enqueue_scripts',    array( $this, 'register_assets' ) );
 			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_assets' ) );
 			add_action( 'widgets_init',          array( $this, 'register_widgets' ) );
