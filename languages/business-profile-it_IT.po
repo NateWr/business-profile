@@ -1,0 +1,693 @@
+# Copyright (C) 2016 Business Profile
+# This file is distributed under the same license as the Business Profile package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Business Profile 1.1.1\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/business-profile\n"
+"POT-Creation-Date: 2017-02-17 17:53+0100\n"
+"PO-Revision-Date: 2017-02-17 17:53+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: it_IT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.11\n"
+"X-Poedit-KeywordsList: __;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;"
+"_nx_noop:1,2,3c;esc_attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;"
+"esc_html_x:1,2c\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-Basepath: ..\n"
+"X-Textdomain-Support: yes\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: business-profile.php:227
+msgid "View the help documentation for Business Profile"
+msgstr "Vedi la documentazione d'aiuto per \"Profilo aziendale\""
+
+#: business-profile.php:228
+msgid "Help"
+msgstr "Aiuto"
+
+#: includes/class-contact-card-widget.php:39
+msgid "Show Name"
+msgstr "Mostra nome"
+
+#: includes/class-contact-card-widget.php:40
+msgid "Show Address"
+msgstr "Mostra indirizzo"
+
+#: includes/class-contact-card-widget.php:41
+msgid "Show link to get directions on Google Maps"
+msgstr "Mostra il link per le indicazioni stradali in Google Maps"
+
+#: includes/class-contact-card-widget.php:42
+msgid "Show Phone number"
+msgstr "Mostra il numero di telefono"
+
+#: includes/class-contact-card-widget.php:43
+msgid "Show Fax number"
+msgstr "Mostra il numero di fax"
+
+#: includes/class-contact-card-widget.php:44
+msgid "Show contact details"
+msgstr "Mostra i dettagli di contatto"
+
+#: includes/class-contact-card-widget.php:45
+msgid "Show Opening Hours"
+msgstr "Mostra l'orario di apertura"
+
+#: includes/class-contact-card-widget.php:46
+msgid "Show brief opening hours on one line"
+msgstr "Mostra l'orario di apertura su una riga"
+
+#: includes/class-contact-card-widget.php:47
+msgid "Show Google Map"
+msgstr "Mostra la mappa di Google"
+
+#: includes/class-contact-card-widget.php:53
+msgid "Contact Card"
+msgstr "Scheda di contatto"
+
+#: includes/class-contact-card-widget.php:54
+msgid ""
+"Display a contact card with your name, address, phone number, fax number, "
+"opening hours and map."
+msgstr ""
+"Mostra una scheda di contatto con nome, indirizzo, telefono, fax, orari e "
+"mappa."
+
+#: includes/class-contact-card-widget.php:92
+msgid "Title"
+msgstr "Titolo"
+
+#: includes/class-contact-card-widget.php:118
+#: includes/class-custom-post-types.php:60
+msgid "Location"
+msgstr "Sede"
+
+#: includes/class-contact-card-widget.php:120
+msgid "Use Primary Business Profile"
+msgstr "Utilizza il tuo profilo aziendale primario"
+
+#: includes/class-custom-post-types.php:59
+#: includes/class-custom-post-types.php:61
+#: includes/class-custom-post-types.php:62 includes/class-settings.php:217
+#: includes/class-settings.php:218
+msgid "Locations"
+msgstr "Sedi"
+
+#: includes/class-custom-post-types.php:63
+msgid "Add New"
+msgstr "Aggiungi nuova"
+
+#: includes/class-custom-post-types.php:64
+msgid "Add New Location"
+msgstr "Aggiuyngi una nuova sede"
+
+#: includes/class-custom-post-types.php:65
+msgid "Edit Location"
+msgstr "Modifica sede"
+
+#: includes/class-custom-post-types.php:66
+msgid "New Location"
+msgstr "Nuova sede"
+
+#: includes/class-custom-post-types.php:67
+msgid "View Location"
+msgstr "Mostra sede"
+
+#: includes/class-custom-post-types.php:68
+msgid "Search Locations"
+msgstr "Cerca sedi"
+
+#: includes/class-custom-post-types.php:69
+msgid "No locations found"
+msgstr "Nessuna sede trovata"
+
+#: includes/class-custom-post-types.php:70
+msgid "No locations found in trash"
+msgstr "Nessuna sede trovata nel cestino"
+
+#: includes/class-custom-post-types.php:71
+msgid "All Locations"
+msgstr "Tutte le sedi"
+
+#: includes/class-custom-post-types.php:146 includes/class-settings.php:266
+msgid "Schema Type"
+msgstr "Tipo di Schema"
+
+#: includes/class-custom-post-types.php:157
+msgid "Contact Details"
+msgstr "Dettagli di contatto"
+
+#: includes/class-custom-post-types.php:167
+#: includes/class-custom-post-types.php:414 includes/class-settings.php:398
+#: templates/opening-hours.php:21
+msgid "Opening Hours"
+msgstr "Orario d'apertura"
+
+#: includes/class-custom-post-types.php:228
+msgid "Schema type"
+msgstr "Tipo di Schema"
+
+#: includes/class-custom-post-types.php:238
+msgid ""
+"Select the option that best describes your business to improve how search "
+"engines understand your website."
+msgstr ""
+"Seleziona l'opzione che descrive meglio la tua azienda per aiutare i motori "
+"di ricerca a capire meglio il tuo sito"
+
+#: includes/class-custom-post-types.php:264
+#: includes/class-custom-post-types.php:288 includes/class-settings.php:303
+msgid "No map coordinates set."
+msgstr "Coordinate della mappa non impostate."
+
+#: includes/class-custom-post-types.php:265
+#: includes/class-custom-post-types.php:290 includes/class-settings.php:302
+msgctxt "separates latitude and longitude"
+msgid ", "
+msgstr ","
+
+#: includes/class-custom-post-types.php:266 includes/class-settings.php:304
+msgid "Requesting new coordinates"
+msgstr "Richiesta di nuove coordinate"
+
+#: includes/class-custom-post-types.php:267 includes/class-settings.php:305
+msgid "Select a match below"
+msgstr "Seleziona una corrispondenza qui sotto"
+
+#: includes/class-custom-post-types.php:268
+#: includes/class-custom-post-types.php:291 includes/class-settings.php:306
+msgid "View"
+msgstr "Mostra"
+
+#: includes/class-custom-post-types.php:269 includes/class-settings.php:310
+msgid "Error"
+msgstr "Errore"
+
+#: includes/class-custom-post-types.php:270 includes/class-settings.php:311
+msgid ""
+"Invalid request. Be sure to fill out the address field before retrieving "
+"coordinates."
+msgstr ""
+"Richiesta non valida. Assicurati di riempire il campo dell'indirizzo prima "
+"di ricercare le coordinate."
+
+#: includes/class-custom-post-types.php:271 includes/class-settings.php:312
+msgid "Request denied."
+msgstr "Richiesta negata."
+
+#: includes/class-custom-post-types.php:272 includes/class-settings.php:313
+msgid "Request denied because you are over your request quota."
+msgstr "Richiesta negata perché hai superato il limite della tua quota."
+
+#: includes/class-custom-post-types.php:273
+msgid "Nothing was found at that address."
+msgstr "Nessuna corrispondenza per l'indirizzo."
+
+#: includes/class-custom-post-types.php:298 includes/class-settings.php:307
+msgid "Retrieve map coordinates"
+msgstr "Recupera le coordinate della mappa"
+
+#: includes/class-custom-post-types.php:300 includes/class-settings.php:301
+msgctxt "separator between admin action links in address component"
+msgid " | "
+msgstr " | "
+
+#: includes/class-custom-post-types.php:302 includes/class-settings.php:308
+msgid "Remove map coordinates"
+msgstr "Rimuovi le coordinate della mappa"
+
+#: includes/class-custom-post-types.php:330 includes/class-settings.php:362
+msgid "Contact Page"
+msgstr "Pagina di contatto"
+
+#: includes/class-custom-post-types.php:344 includes/class-settings.php:379
+msgid "Email Address (optional)"
+msgstr "Indirizzo email (opzionale)"
+
+#: includes/class-custom-post-types.php:351
+msgid "Phone Number"
+msgstr "Numero di telefono"
+
+#: includes/class-custom-post-types.php:358
+msgid "Fax Number"
+msgstr "Numero di fax"
+
+#: includes/class-custom-post-types.php:415 includes/class-settings.php:399
+msgid "Define your weekly opening hours by adding scheduling rules."
+msgstr ""
+"Imposta l'orario di apertura settimanale aggiungendo regole di pianificazione"
+
+#: includes/class-custom-post-types.php:417 includes/class-settings.php:401
+msgctxt "Monday abbreviation"
+msgid "Mo"
+msgstr "Lun"
+
+#: includes/class-custom-post-types.php:418 includes/class-settings.php:402
+msgctxt "Tuesday abbreviation"
+msgid "Tu"
+msgstr "Mar"
+
+#: includes/class-custom-post-types.php:419 includes/class-settings.php:403
+msgctxt "Wednesday abbreviation"
+msgid "We"
+msgstr "Mer"
+
+#: includes/class-custom-post-types.php:420 includes/class-settings.php:404
+msgctxt "Thursday abbreviation"
+msgid "Th"
+msgstr "Gio"
+
+#: includes/class-custom-post-types.php:421 includes/class-settings.php:405
+msgctxt "Friday abbreviation"
+msgid "Fr"
+msgstr "Ven"
+
+#: includes/class-custom-post-types.php:422 includes/class-settings.php:406
+msgctxt "Saturday abbreviation"
+msgid "Sa"
+msgstr "Sab"
+
+#: includes/class-custom-post-types.php:423 includes/class-settings.php:407
+msgctxt "Sunday abbreviation"
+msgid "Su"
+msgstr "Dom"
+
+#: includes/class-custom-post-types.php:425 includes/class-settings.php:409
+msgctxt ""
+"Time format displayed in the opening hours setting panel in your admin area. "
+"Must match formatting rules at http://amsul.ca/pickadate.js/time.htm#formats"
+msgid "h:i A"
+msgstr "H:i"
+
+#: includes/class-custom-post-types.php:426 includes/class-settings.php:410
+msgctxt ""
+"Date format displayed in the opening hours setting panel in your admin area. "
+"Must match formatting rules at http://amsul.ca/pickadate.js/date."
+"htm#formatting-rules"
+msgid "mmmm d, yyyy"
+msgstr "d mmmm yyyy"
+
+#: includes/class-custom-post-types.php:430 includes/class-settings.php:414
+msgid "Add another opening time"
+msgstr "Aggiungi un altro orario d'apertura"
+
+#: includes/class-custom-post-types.php:431 includes/class-settings.php:415
+msgctxt "Format of a scheduling rule"
+msgid "Weekly"
+msgstr "Settimanale"
+
+#: includes/class-custom-post-types.php:432 includes/class-settings.php:416
+msgctxt "Format of a scheduling rule"
+msgid "Monthly"
+msgstr "Mensile"
+
+#: includes/class-custom-post-types.php:433 includes/class-settings.php:417
+msgctxt "Format of a scheduling rule"
+msgid "Date"
+msgstr "Data"
+
+#: includes/class-custom-post-types.php:434 includes/class-settings.php:418
+msgctxt "Label for selecting days of the week in a scheduling rule"
+msgid "Days of the week"
+msgstr "Giorni della settimana"
+
+#: includes/class-custom-post-types.php:435 includes/class-settings.php:419
+msgctxt "Label for selecting weeks of the month in a scheduling rule"
+msgid "Weeks of the month"
+msgstr "Settimane del mese"
+
+#: includes/class-custom-post-types.php:436 includes/class-settings.php:420
+msgctxt "Label to select a date for a scheduling rule"
+msgid "Date"
+msgstr "Data"
+
+#: includes/class-custom-post-types.php:437 includes/class-settings.php:421
+msgctxt "Label to select a time slot for a scheduling rule"
+msgid "Time"
+msgstr "Ora"
+
+#: includes/class-custom-post-types.php:438 includes/class-settings.php:422
+msgctxt "Label to set a scheduling rule to last all day"
+msgid "All day"
+msgstr "Tutto il giorno"
+
+#: includes/class-custom-post-types.php:439 includes/class-settings.php:423
+msgctxt "Label for the starting time of a scheduling rule"
+msgid "Start"
+msgstr "Inizio"
+
+#: includes/class-custom-post-types.php:440 includes/class-settings.php:424
+msgctxt "Label for the ending time of a scheduling rule"
+msgid "End"
+msgstr "Fine"
+
+#: includes/class-custom-post-types.php:441 includes/class-settings.php:425
+#, php-format
+msgctxt ""
+"Prompt displayed when a scheduling rule is set without any time restrictions"
+msgid "All day long. Want to %sset a time slot%s?"
+msgstr "Intera giornata. Vuoi %simpostare degli orari%s?"
+
+#: includes/class-custom-post-types.php:442 includes/class-settings.php:426
+msgctxt "Toggle a scheduling rule open and closed"
+msgid "Open and close this rule"
+msgstr "Apri e chiudi questa regola"
+
+#: includes/class-custom-post-types.php:443 includes/class-settings.php:427
+msgctxt "Delete a scheduling rule"
+msgid "Delete rule"
+msgstr "Cancella regola"
+
+#: includes/class-custom-post-types.php:444 includes/class-settings.php:428
+msgid "Delete scheduling rule"
+msgstr "Cancella regola di calendario"
+
+#: includes/class-custom-post-types.php:445 includes/class-settings.php:429
+msgctxt ""
+"Brief default description of a scheduling rule when no weekdays or weeks are "
+"included in the rule"
+msgid "Never"
+msgstr "Mai"
+
+#: includes/class-custom-post-types.php:446 includes/class-settings.php:430
+msgctxt ""
+"Brief default description of a scheduling rule when all the weekdays/weeks "
+"are included in the rule"
+msgid "Every day"
+msgstr "Ogni giorno"
+
+#: includes/class-custom-post-types.php:447 includes/class-settings.php:431
+#, php-format
+msgctxt ""
+"Brief default description of a scheduling rule when some weekdays are "
+"included on only some weeks of the month. %s should be left alone and will "
+"be replaced by a comma-separated list of days and weeks in the following "
+"format: M, T, W on the first, second week of the month"
+msgid "%s on the %s week of the month"
+msgstr "%s durante la %s settimana del mese"
+
+#: includes/class-custom-post-types.php:448 includes/class-settings.php:432
+#, php-format
+msgctxt ""
+"Brief default description of a scheduling rule when some weeks of the month "
+"are included but all or no weekdays are selected. %s should be left alone "
+"and will be replaced by a comma-separated list of weeks in the following "
+"format: First, second week of the month"
+msgid "%s week of the month"
+msgstr "%s settimana del mese"
+
+#: includes/class-custom-post-types.php:449 includes/class-settings.php:433
+msgctxt "Brief default description of a scheduling rule when no times are set"
+msgid "All day"
+msgstr "Tutto il giorno"
+
+#: includes/class-custom-post-types.php:450 includes/class-settings.php:434
+msgctxt ""
+"Brief default description of a scheduling rule when an end time is set but "
+"no start time. If the end time is 6pm, it will read: Ends at 6pm"
+msgid "Ends at"
+msgstr "Fino alle"
+
+#: includes/class-custom-post-types.php:451 includes/class-settings.php:435
+msgctxt ""
+"Brief default description of a scheduling rule when a start time is set but "
+"no end time. If the start time is 6pm, it will read: Starts at 6pm"
+msgid "Starts at"
+msgstr "A partire dalle"
+
+#: includes/class-custom-post-types.php:452 includes/class-settings.php:436
+msgctxt "Separator between times of a scheduling rule"
+msgid "&mdash;"
+msgstr "&mdash;"
+
+#. Plugin Name of the plugin/theme
+#: includes/class-settings.php:230 includes/class-settings.php:231
+#: includes/class-settings.php:242 includes/class-settings.php:243
+msgid "Business Profile"
+msgstr "Profilo aziendale"
+
+#: includes/class-settings.php:256
+msgid "Search Engine Optimization"
+msgstr "Ottimizzazione per i motori di ricerca"
+
+#: includes/class-settings.php:267
+msgid ""
+"Select the option that best describes your business to improve how search "
+"engines understand your website"
+msgstr ""
+"Seleziona l'opzione che descrive meglio la tua azienda per aiutare i motori "
+"di ricerca a capire meglio il tuo sito"
+
+#: includes/class-settings.php:277
+msgid "Contact Information"
+msgstr "Informazioni di contatto"
+
+#: includes/class-settings.php:287
+msgid "Name"
+msgstr "Nome"
+
+#: includes/class-settings.php:288
+msgid ""
+"Enter the name of your business if it is different than the website name."
+msgstr "Inserisci il nome dell'azienda se è differente dal nome del sito."
+
+#: includes/class-settings.php:299
+msgid "Address"
+msgstr "Indirizzo"
+
+#: includes/class-settings.php:309
+msgid "Try again?"
+msgstr "Riprova?"
+
+#: includes/class-settings.php:314
+msgid "Nothing was found at that address"
+msgstr "Non risulta niente a quest'indirizzo"
+
+#: includes/class-settings.php:325
+msgid "Google Maps API Key"
+msgstr "API Key di Google Maps"
+
+#: includes/class-settings.php:327
+#, php-format
+msgid ""
+"Google requires an API key to use their maps. %sGet an API key%s. A full "
+"walk-through is available in the %sdocumentation%s."
+msgstr ""
+"Google richiede una API key per utilizzare le mappe. %sOttieni una API key"
+"%s. Una guida passo-passo è disponibile nella %sdocumentazione%s."
+
+#: includes/class-settings.php:342
+msgid "Phone"
+msgstr "Telefono"
+
+#: includes/class-settings.php:352
+msgid "Fax"
+msgstr "Fax"
+
+#: includes/class-settings.php:363
+msgid ""
+"Select a page on your site where users can reach you, such as a contact form."
+msgstr ""
+"Seleziona una pagina del sito dove gli utenti possono contattarti, ad "
+"esempio tramite un modulo di contatto"
+
+#: includes/class-settings.php:380
+msgid ""
+"Enter an email address only if you want to display this publicly. Showing "
+"your email address on your site may cause you to receive excessive spam."
+msgstr ""
+"Inserire un indirizzo email solo se lo si vuole mostrare pubblicamente. "
+"Mostrare un indirizzo email sul proprio sito può causare la ricezione di "
+"quantità eccessive di spam."
+
+#: includes/class-settings.php:388
+msgid "Schedule"
+msgstr "Calendario"
+
+#: includes/class-settings.php:447
+msgid "Additional Information"
+msgstr "Informazioni aggiuntive"
+
+#: includes/class-settings.php:448
+msgid "Additional information displayed below Opening Hours."
+msgstr "Informazioni aggiuntive mostrate sotto l'orario di apertura."
+
+#: includes/class-settings.php:456 includes/class-settings.php:466
+msgid "Multiple Locations"
+msgstr "Sedi  multiple"
+
+#: includes/class-settings.php:467
+msgid "Enable support for multiple business locations."
+msgstr "Abilita il supporto per sedi multiple."
+
+#: includes/deprecated/class-integrations.php:147
+msgid "Book a table"
+msgstr "Prenota un tavolo"
+
+#: includes/deprecated/class-integrations.php:170
+#: includes/deprecated/class-integrations.php:173
+msgid "Show book a table link"
+msgstr "Mostra il link prenota un tavolo"
+
+#: includes/template-functions.php:214
+msgid "Get directions"
+msgstr "Indicazioni stradali"
+
+#: includes/template-functions.php:316
+msgid "Contact"
+msgstr "Contatto"
+
+#: includes/template-functions.php:364
+msgid "Mo"
+msgstr "Lun"
+
+#: includes/template-functions.php:365
+msgid "Tu"
+msgstr "Mar"
+
+#: includes/template-functions.php:366
+msgid "We"
+msgstr "Mer"
+
+#: includes/template-functions.php:367
+msgid "Th"
+msgstr "Gio"
+
+#: includes/template-functions.php:368
+msgid "Fr"
+msgstr "Ven"
+
+#: includes/template-functions.php:369
+msgid "Sa"
+msgstr "Sab"
+
+#: includes/template-functions.php:370
+msgid "Su"
+msgstr "Dom"
+
+#: includes/template-functions.php:375
+msgctxt ""
+"Separator between days of the week when displaying opening hours in brief. "
+"Example: Mo,Tu,We"
+msgid ","
+msgstr ","
+
+#: includes/template-functions.php:378
+#, php-format
+msgctxt ""
+"Brief opening hours description which lists days_strings when open all day. "
+"Example: Mo,Tu,We all day"
+msgid "%s all day"
+msgstr "%s tutto il giorno"
+
+#: includes/template-functions.php:390
+#, php-format
+msgctxt ""
+"Brief opening hours description which lists the days followed by the closing "
+"time. Example: Mo,Tu,We open until 9:00pm"
+msgid "%s open until %s"
+msgstr "%s aperto fino alle %s"
+
+#: includes/template-functions.php:392
+#, php-format
+msgctxt ""
+"Brief opening hours description which lists the days followed by the opening "
+"time. Example: Mo,Tu,We open from 9:00am"
+msgid "%s open from %s"
+msgstr "%s aperto dalle %s"
+
+#: includes/template-functions.php:394
+#, php-format
+msgctxt ""
+"Brief opening hours description which lists the days followed by the opening "
+"and closing times. Example: Mo,Tu,We 9:00am&thinsp;&ndash;&thinsp;5:00pm"
+msgid "%s %s&thinsp;&ndash;&thinsp;%s"
+msgstr "%s %s&thinsp;&ndash;&thinsp;%s"
+
+#: includes/template-functions.php:401
+msgctxt ""
+"Separator between multiple opening times in the brief opening hours. "
+"Example: Mo,We 9:00 AM&thinsp;&ndash;&thinsp;5:00 PM; Tu,Th 10:00 AM&thinsp;"
+"&ndash;&thinsp;5:00 PM"
+msgid "; "
+msgstr ";"
+
+#: includes/template-functions.php:411
+msgid "Monday"
+msgstr "Lunedì"
+
+#: includes/template-functions.php:412
+msgid "Tuesday"
+msgstr "Martedì"
+
+#: includes/template-functions.php:413
+msgid "Wednesday"
+msgstr "Mercoledì"
+
+#: includes/template-functions.php:414
+msgid "Thursday"
+msgstr "Giovedì"
+
+#: includes/template-functions.php:415
+msgid "Friday"
+msgstr "Venerdì"
+
+#: includes/template-functions.php:416
+msgid "Saturday"
+msgstr "Sabato"
+
+#: includes/template-functions.php:417
+msgid "Sunday"
+msgstr "Domenica"
+
+#: includes/template-functions.php:429
+msgid "Open"
+msgstr "Aperto"
+
+#: includes/template-functions.php:441
+msgid "Open until "
+msgstr "Aperto fino "
+
+#: includes/template-functions.php:443
+msgid "Open from "
+msgstr "Aperto dalle"
+
+#: includes/template-functions.php:445
+msgctxt ""
+"Separator between opening and closing times. Example: 9:00am&thinsp;&ndash;"
+"&thinsp;5:00pm"
+msgid "&thinsp;&ndash;&thinsp;"
+msgstr "&thinsp;&ndash;&thinsp;"
+
+#: includes/template-functions.php:465
+msgid "Closed"
+msgstr "Chiuso"
+
+#: includes/template-functions.php:617
+msgid "Get Directions"
+msgstr "Indicazioni stradali"
+
+#: lib/simple-admin-pages/classes/AdminPage.class.php:173
+msgid "You do not have sufficient permissions to access this page."
+msgstr "Non hai permessi sufficienti per accedere a questa pagina."
+
+#. Plugin URI of the plugin/theme
+#. Author URI of the plugin/theme
+msgid "http://themeofthecrop.com"
+msgstr "http://themeofthecrop.com"
+
+#. Description of the plugin/theme
+msgid ""
+"Contact information, Google Maps and opening hours made easy for businesses."
+msgstr ""
+"Informazioni di contatto, Mappe Google e orario d'apertura resi facili per "
+"le aziende."
+
+#. Author of the plugin/theme
+msgid "Theme of the Crop"
+msgstr "Theme of the Crop"
