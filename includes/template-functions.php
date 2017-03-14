@@ -96,6 +96,12 @@ if ( ! function_exists( 'bpwfwp_print_contact_card' ) ) {
 			'contact-card'
 		);
 
+		// Check if location is allowed to be viewed
+		$location_id = bpfwp_get_display( 'location' );
+		if ( $location_id && !current_user_can( 'edit_location', $location_id ) && get_post_status( $location_id ) !== 'publish' ) {
+			return apply_filters( 'bpwfwp_protected_contact_card_output', '' );
+		}
+
 		// Setup components and callback functions to render them.
 		$data = apply_filters(
 			'bpwfwp_component_callbacks',
