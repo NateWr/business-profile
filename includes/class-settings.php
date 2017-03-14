@@ -193,7 +193,7 @@ if ( ! class_exists( 'bpfwpSettings' ) ) :
 			require_once BPFWP_PLUGIN_DIR . '/lib/simple-admin-pages/simple-admin-pages.php';
 			$sap = sap_initialize_library(
 				$args = array(
-					'version' => '2.0',
+					'version' => '2.0.1',
 					'lib_url' => BPFWP_PLUGIN_URL . '/lib/simple-admin-pages/',
 				)
 			);
