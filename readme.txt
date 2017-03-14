@@ -3,9 +3,9 @@ Contributors: NateWr, fatmedia
 Author URI: https://github.com/NateWr
 Plugin URL: http://themeofthecrop.com
 Requires at Least: 4.4
-Tested Up To: 4.6
+Tested Up To: 4.7.3
 Tags: business profile, seo, local seo, schema, address, google map, contact, phone
-Stable tag: 1.1.1
+Stable tag: 1.1.2
 License: GPLv2 or later
 Donate link: http://themeofthecrop.com
 
@@ -85,6 +85,13 @@ You'll find more help in the [User Guide](http://doc.themeofthecrop.com/plugins/
 
 == Changelog ==
 
+= 1.1.2 (2017-03-14) =
+* Fix: Don't display contact card for unpublished locations
+* Fix: PHP Notice on post editing page (h/t @robneu)
+* Add: Italian and Swedish translations (h/t @lucspe and Daniel Schwitzkey)
+* Update: Always instantiate post type class
+* Update: Give settings table rows class attributes (h/t @lucspe)
+
 = 1.1.1 (2016-06-28) =
 * Add field for Google Maps API Key to follow new API guidelines
 
@@ -144,6 +151,9 @@ You'll find more help in the [User Guide](http://doc.themeofthecrop.com/plugins/
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.1.2 =
+This minor update fixes a few obscure bugs and prevents the [contact-card] shortcode from displaying an unpublished location. It also adds Italian and Swedish translations.
 
 = 1.1.1 =
 This update adds support for a Google Maps API Key. Since June 22, 2016, Google Maps will require all _new_ websites to use an API key in order to display maps. Instructions can be found near the new API Key field in your Business Profile.
