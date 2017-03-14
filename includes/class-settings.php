@@ -260,7 +260,7 @@ if ( ! class_exists( 'bpfwpSettings' ) ) :
 					'options'      => $this->get_schema_types(),
 					'args'			=> array(
 						'label_for' => 'schema_type',
-						'class' 	=> 'schema_type'
+						'class' 	=> 'bpfwp-schema_type'
 					)
 				)
 			);
@@ -284,7 +284,7 @@ if ( ! class_exists( 'bpfwpSettings' ) ) :
 					'placeholder' => $this->defaults['name'],
 					'args'			=> array(
 						'label_for' => 'bpfwp-settings[name]',
-						'class' 	=> 'name'
+						'class' 	=> 'bpfwp-name'
 					)
 
 				)
@@ -315,7 +315,7 @@ if ( ! class_exists( 'bpfwpSettings' ) ) :
 					),
 					'args'			=> array(
 						'label_for' => 'bpfwp-settings[address]',
-						'class' 	=> 'address'
+						'class' 	=> 'bpfwp-address'
 					)
 				)
 			);
@@ -336,7 +336,7 @@ if ( ! class_exists( 'bpfwpSettings' ) ) :
 					),
 					'args'			=> array(
 						'label_for' => 'bpfwp-settings[google-maps-api-key]',
-						'class' 	=> 'google-maps-api-key'
+						'class' 	=> 'bpfwp-google-maps-api-key'
 					)
 				)
 			);
@@ -350,7 +350,7 @@ if ( ! class_exists( 'bpfwpSettings' ) ) :
 					'title' => __( 'Phone', 'business-profile' ),
 					'args'			=> array(
 						'label_for' => 'bpfwp-settings[phone]',
-						'class' 	=> 'phone'
+						'class' 	=> 'bpfwp-phone'
 					)
 				)
 			);
@@ -369,7 +369,7 @@ if ( ! class_exists( 'bpfwpSettings' ) ) :
 						'posts_per_page' => -1,
 						'post_status'    => 'publish',
 						'label_for' => 'bpfwp-settings[contact-page]',
-						'class' 	=> 'contact-page'
+						'class' 	=> 'bpfwp-contact-page'
 					),
 				)
 			);
@@ -384,7 +384,7 @@ if ( ! class_exists( 'bpfwpSettings' ) ) :
 					'description' => __( 'Enter an email address only if you want to display this publicly. Showing your email address on your site may cause you to receive excessive spam.', 'business-profile' ),
 					'args'			=> array(
 						'label_for' => 'bpfwp-settings[contact-email]',
-						'class' 	=> 'contact-email'
+						'class' 	=> 'bpfwp-contact-email'
 					)
 				)
 			);
@@ -444,7 +444,7 @@ if ( ! class_exists( 'bpfwpSettings' ) ) :
 						'separator'        => _x( '&mdash;', 'Separator between times of a scheduling rule', 'business-profile' ),
 					),
 					'args'			=> array(
-						'class' 	=> 'opening-hours'
+						'class' 	=> 'bpfwp-opening-hours'
 					)
 				)
 			);
@@ -467,9 +467,9 @@ if ( ! class_exists( 'bpfwpSettings' ) ) :
 					'label'			=> __( 'Enable support for multiple business locations.', 'business-profile' ),
 					'args'			=> array(
 						'label_for' => 'bpfwp-settings[multiple-locations]',
-						'class' 	=> 'multiple-locations'
+						'class' 	=> 'bpfwp-multiple-locations'
 					)
-					
+
 				)
 			);
 
