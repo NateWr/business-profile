@@ -258,6 +258,10 @@ if ( ! class_exists( 'bpfwpSettings' ) ) :
 					'description'  => __( 'Select the option that best describes your business to improve how search engines understand your website', 'business-profile' ) . ' <a href="http://schema.org/" target="_blank">Schema.org</a>',
 					'blank_option' => false,
 					'options'      => $this->get_schema_types(),
+					'args'			=> array(
+						'label_for' => 'schema_type',
+						'class' 	=> 'schema_type'
+					)
 				)
 			);
 
@@ -278,6 +282,11 @@ if ( ! class_exists( 'bpfwpSettings' ) ) :
 					'title'       => __( 'Name', 'business-profile' ),
 					'description' => __( 'Enter the name of your business if it is different than the website name.', 'business-profile' ),
 					'placeholder' => $this->defaults['name'],
+					'args'			=> array(
+						'label_for' => 'bpfwp-settings[name]',
+						'class' 	=> 'name'
+					)
+
 				)
 			);
 
@@ -304,6 +313,10 @@ if ( ! class_exists( 'bpfwpSettings' ) ) :
 						'result_limit'     => __( 'Request denied because you are over your request quota.', 'business-profile' ),
 						'result_empty'     => __( 'Nothing was found at that address', 'business-profile' ),
 					),
+					'args'			=> array(
+						'label_for' => 'bpfwp-settings[address]',
+						'class' 	=> 'address'
+					)
 				)
 			);
 
@@ -321,6 +334,10 @@ if ( ! class_exists( 'bpfwpSettings' ) ) :
 						'<a href="http://doc.themeofthecrop.com/plugins/business-profile/user/faq#google-maps-api-key">',
 						'</a>'
 					),
+					'args'			=> array(
+						'label_for' => 'bpfwp-settings[google-maps-api-key]',
+						'class' 	=> 'google-maps-api-key'
+					)
 				)
 			);
 
@@ -331,6 +348,10 @@ if ( ! class_exists( 'bpfwpSettings' ) ) :
 				array(
 					'id'    => 'phone',
 					'title' => __( 'Phone', 'business-profile' ),
+					'args'			=> array(
+						'label_for' => 'bpfwp-settings[phone]',
+						'class' 	=> 'phone'
+					)
 				)
 			);
 
@@ -347,6 +368,8 @@ if ( ! class_exists( 'bpfwpSettings' ) ) :
 						'post_type'      => 'page',
 						'posts_per_page' => -1,
 						'post_status'    => 'publish',
+						'label_for' => 'bpfwp-settings[contact-page]',
+						'class' 	=> 'contact-page'
 					),
 				)
 			);
@@ -359,6 +382,10 @@ if ( ! class_exists( 'bpfwpSettings' ) ) :
 					'id'          => 'contact-email',
 					'title'       => __( 'Email Address (optional)', 'business-profile' ),
 					'description' => __( 'Enter an email address only if you want to display this publicly. Showing your email address on your site may cause you to receive excessive spam.', 'business-profile' ),
+					'args'			=> array(
+						'label_for' => 'bpfwp-settings[contact-email]',
+						'class' 	=> 'contact-email'
+					)
 				)
 			);
 
@@ -416,6 +443,9 @@ if ( ! class_exists( 'bpfwpSettings' ) ) :
 						'after'            => _x( 'Starts at', 'Brief default description of a scheduling rule when a start time is set but no end time. If the start time is 6pm, it will read: Starts at 6pm', 'business-profile' ),
 						'separator'        => _x( '&mdash;', 'Separator between times of a scheduling rule', 'business-profile' ),
 					),
+					'args'			=> array(
+						'class' 	=> 'opening-hours'
+					)
 				)
 			);
 
@@ -435,6 +465,11 @@ if ( ! class_exists( 'bpfwpSettings' ) ) :
 					'id'			=> 'multiple-locations',
 					'title'			=> __( 'Multiple Locations', 'business-profile' ),
 					'label'			=> __( 'Enable support for multiple business locations.', 'business-profile' ),
+					'args'			=> array(
+						'label_for' => 'bpfwp-settings[multiple-locations]',
+						'class' 	=> 'multiple-locations'
+					)
+					
 				)
 			);
 
