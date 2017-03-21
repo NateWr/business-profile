@@ -5,7 +5,7 @@ Plugin URL: http://themeofthecrop.com
 Requires at Least: 4.4
 Tested Up To: 4.7.3
 Tags: business profile, seo, local seo, schema, address, google map, contact, phone
-Stable tag: 1.1.2
+Stable tag: 1.1.3
 License: GPLv2 or later
 Donate link: http://themeofthecrop.com
 
@@ -85,6 +85,9 @@ You'll find more help in the [User Guide](http://doc.themeofthecrop.com/plugins/
 
 == Changelog ==
 
+= 1.1.3 (2017-03-21) =
+* Fix: Fatal error with location schedule metabox
+
 = 1.1.2 (2017-03-14) =
 * Fix: Don't display contact card for unpublished locations
 * Fix: PHP Notice on post editing page (h/t @robneu)
@@ -151,6 +154,9 @@ You'll find more help in the [User Guide](http://doc.themeofthecrop.com/plugins/
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.1.3 =
+This update fixes a critical bug when trying to add or edit a location's opening hours.
 
 = 1.1.2 =
 This minor update fixes a few obscure bugs and prevents the [contact-card] shortcode from displaying an unpublished location. It also adds Italian and Swedish translations.

@@ -23,7 +23,7 @@ if ( ! class_exists( 'bpfwpSAPSchedulerMeta', false ) && class_exists( 'sapAdmin
 	 *
 	 * @since 1.1
 	 */
-	class bpfwpSAPSchedulerMeta extends sapAdminPageSettingScheduler_2_0_1{
+	class bpfwpSAPSchedulerMeta extends sapAdminPageSettingScheduler_2_0_1 {
 
 		/**
 		 * Generate an option input field name. The default component appends
