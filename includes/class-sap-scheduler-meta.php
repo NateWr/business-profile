@@ -15,7 +15,7 @@ defined( 'ABSPATH' ) || exit;
 
 require_once BPFWP_PLUGIN_DIR . '/lib/simple-admin-pages/classes/AdminPageSetting.Scheduler.class.php';
 
-if ( ! class_exists( 'bpfwpSAPSchedulerMeta', false ) && class_exists( 'sapAdminPageSettingScheduler_2_0' ) ) :
+if ( ! class_exists( 'bpfwpSAPSchedulerMeta', false ) && class_exists( 'sapAdminPageSettingScheduler_2_0_1' ) ) :
 
 	/**
 	 * Class to extend the Simple Admin Pages Scheduler component for use on
@@ -23,7 +23,7 @@ if ( ! class_exists( 'bpfwpSAPSchedulerMeta', false ) && class_exists( 'sapAdmin
 	 *
 	 * @since 1.1
 	 */
-	class bpfwpSAPSchedulerMeta extends sapAdminPageSettingScheduler_2_0 {
+	class bpfwpSAPSchedulerMeta extends sapAdminPageSettingScheduler_2_0_1{
 
 		/**
 		 * Generate an option input field name. The default component appends
