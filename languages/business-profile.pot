@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v2.0 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Business Profile 1.1.3\n"
+"Project-Id-Version: Business Profile 1.1.4\n"
 "Report-Msgid-Bugs-To: https://themeofthecrop.com\n"
-"POT-Creation-Date: 2017-03-21 14:22:12+00:00\n"
+"POT-Creation-Date: 2017-04-21 14:50:58+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -78,8 +78,8 @@ msgstr ""
 
 #: includes/class-custom-post-types.php:59
 #: includes/class-custom-post-types.php:61
-#: includes/class-custom-post-types.php:62 includes/class-settings.php:208
-#: includes/class-settings.php:209
+#: includes/class-custom-post-types.php:62 includes/class-settings.php:212
+#: includes/class-settings.php:213
 msgid "Locations"
 msgstr ""
 
@@ -104,114 +104,118 @@ msgid "View Location"
 msgstr ""
 
 #: includes/class-custom-post-types.php:68
-msgid "Search Locations"
+msgid "View Locations"
 msgstr ""
 
 #: includes/class-custom-post-types.php:69
-msgid "No locations found"
+msgid "Search Locations"
 msgstr ""
 
 #: includes/class-custom-post-types.php:70
-msgid "No locations found in trash"
+msgid "No locations found"
 msgstr ""
 
 #: includes/class-custom-post-types.php:71
+msgid "No locations found in trash"
+msgstr ""
+
+#: includes/class-custom-post-types.php:72
 msgid "All Locations"
 msgstr ""
 
-#: includes/class-custom-post-types.php:146 includes/class-settings.php:257
+#: includes/class-custom-post-types.php:148 includes/class-settings.php:262
 msgid "Schema Type"
 msgstr ""
 
-#: includes/class-custom-post-types.php:157
+#: includes/class-custom-post-types.php:159
 msgid "Contact Details"
 msgstr ""
 
-#: includes/class-custom-post-types.php:167
-#: includes/class-custom-post-types.php:407 includes/class-settings.php:406
+#: includes/class-custom-post-types.php:169
+#: includes/class-custom-post-types.php:409 includes/class-settings.php:431
 #: templates/opening-hours.php:21
 msgid "Opening Hours"
 msgstr ""
 
-#: includes/class-custom-post-types.php:228
+#: includes/class-custom-post-types.php:230
 msgid "Schema type"
 msgstr ""
 
-#: includes/class-custom-post-types.php:238
+#: includes/class-custom-post-types.php:240 includes/class-settings.php:263
 msgid ""
 "Select the option that best describes your business to improve how search "
 "engines understand your website."
 msgstr ""
 
-#: includes/class-custom-post-types.php:264
-#: includes/class-custom-post-types.php:288 includes/class-settings.php:303
+#: includes/class-custom-post-types.php:266
+#: includes/class-custom-post-types.php:290 includes/class-settings.php:328
 msgid "No map coordinates set."
 msgstr ""
 
-#: includes/class-custom-post-types.php:266 includes/class-settings.php:304
+#: includes/class-custom-post-types.php:268 includes/class-settings.php:329
 msgid "Requesting new coordinates"
 msgstr ""
 
-#: includes/class-custom-post-types.php:267 includes/class-settings.php:305
+#: includes/class-custom-post-types.php:269 includes/class-settings.php:330
 msgid "Select a match below"
 msgstr ""
 
-#: includes/class-custom-post-types.php:268
-#: includes/class-custom-post-types.php:291 includes/class-settings.php:306
+#: includes/class-custom-post-types.php:270
+#: includes/class-custom-post-types.php:293 includes/class-settings.php:331
 msgid "View"
 msgstr ""
 
-#: includes/class-custom-post-types.php:269 includes/class-settings.php:310
+#: includes/class-custom-post-types.php:271 includes/class-settings.php:335
 msgid "Error"
 msgstr ""
 
-#: includes/class-custom-post-types.php:270 includes/class-settings.php:311
+#: includes/class-custom-post-types.php:272 includes/class-settings.php:336
 msgid ""
 "Invalid request. Be sure to fill out the address field before retrieving "
 "coordinates."
 msgstr ""
 
-#: includes/class-custom-post-types.php:271 includes/class-settings.php:312
+#: includes/class-custom-post-types.php:273 includes/class-settings.php:337
 msgid "Request denied."
 msgstr ""
 
-#: includes/class-custom-post-types.php:272 includes/class-settings.php:313
+#: includes/class-custom-post-types.php:274 includes/class-settings.php:338
 msgid "Request denied because you are over your request quota."
 msgstr ""
 
-#: includes/class-custom-post-types.php:273
+#: includes/class-custom-post-types.php:275
 msgid "Nothing was found at that address."
 msgstr ""
 
-#: includes/class-custom-post-types.php:298 includes/class-settings.php:307
+#: includes/class-custom-post-types.php:300 includes/class-settings.php:332
 msgid "Retrieve map coordinates"
 msgstr ""
 
-#: includes/class-custom-post-types.php:302 includes/class-settings.php:308
+#: includes/class-custom-post-types.php:304 includes/class-settings.php:333
 msgid "Remove map coordinates"
 msgstr ""
 
-#: includes/class-custom-post-types.php:330 includes/class-settings.php:364
+#: includes/class-custom-post-types.php:332 includes/class-settings.php:389
 msgid "Contact Page"
 msgstr ""
 
-#: includes/class-custom-post-types.php:344 includes/class-settings.php:383
+#: includes/class-custom-post-types.php:346 includes/class-settings.php:408
 msgid "Email Address (optional)"
 msgstr ""
 
-#: includes/class-custom-post-types.php:351
+#: includes/class-custom-post-types.php:353
 msgid "Phone Number"
 msgstr ""
 
-#: includes/class-custom-post-types.php:408 includes/class-settings.php:407
+#: includes/class-custom-post-types.php:410 includes/class-settings.php:432
 msgid "Define your weekly opening hours by adding scheduling rules."
 msgstr ""
 
-#: includes/class-custom-post-types.php:423 includes/class-settings.php:422
+#: includes/class-custom-post-types.php:425 includes/class-settings.php:447
 msgid "Add another opening time"
 msgstr ""
 
-#: includes/class-custom-post-types.php:437 includes/class-settings.php:436
+#: includes/class-custom-post-types.php:439 includes/class-settings.php:461
 msgid "Delete scheduling rule"
 msgstr ""
 
@@ -219,75 +223,91 @@ msgstr ""
 msgid "Business Profile"
 msgstr ""
 
-#: includes/class-settings.php:247
+#: includes/class-settings.php:252
 msgid "Search Engine Optimization"
 msgstr ""
 
-#: includes/class-settings.php:258
-msgid ""
-"Select the option that best describes your business to improve how search "
-"engines understand your website"
+#: includes/class-settings.php:279
+msgid "Image"
 msgstr ""
 
-#: includes/class-settings.php:272
-msgid "Contact Information"
+#: includes/class-settings.php:280
+msgid ""
+"Google requires you provide an image to display with your local business "
+"search profile."
 msgstr ""
 
 #: includes/class-settings.php:282
-msgid "Name"
+msgid "Add Image"
 msgstr ""
 
 #: includes/class-settings.php:283
+msgid "Change Image"
+msgstr ""
+
+#: includes/class-settings.php:284
+msgid "Remove Image"
+msgstr ""
+
+#: includes/class-settings.php:297
+msgid "Contact Information"
+msgstr ""
+
+#: includes/class-settings.php:307
+msgid "Name"
+msgstr ""
+
+#: includes/class-settings.php:308
 msgid "Enter the name of your business if it is different than the website name."
 msgstr ""
 
-#: includes/class-settings.php:299
+#: includes/class-settings.php:324
 msgid "Address"
 msgstr ""
 
-#: includes/class-settings.php:309
+#: includes/class-settings.php:334
 msgid "Try again?"
 msgstr ""
 
-#: includes/class-settings.php:314
+#: includes/class-settings.php:339
 msgid "Nothing was found at that address"
 msgstr ""
 
-#: includes/class-settings.php:329
+#: includes/class-settings.php:354
 msgid "Google Maps API Key"
 msgstr ""
 
-#: includes/class-settings.php:331
+#: includes/class-settings.php:356
 msgid ""
 "Google requires an API key to use their maps. %sGet an API key%s. A full "
 "walk-through is available in the %sdocumentiaton%s."
 msgstr ""
 
-#: includes/class-settings.php:350
+#: includes/class-settings.php:375
 msgid "Phone"
 msgstr ""
 
-#: includes/class-settings.php:365
+#: includes/class-settings.php:390
 msgid ""
 "Select a page on your site where users can reach you, such as a contact "
 "form."
 msgstr ""
 
-#: includes/class-settings.php:384
+#: includes/class-settings.php:409
 msgid ""
 "Enter an email address only if you want to display this publicly. Showing "
 "your email address on your site may cause you to receive excessive spam."
 msgstr ""
 
-#: includes/class-settings.php:396
+#: includes/class-settings.php:421
 msgid "Schedule"
 msgstr ""
 
-#: includes/class-settings.php:456 includes/class-settings.php:466
+#: includes/class-settings.php:481 includes/class-settings.php:491
 msgid "Multiple Locations"
 msgstr ""
 
-#: includes/class-settings.php:467
+#: includes/class-settings.php:492
 msgid "Enable support for multiple business locations."
 msgstr ""
 
@@ -400,53 +420,53 @@ msgstr ""
 msgid "Theme of the Crop"
 msgstr ""
 
-#: includes/class-custom-post-types.php:265
-#: includes/class-custom-post-types.php:290 includes/class-settings.php:302
+#: includes/class-custom-post-types.php:267
+#: includes/class-custom-post-types.php:292 includes/class-settings.php:327
 msgctxt "separates latitude and longitude"
 msgid ", "
 msgstr ""
 
-#: includes/class-custom-post-types.php:300 includes/class-settings.php:301
+#: includes/class-custom-post-types.php:302 includes/class-settings.php:326
 msgctxt "separator between admin action links in address component"
 msgid " | "
 msgstr ""
 
-#: includes/class-custom-post-types.php:410 includes/class-settings.php:409
+#: includes/class-custom-post-types.php:412 includes/class-settings.php:434
 msgctxt "Monday abbreviation"
 msgid "Mo"
 msgstr ""
 
-#: includes/class-custom-post-types.php:411 includes/class-settings.php:410
+#: includes/class-custom-post-types.php:413 includes/class-settings.php:435
 msgctxt "Tuesday abbreviation"
 msgid "Tu"
 msgstr ""
 
-#: includes/class-custom-post-types.php:412 includes/class-settings.php:411
+#: includes/class-custom-post-types.php:414 includes/class-settings.php:436
 msgctxt "Wednesday abbreviation"
 msgid "We"
 msgstr ""
 
-#: includes/class-custom-post-types.php:413 includes/class-settings.php:412
+#: includes/class-custom-post-types.php:415 includes/class-settings.php:437
 msgctxt "Thursday abbreviation"
 msgid "Th"
 msgstr ""
 
-#: includes/class-custom-post-types.php:414 includes/class-settings.php:413
+#: includes/class-custom-post-types.php:416 includes/class-settings.php:438
 msgctxt "Friday abbreviation"
 msgid "Fr"
 msgstr ""
 
-#: includes/class-custom-post-types.php:415 includes/class-settings.php:414
+#: includes/class-custom-post-types.php:417 includes/class-settings.php:439
 msgctxt "Saturday abbreviation"
 msgid "Sa"
 msgstr ""
 
-#: includes/class-custom-post-types.php:416 includes/class-settings.php:415
+#: includes/class-custom-post-types.php:418 includes/class-settings.php:440
 msgctxt "Sunday abbreviation"
 msgid "Su"
 msgstr ""
 
-#: includes/class-custom-post-types.php:418 includes/class-settings.php:417
+#: includes/class-custom-post-types.php:420 includes/class-settings.php:442
 msgctxt ""
 "Time format displayed in the opening hours setting panel in your admin "
 "area. Must match formatting rules at "
@@ -454,7 +474,7 @@ msgctxt ""
 msgid "h:i A"
 msgstr ""
 
-#: includes/class-custom-post-types.php:419 includes/class-settings.php:418
+#: includes/class-custom-post-types.php:421 includes/class-settings.php:443
 msgctxt ""
 "Date format displayed in the opening hours setting panel in your admin "
 "area. Must match formatting rules at "
@@ -462,86 +482,86 @@ msgctxt ""
 msgid "mmmm d, yyyy"
 msgstr ""
 
-#: includes/class-custom-post-types.php:424 includes/class-settings.php:423
+#: includes/class-custom-post-types.php:426 includes/class-settings.php:448
 msgctxt "Format of a scheduling rule"
 msgid "Weekly"
 msgstr ""
 
-#: includes/class-custom-post-types.php:425 includes/class-settings.php:424
+#: includes/class-custom-post-types.php:427 includes/class-settings.php:449
 msgctxt "Format of a scheduling rule"
 msgid "Monthly"
 msgstr ""
 
-#: includes/class-custom-post-types.php:426 includes/class-settings.php:425
+#: includes/class-custom-post-types.php:428 includes/class-settings.php:450
 msgctxt "Format of a scheduling rule"
 msgid "Date"
 msgstr ""
 
-#: includes/class-custom-post-types.php:427 includes/class-settings.php:426
+#: includes/class-custom-post-types.php:429 includes/class-settings.php:451
 msgctxt "Label for selecting days of the week in a scheduling rule"
 msgid "Days of the week"
 msgstr ""
 
-#: includes/class-custom-post-types.php:428 includes/class-settings.php:427
+#: includes/class-custom-post-types.php:430 includes/class-settings.php:452
 msgctxt "Label for selecting weeks of the month in a scheduling rule"
 msgid "Weeks of the month"
 msgstr ""
 
-#: includes/class-custom-post-types.php:429 includes/class-settings.php:428
+#: includes/class-custom-post-types.php:431 includes/class-settings.php:453
 msgctxt "Label to select a date for a scheduling rule"
 msgid "Date"
 msgstr ""
 
-#: includes/class-custom-post-types.php:430 includes/class-settings.php:429
+#: includes/class-custom-post-types.php:432 includes/class-settings.php:454
 msgctxt "Label to select a time slot for a scheduling rule"
 msgid "Time"
 msgstr ""
 
-#: includes/class-custom-post-types.php:431 includes/class-settings.php:430
+#: includes/class-custom-post-types.php:433 includes/class-settings.php:455
 msgctxt "Label to set a scheduling rule to last all day"
 msgid "All day"
 msgstr ""
 
-#: includes/class-custom-post-types.php:432 includes/class-settings.php:431
+#: includes/class-custom-post-types.php:434 includes/class-settings.php:456
 msgctxt "Label for the starting time of a scheduling rule"
 msgid "Start"
 msgstr ""
 
-#: includes/class-custom-post-types.php:433 includes/class-settings.php:432
+#: includes/class-custom-post-types.php:435 includes/class-settings.php:457
 msgctxt "Label for the ending time of a scheduling rule"
 msgid "End"
 msgstr ""
 
-#: includes/class-custom-post-types.php:434 includes/class-settings.php:433
+#: includes/class-custom-post-types.php:436 includes/class-settings.php:458
 msgctxt "Prompt displayed when a scheduling rule is set without any time restrictions"
 msgid "All day long. Want to %sset a time slot%s?"
 msgstr ""
 
-#: includes/class-custom-post-types.php:435 includes/class-settings.php:434
+#: includes/class-custom-post-types.php:437 includes/class-settings.php:459
 msgctxt "Toggle a scheduling rule open and closed"
 msgid "Open and close this rule"
 msgstr ""
 
-#: includes/class-custom-post-types.php:436 includes/class-settings.php:435
+#: includes/class-custom-post-types.php:438 includes/class-settings.php:460
 msgctxt "Delete a scheduling rule"
 msgid "Delete rule"
 msgstr ""
 
-#: includes/class-custom-post-types.php:438 includes/class-settings.php:437
+#: includes/class-custom-post-types.php:440 includes/class-settings.php:462
 msgctxt ""
 "Brief default description of a scheduling rule when no weekdays or weeks "
 "are included in the rule"
 msgid "Never"
 msgstr ""
 
-#: includes/class-custom-post-types.php:439 includes/class-settings.php:438
+#: includes/class-custom-post-types.php:441 includes/class-settings.php:463
 msgctxt ""
 "Brief default description of a scheduling rule when all the weekdays/weeks "
 "are included in the rule"
 msgid "Every day"
 msgstr ""
 
-#: includes/class-custom-post-types.php:440 includes/class-settings.php:439
+#: includes/class-custom-post-types.php:442 includes/class-settings.php:464
 msgctxt ""
 "Brief default description of a scheduling rule when some weekdays are "
 "included on only some weeks of the month. %s should be left alone and will "
@@ -550,7 +570,7 @@ msgctxt ""
 msgid "%s on the %s week of the month"
 msgstr ""
 
-#: includes/class-custom-post-types.php:441 includes/class-settings.php:440
+#: includes/class-custom-post-types.php:443 includes/class-settings.php:465
 msgctxt ""
 "Brief default description of a scheduling rule when some weeks of the month "
 "are included but all or no weekdays are selected. %s should be left alone "
@@ -559,26 +579,26 @@ msgctxt ""
 msgid "%s week of the month"
 msgstr ""
 
-#: includes/class-custom-post-types.php:442 includes/class-settings.php:441
+#: includes/class-custom-post-types.php:444 includes/class-settings.php:466
 msgctxt "Brief default description of a scheduling rule when no times are set"
 msgid "All day"
 msgstr ""
 
-#: includes/class-custom-post-types.php:443 includes/class-settings.php:442
+#: includes/class-custom-post-types.php:445 includes/class-settings.php:467
 msgctxt ""
 "Brief default description of a scheduling rule when an end time is set but "
 "no start time. If the end time is 6pm, it will read: Ends at 6pm"
 msgid "Ends at"
 msgstr ""
 
-#: includes/class-custom-post-types.php:444 includes/class-settings.php:443
+#: includes/class-custom-post-types.php:446 includes/class-settings.php:468
 msgctxt ""
 "Brief default description of a scheduling rule when a start time is set but "
 "no end time. If the start time is 6pm, it will read: Starts at 6pm"
 msgid "Starts at"
 msgstr ""
 
-#: includes/class-custom-post-types.php:445 includes/class-settings.php:444
+#: includes/class-custom-post-types.php:447 includes/class-settings.php:469
 msgctxt "Separator between times of a scheduling rule"
 msgid "&mdash;"
 msgstr ""
