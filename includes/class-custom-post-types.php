@@ -65,6 +65,7 @@ if ( ! class_exists( 'bpfwpCustomPostTypes', false ) ) :
 					'edit_item'          => __( 'Edit Location',               'business-profile' ),
 					'new_item'           => __( 'New Location',                'business-profile' ),
 					'view_item'          => __( 'View Location',               'business-profile' ),
+					'view_items'         => __( 'View Locations',              'business-profile' ),
 					'search_items'       => __( 'Search Locations',            'business-profile' ),
 					'not_found'          => __( 'No locations found',          'business-profile' ),
 					'not_found_in_trash' => __( 'No locations found in trash', 'business-profile' ),
