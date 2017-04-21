@@ -3,9 +3,9 @@ Contributors: NateWr, fatmedia
 Author URI: https://github.com/NateWr
 Plugin URL: http://themeofthecrop.com
 Requires at Least: 4.4
-Tested Up To: 4.7.3
+Tested Up To: 4.7.4
 Tags: business profile, seo, local seo, schema, address, google map, contact, phone
-Stable tag: 1.1.3
+Stable tag: 1.1.4
 License: GPLv2 or later
 Donate link: http://themeofthecrop.com
 
@@ -85,6 +85,9 @@ You'll find more help in the [User Guide](http://doc.themeofthecrop.com/plugins/
 
 == Changelog ==
 
+= 1.1.4 (2017-04-21) =
+* Add: business image to comply with Google requirements
+
 = 1.1.3 (2017-03-21) =
 * Fix: Fatal error with location schedule metabox
 
@@ -154,6 +157,9 @@ You'll find more help in the [User Guide](http://doc.themeofthecrop.com/plugins/
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.1.4 =
+This update adds a new image setting, which Google now requires for local businesses. You're strongly encouraged to add an image for your business.
 
 = 1.1.3 =
 This update fixes a critical bug when trying to add or edit a location's opening hours.
