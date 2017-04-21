@@ -96,5 +96,8 @@
 ?>
 
 <address class="bp-contact-card" itemscope itemtype="http://schema.org/<?php echo bpfwp_setting( 'schema-type', bpfwp_get_display( 'location' ) ); ?>">
+	<?php if ( bpfwp_setting( 'image', bpfwp_get_display( 'location' ) ) ) : ?>
+		<meta itemprop="image" content="<?php echo esc_url( wp_get_attachment_url( bpfwp_setting( 'image', bpfwp_get_display( 'location' ) ) ) ); ?>">
+	<?php endif; ?>
 	<?php foreach ( $data as $data => $callback ) { call_user_func( $callback, bpfwp_get_display( 'location' ) ); } ?>
 </address>

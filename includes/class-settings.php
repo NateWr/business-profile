@@ -99,14 +99,15 @@ if ( ! class_exists( 'bpfwpSettings' ) ) :
 				'bpfwp_default_display_settings',
 				array(
 					'location'                  => false,
-					'show_name'					=> true,
-					'show_address'				=> true,
-					'show_get_directions'		=> true,
-					'show_phone'				=> true,
-					'show_contact'				=> true,
-					'show_opening_hours'		=> true,
-					'show_opening_hours_brief'	=> false,
-					'show_map'					=> true,
+					'show_name'                 => true,
+					'show_address'              => true,
+					'show_get_directions'       => true,
+					'show_phone'                => true,
+					'show_contact'              => true,
+					'show_opening_hours'        => true,
+					'show_opening_hours_brief'  => false,
+					'show_map'                  => true,
+					'show_image'                => false,
 				)
 			);
 
@@ -151,6 +152,9 @@ if ( ! class_exists( 'bpfwpSettings' ) ) :
 					case 'schema_type' :
 						return get_post_meta( $location, 'schema_type', true );
 
+					case 'image' :
+						return has_post_thumbnail( $location ) ? get_post_thumbnail_id( $location ) : $this->get_setting( $setting );
+
 					case 'name' :
 						return get_the_title( $location );
 
@@ -193,7 +197,7 @@ if ( ! class_exists( 'bpfwpSettings' ) ) :
 			require_once BPFWP_PLUGIN_DIR . '/lib/simple-admin-pages/simple-admin-pages.php';
 			$sap = sap_initialize_library(
 				$args = array(
-					'version' => '2.0.1',
+					'version' => '2.1.0',
 					'lib_url' => BPFWP_PLUGIN_URL . '/lib/simple-admin-pages/',
 				)
 			);
@@ -223,7 +227,8 @@ if ( ! class_exists( 'bpfwpSettings' ) ) :
 						'capability'    => 'manage_options',
 					)
 				);
-				// Single location mode.
+
+			// Single location mode.
 			} else {
 
 				$sap->add_page(
@@ -255,13 +260,33 @@ if ( ! class_exists( 'bpfwpSettings' ) ) :
 				array(
 					'id'           => 'schema_type',
 					'title'        => __( 'Schema Type', 'business-profile' ),
-					'description'  => __( 'Select the option that best describes your business to improve how search engines understand your website', 'business-profile' ) . ' <a href="http://schema.org/" target="_blank">Schema.org</a>',
+					'description'  => __( 'Select the option that best describes your business to improve how search engines understand your website.', 'business-profile' ) . ' <a href="http://schema.org/" target="_blank">Schema.org</a>',
 					'blank_option' => false,
 					'options'      => $this->get_schema_types(),
 					'args'			=> array(
 						'label_for' => 'schema_type',
 						'class' 	=> 'bpfwp-schema_type'
 					)
+				)
+			);
+
+			$sap->add_setting(
+				'bpfwp-settings',
+				'bpfwp-seo',
+				'image',
+				array(
+					'id'           => 'image',
+					'title'        => __( 'Image', 'business-profile' ),
+					'description'  => __( 'Google requires you provide an image to display with your local business search profile.', 'business-profile' ),
+					'strings'      => array(
+						'add_image'    => __( 'Add Image', 'textdomain' ),
+						'change_image' => __( 'Change Image', 'textdomain' ),
+						'remove_image' => __( 'Remove Image', 'textdomain' ),
+					),
+					'args'         => array(
+						'label_for' => 'image',
+						'class'     => 'bpfwp-image'
+					),
 				)
 			);
 

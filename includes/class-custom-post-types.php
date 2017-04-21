@@ -73,6 +73,7 @@ if ( ! class_exists( 'bpfwpCustomPostTypes', false ) ) :
 				'public'       => true,
 				'show_in_menu' => 'bpfwp-locations',
 				'has_archive'  => true,
+				'supports'     => array( 'title', 'editor', 'thumbnail' ),
 			);
 
 			$this->location_cpt_slug = apply_filters( 'bpfwp_location_cpt_slug', $this->location_cpt_slug );
