@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Business Profile 1.1.1\n"
 "Report-Msgid-Bugs-To: https://themeofthecrop.com\n"
-"POT-Creation-Date: 2017-04-24 14:31+0200\n"
-"PO-Revision-Date: 2017-04-24 14:37+0200\n"
+"POT-Creation-Date: 2017-05-18 16:56+0200\n"
+"PO-Revision-Date: 2017-05-18 16:57+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: it_IT\n"
@@ -165,6 +165,12 @@ msgstr ""
 msgid "No map coordinates set."
 msgstr "Coordinate della mappa non impostate."
 
+#: includes/class-custom-post-types.php:267
+#: includes/class-custom-post-types.php:292 includes/class-settings.php:327
+msgctxt "separates latitude and longitude"
+msgid ", "
+msgstr ","
+
 #: includes/class-custom-post-types.php:268 includes/class-settings.php:329
 msgid "Requesting new coordinates"
 msgstr "Richiesta di nuove coordinate"
@@ -206,6 +212,11 @@ msgstr "Nessuna corrispondenza per l'indirizzo."
 msgid "Retrieve map coordinates"
 msgstr "Recupera le coordinate della mappa"
 
+#: includes/class-custom-post-types.php:302 includes/class-settings.php:326
+msgctxt "separator between admin action links in address component"
+msgid " | "
+msgstr " | "
+
 #: includes/class-custom-post-types.php:304 includes/class-settings.php:333
 msgid "Remove map coordinates"
 msgstr "Rimuovi le coordinate della mappa"
@@ -227,15 +238,191 @@ msgid "Define your weekly opening hours by adding scheduling rules."
 msgstr ""
 "Imposta l'orario di apertura settimanale aggiungendo regole di pianificazione"
 
+#: includes/class-custom-post-types.php:412 includes/class-settings.php:434
+msgctxt "Monday abbreviation"
+msgid "Mo"
+msgstr "Lun"
+
+#: includes/class-custom-post-types.php:413 includes/class-settings.php:435
+msgctxt "Tuesday abbreviation"
+msgid "Tu"
+msgstr "Mar"
+
+#: includes/class-custom-post-types.php:414 includes/class-settings.php:436
+msgctxt "Wednesday abbreviation"
+msgid "We"
+msgstr "Mer"
+
+#: includes/class-custom-post-types.php:415 includes/class-settings.php:437
+msgctxt "Thursday abbreviation"
+msgid "Th"
+msgstr "Gio"
+
+#: includes/class-custom-post-types.php:416 includes/class-settings.php:438
+msgctxt "Friday abbreviation"
+msgid "Fr"
+msgstr "Ven"
+
+#: includes/class-custom-post-types.php:417 includes/class-settings.php:439
+msgctxt "Saturday abbreviation"
+msgid "Sa"
+msgstr "Sab"
+
+#: includes/class-custom-post-types.php:418 includes/class-settings.php:440
+msgctxt "Sunday abbreviation"
+msgid "Su"
+msgstr "Dom"
+
+#: includes/class-custom-post-types.php:420 includes/class-settings.php:442
+msgctxt ""
+"Time format displayed in the opening hours setting panel in your admin area. "
+"Must match formatting rules at http://amsul.ca/pickadate.js/time.htm#formats"
+msgid "h:i A"
+msgstr "H:i"
+
+#: includes/class-custom-post-types.php:421 includes/class-settings.php:443
+msgctxt ""
+"Date format displayed in the opening hours setting panel in your admin area. "
+"Must match formatting rules at http://amsul.ca/pickadate.js/date."
+"htm#formatting-rules"
+msgid "mmmm d, yyyy"
+msgstr "d mmmm yyyy"
+
 #: includes/class-custom-post-types.php:425 includes/class-settings.php:447
 msgid "Add another opening time"
 msgstr "Aggiungi un altro orario d'apertura"
+
+#: includes/class-custom-post-types.php:426 includes/class-settings.php:448
+msgctxt "Format of a scheduling rule"
+msgid "Weekly"
+msgstr "Settimanale"
+
+#: includes/class-custom-post-types.php:427 includes/class-settings.php:449
+msgctxt "Format of a scheduling rule"
+msgid "Monthly"
+msgstr "Mensile"
+
+#: includes/class-custom-post-types.php:428 includes/class-settings.php:450
+msgctxt "Format of a scheduling rule"
+msgid "Date"
+msgstr "Data"
+
+#: includes/class-custom-post-types.php:429 includes/class-settings.php:451
+msgctxt "Label for selecting days of the week in a scheduling rule"
+msgid "Days of the week"
+msgstr "Giorni della settimana"
+
+#: includes/class-custom-post-types.php:430 includes/class-settings.php:452
+msgctxt "Label for selecting weeks of the month in a scheduling rule"
+msgid "Weeks of the month"
+msgstr "Settimane del mese"
+
+#: includes/class-custom-post-types.php:431 includes/class-settings.php:453
+msgctxt "Label to select a date for a scheduling rule"
+msgid "Date"
+msgstr "Data"
+
+#: includes/class-custom-post-types.php:432 includes/class-settings.php:454
+msgctxt "Label to select a time slot for a scheduling rule"
+msgid "Time"
+msgstr "Ora"
+
+#: includes/class-custom-post-types.php:433 includes/class-settings.php:455
+msgctxt "Label to set a scheduling rule to last all day"
+msgid "All day"
+msgstr "Tutto il giorno"
+
+#: includes/class-custom-post-types.php:434 includes/class-settings.php:456
+msgctxt "Label for the starting time of a scheduling rule"
+msgid "Start"
+msgstr "Inizio"
+
+#: includes/class-custom-post-types.php:435 includes/class-settings.php:457
+msgctxt "Label for the ending time of a scheduling rule"
+msgid "End"
+msgstr "Fine"
+
+#: includes/class-custom-post-types.php:436 includes/class-settings.php:458
+#, php-format
+msgctxt ""
+"Prompt displayed when a scheduling rule is set without any time restrictions"
+msgid "All day long. Want to %sset a time slot%s?"
+msgstr "Intera giornata. Vuoi %simpostare degli orari%s?"
+
+#: includes/class-custom-post-types.php:437 includes/class-settings.php:459
+msgctxt "Toggle a scheduling rule open and closed"
+msgid "Open and close this rule"
+msgstr "Apri e chiudi questa regola"
+
+#: includes/class-custom-post-types.php:438 includes/class-settings.php:460
+msgctxt "Delete a scheduling rule"
+msgid "Delete rule"
+msgstr "Cancella regola"
 
 #: includes/class-custom-post-types.php:439 includes/class-settings.php:461
 msgid "Delete scheduling rule"
 msgstr "Cancella regola di calendario"
 
-#. Plugin Name of the plugin/theme
+#: includes/class-custom-post-types.php:440 includes/class-settings.php:462
+msgctxt ""
+"Brief default description of a scheduling rule when no weekdays or weeks are "
+"included in the rule"
+msgid "Never"
+msgstr "Mai"
+
+#: includes/class-custom-post-types.php:441 includes/class-settings.php:463
+msgctxt ""
+"Brief default description of a scheduling rule when all the weekdays/weeks "
+"are included in the rule"
+msgid "Every day"
+msgstr "Ogni giorno"
+
+#: includes/class-custom-post-types.php:442 includes/class-settings.php:464
+#, php-format
+msgctxt ""
+"Brief default description of a scheduling rule when some weekdays are "
+"included on only some weeks of the month. %s should be left alone and will "
+"be replaced by a comma-separated list of days and weeks in the following "
+"format: M, T, W on the first, second week of the month"
+msgid "%s on the %s week of the month"
+msgstr "%s durante la %s settimana del mese"
+
+#: includes/class-custom-post-types.php:443 includes/class-settings.php:465
+#, php-format
+msgctxt ""
+"Brief default description of a scheduling rule when some weeks of the month "
+"are included but all or no weekdays are selected. %s should be left alone "
+"and will be replaced by a comma-separated list of weeks in the following "
+"format: First, second week of the month"
+msgid "%s week of the month"
+msgstr "%s settimana del mese"
+
+#: includes/class-custom-post-types.php:444 includes/class-settings.php:466
+msgctxt "Brief default description of a scheduling rule when no times are set"
+msgid "All day"
+msgstr "Tutto il giorno"
+
+#: includes/class-custom-post-types.php:445 includes/class-settings.php:467
+msgctxt ""
+"Brief default description of a scheduling rule when an end time is set but "
+"no start time. If the end time is 6pm, it will read: Ends at 6pm"
+msgid "Ends at"
+msgstr "Fino alle"
+
+#: includes/class-custom-post-types.php:446 includes/class-settings.php:468
+msgctxt ""
+"Brief default description of a scheduling rule when a start time is set but "
+"no end time. If the start time is 6pm, it will read: Starts at 6pm"
+msgid "Starts at"
+msgstr "A partire dalle"
+
+#: includes/class-custom-post-types.php:447 includes/class-settings.php:469
+msgctxt "Separator between times of a scheduling rule"
+msgid "&mdash;"
+msgstr "&mdash;"
+
+#: includes/class-settings.php:225 includes/class-settings.php:226
+#: includes/class-settings.php:238 includes/class-settings.php:239
 msgid "Business Profile"
 msgstr "Profilo aziendale"
 
@@ -297,6 +484,7 @@ msgid "Google Maps API Key"
 msgstr "API Key di Google Maps"
 
 #: includes/class-settings.php:356
+#, php-format
 msgid ""
 "Google requires an API key to use their maps. %sGet an API key%s. A full "
 "walk-through is available in the %sdocumentiaton%s."
@@ -381,6 +569,53 @@ msgstr "Sab"
 msgid "Su"
 msgstr "Dom"
 
+#: includes/template-functions.php:352
+msgctxt ""
+"Separator between days of the week when displaying opening hours in brief. "
+"Example: Mo,Tu,We"
+msgid ","
+msgstr ","
+
+#: includes/template-functions.php:355
+#, php-format
+msgctxt ""
+"Brief opening hours description which lists days_strings when open all day. "
+"Example: Mo,Tu,We all day"
+msgid "%s all day"
+msgstr "%s tutto il giorno"
+
+#: includes/template-functions.php:367
+#, php-format
+msgctxt ""
+"Brief opening hours description which lists the days followed by the closing "
+"time. Example: Mo,Tu,We open until 9:00pm"
+msgid "%s open until %s"
+msgstr "%s aperto fino alle %s"
+
+#: includes/template-functions.php:369
+#, php-format
+msgctxt ""
+"Brief opening hours description which lists the days followed by the opening "
+"time. Example: Mo,Tu,We open from 9:00am"
+msgid "%s open from %s"
+msgstr "%s aperto dalle %s"
+
+#: includes/template-functions.php:371
+#, php-format
+msgctxt ""
+"Brief opening hours description which lists the days followed by the opening "
+"and closing times. Example: Mo,Tu,We 9:00am&thinsp;&ndash;&thinsp;5:00pm"
+msgid "%s %s&thinsp;&ndash;&thinsp;%s"
+msgstr "%s %s&thinsp;&ndash;&thinsp;%s"
+
+#: includes/template-functions.php:378
+msgctxt ""
+"Separator between multiple opening times in the brief opening hours. "
+"Example: Mo,We 9:00 AM&thinsp;&ndash;&thinsp;5:00 PM; Tu,Th 10:00 AM&thinsp;"
+"&ndash;&thinsp;5:00 PM"
+msgid "; "
+msgstr ";"
+
 #: includes/template-functions.php:388
 msgid "Monday"
 msgstr "Lunedì"
@@ -421,6 +656,13 @@ msgstr "Aperto fino "
 msgid "Open from "
 msgstr "Aperto dalle"
 
+#: includes/template-functions.php:422
+msgctxt ""
+"Separator between opening and closing times. Example: 9:00am&thinsp;&ndash;"
+"&thinsp;5:00pm"
+msgid "&thinsp;&ndash;&thinsp;"
+msgstr "&thinsp;&ndash;&thinsp;"
+
 #: includes/template-functions.php:442
 msgid "Closed"
 msgstr "Chiuso"
@@ -433,253 +675,18 @@ msgstr "Indicazioni stradali"
 msgid "You do not have sufficient permissions to access this page."
 msgstr "Non hai permessi sufficienti per accedere a questa pagina."
 
-#. Author URI of the plugin/theme
-msgid "http://themeofthecrop.com"
-msgstr "http://themeofthecrop.com"
+#~ msgid "http://themeofthecrop.com"
+#~ msgstr "http://themeofthecrop.com"
 
-#. Description of the plugin/theme
-msgid ""
-"Contact information, Google Maps and opening hours made easy for businesses."
-msgstr ""
-"Informazioni di contatto, Mappe Google e orario d'apertura resi facili per "
-"le aziende."
+#~ msgid ""
+#~ "Contact information, Google Maps and opening hours made easy for "
+#~ "businesses."
+#~ msgstr ""
+#~ "Informazioni di contatto, Mappe Google e orario d'apertura resi facili "
+#~ "per le aziende."
 
-#. Author of the plugin/theme
-msgid "Theme of the Crop"
-msgstr "Theme of the Crop"
-
-#: includes/class-custom-post-types.php:267
-#: includes/class-custom-post-types.php:292 includes/class-settings.php:327
-msgctxt "separates latitude and longitude"
-msgid ", "
-msgstr ","
-
-#: includes/class-custom-post-types.php:302 includes/class-settings.php:326
-msgctxt "separator between admin action links in address component"
-msgid " | "
-msgstr " | "
-
-#: includes/class-custom-post-types.php:412 includes/class-settings.php:434
-msgctxt "Monday abbreviation"
-msgid "Mo"
-msgstr "Lun"
-
-#: includes/class-custom-post-types.php:413 includes/class-settings.php:435
-msgctxt "Tuesday abbreviation"
-msgid "Tu"
-msgstr "Mar"
-
-#: includes/class-custom-post-types.php:414 includes/class-settings.php:436
-msgctxt "Wednesday abbreviation"
-msgid "We"
-msgstr "Mer"
-
-#: includes/class-custom-post-types.php:415 includes/class-settings.php:437
-msgctxt "Thursday abbreviation"
-msgid "Th"
-msgstr "Gio"
-
-#: includes/class-custom-post-types.php:416 includes/class-settings.php:438
-msgctxt "Friday abbreviation"
-msgid "Fr"
-msgstr "Ven"
-
-#: includes/class-custom-post-types.php:417 includes/class-settings.php:439
-msgctxt "Saturday abbreviation"
-msgid "Sa"
-msgstr "Sab"
-
-#: includes/class-custom-post-types.php:418 includes/class-settings.php:440
-msgctxt "Sunday abbreviation"
-msgid "Su"
-msgstr "Dom"
-
-#: includes/class-custom-post-types.php:420 includes/class-settings.php:442
-msgctxt ""
-"Time format displayed in the opening hours setting panel in your admin area. "
-"Must match formatting rules at http://amsul.ca/pickadate.js/time.htm#formats"
-msgid "h:i A"
-msgstr "H:i"
-
-#: includes/class-custom-post-types.php:421 includes/class-settings.php:443
-msgctxt ""
-"Date format displayed in the opening hours setting panel in your admin area. "
-"Must match formatting rules at http://amsul.ca/pickadate.js/date."
-"htm#formatting-rules"
-msgid "mmmm d, yyyy"
-msgstr "d mmmm yyyy"
-
-#: includes/class-custom-post-types.php:426 includes/class-settings.php:448
-msgctxt "Format of a scheduling rule"
-msgid "Weekly"
-msgstr "Settimanale"
-
-#: includes/class-custom-post-types.php:427 includes/class-settings.php:449
-msgctxt "Format of a scheduling rule"
-msgid "Monthly"
-msgstr "Mensile"
-
-#: includes/class-custom-post-types.php:428 includes/class-settings.php:450
-msgctxt "Format of a scheduling rule"
-msgid "Date"
-msgstr "Data"
-
-#: includes/class-custom-post-types.php:429 includes/class-settings.php:451
-msgctxt "Label for selecting days of the week in a scheduling rule"
-msgid "Days of the week"
-msgstr "Giorni della settimana"
-
-#: includes/class-custom-post-types.php:430 includes/class-settings.php:452
-msgctxt "Label for selecting weeks of the month in a scheduling rule"
-msgid "Weeks of the month"
-msgstr "Settimane del mese"
-
-#: includes/class-custom-post-types.php:431 includes/class-settings.php:453
-msgctxt "Label to select a date for a scheduling rule"
-msgid "Date"
-msgstr "Data"
-
-#: includes/class-custom-post-types.php:432 includes/class-settings.php:454
-msgctxt "Label to select a time slot for a scheduling rule"
-msgid "Time"
-msgstr "Ora"
-
-#: includes/class-custom-post-types.php:433 includes/class-settings.php:455
-msgctxt "Label to set a scheduling rule to last all day"
-msgid "All day"
-msgstr "Tutto il giorno"
-
-#: includes/class-custom-post-types.php:434 includes/class-settings.php:456
-msgctxt "Label for the starting time of a scheduling rule"
-msgid "Start"
-msgstr "Inizio"
-
-#: includes/class-custom-post-types.php:435 includes/class-settings.php:457
-msgctxt "Label for the ending time of a scheduling rule"
-msgid "End"
-msgstr "Fine"
-
-#: includes/class-custom-post-types.php:436 includes/class-settings.php:458
-msgctxt ""
-"Prompt displayed when a scheduling rule is set without any time restrictions"
-msgid "All day long. Want to %sset a time slot%s?"
-msgstr "Intera giornata. Vuoi %simpostare degli orari%s?"
-
-#: includes/class-custom-post-types.php:437 includes/class-settings.php:459
-msgctxt "Toggle a scheduling rule open and closed"
-msgid "Open and close this rule"
-msgstr "Apri e chiudi questa regola"
-
-#: includes/class-custom-post-types.php:438 includes/class-settings.php:460
-msgctxt "Delete a scheduling rule"
-msgid "Delete rule"
-msgstr "Cancella regola"
-
-#: includes/class-custom-post-types.php:440 includes/class-settings.php:462
-msgctxt ""
-"Brief default description of a scheduling rule when no weekdays or weeks are "
-"included in the rule"
-msgid "Never"
-msgstr "Mai"
-
-#: includes/class-custom-post-types.php:441 includes/class-settings.php:463
-msgctxt ""
-"Brief default description of a scheduling rule when all the weekdays/weeks "
-"are included in the rule"
-msgid "Every day"
-msgstr "Ogni giorno"
-
-#: includes/class-custom-post-types.php:442 includes/class-settings.php:464
-msgctxt ""
-"Brief default description of a scheduling rule when some weekdays are "
-"included on only some weeks of the month. %s should be left alone and will "
-"be replaced by a comma-separated list of days and weeks in the following "
-"format: M, T, W on the first, second week of the month"
-msgid "%s on the %s week of the month"
-msgstr "%s durante la %s settimana del mese"
-
-#: includes/class-custom-post-types.php:443 includes/class-settings.php:465
-msgctxt ""
-"Brief default description of a scheduling rule when some weeks of the month "
-"are included but all or no weekdays are selected. %s should be left alone "
-"and will be replaced by a comma-separated list of weeks in the following "
-"format: First, second week of the month"
-msgid "%s week of the month"
-msgstr "%s settimana del mese"
-
-#: includes/class-custom-post-types.php:444 includes/class-settings.php:466
-msgctxt "Brief default description of a scheduling rule when no times are set"
-msgid "All day"
-msgstr "Tutto il giorno"
-
-#: includes/class-custom-post-types.php:445 includes/class-settings.php:467
-msgctxt ""
-"Brief default description of a scheduling rule when an end time is set but "
-"no start time. If the end time is 6pm, it will read: Ends at 6pm"
-msgid "Ends at"
-msgstr "Fino alle"
-
-#: includes/class-custom-post-types.php:446 includes/class-settings.php:468
-msgctxt ""
-"Brief default description of a scheduling rule when a start time is set but "
-"no end time. If the start time is 6pm, it will read: Starts at 6pm"
-msgid "Starts at"
-msgstr "A partire dalle"
-
-#: includes/class-custom-post-types.php:447 includes/class-settings.php:469
-msgctxt "Separator between times of a scheduling rule"
-msgid "&mdash;"
-msgstr "&mdash;"
-
-#: includes/template-functions.php:352
-msgctxt ""
-"Separator between days of the week when displaying opening hours in brief. "
-"Example: Mo,Tu,We"
-msgid ","
-msgstr ","
-
-#: includes/template-functions.php:355
-msgctxt ""
-"Brief opening hours description which lists days_strings when open all day. "
-"Example: Mo,Tu,We all day"
-msgid "%s all day"
-msgstr "%s tutto il giorno"
-
-#: includes/template-functions.php:367
-msgctxt ""
-"Brief opening hours description which lists the days followed by the closing "
-"time. Example: Mo,Tu,We open until 9:00pm"
-msgid "%s open until %s"
-msgstr "%s aperto fino alle %s"
-
-#: includes/template-functions.php:369
-msgctxt ""
-"Brief opening hours description which lists the days followed by the opening "
-"time. Example: Mo,Tu,We open from 9:00am"
-msgid "%s open from %s"
-msgstr "%s aperto dalle %s"
-
-#: includes/template-functions.php:371
-msgctxt ""
-"Brief opening hours description which lists the days followed by the opening "
-"and closing times. Example: Mo,Tu,We 9:00am&thinsp;&ndash;&thinsp;5:00pm"
-msgid "%s %s&thinsp;&ndash;&thinsp;%s"
-msgstr "%s %s&thinsp;&ndash;&thinsp;%s"
-
-#: includes/template-functions.php:378
-msgctxt ""
-"Separator between multiple opening times in the brief opening hours. "
-"Example: Mo,We 9:00 AM&thinsp;&ndash;&thinsp;5:00 PM; Tu,Th 10:00 AM&thinsp;"
-"&ndash;&thinsp;5:00 PM"
-msgid "; "
-msgstr ";"
-
-#: includes/template-functions.php:422
-msgctxt ""
-"Separator between opening and closing times. Example: 9:00am&thinsp;&ndash;"
-"&thinsp;5:00pm"
-msgid "&thinsp;&ndash;&thinsp;"
-msgstr "&thinsp;&ndash;&thinsp;"
+#~ msgid "Theme of the Crop"
+#~ msgstr "Theme of the Crop"
 
 #~ msgid "Show Fax number"
 #~ msgstr "Mostra il numero di fax"
