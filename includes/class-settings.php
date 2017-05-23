@@ -279,9 +279,9 @@ if ( ! class_exists( 'bpfwpSettings' ) ) :
 					'title'        => __( 'Image', 'business-profile' ),
 					'description'  => __( 'Google requires you provide an image to display with your local business search profile.', 'business-profile' ),
 					'strings'      => array(
-						'add_image'    => __( 'Add Image', 'textdomain' ),
-						'change_image' => __( 'Change Image', 'textdomain' ),
-						'remove_image' => __( 'Remove Image', 'textdomain' ),
+						'add_image'    => __( 'Add Image', 'business-profile' ),
+						'change_image' => __( 'Change Image', 'business-profile' ),
+						'remove_image' => __( 'Remove Image', 'business-profile' ),
 					),
 					'args'         => array(
 						'label_for' => 'image',
