@@ -6,8 +6,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-01-30 17:15+0100\n"
-"Last-Translator: daniel <daniel@duktig.nu>\n"
+"PO-Revision-Date: 2018-01-30 17:29+0100\n"
+"Last-Translator: Calle Bokedal\n"
 "Language-Team: Swedish\n"
 "X-Generator: Poedit 2.0.6\n"
 "X-Poedit-KeywordsList: __;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;"
@@ -22,7 +22,7 @@ msgstr ""
 
 #: includes/class-contact-card-widget.php:41
 msgid "Show link to get directions on Google Maps"
-msgstr "Visa länk för att få anvisningar om Google Maps"
+msgstr "Visa länk för att få anvisningar i Google Maps"
 
 #: business-profile.php:226
 msgid "View the help documentation for Business Profile"
@@ -184,7 +184,7 @@ msgstr "Radera schemaläggningens regel"
 #: includes/class-settings.php:221 includes/class-settings.php:222
 #: includes/class-settings.php:233 includes/class-settings.php:234
 msgid "Business Profile"
-msgstr "Företagsprofilen."
+msgstr "Företagsprofilen"
 
 #: includes/class-settings.php:247
 msgid "Search Engine Optimization"
@@ -536,7 +536,7 @@ msgstr "Visa kontaktdetaljer"
 
 #: includes/class-contact-card-widget.php:44
 msgid "Show Opening Hours"
-msgstr "Visa Öppningstider"
+msgstr "Visa öppettider"
 
 #: includes/class-contact-card-widget.php:46
 msgid "Show Google Map"
