@@ -222,8 +222,7 @@ if ( ! class_exists( 'bpfwpInit', false ) ) :
 		 */
 		public function plugin_action_links( $links, $plugin ) {
 			if ( BPFWP_PLUGIN_FNAME === $plugin ) {
-				$links['help'] = sprintf( '<a href="%s/docs" title="%s">%s</a>',
-					BPFWP_PLUGIN_URL,
+				$links['help'] = sprintf( '<a href="http://doc.themeofthecrop.com/plugins/business-profile/" title="%s">%s</a>',
 					__( 'View the help documentation for Business Profile', 'business-profile' ),
 					__( 'Help', 'business-profile' )
 				);
