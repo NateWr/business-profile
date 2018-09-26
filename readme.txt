@@ -3,9 +3,9 @@ Contributors: NateWr, fatmedia
 Author URI: https://github.com/NateWr
 Plugin URL: http://themeofthecrop.com
 Requires at Least: 4.4
-Tested Up To: 4.8
+Tested Up To: 4.9.8
 Tags: business profile, seo, local seo, schema, address, google map, contact, phone
-Stable tag: 1.1.4
+Stable tag: 1.1.5
 License: GPLv2 or later
 Donate link: http://themeofthecrop.com
 
@@ -85,6 +85,9 @@ You'll find more help in the [User Guide](http://doc.themeofthecrop.com/plugins/
 
 == Changelog ==
 
+= 1.1.5 (2018-09-26) =
+* Fix: Address coordinate lookups need to be https:// and use api key
+
 = 1.1.4 (2017-04-21) =
 * Add: business image to comply with Google requirements
 
@@ -157,6 +160,9 @@ You'll find more help in the [User Guide](http://doc.themeofthecrop.com/plugins/
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.1.5 =
+This update fixes the address coordinate lookup, so that coordinates can be set for more reliable Google Map display.
 
 = 1.1.4 =
 This update adds a new image setting, which Google now requires for local businesses. You're strongly encouraged to add an image for your business.
