@@ -197,7 +197,7 @@ if ( ! class_exists( 'bpfwpSettings' ) ) :
 			require_once BPFWP_PLUGIN_DIR . '/lib/simple-admin-pages/simple-admin-pages.php';
 			$sap = sap_initialize_library(
 				$args = array(
-					'version' => '2.1.0',
+					'version' => '2.1.1',
 					'lib_url' => BPFWP_PLUGIN_URL . '/lib/simple-admin-pages/',
 				)
 			);
@@ -322,6 +322,7 @@ if ( ! class_exists( 'bpfwpSettings' ) ) :
 				array(
 					'id'      => 'address',
 					'title'   => __( 'Address', 'business-profile' ),
+					'api_key_selector' => '.bpfwp-google-maps-api-key input',
 					'strings' => array(
 						'sep-action-links' => _x( ' | ', 'separator between admin action links in address component', 'business-profile' ),
 						'sep-lat-lon'      => _x( ', ', 'separates latitude and longitude', 'business-profile' ),

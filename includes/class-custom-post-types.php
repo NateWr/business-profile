@@ -256,12 +256,15 @@ if ( ! class_exists( 'bpfwpCustomPostTypes', false ) ) :
 		 */
 		public function print_contact_metabox( $post ) {
 
+			global $bpfwp_controller;
+
 			// Address mimics HTML markup from Simple Admin Pages component.
 			wp_enqueue_script( 'bpfwp-admin-location-address', BPFWP_PLUGIN_URL . '/lib/simple-admin-pages/js/address.js', array( 'jquery' ) );
 			wp_localize_script(
 				'bpfwp-admin-location-address',
 				'sap_address',
 				array(
+					'api_key' => $bpfwp_controller->settings->get_setting( 'google-maps-api-key' ),
 					'strings' => array(
 						'no-setting'     => __( 'No map coordinates set.', 'business-profile' ),
 						'sep-lat-lon'    => _x( ', ', 'separates latitude and longitude', 'business-profile' ),
