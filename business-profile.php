@@ -100,6 +100,7 @@ if ( ! class_exists( 'bpfwpInit', false ) ) :
 		 * @return void
 		 */
 		protected function includes() {
+			require_once BPFWP_PLUGIN_DIR . '/includes/class-blocks.php';
 			require_once BPFWP_PLUGIN_DIR . '/includes/class-compatibility.php';
 			require_once BPFWP_PLUGIN_DIR . '/includes/class-custom-post-types.php';
 			require_once BPFWP_PLUGIN_DIR . '/includes/deprecated/class-integrations.php';
@@ -120,7 +121,9 @@ if ( ! class_exists( 'bpfwpInit', false ) ) :
 			new bpfwpIntegrations(); // Deprecated in v1.1.
 			$this->settings = new bpfwpSettings();
 			$this->cpts = new bpfwpCustomPostTypes();
+			$this->blocks = new bpfwpBlocks();
 
+			$this->blocks->run();
 			if ( $this->settings->get_setting( 'multiple-locations' ) ) {
 				$this->cpts->run();
 			}

@@ -73,6 +73,7 @@ if ( ! class_exists( 'bpfwpCustomPostTypes', false ) ) :
 				),
 				'public'       => true,
 				'show_in_menu' => 'bpfwp-locations',
+				'show_in_rest' => true,
 				'has_archive'  => true,
 				'supports'     => array( 'title', 'editor', 'thumbnail' ),
 			);
