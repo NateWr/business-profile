@@ -44,10 +44,6 @@ registerBlockType( 'business-profile/contact-card', {
 		show_map: {
 			type: 'boolean',
 			default: true
-		},
-		show_image: {
-			type: 'boolean',
-			default: false
 		}
 	},
 	supports: {

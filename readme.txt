@@ -3,9 +3,9 @@ Contributors: NateWr, fatmedia
 Author URI: https://github.com/NateWr
 Plugin URL: http://themeofthecrop.com
 Requires at Least: 4.4
-Tested Up To: 4.9.8
+Tested Up To: 5.0
 Tags: business profile, seo, local seo, schema, address, google map, contact, phone
-Stable tag: 1.1.5
+Stable tag: 1.2
 License: GPLv2 or later
 Donate link: http://themeofthecrop.com
 
@@ -13,7 +13,7 @@ Display your business's contact details with seo-friendly Schema.org markup. Sup
 
 == Description ==
 
-Add your business contact details to your site with seo-friendly Schema.org markup. This plugin adds a Contact Card widget and a  `[contact-card]` shortcode. You can use these to display the following on any page:
+Add your business contact details to your site with seo-friendly Schema.org markup. This plugin adds a Contact Card block for the Gutenberg editor, a widget and a `[contact-card]` shortcode. You can use these to display the following on any page:
 
 * Business name
 * Address
@@ -27,7 +27,7 @@ Schema.org markup helps search engines like Google discover your address, phone 
 
 Supports [multi-location businesses](http://doc.themeofthecrop.com/plugins/business-profile/user/getting-started/locations) with a custom Locations post type.
 
-This plugin is part of a suite of products that help restaurants build better websites. Get the [best WordPress restaurant themes](https://themeofthecrop.com/themes/?utm_source=Plugin&utm_medium=Plugin%20Description&utm_campaign=Business%20Profile), as well as plugins that help restaurants [take online reservations](https://themeofthecrop.com/plugins/restaurant-reservations/?utm_source=Plugin&utm_medium=Plugin%20Description&utm_campaign=Business%20Profile) and build [responsive online menus](https://themeofthecrop.com/plugins/food-and-drink-menu/?utm_source=Plugin&utm_medium=Plugin%20Description&utm_campaign=Business%20Profile) at [Theme of the Crop](https://themeofthecrop.com/?utm_source=Plugin&utm_medium=Plugin%20Description&utm_campaign=Business%20Profile).
+This plugin is part of a suite of plugins for restaurants. [Take online reservations](https://themeofthecrop.com/plugins/restaurant-reservations/?utm_source=Plugin&utm_medium=Plugin%20Description&utm_campaign=Business%20Profile) and build [responsive online menus](https://themeofthecrop.com/plugins/food-and-drink-menu/?utm_source=Plugin&utm_medium=Plugin%20Description&utm_campaign=Business%20Profile) at [Theme of the Crop](https://themeofthecrop.com/?utm_source=Plugin&utm_medium=Plugin%20Description&utm_campaign=Business%20Profile).
 
 = How to use =
 
@@ -82,8 +82,12 @@ You'll find more help in the [User Guide](http://doc.themeofthecrop.com/plugins/
 2. An easy-to-use form lets you add all of the information, locate the correct map coordinates and set up your opening hours.
 3. Choose what information to display with the widget, or check out the shortcode attributes in the help document included.
 4. Optional multi-location support to easily display all of your locations.
+5. Add a contact card to any page or post with the block.
 
 == Changelog ==
+
+= 1.2 (2018-12-11) =
+* Add gutenberg block for the contact card
 
 = 1.1.5 (2018-09-26) =
 * Fix: Address coordinate lookups need to be https:// and use api key

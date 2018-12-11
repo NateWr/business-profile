@@ -98,7 +98,7 @@ if ( ! class_exists( 'bpfwpBlocks', false ) ) :
 					),
 					'show_opening_hours_brief' => array(
 						'type' => 'boolean',
-						'default' => true,
+						'default' => false,
 					),
 					'show_map' => array(
 						'type' => 'boolean',
