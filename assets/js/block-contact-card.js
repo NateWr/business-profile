@@ -59,7 +59,7 @@ registerBlockType( 'business-profile/contact-card', {
 							<SelectControl
 								label={ __( 'Select a Location', 'business-profile' ) }
 								value={ attributes.location }
-								onChange={ ( location ) => setAttributes( { location } ) }
+								onChange={ ( location ) => setAttributes( { location: parseInt( location, 10 ) } ) }
 								options={ locationOptions }
 							/>
 						) : ''}
