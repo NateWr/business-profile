@@ -5,7 +5,7 @@ Plugin URL: http://themeofthecrop.com
 Requires at Least: 4.4
 Tested Up To: 5.0
 Tags: business profile, seo, local seo, schema, address, google map, contact, phone
-Stable tag: 1.2.1
+Stable tag: 1.2.2
 License: GPLv2 or later
 Donate link: http://themeofthecrop.com
 
@@ -86,11 +86,14 @@ You'll find more help in the [User Guide](http://doc.themeofthecrop.com/plugins/
 
 == Changelog ==
 
+= 1.2.2 (2018-12-12) =
+* Fix: contact card block loads in editor without saved location
+
 = 1.2.1 (2018-12-11) =
-* Update .pot file with new translation strings
+* Update: .pot file with new translation strings
 
 = 1.2 (2018-12-11) =
-* Add gutenberg block for the contact card
+* Add: gutenberg block for the contact card
 
 = 1.1.5 (2018-09-26) =
 * Fix: Address coordinate lookups need to be https:// and use api key
