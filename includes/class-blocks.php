@@ -64,7 +64,7 @@ if ( ! class_exists( 'bpfwpBlocks', false ) ) :
 			);
 
 			register_block_type( 'business-profile/contact-card', array(
-				'editor_script' => ['business-profile-blocks', 'bpfwp-map'],
+				'editor_script' => array('business-profile-blocks', 'bpfwp-map'),
 				'editor_style' => 'bpfwp-default',
 				'render_callback' => 'bpwfwp_print_contact_card',
 				'attributes' => array(
