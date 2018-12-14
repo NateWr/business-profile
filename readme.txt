@@ -5,7 +5,7 @@ Plugin URL: http://themeofthecrop.com
 Requires at Least: 4.4
 Tested Up To: 5.0
 Tags: business profile, seo, local seo, schema, address, google map, contact, phone
-Stable tag: 1.2.2
+Stable tag: 1.2.3
 License: GPLv2 or later
 Donate link: http://themeofthecrop.com
 
@@ -85,6 +85,9 @@ You'll find more help in the [User Guide](http://doc.themeofthecrop.com/plugins/
 5. Add a contact card to any page or post with the block.
 
 == Changelog ==
+
+= 1.2.3 (2018-12-14) =
+* Fix: fatal error in old versions of PHP (< 5.4)
 
 = 1.2.2 (2018-12-12) =
 * Fix: contact card block loads in editor without saved location
